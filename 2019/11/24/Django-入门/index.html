@@ -4,8 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, Jun">
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex">
+    <meta name="keywords" content="Django 入门, Jun">
+    <meta name="description" content="Django 入门这篇文章仅仅我初步了解　Django 的入门笔记
+一、 Django的框架模式 - MTVM: Models 层    负责数据库的建模以及 CRUD操作T: Templates 层    用于处理用户显示的内容 如  H">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Hello World | Jun Smith</title>
+    <title>Django 入门 | Jun Smith</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -304,13 +305,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Hello World
+                        Django 入门
                     </div>
                 </div>
             </div>
@@ -420,9 +421,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Django/">
+                                <span class="chip bg-color">Django</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -430,8 +435,12 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/hexo/" class="post-category">
-                                hexo
+                            <a href="/categories/python/" class="post-category">
+                                python
+                            </a>
+                        
+                            <a href="/categories/python/Django/" class="post-category">
+                                Django
                             </a>
                         
                     </div>
@@ -443,7 +452,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2019-11-23
+                    2019-11-24
                 </div>
                 
 
@@ -452,14 +461,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    73
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    1 Min
+                    5 Min
                 </div>
                 
 				
@@ -475,20 +484,169 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+                <h1 id="Django-入门"><a href="#Django-入门" class="headerlink" title="Django 入门"></a>Django 入门</h1><p>这篇文章仅仅我初步了解　Django 的入门笔记</p>
+<h2 id="一、-Django的框架模式-MTV"><a href="#一、-Django的框架模式-MTV" class="headerlink" title="一、 Django的框架模式 - MTV"></a>一、 Django的框架模式 - MTV</h2><p>M: Models 层<br>    负责数据库的建模以及 CRUD操作<br>T: Templates 层<br>    用于处理用户显示的内容 如  HTML<br>V: Views 层<br>    处理用户交互操作，从模板中取得数据，再将数据发送给模板，并显示给用户<br><img src="./MTV.png" alt=""></p>
+<h2 id="二、-Django-的使用"><a href="#二、-Django-的使用" class="headerlink" title="二、 Django 的使用"></a>二、 Django 的使用</h2><h3 id="1-目录结构介绍"><a href="#1-目录结构介绍" class="headerlink" title="1.目录结构介绍"></a>1.目录结构介绍</h3><ul>
+<li>主目录（名称和项目名相同）<ul>
+<li><strong>init</strong>.py 项目初始化文件，每当服务器启动的时候，都会自动执行</li>
+<li>urls.py :项目的基础url 配置文件</li>
+<li>wsgi.py：应用服务器配置文件</li>
+<li>setting.py：项目的主设置文件<h3 id="2-启动服务"><a href="#2-启动服务" class="headerlink" title="2.启动服务"></a>2.启动服务</h3><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python  manage.py runserver</span><br></pre></td></tr></table></figure>
+manage.py   负责执行Django中的各项操作文件</li>
+<li>启动服务<ul>
+<li>创建管理员</li>
+<li>创建应用</li>
+<li>数据库的同步操作</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="三、URL的使用"><a href="#三、URL的使用" class="headerlink" title="三、URL的使用"></a>三、URL的使用</h2><pre><code>1. urls.py：默认是在主目录中，主路由配置文件包含最基本的地址映射，每个请求到达之后都由urls.py 中的
+urlpatterns 列表中的url()进行匹配
+url() 函数匹配上 之后，可能将请求转交给其他urls.py 或者 试图（Views）去处理</code></pre><p> <img src="./%E8%AF%B7%E6%B1%82%E6%B5%81%E7%A8%8B.png" alt=""><br>    url()函数语法：<br>        url(regex,views,kwargs=None,name=None)<br>        正则表达式：匹配请求的url<br>        视图处理函数或者其他的urls.py<br>        字典，用来给views 传参，没有参数可以省略<br>        字符串，给url()起别名，主要在模板中使用</p>
+<p>##　四、应用的结构组成</p>
+<pre><code>1. migrations 目录：存放数据库中间文件（日志文件）
+2. __init__.py：应用的初始化文件
+3. admin.py：应用的后台管理配置文件
+4. apps.py：应用的属性配置文件
+5. models.py：模型文件，与数据库有关
+6. test.py：测试模块
+7. views.py：定义视图的文件</code></pre><p>​    </p>
+<h2 id="五、数据三大特征"><a href="#五、数据三大特征" class="headerlink" title="五、数据三大特征"></a>五、数据三大特征</h2><ol>
+<li>数据表 到 类 的映射，将数据表自动生成 一个 class 类 同时也允许将一个 class类自动生成数据库中的一张表</li>
+<li>数据类型的映射    允许将表中的字段的数据类型 自动 映射成编程语言中对应的数据类型    也允许 将编程语言的数据类型 自动 映射 成表中的字段的数据类型</li>
+<li>关系映射    在编程语言中允许将表与表之间的关系映射出来    表与表之间的关系也可以自动映射到编程语言的Class中4. 编写 Models    - Models 中的每个class 都称为 模型类 实体类    - Models 中的每个模型类，必须继承 models.Model</li>
+</ol>
+<h3 id="模型-字段类型-和-字段选项"><a href="#模型-字段类型-和-字段选项" class="headerlink" title="模型 字段类型 和 字段选项"></a>模型 字段类型 和 字段选项</h3><ul>
+<li><p>字段类型（Field Type）</p>
+<ul>
+<li>BooleanField() </li>
+<li>CharField() </li>
+<li>DateField()    </li>
+<li>DateField()    </li>
+<li>DateTimeField()   </li>
+<li>DecimalField()   </li>
+<li>EmailField() # 存电子邮件 - varchar    </li>
+<li>FloatField()    </li>
+<li>ImageField(upload_to=’’) # 存图片路径 - varchar    </li>
+<li>IntergerField()    </li>
+<li>URLField()    </li>
+<li>TextField() # 存大量文本数据 - text</li>
+</ul>
+</li>
+<li><h3 id="字段选项（Field-Option）"><a href="#字段选项（Field-Option）" class="headerlink" title="字段选项（Field Option）"></a>字段选项（Field Option）</h3><ul>
+<li><h3 id="max-length-在-CharField-必须设置选项"><a href="#max-length-在-CharField-必须设置选项" class="headerlink" title="max_length # 在 CharField() 必须设置选项"></a>max_length # 在 CharField() 必须设置选项</h3></li>
+<li><h3 id="default"><a href="#default" class="headerlink" title="default"></a>default</h3></li>
+<li><h3 id="null-指定当前字段是否允许为空，默认值-false"><a href="#null-指定当前字段是否允许为空，默认值-false" class="headerlink" title="null # 指定当前字段是否允许为空，默认值 false"></a>null # 指定当前字段是否允许为空，默认值 false</h3></li>
+</ul>
+</li>
+<li><p>数据模型的版本切换</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./manage.py migrate										 # 执行所有应用中最新的数据库中间文件</span><br><span class="line">./manage.py migrate 应用名称 版本号	# 执行 应用中版本号对应的中间文件</span><br><span class="line">./manage.py inspectdb &gt; 文件名.py		  # 通过数据库自动导出 Models</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="六、连接-MySQL"><a href="#六、连接-MySQL" class="headerlink" title="六、连接 MySQL"></a>六、连接 MySQL</h2><ul>
+<li><p>环境按照</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python3-dev</span><br><span class="line">sudo apt-get install python3-dev libmysqlclient-dev</span><br><span class="line">pip install mysqlclient</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>项目配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">DATABASES = &#123;</span><br><span class="line">    &apos;default&apos;: &#123;</span><br><span class="line">        &apos;ENGINE&apos;: &apos;django.db.backends.mysql&apos;,</span><br><span class="line">        &apos;HOST&apos;: &apos;127.0.0.1&apos;,</span><br><span class="line">        &apos;PORT&apos;: &apos;3306&apos;,</span><br><span class="line">        &apos;USER&apos;: &apos;root&apos;,</span><br><span class="line">        &apos;PASSWORD&apos;: &apos;root&apos;,</span><br><span class="line">        &apos;NAME&apos;: &apos;django&apos;,</span><br><span class="line">        &apos;OPTIONS&apos;: &#123;</span><br><span class="line">            &apos;init_command&apos;: &quot;SET sql_mode=&apos;STRICT_TRANS_TABLES&apos;&quot;,</span><br><span class="line">            &apos;charset&apos;: &apos;utf8mb4&apos;,</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
+
+</li>
+</ul>
+<h2 id="七、模型中的-CRUD"><a href="#七、模型中的-CRUD" class="headerlink" title="七、模型中的 CRUD"></a>七、模型中的 CRUD</h2><h4 id="1-通过-ORM-向-DB-中添加数据"><a href="#1-通过-ORM-向-DB-中添加数据" class="headerlink" title="1.通过 ORM 向 DB 中添加数据"></a>1.通过 ORM 向 DB 中添加数据</h4><ol>
+<li><p>Entry.objects.create(属性=值，……)    </p>
+<p> Entry：具体要操作的Model类</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Author.objects.create(name=<span class="string">'张三'</span>,age=<span class="string">'20'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建一个Models对象，通过对象save() 完成</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">obj = Author(name=<span class="string">'张三'</span>,age=<span class="string">'20'</span>)</span><br><span class="line">obj.save()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用 字典序 构建对象，通过save() 完成增加</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dic = &#123;</span><br><span class="line">    <span class="string">'属性1'</span>: <span class="string">'值1'</span>,</span><br><span class="line">     <span class="string">'属性1'</span>: <span class="string">'值1'</span>,</span><br><span class="line">&#125;</span><br><span class="line">obj = Entry(**dic)</span><br><span class="line">obj.save()</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h4 id="2-查询操作（重难点）查询"><a href="#2-查询操作（重难点）查询" class="headerlink" title="2.查询操作（重难点）查询"></a>2.查询操作（重难点）<a href="https://docs.djangoproject.com/en/2.2/ref/models/querysets/" target="_blank" rel="noopener">查询</a></h4><ol>
+<li><p>通过Entry.objects 调用方法</p>
+<ol>
+<li>基本查询操作<ul>
+<li>all()</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>查询指定列</p>
+<ol>
+<li>value()</li>
+</ol>
+</li>
+<li><p>排序函数</p>
+<ol>
+<li>order_by()</li>
+</ol>
+</li>
+<li><p>对条件取反</p>
+<ol>
+<li>exclude()</li>
+</ol>
+</li>
+<li><p>根据条件查询部分行数据 ==重难点==</p>
+<ol>
+<li><p>使用Entry 中的属性作为查询参数，多个参数，用 ， 隔开 映射到SQL 语句上是用 and 进行关联的</p>
+<ol>
+<li>filter()</li>
+</ol>
+</li>
+<li><p>通过 <a href="https://docs.djangoproject.com/en/2.2/ref/models/querysets/#id4" target="_blank" rel="noopener">Field Lookup</a>(查询表达式)完成复杂条件查询（这里有点像 QueryDSL，各种方法，但是按照SQL的思维来就可以了，只不过稍微要注意用法，直接去官网查询即可）</p>
+<p>​    查询表达式：每个查询表达式都是一个独立的查询条件，可以用在所有查询条件的位置处</p>
+<ol>
+<li><p>__exact：精确查询，等值判断</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">User.objects.filter(id__exact=<span class="number">1</span>)</span><br><span class="line">select * <span class="keyword">from</span> user where id = <span class="number">1</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>__contains()：筛选出属性中包含指定关键字的记录（模糊查询）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">User.objects.filter(name__contains=<span class="string">'jun'</span>)</span><br><span class="line">select * <span class="keyword">from</span> user where name like <span class="string">'%jun%'</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>__lt：筛选出属性值小于指定值的记录</p>
+</li>
+<li><p>__lte：筛选出属性值小于等于指定值的记录</p>
+</li>
+<li><p>__gt：筛选出属性值大于指定值的记录</p>
+</li>
+<li><p>__gte：筛选出属性值大于等于指定值记录</p>
+</li>
+<li><p>__startswith:</p>
+</li>
+<li><p>__endswith:</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>查询只返回一条数据</p>
+<p>Entry.objects.get(查询条件/表达式)</p>
+</li>
+</ol>
+<h4 id="3-修改数据"><a href="#3-修改数据" class="headerlink" title="3. 修改数据"></a>3. 修改数据</h4><ol>
+<li><p>修改单个数据（这里可以类比 JAP里的对单个实体进行操作，先拿再改最后存）</p>
+<pre><code>1. 通过　get() 得到要修改的实体对象
+     2. 通过实体对象的属性修改属性值
+          3. 再通过 实体对象的save() 保存回数据库</code></pre></li>
+<li><p>批量修改数据（这个意义不是太大）</p>
+<p>Entry.objects.all().update(属性=值，属性=值)</p>
+<p>update  user set 属性=值, 属性=值 </p>
+</li>
+</ol>
+<h4 id="4-删除数据"><a href="#4-删除数据" class="headerlink" title="4. 删除数据"></a>4. 删除数据</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">User.objects.get(id=<span class="number">1</span>).delete()</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="八、安全"><a href="#八、安全" class="headerlink" title="八、安全"></a>八、安全</h2><h3 id="1-CSRF-跨站处理"><a href="#1-CSRF-跨站处理" class="headerlink" title="1. CSRF 跨站处理"></a>1. CSRF 跨站处理</h3>
             </div>
             <hr/>
 
@@ -513,7 +671,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://www.wangjunjun.club/2019/11/23/hello-world/">http://www.wangjunjun.club/2019/11/23/hello-world/</a>
+                    <a href="http://www.wangjunjun.club/2019/11/24/Django-%E5%85%A5%E9%97%A8/">http://www.wangjunjun.club/2019/11/24/Django-%E5%85%A5%E9%97%A8/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -550,7 +708,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
+                            
+                                <a href="/tags/Django/">
+                                    <span class="chip bg-color">Django</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -714,9 +876,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
                 <a href="/2019/11/24/Django-%E5%85%A5%E9%97%A8/">
                     <div class="card-image">
@@ -735,9 +898,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-24
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-24
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -754,6 +917,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -769,7 +933,7 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                Current&nbsp;<i class="far fa-dot-circle"></i>
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
                 <a href="/2019/11/23/hello-world/">
@@ -803,7 +967,6 @@
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
