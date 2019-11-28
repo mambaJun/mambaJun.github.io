@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>设计模式 - 闲谈设计模式</title>
+      <link href="/2019/11/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E9%97%B2%E8%B0%88%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E4%B8%83%E5%A4%A7%E5%8E%9F%E5%88%99/"/>
+      <url>/2019/11/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E9%97%B2%E8%B0%88%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E4%B8%83%E5%A4%A7%E5%8E%9F%E5%88%99/</url>
+      
+        <content type="html"><![CDATA[<h1 id="闲谈设计模式-七大原则"><a href="#闲谈设计模式-七大原则" class="headerlink" title="闲谈设计模式 - 七大原则"></a>闲谈设计模式 - 七大原则</h1><blockquote><p><strong>懂了设计模式，你就懂了面向对象分析和设计（OOA/D）的精要.</strong></p></blockquote><h2 id="一、设计模式的目的"><a href="#一、设计模式的目的" class="headerlink" title="一、设计模式的目的"></a>一、设计模式的目的</h2><p>编写软件的过程，面临 == 耦合性、内聚性、维护性、可扩展性、重用性、灵活性== 等各方面的挑战。</p><p>设计模式就是为了解决这些问题</p><ul><li>代码重用性：相同功能代码，不写多次</li><li>可读性：编程规范性，利于阅读和理解</li><li>可扩展性：增加新的功能非常方便</li><li>可靠性：当增加新的功能后对原来功能没有影响</li></ul><h2 id="二、设计模式七大原则"><a href="#二、设计模式七大原则" class="headerlink" title="二、设计模式七大原则"></a>二、设计模式七大原则</h2><p>编程时遵循的原则，各种设计模式的基础</p><h3 id="1-单一职责原则"><a href="#1-单一职责原则" class="headerlink" title="1. 单一职责原则"></a>1. 单一职责原则</h3><ul><li><p>基本介绍</p><p>对类来说，一个类只负责一项职责，如果 A 负责两个不同职责：职责1，职责2.</p><p>当职责1 需求变更的时候改变 A，可能会造成 职责2 执行错误，职责2 同理。</p><p>所以需要将 类A 的粒度分解成 A1 , A2</p></li><li><p>注意事项和细节</p><ul><li>降低类的复杂度，一个类只负责一项职责</li><li>提高类的可读性，可维护性</li><li>降低变更引起的风险</li></ul></li></ul><h3 id="2-接口隔离原则"><a href="#2-接口隔离原则" class="headerlink" title="2.接口隔离原则"></a>2.接口隔离原则</h3><ul><li><p>基本介绍</p><p>客户端不应该依赖它不需要的接口，也就是说 一个类的依赖应该建立在最小的接口上</p></li><li><p>处理方法</p><p>将一个接口拆分成几个独立的接口，当类需要的时候多实现就可以</p></li></ul><h3 id="3-依赖倒转原则（Dependence-Inversion-Principle）"><a href="#3-依赖倒转原则（Dependence-Inversion-Principle）" class="headerlink" title="3.依赖倒转原则（Dependence Inversion Principle）"></a>3.依赖倒转原则（Dependence Inversion Principle）</h3><ul><li>基本介绍<ul><li>高层模块不应该依赖底层模块，二者都应该是依赖抽象</li><li>==抽象不应该依赖细节，细节应该依赖抽象==</li><li>依赖倒转（倒置）的中心思想是==面向接口编程==</li><li>依赖倒转原则是基于这样的设计理念：相对于细节的多边形，抽象的东西要稳定的多。以抽象为基础搭建的架构比细节为基础的架构稳定的多。在Java中，抽象指的是接口或抽象类，细节是具体的实现类</li><li>使用接口或抽象类的目的是 指定好规范，而不涉及任何具体的操作，把展现细节的任务交给实现类</li><li>注意事项和细节</li><li>低层模块尽量都有抽象类和接口，或者两者都有程序稳定性更好。</li><li>变量的声明类型尽量是抽象类或者接口，这样在变量的引用和 实际对象间存在缓冲层，利于程序拓展和优化</li><li>继承时遵循里氏替换原则</li></ul></li></ul><h3 id="4-里氏替换原则"><a href="#4-里氏替换原则" class="headerlink" title="4.里氏替换原则"></a>4.里氏替换原则</h3><ul><li><p>前言思考</p><ul><li>继承包含这层含义：父类中凡是已经实现好的方法，实际上是在设定规范和契约，虽然不强制要求所有的子类必须遵循这些契约，但是如果子类对这些已经实现的方法任意修改，就会对整个继承体系造成破坏</li><li>继承在给程序设计带来便利的同时，也带来了弊端，比如使用继承会给程序带来侵入性，程序的可移植性降低，增加对象间的耦合性，如果一个类被其他的类所继承，则这个需要修改时，必须考虑到所有子类，并且父类修改后，所有涉及的子类的功能都有可能产生故障</li></ul><p>那么问题来了，如何正确使用继承？</p><p>答案：里氏替换原则</p><ul><li><p>基本介绍</p><ol><li><p>如果对每个类型 为 T1 的对象 o1，都有类型为 T2 的对象 o2,使得以 T1定义的所有程序 P 在所有的对象o1都代替成 o2时，程序P的行为没有发生变化，那么类型T2是类型T1的子类型。也就是，==所有引用父类的地方必须能透明地使用其子类对象==</p></li><li><p>在使用继承时 ，遵循里氏替换原则，在子类中尽量不要重写父类的方法</p></li><li><p>继承实际上让两个类耦合性增强了，在适当情况下，可以通过聚合、组合、依赖 来解决问题</p></li></ol></li></ul></li><li><p>解决方法</p><blockquote><p>类B 继承 类A  并重写父类方法，造成原有功能错误</p><p>实际编程中，常常会重写父类的方法完成新功能，这样写起来虽然简单，但是整个继承体系的复用性比较差，特别是运行多态比较频繁的时候</p></blockquote><p>解决方法</p><p>原来的父类和子类都继承一个更通俗（抽象）的基类，原有的继承关系去掉，采用依赖、聚合、组合等关系代替</p></li></ul><h3 id="5-开闭原则"><a href="#5-开闭原则" class="headerlink" title="5.开闭原则"></a>5.开闭原则</h3><ul><li><p>基本介绍</p><ol><li><p>开闭原则（Open Closed Principle）是编程中最基础、最重要的设计原则</p></li><li><p>一个软件实体 如 类、模块、函数 应该对外开放，对修改关闭。用抽象构建框架，用实现扩展细节</p></li><li><p>当软件需要变化时，尽量通过扩展软件实体的行为来实现变化，而不是通过修改已有的代码来实现变化</p></li><li><p>编程中遵循其他原则，以及使用设计模式的目的就是遵循开闭原则</p></li></ol></li></ul><h3 id="6-迪米特法则（降低类之间的耦合度）"><a href="#6-迪米特法则（降低类之间的耦合度）" class="headerlink" title="6.迪米特法则（降低类之间的耦合度）"></a>6.迪米特法则（降低类之间的耦合度）</h3><ul><li><p>基本介绍</p><ol><li><p>一个对象应该对其他对象保持最少的了解</p></li><li><p>类与类关系越密切，耦合度越大</p></li><li><p>迪米特法则（Demeter Principle - 最少知道法则）:一个类对自己依赖的类知道的越少越好。也就是，对于被依赖的类不管多么复杂，都尽量将逻辑封装在类的内部。对外除了提供的 public 方法，不对外泄露任何信息</p></li><li><p>更简单的定义：只与直接的朋友通信</p><p>直接的朋友：每个对象都会与其他对象有耦合关系，只要两个对象之间有耦合关系，就说这两个对象之间是<code>朋友关系</code>。耦合的方式很多，依赖、关联、组合、聚合 等。其中，我们称出现<code>成员变量，方法参数，方法返回值</code>中的类为<code>直接的朋友</code>，而出现在局部变量中的类不是直接的朋友。也就是说，陌生的类最好不要以局部变量的形式出现在类的内部。</p></li></ol></li><li><p>注意事项和细节</p><ol><li>迪米特法则的核心是降低类之间的耦合度</li><li>由于每个类都减少不了不必要的依赖，因此迪米特法则<code>只是要求降低</code>类之间的耦合关系，并不是要求完全没有依赖关系</li></ol></li></ul><h3 id="7-合成复用原则（Composite-Reuse-Principle）"><a href="#7-合成复用原则（Composite-Reuse-Principle）" class="headerlink" title="7.合成复用原则（Composite Reuse Principle）"></a>7.合成复用原则（Composite Reuse Principle）</h3><ul><li><p>基本介绍</p><p>原则是尽量使用合成/聚合的方式，而不是继承</p></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 设计模式 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 七大原则 </tag>
+            
+            <tag> 设计模式 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>设计模式 - 单例模式</title>
+      <link href="/2019/11/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
+      <url>/2019/11/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</url>
+      
+        <content type="html"><![CDATA[<h1 id="单例模式（Singleton-mode）"><a href="#单例模式（Singleton-mode）" class="headerlink" title="单例模式（Singleton mode）"></a>单例模式（Singleton mode）</h1><h2 id="一、应用场景"><a href="#一、应用场景" class="headerlink" title="一、应用场景"></a>一、应用场景</h2><ul><li>只需要一个实例<ul><li>各种 Manager</li><li>各种 Factory</li></ul></li></ul><h2 id="二、设计模式写法（八种）"><a href="#二、设计模式写法（八种）" class="headerlink" title="二、设计模式写法（八种）"></a>二、设计模式写法（八种）</h2><ol><li>饿汉式 两种</li><li>懒汉式 三种</li><li>双重检查</li><li>静态内部类</li><li>枚举</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 设计模式 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 单例模式 </tag>
+            
+            <tag> 设计模式 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Django 入门</title>
+      <link href="/2019/11/24/Django-%E5%85%A5%E9%97%A8/"/>
+      <url>/2019/11/24/Django-%E5%85%A5%E9%97%A8/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Django-入门"><a href="#Django-入门" class="headerlink" title="Django 入门"></a>Django 入门</h1><p>这篇文章仅仅我初步了解　Django 的入门笔记</p><h2 id="一、-Django的框架模式-MTV"><a href="#一、-Django的框架模式-MTV" class="headerlink" title="一、 Django的框架模式 - MTV"></a>一、 Django的框架模式 - MTV</h2><p>M: Models 层<br>    负责数据库的建模以及 CRUD操作<br>T: Templates 层<br>    用于处理用户显示的内容 如  HTML<br>V: Views 层<br>    处理用户交互操作，从模板中取得数据，再将数据发送给模板，并显示给用户<br><img src="./MTV.png" alt=""></p><h2 id="二、-Django-的使用"><a href="#二、-Django-的使用" class="headerlink" title="二、 Django 的使用"></a>二、 Django 的使用</h2><h3 id="1-目录结构介绍"><a href="#1-目录结构介绍" class="headerlink" title="1.目录结构介绍"></a>1.目录结构介绍</h3><ul><li>主目录（名称和项目名相同）<ul><li><strong>init</strong>.py 项目初始化文件，每当服务器启动的时候，都会自动执行</li><li>urls.py :项目的基础url 配置文件</li><li>wsgi.py：应用服务器配置文件</li><li>setting.py：项目的主设置文件<h3 id="2-启动服务"><a href="#2-启动服务" class="headerlink" title="2.启动服务"></a>2.启动服务</h3><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python  manage.py runserver</span><br></pre></td></tr></table></figure>manage.py   负责执行Django中的各项操作文件</li><li>启动服务<ul><li>创建管理员</li><li>创建应用</li><li>数据库的同步操作</li></ul></li></ul></li></ul><h2 id="三、URL的使用"><a href="#三、URL的使用" class="headerlink" title="三、URL的使用"></a>三、URL的使用</h2><pre><code>1. urls.py：默认是在主目录中，主路由配置文件包含最基本的地址映射，每个请求到达之后都由urls.py 中的urlpatterns 列表中的url()进行匹配url() 函数匹配上 之后，可能将请求转交给其他urls.py 或者 试图（Views）去处理</code></pre><p> <img src="./%E8%AF%B7%E6%B1%82%E6%B5%81%E7%A8%8B.png" alt=""><br>    url()函数语法：<br>        url(regex,views,kwargs=None,name=None)<br>        正则表达式：匹配请求的url<br>        视图处理函数或者其他的urls.py<br>        字典，用来给views 传参，没有参数可以省略<br>        字符串，给url()起别名，主要在模板中使用</p><p>##　四、应用的结构组成</p><pre><code>1. migrations 目录：存放数据库中间文件（日志文件）2. __init__.py：应用的初始化文件3. admin.py：应用的后台管理配置文件4. apps.py：应用的属性配置文件5. models.py：模型文件，与数据库有关6. test.py：测试模块7. views.py：定义视图的文件</code></pre><p>​    </p><h2 id="五、数据三大特征"><a href="#五、数据三大特征" class="headerlink" title="五、数据三大特征"></a>五、数据三大特征</h2><ol><li>数据表 到 类 的映射，将数据表自动生成 一个 class 类 同时也允许将一个 class类自动生成数据库中的一张表</li><li>数据类型的映射    允许将表中的字段的数据类型 自动 映射成编程语言中对应的数据类型    也允许 将编程语言的数据类型 自动 映射 成表中的字段的数据类型</li><li>关系映射    在编程语言中允许将表与表之间的关系映射出来    表与表之间的关系也可以自动映射到编程语言的Class中4. 编写 Models    - Models 中的每个class 都称为 模型类 实体类    - Models 中的每个模型类，必须继承 models.Model</li></ol><h3 id="模型-字段类型-和-字段选项"><a href="#模型-字段类型-和-字段选项" class="headerlink" title="模型 字段类型 和 字段选项"></a>模型 字段类型 和 字段选项</h3><ul><li><p>字段类型（Field Type）</p><ul><li>BooleanField() </li><li>CharField() </li><li>DateField()    </li><li>DateField()    </li><li>DateTimeField()   </li><li>DecimalField()   </li><li>EmailField() # 存电子邮件 - varchar    </li><li>FloatField()    </li><li>ImageField(upload_to=’’) # 存图片路径 - varchar    </li><li>IntergerField()    </li><li>URLField()    </li><li>TextField() # 存大量文本数据 - text</li></ul></li><li><h3 id="字段选项（Field-Option）"><a href="#字段选项（Field-Option）" class="headerlink" title="字段选项（Field Option）"></a>字段选项（Field Option）</h3><ul><li><h3 id="max-length-在-CharField-必须设置选项"><a href="#max-length-在-CharField-必须设置选项" class="headerlink" title="max_length # 在 CharField() 必须设置选项"></a>max_length # 在 CharField() 必须设置选项</h3></li><li><h3 id="default"><a href="#default" class="headerlink" title="default"></a>default</h3></li><li><h3 id="null-指定当前字段是否允许为空，默认值-false"><a href="#null-指定当前字段是否允许为空，默认值-false" class="headerlink" title="null # 指定当前字段是否允许为空，默认值 false"></a>null # 指定当前字段是否允许为空，默认值 false</h3></li></ul></li><li><p>数据模型的版本切换</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./manage.py migrate # 执行所有应用中最新的数据库中间文件</span><br><span class="line">./manage.py migrate 应用名称 版本号# 执行 应用中版本号对应的中间文件</span><br><span class="line">./manage.py inspectdb &gt; 文件名.py  # 通过数据库自动导出 Models</span><br></pre></td></tr></table></figure></li></ul><h2 id="六、连接-MySQL"><a href="#六、连接-MySQL" class="headerlink" title="六、连接 MySQL"></a>六、连接 MySQL</h2><ul><li><p>环境按照</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python3-dev</span><br><span class="line">sudo apt-get install python3-dev libmysqlclient-dev</span><br><span class="line">pip install mysqlclient</span><br></pre></td></tr></table></figure></li><li><p>项目配置</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">DATABASES = &#123;</span><br><span class="line">    &apos;default&apos;: &#123;</span><br><span class="line">        &apos;ENGINE&apos;: &apos;django.db.backends.mysql&apos;,</span><br><span class="line">        &apos;HOST&apos;: &apos;127.0.0.1&apos;,</span><br><span class="line">        &apos;PORT&apos;: &apos;3306&apos;,</span><br><span class="line">        &apos;USER&apos;: &apos;root&apos;,</span><br><span class="line">        &apos;PASSWORD&apos;: &apos;root&apos;,</span><br><span class="line">        &apos;NAME&apos;: &apos;django&apos;,</span><br><span class="line">        &apos;OPTIONS&apos;: &#123;</span><br><span class="line">            &apos;init_command&apos;: &quot;SET sql_mode=&apos;STRICT_TRANS_TABLES&apos;&quot;,</span><br><span class="line">            &apos;charset&apos;: &apos;utf8mb4&apos;,</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul><h2 id="七、模型中的-CRUD"><a href="#七、模型中的-CRUD" class="headerlink" title="七、模型中的 CRUD"></a>七、模型中的 CRUD</h2><h4 id="1-通过-ORM-向-DB-中添加数据"><a href="#1-通过-ORM-向-DB-中添加数据" class="headerlink" title="1.通过 ORM 向 DB 中添加数据"></a>1.通过 ORM 向 DB 中添加数据</h4><ol><li><p>Entry.objects.create(属性=值，……)    </p><p> Entry：具体要操作的Model类</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Author.objects.create(name=<span class="string">'张三'</span>,age=<span class="string">'20'</span>)</span><br></pre></td></tr></table></figure></li><li><p>创建一个Models对象，通过对象save() 完成</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">obj = Author(name=<span class="string">'张三'</span>,age=<span class="string">'20'</span>)</span><br><span class="line">obj.save()</span><br></pre></td></tr></table></figure></li><li><p>使用 字典序 构建对象，通过save() 完成增加</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dic = &#123;</span><br><span class="line">    <span class="string">'属性1'</span>: <span class="string">'值1'</span>,</span><br><span class="line">     <span class="string">'属性1'</span>: <span class="string">'值1'</span>,</span><br><span class="line">&#125;</span><br><span class="line">obj = Entry(**dic)</span><br><span class="line">obj.save()</span><br></pre></td></tr></table></figure></li></ol><h4 id="2-查询操作（重难点）查询"><a href="#2-查询操作（重难点）查询" class="headerlink" title="2.查询操作（重难点）查询"></a>2.查询操作（重难点）<a href="https://docs.djangoproject.com/en/2.2/ref/models/querysets/" target="_blank" rel="noopener">查询</a></h4><ol><li><p>通过Entry.objects 调用方法</p><ol><li>基本查询操作<ul><li>all()</li></ul></li></ol></li><li><p>查询指定列</p><ol><li>value()</li></ol></li><li><p>排序函数</p><ol><li>order_by()</li></ol></li><li><p>对条件取反</p><ol><li>exclude()</li></ol></li><li><p>根据条件查询部分行数据 ==重难点==</p><ol><li><p>使用Entry 中的属性作为查询参数，多个参数，用 ， 隔开 映射到SQL 语句上是用 and 进行关联的</p><ol><li>filter()</li></ol></li><li><p>通过 <a href="https://docs.djangoproject.com/en/2.2/ref/models/querysets/#id4" target="_blank" rel="noopener">Field Lookup</a>(查询表达式)完成复杂条件查询（这里有点像 QueryDSL，各种方法，但是按照SQL的思维来就可以了，只不过稍微要注意用法，直接去官网查询即可）</p><p>​    查询表达式：每个查询表达式都是一个独立的查询条件，可以用在所有查询条件的位置处</p><ol><li><p>__exact：精确查询，等值判断</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">User.objects.filter(id__exact=<span class="number">1</span>)</span><br><span class="line">select * <span class="keyword">from</span> user where id = <span class="number">1</span></span><br></pre></td></tr></table></figure></li><li><p>__contains()：筛选出属性中包含指定关键字的记录（模糊查询）</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">User.objects.filter(name__contains=<span class="string">'jun'</span>)</span><br><span class="line">select * <span class="keyword">from</span> user where name like <span class="string">'%jun%'</span></span><br></pre></td></tr></table></figure></li><li><p>__lt：筛选出属性值小于指定值的记录</p></li><li><p>__lte：筛选出属性值小于等于指定值的记录</p></li><li><p>__gt：筛选出属性值大于指定值的记录</p></li><li><p>__gte：筛选出属性值大于等于指定值记录</p></li><li><p>__startswith:</p></li><li><p>__endswith:</p></li></ol></li></ol></li><li><p>查询只返回一条数据</p><p>Entry.objects.get(查询条件/表达式)</p></li></ol><h4 id="3-修改数据"><a href="#3-修改数据" class="headerlink" title="3. 修改数据"></a>3. 修改数据</h4><ol><li><p>修改单个数据（这里可以类比 JAP里的对单个实体进行操作，先拿再改最后存）</p><pre><code>1. 通过　get() 得到要修改的实体对象     2. 通过实体对象的属性修改属性值          3. 再通过 实体对象的save() 保存回数据库</code></pre></li><li><p>批量修改数据（这个意义不是太大）</p><p>Entry.objects.all().update(属性=值，属性=值)</p><p>update  user set 属性=值, 属性=值 </p></li></ol><h4 id="4-删除数据"><a href="#4-删除数据" class="headerlink" title="4. 删除数据"></a>4. 删除数据</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">User.objects.get(id=<span class="number">1</span>).delete()</span><br></pre></td></tr></table></figure><h2 id="八、安全"><a href="#八、安全" class="headerlink" title="八、安全"></a>八、安全</h2><h3 id="1-CSRF-跨站处理"><a href="#1-CSRF-跨站处理" class="headerlink" title="1. CSRF 跨站处理"></a>1. CSRF 跨站处理</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> python </category>
+          
+          <category> Django </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Django </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/2019/11/23/hello-world/"/>
+      <url>/2019/11/23/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> hexo </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+  
+  
+</search>
