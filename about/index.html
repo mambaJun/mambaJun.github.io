@@ -357,7 +357,7 @@
                     <div class="post-statis col l4 hide-on-med-and-down" data-aos="zoom-in-right">
                         
 <div class="statis">
-    <span class="count"><a href="/">11</a></span>
+    <span class="count"><a href="/">13</a></span>
     <span class="name">Posts</span>
 </div>
 
@@ -371,7 +371,7 @@
 
 
 <div class="statis">
-    <span class="count"><a href="/tags">10</a></span>
+    <span class="count"><a href="/tags">13</a></span>
     <span class="name">Tags</span>
 </div>
 
@@ -387,7 +387,7 @@
                                 <div class="post-statis hide-on-large-only" data-aos="zoom-in-right">
                                     
 <div class="statis">
-    <span class="count"><a href="/">11</a></span>
+    <span class="count"><a href="/">13</a></span>
     <span class="name">Posts</span>
 </div>
 
@@ -401,7 +401,7 @@
 
 
 <div class="statis">
-    <span class="count"><a href="/tags">10</a></span>
+    <span class="count"><a href="/tags">13</a></span>
     <span class="name">Tags</span>
 </div>
 
@@ -537,7 +537,7 @@
                 name: 'Number of posts',
                 type: 'line',
                 color: ['#6772e5'],
-                data: [0,0,0,0,0,0,0,0,0,0,0,9,2],
+                data: [0,0,0,0,0,0,0,0,0,0,0,9,4],
                 markPoint: {
                     symbolSize: 45,
                     color: ['#fa755a','#3ecf8e','#82d3f4'],
@@ -579,7 +579,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"python","value":1},{"name":"设计模式","value":8},{"name":"hexo","value":1},{"name":"Django","value":1},{"name":"docker","value":1}],
+                data: [{"name":"python","value":1},{"name":"hexo","value":1},{"name":"Django","value":1},{"name":"设计模式","value":8},{"name":"docker","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -603,7 +603,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["设计模式","工厂模式","Django","UML 类图","单例模式","原型模式","装饰者模式","适配器模式","七大原则","docker"]
+                data: ["设计模式","工厂模式","单例模式","elasticsearch","Django","UML 类图","java","原型模式","虚拟机","装饰者模式"]
             }
         ],
         yAxis: [
@@ -777,6 +777,24 @@
             
             
             
+            <a href="/tags/java/">
+                <span class="chip center-align waves-effect waves-light chip-default">java</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/">
+                <span class="chip center-align waves-effect waves-light chip-default">虚拟机</span>
+            </a>
+            
+            
+            
+            <a href="/tags/elasticsearch/">
+                <span class="chip center-align waves-effect waves-light chip-default">elasticsearch</span>
+            </a>
+            
+            
+            
             <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
                 <span class="chip center-align waves-effect waves-light chip-default">设计模式</span>
             </a>
@@ -887,17 +905,14 @@
 </main>
 
     <footer class="page-footer bg-color">
-    <div class="container row center-align">
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
-            <span id="year">年份</span>
+            <span id="year">2019</span>
             <a href="http://www.wangjunjun.club" target="_blank">Jun Smith</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
-            
-            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">9.9k</span>&nbsp;字
             
             
             
@@ -920,7 +935,6 @@
             <span id="sitetime">载入运行时间...</span>
             <script>
                 function siteTime() {
-                    window.setTimeout("siteTime()", 1000);
                     var seconds = 1000;
                     var minutes = seconds * 60;
                     var hours = minutes * 60;

@@ -312,9 +312,7 @@ UML 本身是一套符号的规定，就像数学符号和化">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <div class="description center-align post-title">
-                        设计模式 - UML类图
-                    </div>
+                    <h1 class="description center-align post-title">设计模式 - UML类图</h1>
                 </div>
             </div>
         </div>
@@ -352,6 +350,7 @@ UML 本身是一套符号的规定，就像数学符号和化">
     }
 
     .toc-widget {
+        width: 345px;
         padding-left: 20px;
     }
 
@@ -366,6 +365,11 @@ UML 本身是一套符号的规定，就像数学符号和化">
     .toc-widget ol {
         padding: 0;
         list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
     }
 
     #toc-content ol {
@@ -463,7 +467,7 @@ UML 本身是一套符号的规定，就像数学符号和化">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    298
+                    140
                 </div>
                 
 
@@ -490,48 +494,7 @@ UML 本身是一套符号的规定，就像数学符号和化">
 <p>UML–Unified modeling language（统一建模语言），是一种用于软件系统分析和设计的语言工具，它用于帮助软件开发人员进行思考和记录思路的结果。</p>
 </blockquote>
 <p>UML 本身是一套符号的规定，就像数学符号和化学符号一样，这些符号用于描述软件模型中的各个元素和他们之间的关系，比如类、接口、实现、泛华、依赖、组合、聚合等。</p>
-<ul>
-<li><p>Common</p>
-<ul>
-<li>Note</li>
-</ul>
-</li>
-<li><p>Entity</p>
-<ul>
-<li>Class</li>
-<li>Interface</li>
-</ul>
-</li>
-<li><p>Relation</p>
-<ul>
-<li><p>Dependency：依赖（使用）：只要在类中用到了对方，那么他们之间就存在依赖关系</p>
-<ul>
-<li>类中用到对方</li>
-<li>是类的成员属性</li>
-<li>是方法的返回类型</li>
-<li>是方法接收的参数类型</li>
-<li>方法中使用到</li>
-</ul>
-</li>
-<li><p>Associtation：关联</p>
-<p>类与类之间的联系，是依赖关系的特例 </p>
-</li>
-<li><p>Generalization：泛华（继承）：依赖的特例</p>
-<ul>
-<li>如果 A 继承 B ，A和B之间存在泛华关系</li>
-</ul>
-</li>
-<li><p>Realization：实现</p>
-</li>
-<li><p>Aggregation：聚合：聚合关系是关联关系的特例</p>
-<p>整体与部分的关系，整体与部分可以分开</p>
-</li>
-<li><p>Composite：组合</p>
-<p>整体与部分的关系，整体与部分不可以分开</p>
-</li>
-</ul>
-</li>
-</ul>
+<p>用例图<br>类图<br>时序图<br>协作图<br>配置图</p>
 
             </div>
             <hr/>
@@ -974,7 +937,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             tocSelector: '#toc-content',
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
-            // headingsOffset: -205,
+            collapseDepth: Number(''),
             headingSelector: 'h2, h3, h4'
         });
 
@@ -1050,17 +1013,14 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 
     <footer class="page-footer bg-color">
-    <div class="container row center-align">
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
-            <span id="year">年份</span>
+            <span id="year">2019</span>
             <a href="http://www.wangjunjun.club" target="_blank">Jun Smith</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
-            
-            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">9.9k</span>&nbsp;字
             
             
             
@@ -1083,7 +1043,6 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <span id="sitetime">载入运行时间...</span>
             <script>
                 function siteTime() {
-                    window.setTimeout("siteTime()", 1000);
                     var seconds = 1000;
                     var minutes = seconds * 60;
                     var hours = minutes * 60;

@@ -4,12 +4,33 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="设计模式 - 闲谈设计模式, Jun">
-    <meta name="description" content="闲谈设计模式 - 七大原则
-懂了设计模式，你就懂了面向对象分析和设计（OOA/D）的精要.
+    <meta name="keywords" content="Spring boot 整合 Elasticsearch, Jun">
+    <meta name="description" content="Elasticsearch推荐文档
+Elasticsearch 简介
 
-一、设计模式的目的编写软件的过程，面临 == 耦合性、内聚性、维护性、可扩展性、重用性、灵活性== 等各方面的挑战。
-设计模式就是为了解决这些问题">
+
+Elasticsearch
+MySQL
+
+
+
+索引
+数据库
+
+
+类型
+表
+
+
+文档
+记录
+
+
+属性
+字段
+
+
+Elasticsearch 安装Spring Boot ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +38,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>设计模式 - 闲谈设计模式 | Jun Smith</title>
+    <title>Spring boot 整合 Elasticsearch | Jun Smith</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -308,12 +329,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">设计模式 - 闲谈设计模式</h1>
+                    <h1 class="description center-align post-title">Spring boot 整合 Elasticsearch</h1>
                 </div>
             </div>
         </div>
@@ -430,27 +451,14 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
-                                <span class="chip bg-color">设计模式</span>
-                            </a>
-                        
-                            <a href="/tags/%E4%B8%83%E5%A4%A7%E5%8E%9F%E5%88%99/">
-                                <span class="chip bg-color">七大原则</span>
+                            <a href="/tags/elasticsearch/">
+                                <span class="chip bg-color">elasticsearch</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="post-category">
-                                设计模式
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -459,7 +467,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2019-11-26
+                    2019-12-26
                 </div>
                 
 
@@ -468,14 +476,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.7k
+                    376
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    5 Min
+                    2 Min
                 </div>
                 
 				
@@ -491,124 +499,50 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="闲谈设计模式-七大原则"><a href="#闲谈设计模式-七大原则" class="headerlink" title="闲谈设计模式 - 七大原则"></a>闲谈设计模式 - 七大原则</h1><blockquote>
-<p><strong>懂了设计模式，你就懂了面向对象分析和设计（OOA/D）的精要.</strong></p>
-</blockquote>
-<h2 id="一、设计模式的目的"><a href="#一、设计模式的目的" class="headerlink" title="一、设计模式的目的"></a>一、设计模式的目的</h2><p>编写软件的过程，面临 == 耦合性、内聚性、维护性、可扩展性、重用性、灵活性== 等各方面的挑战。</p>
-<p>设计模式就是为了解决这些问题</p>
+                <h1 id="Elasticsearch"><a href="#Elasticsearch" class="headerlink" title="Elasticsearch"></a>Elasticsearch</h1><p><a href="https://www.elastic.co/guide/cn/elasticsearch/guide/current/index.html" target="_blank" rel="noopener">推荐文档</a></p>
+<h2 id="Elasticsearch-简介"><a href="#Elasticsearch-简介" class="headerlink" title="Elasticsearch 简介"></a>Elasticsearch 简介</h2><table>
+<thead>
+<tr>
+<th align="left">Elasticsearch</th>
+<th align="left">MySQL</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">索引</td>
+<td align="left">数据库</td>
+</tr>
+<tr>
+<td align="left">类型</td>
+<td align="left">表</td>
+</tr>
+<tr>
+<td align="left">文档</td>
+<td align="left">记录</td>
+</tr>
+<tr>
+<td align="left">属性</td>
+<td align="left">字段</td>
+</tr>
+</tbody></table>
+<h2 id="Elasticsearch-安装"><a href="#Elasticsearch-安装" class="headerlink" title="Elasticsearch 安装"></a>Elasticsearch 安装</h2><h2 id="Spring-Boot-与-Elasticsearch-整合"><a href="#Spring-Boot-与-Elasticsearch-整合" class="headerlink" title="Spring Boot 与 Elasticsearch 整合"></a>Spring Boot 与 Elasticsearch 整合</h2><p>两种方式</p>
 <ul>
-<li>代码重用性：相同功能代码，不写多次</li>
-<li>可读性：编程规范性，利于阅读和理解</li>
-<li>可扩展性：增加新的功能非常方便</li>
-<li>可靠性：当增加新的功能后对原来功能没有影响</li>
-</ul>
-<h2 id="二、设计模式七大原则"><a href="#二、设计模式七大原则" class="headerlink" title="二、设计模式七大原则"></a>二、设计模式七大原则</h2><p>编程时遵循的原则，各种设计模式的基础</p>
-<h3 id="1-单一职责原则"><a href="#1-单一职责原则" class="headerlink" title="1. 单一职责原则"></a>1. 单一职责原则</h3><ul>
-<li><p>基本介绍</p>
-<p>对类来说，一个类只负责一项职责，如果 A 负责两个不同职责：职责1，职责2.</p>
-<p>当职责1 需求变更的时候改变 A，可能会造成 职责2 执行错误，职责2 同理。</p>
-<p>所以需要将 类A 的粒度分解成 A1 , A2</p>
+<li>方式一<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.searchbox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jest<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>6.3.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 </li>
-<li><p>注意事项和细节</p>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">@Autowired</span><br><span class="line">JestClient jestClient;</span><br><span class="line"></span><br><span class="line">@Test</span><br><span class="line">void put() throws IOException &#123;</span><br><span class="line">    UserBO userBO = new UserBO();</span><br><span class="line">    userBO.setAccount(&quot;account&quot;);</span><br><span class="line">    userBO.setId(1);</span><br><span class="line">    userBO.setJumpToken(&quot;jumpToken&quot;);</span><br><span class="line">    userBO.setPassword(&quot;password&quot;);</span><br><span class="line">    userBO.setUsername(&quot;username&quot;);</span><br><span class="line">    Index index = new Index.Builder(userBO).index(&quot;blog&quot;).type(&quot;user&quot;).build();</span><br><span class="line">    jestClient.execute(index);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@Test</span><br><span class="line">void get() throws IOException &#123;</span><br><span class="line">    String json = &quot;&#123;&quot; +</span><br><span class="line">            &quot;\&quot;query\&quot;: &#123;&quot; +</span><br><span class="line">            &quot;  \&quot;match\&quot;:&#123;&quot; +</span><br><span class="line">            &quot;          \&quot;name\&quot;: \&quot;username\&quot;&quot; +</span><br><span class="line">            &quot;       &#125; &quot; +</span><br><span class="line">            &quot;   &#125;&quot; +</span><br><span class="line">            &quot;&#125;&quot;;</span><br><span class="line">    Search search = new Search.Builder(json).addIndex(&quot;blog&quot;).addType(&quot;user&quot;).build();</span><br><span class="line">    SearchResult result = jestClient.execute(search);</span><br><span class="line">    System.out.println(&quot;#########################################&quot;);</span><br><span class="line">    System.out.println(result.getJsonString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li>降低类的复杂度，一个类只负责一项职责</li>
-<li>提高类的可读性，可维护性</li>
-<li>降低变更引起的风险</li>
-</ul>
+<li>方式二<br>maven 坐标  <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+  </dependency> 
+
 </li>
 </ul>
-<h3 id="2-接口隔离原则"><a href="#2-接口隔离原则" class="headerlink" title="2.接口隔离原则"></a>2.接口隔离原则</h3><ul>
-<li><p>基本介绍</p>
-<p>客户端不应该依赖它不需要的接口，也就是说 一个类的依赖应该建立在最小的接口上</p>
-</li>
-<li><p>处理方法</p>
-<p>将一个接口拆分成几个独立的接口，当类需要的时候多实现就可以</p>
-</li>
-</ul>
-<h3 id="3-依赖倒转原则（Dependence-Inversion-Principle）"><a href="#3-依赖倒转原则（Dependence-Inversion-Principle）" class="headerlink" title="3.依赖倒转原则（Dependence Inversion Principle）"></a>3.依赖倒转原则（Dependence Inversion Principle）</h3><ul>
-<li>基本介绍<ul>
-<li>高层模块不应该依赖底层模块，二者都应该是依赖抽象</li>
-<li>==抽象不应该依赖细节，细节应该依赖抽象==</li>
-<li>依赖倒转（倒置）的中心思想是==面向接口编程==</li>
-<li>依赖倒转原则是基于这样的设计理念：相对于细节的多边形，抽象的东西要稳定的多。以抽象为基础搭建的架构比细节为基础的架构稳定的多。在Java中，抽象指的是接口或抽象类，细节是具体的实现类</li>
-<li>使用接口或抽象类的目的是 指定好规范，而不涉及任何具体的操作，把展现细节的任务交给实现类</li>
-<li>注意事项和细节</li>
-<li>低层模块尽量都有抽象类和接口，或者两者都有程序稳定性更好。</li>
-<li>变量的声明类型尽量是抽象类或者接口，这样在变量的引用和 实际对象间存在缓冲层，利于程序拓展和优化</li>
-<li>继承时遵循里氏替换原则</li>
-</ul>
-</li>
-</ul>
-<h3 id="4-里氏替换原则"><a href="#4-里氏替换原则" class="headerlink" title="4.里氏替换原则"></a>4.里氏替换原则</h3><ul>
-<li><p>前言思考</p>
-<ul>
-<li>继承包含这层含义：父类中凡是已经实现好的方法，实际上是在设定规范和契约，虽然不强制要求所有的子类必须遵循这些契约，但是如果子类对这些已经实现的方法任意修改，就会对整个继承体系造成破坏</li>
-<li>继承在给程序设计带来便利的同时，也带来了弊端，比如使用继承会给程序带来侵入性，程序的可移植性降低，增加对象间的耦合性，如果一个类被其他的类所继承，则这个需要修改时，必须考虑到所有子类，并且父类修改后，所有涉及的子类的功能都有可能产生故障</li>
-</ul>
-<p>那么问题来了，如何正确使用继承？</p>
-<p>答案：里氏替换原则</p>
-<ul>
-<li><p>基本介绍</p>
-<ol>
-<li><p>如果对每个类型 为 T1 的对象 o1，都有类型为 T2 的对象 o2,使得以 T1定义的所有程序 P 在所有的对象o1都代替成 o2时，程序P的行为没有发生变化，那么类型T2是类型T1的子类型。也就是，==所有引用父类的地方必须能透明地使用其子类对象==</p>
-</li>
-<li><p>在使用继承时 ，遵循里氏替换原则，在子类中尽量不要重写父类的方法</p>
-</li>
-<li><p>继承实际上让两个类耦合性增强了，在适当情况下，可以通过聚合、组合、依赖 来解决问题</p>
-</li>
-</ol>
-</li>
-</ul>
-</li>
-<li><p>解决方法</p>
-<blockquote>
-<p>类B 继承 类A  并重写父类方法，造成原有功能错误</p>
-<p>实际编程中，常常会重写父类的方法完成新功能，这样写起来虽然简单，但是整个继承体系的复用性比较差，特别是运行多态比较频繁的时候</p>
-</blockquote>
-<p>解决方法</p>
-<p>原来的父类和子类都继承一个更通俗（抽象）的基类，原有的继承关系去掉，采用依赖、聚合、组合等关系代替</p>
-</li>
-</ul>
-<h3 id="5-开闭原则"><a href="#5-开闭原则" class="headerlink" title="5.开闭原则"></a>5.开闭原则</h3><ul>
-<li><p>基本介绍</p>
-<ol>
-<li><p>开闭原则（Open Closed Principle）是编程中最基础、最重要的设计原则</p>
-</li>
-<li><p>一个软件实体 如 类、模块、函数 应该对外开放，对修改关闭。用抽象构建框架，用实现扩展细节</p>
-</li>
-<li><p>当软件需要变化时，尽量通过扩展软件实体的行为来实现变化，而不是通过修改已有的代码来实现变化</p>
-</li>
-<li><p>编程中遵循其他原则，以及使用设计模式的目的就是遵循开闭原则</p>
-</li>
-</ol>
-</li>
-</ul>
-<h3 id="6-迪米特法则（降低类之间的耦合度）"><a href="#6-迪米特法则（降低类之间的耦合度）" class="headerlink" title="6.迪米特法则（降低类之间的耦合度）"></a>6.迪米特法则（降低类之间的耦合度）</h3><ul>
-<li><p>基本介绍</p>
-<ol>
-<li><p>一个对象应该对其他对象保持最少的了解</p>
-</li>
-<li><p>类与类关系越密切，耦合度越大</p>
-</li>
-<li><p>迪米特法则（Demeter Principle - 最少知道法则）:一个类对自己依赖的类知道的越少越好。也就是，对于被依赖的类不管多么复杂，都尽量将逻辑封装在类的内部。对外除了提供的 public 方法，不对外泄露任何信息</p>
-</li>
-<li><p>更简单的定义：只与直接的朋友通信</p>
-<p>直接的朋友：每个对象都会与其他对象有耦合关系，只要两个对象之间有耦合关系，就说这两个对象之间是<code>朋友关系</code>。耦合的方式很多，依赖、关联、组合、聚合 等。其中，我们称出现<code>成员变量，方法参数，方法返回值</code>中的类为<code>直接的朋友</code>，而出现在局部变量中的类不是直接的朋友。也就是说，陌生的类最好不要以局部变量的形式出现在类的内部。</p>
-</li>
-</ol>
-</li>
-<li><p>注意事项和细节</p>
-<ol>
-<li>迪米特法则的核心是降低类之间的耦合度</li>
-<li>由于每个类都减少不了不必要的依赖，因此迪米特法则<code>只是要求降低</code>类之间的耦合关系，并不是要求完全没有依赖关系</li>
-</ol>
-</li>
-</ul>
-<h3 id="7-合成复用原则（Composite-Reuse-Principle）"><a href="#7-合成复用原则（Composite-Reuse-Principle）" class="headerlink" title="7.合成复用原则（Composite Reuse Principle）"></a>7.合成复用原则（Composite Reuse Principle）</h3><ul>
-<li><p>基本介绍</p>
-<p>原则是尽量使用合成/聚合的方式，而不是继承</p>
-</li>
-</ul>
+<p>配置文件<br>    spring:<br>      data:<br>        elasticsearch:<br>          repositories:<br>            enabled: true<br>          cluster-nodes: 127.0.0.1:9300 # es的连接地址及端口号<br>          cluster-name: docker-cluster # es集群的名称</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@ToString</span></span><br><span class="line"><span class="meta">@Document</span>(indexName = <span class="string">"blog"</span>,type = <span class="string">"user"</span>,shards = <span class="number">1</span>,replicas = <span class="number">0</span>,refreshInterval = <span class="string">"-1"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Field</span>(type = FieldType.Keyword)</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">(Integer id, String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.id = id;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserRepository</span> <span class="keyword">extends</span> <span class="title">ElasticsearchRepository</span>&lt;<span class="title">User</span>, <span class="title">Integer</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function">User <span class="title">findByName</span><span class="params">(String name)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> ElasticsearchTemplate elasticsearchTemplate;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> UserRepository userRepository;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/user/&#123;name&#125;"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">get</span><span class="params">(@PathVariable(<span class="string">"name"</span>)</span> String name) </span>&#123;</span><br><span class="line">        User user = userRepository.findByName(name);</span><br><span class="line">        <span class="keyword">return</span> user.toString();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/user/put"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">put</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        User user = <span class="keyword">new</span> User();</span><br><span class="line">        user.setId(<span class="number">10</span>);</span><br><span class="line">        user.setName(<span class="string">"zhaoliu"</span>);</span><br><span class="line">        User save = userRepository.save(user);</span><br><span class="line">        System.out.println(save);</span><br><span class="line">        <span class="keyword">return</span> save.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
             </div>
             <hr/>
@@ -634,7 +568,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://www.wangjunjun.club/2019/11/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E9%97%B2%E8%B0%88%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E4%B8%83%E5%A4%A7%E5%8E%9F%E5%88%99/">http://www.wangjunjun.club/2019/11/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E9%97%B2%E8%B0%88%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E4%B8%83%E5%A4%A7%E5%8E%9F%E5%88%99/</a>
+                    <a href="http://www.wangjunjun.club/2019/12/26/elasticsearch-%E5%85%A5%E9%97%A8/">http://www.wangjunjun.club/2019/12/26/elasticsearch-%E5%85%A5%E9%97%A8/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -672,12 +606,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
-                                    <span class="chip bg-color">设计模式</span>
-                                </a>
-                            
-                                <a href="/tags/%E4%B8%83%E5%A4%A7%E5%8E%9F%E5%88%99/">
-                                    <span class="chip bg-color">七大原则</span>
+                                <a href="/tags/elasticsearch/">
+                                    <span class="chip bg-color">elasticsearch</span>
                                 </a>
                             
                         </div>
@@ -847,36 +777,30 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2019/11/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-UML%E7%B1%BB%E5%9B%BE/">
+                <a href="/2019/12/27/JVM%E5%AD%A6%E4%B9%A0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="设计模式 - UML类图">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="JVM学习">
                         
-                        <span class="card-title">设计模式 - UML类图</span>
+                        <span class="card-title">JVM学习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            UML 类图一、基本介绍
-UML–Unified modeling language（统一建模语言），是一种用于软件系统分析和设计的语言工具，它用于帮助软件开发人员进行思考和记录思路的结果。
-
-UML 本身是一套符号的规定，就像数学符号和化
+                            JVM入门（一）JVM 结构
+类加载子系统 和 方法区 类加载子系统：负责从文件系统和网络中加载 Class信息，加载的类信息存放在一块 -&gt; 称为方法区 除了类的信息外，方法区还存放运行时常量池信息，包括字符串面量，数字常量（这部分
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-28
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-12-27
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="post-category">
-                                    设计模式
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Jun Smith
                             
                         </span>
                     </div>
@@ -884,12 +808,12 @@ UML 本身是一套符号的规定，就像数学符号和化
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
-                        <span class="chip bg-color">设计模式</span>
+                    <a href="/tags/java/">
+                        <span class="chip bg-color">java</span>
                     </a>
                     
-                    <a href="/tags/UML-%E7%B1%BB%E5%9B%BE/">
-                        <span class="chip bg-color">UML 类图</span>
+                    <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/">
+                        <span class="chip bg-color">虚拟机</span>
                     </a>
                     
                 </div>
@@ -903,32 +827,27 @@ UML 本身是一套符号的规定，就像数学符号和化
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">
+                <a href="/2019/12/13/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="设计模式 - 单例模式">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="设计模式 - 装饰者模式">
                         
-                        <span class="card-title">设计模式 - 单例模式</span>
+                        <span class="card-title">设计模式 - 装饰者模式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            单例模式（Singleton mode）一、概念采取一定的方法保证在整个软件系统中 ，对某个类只能存在一个对象实例，并且该类只提供一个取得其对象实例的方法。
-一、应用场景
-只需要一个实例
-各种 Manager
-各种 Factory
+                            设计模式 -  装饰者模式
+构造型模式：这些设计模式关注类和对象的组合。继承的观念被用来组合接口和定义组合对象获得新功能的方式
 
-
-
-三
+装饰器模式：允许向一个现有的对象添加新功能，同时又不改变其结构。这种类型的设计模式属于结构型模式，它是作为现有
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-26
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-13
                             </span>
                         <span class="publish-author">
                             
@@ -949,8 +868,8 @@ UML 本身是一套符号的规定，就像数学符号和化
                         <span class="chip bg-color">设计模式</span>
                     </a>
                     
-                    <a href="/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">
-                        <span class="chip bg-color">单例模式</span>
+                    <a href="/tags/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/">
+                        <span class="chip bg-color">装饰者模式</span>
                     </a>
                     
                 </div>

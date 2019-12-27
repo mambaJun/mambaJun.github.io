@@ -312,9 +312,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <div class="description center-align post-title">
-                        设计模式 - 装饰者模式
-                    </div>
+                    <h1 class="description center-align post-title">设计模式 - 装饰者模式</h1>
                 </div>
             </div>
         </div>
@@ -352,6 +350,7 @@
     }
 
     .toc-widget {
+        width: 345px;
         padding-left: 20px;
     }
 
@@ -366,6 +365,11 @@
     .toc-widget ol {
         padding: 0;
         list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
     }
 
     #toc-content ol {
@@ -731,55 +735,67 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;Current
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2019/12/13/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/">
+                <a href="/2019/12/26/elasticsearch-%E5%85%A5%E9%97%A8/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="设计模式 - 装饰者模式">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Spring boot 整合 Elasticsearch">
                         
-                        <span class="card-title">设计模式 - 装饰者模式</span>
+                        <span class="card-title">Spring boot 整合 Elasticsearch</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            设计模式 -  装饰者模式
-构造型模式：这些设计模式关注类和对象的组合。继承的观念被用来组合接口和定义组合对象获得新功能的方式
+                            Elasticsearch推荐文档
+Elasticsearch 简介
 
-装饰器模式：允许向一个现有的对象添加新功能，同时又不改变其结构。这种类型的设计模式属于结构型模式，它是作为现有
+
+Elasticsearch
+MySQL
+
+
+
+索引
+数据库
+
+
+类型
+表
+
+
+文档
+记录
+
+
+属性
+字段
+
+
+Elasticsearch 安装Spring Boot 
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-13
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-12-26
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="post-category">
-                                    设计模式
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Jun Smith
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
-                        <span class="chip bg-color">设计模式</span>
-                    </a>
-                    
-                    <a href="/tags/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/">
-                        <span class="chip bg-color">装饰者模式</span>
+                    <a href="/tags/elasticsearch/">
+                        <span class="chip bg-color">elasticsearch</span>
                     </a>
                     
                 </div>
@@ -938,7 +954,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             tocSelector: '#toc-content',
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
-            // headingsOffset: -205,
+            collapseDepth: Number(''),
             headingSelector: 'h2, h3, h4'
         });
 
@@ -1014,17 +1030,14 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 
     <footer class="page-footer bg-color">
-    <div class="container row center-align">
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
-            <span id="year">年份</span>
+            <span id="year">2019</span>
             <a href="http://www.wangjunjun.club" target="_blank">Jun Smith</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
-            
-            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">9.9k</span>&nbsp;字
             
             
             
@@ -1047,7 +1060,6 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <span id="sitetime">载入运行时间...</span>
             <script>
                 function siteTime() {
-                    window.setTimeout("siteTime()", 1000);
                     var seconds = 1000;
                     var minutes = seconds * 60;
                     var hours = minutes * 60;

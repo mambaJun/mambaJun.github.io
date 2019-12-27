@@ -4,12 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="设计模式 - 闲谈设计模式, Jun">
-    <meta name="description" content="闲谈设计模式 - 七大原则
-懂了设计模式，你就懂了面向对象分析和设计（OOA/D）的精要.
-
-一、设计模式的目的编写软件的过程，面临 == 耦合性、内聚性、维护性、可扩展性、重用性、灵活性== 等各方面的挑战。
-设计模式就是为了解决这些问题">
+    <meta name="keywords" content="JVM学习, Jun">
+    <meta name="description" content="JVM入门（一）JVM 结构
+类加载子系统 和 方法区 类加载子系统：负责从文件系统和网络中加载 Class信息，加载的类信息存放在一块 -&amp;gt; 称为方法区 除了类的信息外，方法区还存放运行时常量池信息，包括字符串面量，数字常量（这部分">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>设计模式 - 闲谈设计模式 | Jun Smith</title>
+    <title>JVM学习 | Jun Smith</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -308,12 +305,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">设计模式 - 闲谈设计模式</h1>
+                    <h1 class="description center-align post-title">JVM学习</h1>
                 </div>
             </div>
         </div>
@@ -430,27 +427,18 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
-                                <span class="chip bg-color">设计模式</span>
+                            <a href="/tags/java/">
+                                <span class="chip bg-color">java</span>
                             </a>
                         
-                            <a href="/tags/%E4%B8%83%E5%A4%A7%E5%8E%9F%E5%88%99/">
-                                <span class="chip bg-color">七大原则</span>
+                            <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/">
+                                <span class="chip bg-color">虚拟机</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="post-category">
-                                设计模式
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -459,7 +447,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2019-11-26
+                    2019-12-27
                 </div>
                 
 
@@ -468,7 +456,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.7k
+                    1.5k
                 </div>
                 
 
@@ -491,124 +479,62 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="闲谈设计模式-七大原则"><a href="#闲谈设计模式-七大原则" class="headerlink" title="闲谈设计模式 - 七大原则"></a>闲谈设计模式 - 七大原则</h1><blockquote>
-<p><strong>懂了设计模式，你就懂了面向对象分析和设计（OOA/D）的精要.</strong></p>
-</blockquote>
-<h2 id="一、设计模式的目的"><a href="#一、设计模式的目的" class="headerlink" title="一、设计模式的目的"></a>一、设计模式的目的</h2><p>编写软件的过程，面临 == 耦合性、内聚性、维护性、可扩展性、重用性、灵活性== 等各方面的挑战。</p>
-<p>设计模式就是为了解决这些问题</p>
-<ul>
-<li>代码重用性：相同功能代码，不写多次</li>
-<li>可读性：编程规范性，利于阅读和理解</li>
-<li>可扩展性：增加新的功能非常方便</li>
-<li>可靠性：当增加新的功能后对原来功能没有影响</li>
-</ul>
-<h2 id="二、设计模式七大原则"><a href="#二、设计模式七大原则" class="headerlink" title="二、设计模式七大原则"></a>二、设计模式七大原则</h2><p>编程时遵循的原则，各种设计模式的基础</p>
-<h3 id="1-单一职责原则"><a href="#1-单一职责原则" class="headerlink" title="1. 单一职责原则"></a>1. 单一职责原则</h3><ul>
-<li><p>基本介绍</p>
-<p>对类来说，一个类只负责一项职责，如果 A 负责两个不同职责：职责1，职责2.</p>
-<p>当职责1 需求变更的时候改变 A，可能会造成 职责2 执行错误，职责2 同理。</p>
-<p>所以需要将 类A 的粒度分解成 A1 , A2</p>
+                <h1 id="JVM入门（一）"><a href="#JVM入门（一）" class="headerlink" title="JVM入门（一）"></a>JVM入门（一）</h1><h2 id="JVM-结构"><a href="#JVM-结构" class="headerlink" title="JVM 结构"></a>JVM 结构</h2><ol>
+<li><p>类加载子系统 和 方法区<br> 类加载子系统：负责从文件系统和网络中加载 Class信息，加载的类信息存放在一块 -&gt; 称为方法区<br> 除了类的信息外，方法区还存放运行时常量池信息，包括字符串面量，数字常量（这部分常量信息是Class文件中常量池部分内存映射）</p>
 </li>
-<li><p>注意事项和细节</p>
-<ul>
-<li>降低类的复杂度，一个类只负责一项职责</li>
-<li>提高类的可读性，可维护性</li>
-<li>降低变更引起的风险</li>
-</ul>
+<li><p>Java堆 *<br> Java堆在虚拟机启动时建立，它是Java程序最主要的内存工作区</p>
 </li>
-</ul>
-<h3 id="2-接口隔离原则"><a href="#2-接口隔离原则" class="headerlink" title="2.接口隔离原则"></a>2.接口隔离原则</h3><ul>
-<li><p>基本介绍</p>
-<p>客户端不应该依赖它不需要的接口，也就是说 一个类的依赖应该建立在最小的接口上</p>
+<li><p>直接内存</p>
 </li>
-<li><p>处理方法</p>
-<p>将一个接口拆分成几个独立的接口，当类需要的时候多实现就可以</p>
+<li><p>垃圾回收机制 *</p>
 </li>
-</ul>
-<h3 id="3-依赖倒转原则（Dependence-Inversion-Principle）"><a href="#3-依赖倒转原则（Dependence-Inversion-Principle）" class="headerlink" title="3.依赖倒转原则（Dependence Inversion Principle）"></a>3.依赖倒转原则（Dependence Inversion Principle）</h3><ul>
-<li>基本介绍<ul>
-<li>高层模块不应该依赖底层模块，二者都应该是依赖抽象</li>
-<li>==抽象不应该依赖细节，细节应该依赖抽象==</li>
-<li>依赖倒转（倒置）的中心思想是==面向接口编程==</li>
-<li>依赖倒转原则是基于这样的设计理念：相对于细节的多边形，抽象的东西要稳定的多。以抽象为基础搭建的架构比细节为基础的架构稳定的多。在Java中，抽象指的是接口或抽象类，细节是具体的实现类</li>
-<li>使用接口或抽象类的目的是 指定好规范，而不涉及任何具体的操作，把展现细节的任务交给实现类</li>
-<li>注意事项和细节</li>
-<li>低层模块尽量都有抽象类和接口，或者两者都有程序稳定性更好。</li>
-<li>变量的声明类型尽量是抽象类或者接口，这样在变量的引用和 实际对象间存在缓冲层，利于程序拓展和优化</li>
-<li>继承时遵循里氏替换原则</li>
-</ul>
+<li><p>Java栈<br> 每个Java虚拟机线程都有一个私有的Java栈，一个线程的Java栈在线程创建的时候被创建，Java栈中保存着帧信息，<br> Java栈中保存着局部变量，方法参数，同时和Java方法的调用、返回密切相关</p>
 </li>
-</ul>
-<h3 id="4-里氏替换原则"><a href="#4-里氏替换原则" class="headerlink" title="4.里氏替换原则"></a>4.里氏替换原则</h3><ul>
-<li><p>前言思考</p>
-<ul>
-<li>继承包含这层含义：父类中凡是已经实现好的方法，实际上是在设定规范和契约，虽然不强制要求所有的子类必须遵循这些契约，但是如果子类对这些已经实现的方法任意修改，就会对整个继承体系造成破坏</li>
-<li>继承在给程序设计带来便利的同时，也带来了弊端，比如使用继承会给程序带来侵入性，程序的可移植性降低，增加对象间的耦合性，如果一个类被其他的类所继承，则这个需要修改时，必须考虑到所有子类，并且父类修改后，所有涉及的子类的功能都有可能产生故障</li>
-</ul>
-<p>那么问题来了，如何正确使用继承？</p>
-<p>答案：里氏替换原则</p>
-<ul>
-<li><p>基本介绍</p>
-<ol>
-<li><p>如果对每个类型 为 T1 的对象 o1，都有类型为 T2 的对象 o2,使得以 T1定义的所有程序 P 在所有的对象o1都代替成 o2时，程序P的行为没有发生变化，那么类型T2是类型T1的子类型。也就是，==所有引用父类的地方必须能透明地使用其子类对象==</p>
+<li><p>本地方法栈<br> 本地方法栈和Java栈十分类似，不同在 </p>
+<pre><code>Java栈用于方法调用
+本地方法栈用于本地方法调用</code></pre><p> 作为对Java虚拟机的重要拓展，Java虚拟机允许Java直接调用本地方法（通常是c写的）</p>
 </li>
-<li><p>在使用继承时 ，遵循里氏替换原则，在子类中尽量不要重写父类的方法</p>
-</li>
-<li><p>继承实际上让两个类耦合性增强了，在适当情况下，可以通过聚合、组合、依赖 来解决问题</p>
+<li><p>PC（Program Counter）<br> PC寄存器也是每个线程私有的空间创建（跟Java栈相似），Java虚拟机会给每个Java线程创建PC寄存器。在任意时刻，一个Java线程总是在执行一个方法，<br> 这个正在执行方法是 <code>当前方法</code> 。</p>
+<pre><code>如果当前方法是本地方法，那么PC寄存器的值是 undefined
+如果是Java方法，PC寄存器就会指向当前正在被执行的指令</code></pre></li>
+<li><p>执行引擎<br> 执行引擎是Java虚拟机最核心组件之一，负责执行虚拟机的字节码，现在虚拟机为了提高执行效率，会使用<code>即时编译（Just In Time JIT）</code>技术将方法编译成机器码后再执行<br><img src="https://i.loli.net/2019/12/27/d9HCTrUg73VPulD.png" alt="基本结构.png"></p>
+<h2 id="JVM堆结构图-和-分代"><a href="#JVM堆结构图-和-分代" class="headerlink" title="JVM堆结构图 和 分代"></a>JVM堆结构图 和 分代</h2><p><img src="https://i.loli.net/2019/12/27/tKQrexXydm6bLl3.png" alt="java堆结构.png"><br> Java虚拟机根据对象存活周期不同，把堆内存分成几块，一般分为<code>新生代，老年代，永久代（对于HotSpot虚拟机而言）</code>，JVM就是按照这个策略划分周期</p>
 </li>
 </ol>
+<p>为什么要分代？<br>    堆内存是虚拟机管理的<code>内存中最大的一块，垃圾回收最频繁的一块</code>，程序中所有对象实例都存放在堆内存中。给<code>堆内存分代是为了提高对象内存分配和垃圾回收效率</code><br>    如果不划分，所有新创建的对象和生命周期很长的对象放在一起，随着程序执行，堆内存需要频繁进行垃圾收集，每次回收都要遍历所有的对象<br>    遍历对象会浪费巨大的时间代价，影响GC效率</p>
+<pre><code>有了分代的情况，新创建的对象会在新生代中分配内存，经过多次回收依然存活的对象放在老年代中，静态属性、类信息方法老年代中。
+新生代中对象存活时间短，只需要在新生代中频繁进行GC
+老年代中生命周期长，GC频率低，
+永久代中一般不进行垃圾回收
+根据不同年代的特点采用适合的垃圾回收算法，分代收集很大提升了收集效率，这都是内存分代的好处</code></pre><p>内存分代划分<br>    Java虚拟机将堆内存分为<code>新生代、老年代、永久代</code>，永久代是HotSpot VM特有概念<br>    永久代主要存放<code>常量、类信息、静态变量</code>和垃圾回收关系不大</p>
+<h3 id="新生代（Yong-Generation）"><a href="#新生代（Yong-Generation）" class="headerlink" title="新生代（Yong Generation）"></a>新生代（Yong Generation）</h3><pre><code>新生成的对象优先存在新生代中，新生代对象存活率低，在新生代中，回收效率高。一般回收70%~95%
+新生代划分为三块，Eden空间和两个较小Survivor空间，默认比例为 8:1:1。
+通过 复制算法 进行
+虚拟机配置阀值默认是15 进入老年代</code></pre><h3 id="老年代（Old-Generation）"><a href="#老年代（Old-Generation）" class="headerlink" title="老年代（Old Generation）"></a>老年代（Old Generation）</h3><pre><code>在新生代中经历多次（虚拟机配置阀值）GC后仍然存活的对象进入老年代，老年代中的对象生命周期长，存活率高，在老年代中进行GC频率相对低，而且回收速度慢</code></pre><h3 id="永久代（Permanent-Generation）"><a href="#永久代（Permanent-Generation）" class="headerlink" title="永久代（Permanent Generation）"></a>永久代（Permanent Generation）</h3><pre><code>永久代存储类信息、常量、静态常量</code></pre><h2 id="JVM垃圾回收算法-和-收集器"><a href="#JVM垃圾回收算法-和-收集器" class="headerlink" title="JVM垃圾回收算法 和 收集器"></a>JVM垃圾回收算法 和 收集器</h2><ol>
+<li><p>垃圾回收常见算法</p>
+<ul>
+<li><p>引用计数法</p>
+</li>
+<li><p>复制算法（Coping）<br>  算法把内存空间划分成两个相等区域，每次只使用一个区域，垃圾回收时，遍历当前使用区域，把当前使用中的对象复制到另外一个区域中。</p>
+<pre><code>次算法每次只处理正在使用中的对象，因此复制成本小，同时复制过去以后还能进行`相应的内存整理`，不会出现“碎片”问题。此算法`缺点是需要两倍内存空间`</code></pre><p>  新生代中的survivor区<br><img src="https://i.loli.net/2019/12/27/YeRsurXDNHEnCyU.png" alt="复制算法图解"></p>
+</li>
+<li><p>标记-清除（Mark-Sweep）<br>算法执行分两个阶段，  </p>
+<ul>
+<li>第一个阶段：从引用根节点开始标记所有被引用的对象</li>
+<li>第二个阶段：遍历整个堆，把未标记对象清除<br><code>此算法需要暂停整个应用</code>，同时，会<code>产生内存碎片</code><br><img src="https://i.loli.net/2019/12/27/jSO4N6x92ZluDqT.png" alt="标记清除.png"></li>
+</ul>
+</li>
+<li><p>标记-整理（Mark-Compact）<br>算法结合了“标记-清除”和“复制”两个算法优点。分为两个阶段  </p>
+<ul>
+<li>第一个阶段：从根节点开始标记所有被引用对象</li>
+<li>第二个阶段：遍历整的堆，把清除未标记对象并且把对象“压缩”到堆中的其中一块，按顺序排放，<br>这个算法避免了“标记-清除”的碎片问题，也避免了“复制”算法的空间问题<br><img src="https://i.loli.net/2019/12/27/1RnjXCJVL7gNIF4.png" alt="标记整理.png"></li>
+</ul>
 </li>
 </ul>
 </li>
-<li><p>解决方法</p>
-<blockquote>
-<p>类B 继承 类A  并重写父类方法，造成原有功能错误</p>
-<p>实际编程中，常常会重写父类的方法完成新功能，这样写起来虽然简单，但是整个继承体系的复用性比较差，特别是运行多态比较频繁的时候</p>
-</blockquote>
-<p>解决方法</p>
-<p>原来的父类和子类都继承一个更通俗（抽象）的基类，原有的继承关系去掉，采用依赖、聚合、组合等关系代替</p>
-</li>
-</ul>
-<h3 id="5-开闭原则"><a href="#5-开闭原则" class="headerlink" title="5.开闭原则"></a>5.开闭原则</h3><ul>
-<li><p>基本介绍</p>
-<ol>
-<li><p>开闭原则（Open Closed Principle）是编程中最基础、最重要的设计原则</p>
-</li>
-<li><p>一个软件实体 如 类、模块、函数 应该对外开放，对修改关闭。用抽象构建框架，用实现扩展细节</p>
-</li>
-<li><p>当软件需要变化时，尽量通过扩展软件实体的行为来实现变化，而不是通过修改已有的代码来实现变化</p>
-</li>
-<li><p>编程中遵循其他原则，以及使用设计模式的目的就是遵循开闭原则</p>
+<li><p>JVM垃圾收集器<br>Scavenge GC（次收集）和Full GC（前收集）<br>新生代 GC（Scavenge GC）：Scavenge GC指发生在新生代的GC，因为新生代的Java对象大多都是存活时间短，所以Scavenge GC非常频繁，回收速度也比较快。<br>当Eden空间空间不足给对象分配内存时，会触发Scavenge GC。</p>
 </li>
 </ol>
-</li>
-</ul>
-<h3 id="6-迪米特法则（降低类之间的耦合度）"><a href="#6-迪米特法则（降低类之间的耦合度）" class="headerlink" title="6.迪米特法则（降低类之间的耦合度）"></a>6.迪米特法则（降低类之间的耦合度）</h3><ul>
-<li><p>基本介绍</p>
-<ol>
-<li><p>一个对象应该对其他对象保持最少的了解</p>
-</li>
-<li><p>类与类关系越密切，耦合度越大</p>
-</li>
-<li><p>迪米特法则（Demeter Principle - 最少知道法则）:一个类对自己依赖的类知道的越少越好。也就是，对于被依赖的类不管多么复杂，都尽量将逻辑封装在类的内部。对外除了提供的 public 方法，不对外泄露任何信息</p>
-</li>
-<li><p>更简单的定义：只与直接的朋友通信</p>
-<p>直接的朋友：每个对象都会与其他对象有耦合关系，只要两个对象之间有耦合关系，就说这两个对象之间是<code>朋友关系</code>。耦合的方式很多，依赖、关联、组合、聚合 等。其中，我们称出现<code>成员变量，方法参数，方法返回值</code>中的类为<code>直接的朋友</code>，而出现在局部变量中的类不是直接的朋友。也就是说，陌生的类最好不要以局部变量的形式出现在类的内部。</p>
-</li>
-</ol>
-</li>
-<li><p>注意事项和细节</p>
-<ol>
-<li>迪米特法则的核心是降低类之间的耦合度</li>
-<li>由于每个类都减少不了不必要的依赖，因此迪米特法则<code>只是要求降低</code>类之间的耦合关系，并不是要求完全没有依赖关系</li>
-</ol>
-</li>
-</ul>
-<h3 id="7-合成复用原则（Composite-Reuse-Principle）"><a href="#7-合成复用原则（Composite-Reuse-Principle）" class="headerlink" title="7.合成复用原则（Composite Reuse Principle）"></a>7.合成复用原则（Composite Reuse Principle）</h3><ul>
-<li><p>基本介绍</p>
-<p>原则是尽量使用合成/聚合的方式，而不是继承</p>
-</li>
-</ul>
 
             </div>
             <hr/>
@@ -634,7 +560,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://www.wangjunjun.club/2019/11/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E9%97%B2%E8%B0%88%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E4%B8%83%E5%A4%A7%E5%8E%9F%E5%88%99/">http://www.wangjunjun.club/2019/11/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E9%97%B2%E8%B0%88%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E4%B8%83%E5%A4%A7%E5%8E%9F%E5%88%99/</a>
+                    <a href="http://www.wangjunjun.club/2019/12/27/JVM%E5%AD%A6%E4%B9%A0/">http://www.wangjunjun.club/2019/12/27/JVM%E5%AD%A6%E4%B9%A0/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -672,12 +598,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
-                                    <span class="chip bg-color">设计模式</span>
+                                <a href="/tags/java/">
+                                    <span class="chip bg-color">java</span>
                                 </a>
                             
-                                <a href="/tags/%E4%B8%83%E5%A4%A7%E5%8E%9F%E5%88%99/">
-                                    <span class="chip bg-color">七大原则</span>
+                                <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/">
+                                    <span class="chip bg-color">虚拟机</span>
                                 </a>
                             
                         </div>
@@ -843,53 +769,49 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2019/11/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-UML%E7%B1%BB%E5%9B%BE/">
+                <a href="/2019/12/27/JVM%E5%AD%A6%E4%B9%A0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="设计模式 - UML类图">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="JVM学习">
                         
-                        <span class="card-title">设计模式 - UML类图</span>
+                        <span class="card-title">JVM学习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            UML 类图一、基本介绍
-UML–Unified modeling language（统一建模语言），是一种用于软件系统分析和设计的语言工具，它用于帮助软件开发人员进行思考和记录思路的结果。
-
-UML 本身是一套符号的规定，就像数学符号和化
+                            JVM入门（一）JVM 结构
+类加载子系统 和 方法区 类加载子系统：负责从文件系统和网络中加载 Class信息，加载的类信息存放在一块 -&gt; 称为方法区 除了类的信息外，方法区还存放运行时常量池信息，包括字符串面量，数字常量（这部分
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-28
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-27
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="post-category">
-                                    设计模式
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Jun Smith
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
-                        <span class="chip bg-color">设计模式</span>
+                    <a href="/tags/java/">
+                        <span class="chip bg-color">java</span>
                     </a>
                     
-                    <a href="/tags/UML-%E7%B1%BB%E5%9B%BE/">
-                        <span class="chip bg-color">UML 类图</span>
+                    <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/">
+                        <span class="chip bg-color">虚拟机</span>
                     </a>
                     
                 </div>
@@ -903,41 +825,54 @@ UML 本身是一套符号的规定，就像数学符号和化
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">
+                <a href="/2019/12/26/elasticsearch-%E5%85%A5%E9%97%A8/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="设计模式 - 单例模式">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Spring boot 整合 Elasticsearch">
                         
-                        <span class="card-title">设计模式 - 单例模式</span>
+                        <span class="card-title">Spring boot 整合 Elasticsearch</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            单例模式（Singleton mode）一、概念采取一定的方法保证在整个软件系统中 ，对某个类只能存在一个对象实例，并且该类只提供一个取得其对象实例的方法。
-一、应用场景
-只需要一个实例
-各种 Manager
-各种 Factory
+                            Elasticsearch推荐文档
+Elasticsearch 简介
+
+
+Elasticsearch
+MySQL
 
 
 
-三
+索引
+数据库
+
+
+类型
+表
+
+
+文档
+记录
+
+
+属性
+字段
+
+
+Elasticsearch 安装Spring Boot 
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-26
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-26
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="post-category">
-                                    设计模式
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Jun Smith
                             
                         </span>
                     </div>
@@ -945,12 +880,8 @@ UML 本身是一套符号的规定，就像数学符号和化
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
-                        <span class="chip bg-color">设计模式</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">
-                        <span class="chip bg-color">单例模式</span>
+                    <a href="/tags/elasticsearch/">
+                        <span class="chip bg-color">elasticsearch</span>
                     </a>
                     
                 </div>
