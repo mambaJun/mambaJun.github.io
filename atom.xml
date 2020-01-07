@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.wangjunjun.club/"/>
-  <updated>2020-01-07T09:08:23.236Z</updated>
+  <updated>2020-01-07T09:36:28.703Z</updated>
   <id>http://www.wangjunjun.club/</id>
   
   <author>
@@ -17,13 +17,41 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>计算机网络-TCP协议</title>
+    <link href="http://www.wangjunjun.club/2020/01/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-TCP%E5%8D%8F%E8%AE%AE/"/>
+    <id>http://www.wangjunjun.club/2020/01/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-TCP%E5%8D%8F%E8%AE%AE/</id>
+    <published>2020-01-07T09:30:47.000Z</published>
+    <updated>2020-01-07T09:36:28.703Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="传输控制协议-TCP"><a href="#传输控制协议-TCP" class="headerlink" title="传输控制协议 TCP"></a>传输控制协议 TCP</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul><li>TCP是面向连接的传输协议</li><li>每一条TCP连接只能有两个端点（endpoint），每一条TCP连接只能是点对点（一对一）</li><li>TCP提供可靠的交付服务</li><li>TCP提供全双工通信</li><li>面向字节流</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;传输控制协议-TCP&quot;&gt;&lt;a href=&quot;#传输控制协议-TCP&quot; class=&quot;headerlink&quot; title=&quot;传输控制协议 TCP&quot;&gt;&lt;/a&gt;传输控制协议 TCP&lt;/h1&gt;&lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerli
+      
+    
+    </summary>
+    
+    
+      <category term="计算机网络" scheme="http://www.wangjunjun.club/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+    
+      <category term="计算机网络" scheme="http://www.wangjunjun.club/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+      <category term="TCP协议" scheme="http://www.wangjunjun.club/tags/TCP%E5%8D%8F%E8%AE%AE/"/>
+    
+  </entry>
+  
+  <entry>
     <title>计算机网络 UDP协议</title>
     <link href="http://www.wangjunjun.club/2020/01/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-UDP%E5%8D%8F%E8%AE%AE/"/>
     <id>http://www.wangjunjun.club/2020/01/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-UDP%E5%8D%8F%E8%AE%AE/</id>
     <published>2020-01-07T08:59:08.000Z</published>
-    <updated>2020-01-07T09:08:23.236Z</updated>
+    <updated>2020-01-07T09:31:00.941Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="UDP协议"><a href="#UDP协议" class="headerlink" title="UDP协议"></a>UDP协议</h1><h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul><li>UDP是无连接的，也就是发送数据之前不需要建立连接</li><li>UDP尽最大努力交付，但是不保证可靠的交付，同时也不支持拥塞控制</li><li>UDP是面向报文的，没有拥塞控制，适合多媒体通信（想想视频播放）</li><li>UDP支持一对一、一对多、多对一、多对多的交互通信</li><li>UDP的首部开销小，只有 8 个字节</li></ul>]]></content>
+    <content type="html"><![CDATA[<h1 id="UDP协议"><a href="#UDP协议" class="headerlink" title="UDP协议"></a>UDP协议</h1><h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul><li>UDP是无连接的，也就是发送数据之前不需要建立连接</li><li>UDP尽最大努力交付，但是不保证可靠的交付，同时也不支持拥塞控制</li><li>UDP是面向报文的，没有拥塞控制，适合多媒体通信（想想视频播放）</li><li>UDP支持一对一、一对多、多对一、多对多的交互通信</li><li>UDP的首部开销小，只有 8 个字节</li></ul><p><img src="https://i.loli.net/2020/01/07/kiHqwLajTyMFIO2.png" alt="UDP.png"></p><p>UDP首部结构（数字代表字节）</p><p><img src="https://i.loli.net/2020/01/07/Ex2D1j5gCh9r3WV.png" alt="UDP首部.png"></p><p>在计算检验和时，临时把“伪首部”和UDP用户数据报文连接在一起。伪首部仅仅是为了计算检验和</p><p><img src="https://i.loli.net/2020/01/07/BSOedH1CasJoPcD.png" alt="UDP检验和.png"></p>]]></content>
     
     <summary type="html">
     

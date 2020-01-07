@@ -18,7 +18,7 @@
     <meta name="keywords" content="Jun">
 
 
-<title>计算机网络 UDP协议 | Jun Smith</title>
+<title>计算机网络-TCP协议 | Jun Smith</title>
 
 
 
@@ -181,7 +181,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">计算机网络 UDP协议</h1>
+            <h1 class="post-title">计算机网络-TCP协议</h1>
             
                 <div class="post-meta">
                     
@@ -190,7 +190,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">January 7, 2020&nbsp;&nbsp;16:59:08</a>
+                        Date: <a href="#">January 7, 2020&nbsp;&nbsp;17:30:47</a>
                         </span>
                     
                     
@@ -206,18 +206,13 @@
         </header>
 
         <div class="post-content">
-            <h1 id="UDP协议"><a href="#UDP协议" class="headerlink" title="UDP协议"></a>UDP协议</h1><h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul>
-<li>UDP是无连接的，也就是发送数据之前不需要建立连接</li>
-<li>UDP尽最大努力交付，但是不保证可靠的交付，同时也不支持拥塞控制</li>
-<li>UDP是面向报文的，没有拥塞控制，适合多媒体通信（想想视频播放）</li>
-<li>UDP支持一对一、一对多、多对一、多对多的交互通信</li>
-<li>UDP的首部开销小，只有 8 个字节</li>
+            <h1 id="传输控制协议-TCP"><a href="#传输控制协议-TCP" class="headerlink" title="传输控制协议 TCP"></a>传输控制协议 TCP</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul>
+<li>TCP是面向连接的传输协议</li>
+<li>每一条TCP连接只能有两个端点（endpoint），每一条TCP连接只能是点对点（一对一）</li>
+<li>TCP提供可靠的交付服务</li>
+<li>TCP提供全双工通信</li>
+<li>面向字节流</li>
 </ul>
-<p><img src="https://i.loli.net/2020/01/07/kiHqwLajTyMFIO2.png" alt="UDP.png"></p>
-<p>UDP首部结构（数字代表字节）</p>
-<p><img src="https://i.loli.net/2020/01/07/Ex2D1j5gCh9r3WV.png" alt="UDP首部.png"></p>
-<p>在计算检验和时，临时把“伪首部”和UDP用户数据报文连接在一起。伪首部仅仅是为了计算检验和</p>
-<p><img src="https://i.loli.net/2020/01/07/BSOedH1CasJoPcD.png" alt="UDP检验和.png"></p>
 
         </div>
 
@@ -232,7 +227,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="http://www.wangjunjun.club/2020/01/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-UDP%E5%8D%8F%E8%AE%AE/">http://www.wangjunjun.club/2020/01/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-UDP%E5%8D%8F%E8%AE%AE/</a></span>
+                        <span><a href="http://www.wangjunjun.club/2020/01/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-TCP%E5%8D%8F%E8%AE%AE/">http://www.wangjunjun.club/2020/01/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-TCP%E5%8D%8F%E8%AE%AE/</a></span>
                     </p>
                 
                 
@@ -258,7 +253,7 @@
                     
                         <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"># 计算机网络</a>
                     
-                        <a href="/tags/UDP%E5%8D%8F%E8%AE%AE/"># UDP协议</a>
+                        <a href="/tags/TCP%E5%8D%8F%E8%AE%AE/"># TCP协议</a>
                     
                         
                 </span>
@@ -271,10 +266,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2020/01/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-TCP%E5%8D%8F%E8%AE%AE/">计算机网络-TCP协议</a>
             
-            
-            <a class="next" rel="next" href="/2019/12/27/JVM%E5%AD%A6%E4%B9%A0/">JVM学习</a>
+            <a class="next" rel="next" href="/2020/01/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-UDP%E5%8D%8F%E8%AE%AE/">计算机网络 UDP协议</a>
             
         </section>
 
