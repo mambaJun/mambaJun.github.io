@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.wangjunjun.club/"/>
-  <updated>2020-01-07T09:36:28.703Z</updated>
+  <updated>2020-01-07T10:07:01.536Z</updated>
   <id>http://www.wangjunjun.club/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://www.wangjunjun.club/2020/01/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-TCP%E5%8D%8F%E8%AE%AE/"/>
     <id>http://www.wangjunjun.club/2020/01/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-TCP%E5%8D%8F%E8%AE%AE/</id>
     <published>2020-01-07T09:30:47.000Z</published>
-    <updated>2020-01-07T09:36:28.703Z</updated>
+    <updated>2020-01-07T10:07:01.536Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="传输控制协议-TCP"><a href="#传输控制协议-TCP" class="headerlink" title="传输控制协议 TCP"></a>传输控制协议 TCP</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul><li>TCP是面向连接的传输协议</li><li>每一条TCP连接只能有两个端点（endpoint），每一条TCP连接只能是点对点（一对一）</li><li>TCP提供可靠的交付服务</li><li>TCP提供全双工通信</li><li>面向字节流</li></ul>]]></content>
+    <content type="html"><![CDATA[<h1 id="传输控制协议-TCP"><a href="#传输控制协议-TCP" class="headerlink" title="传输控制协议 TCP"></a>传输控制协议 TCP</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul><li><p>TCP是面向连接的传输协议</p></li><li><p>每一条TCP连接只能有两个端点（endpoint），每一条TCP连接只能是点对点（一对一）</p><p>TCP连接的端点不是主机，不是主机IP地址，不是应用进程，也不是传输层的协议端口。TCP连接的端点是套接字（socket）（进程的入口）</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">套接字 socket = （IP地址：端口）</span><br><span class="line">每一条TCP连接唯一地被通信两端的两个端点（套接字）确定</span><br><span class="line">TCP连接 ::= &#123;Socket1,Socket2&#125;=&#123;(IP1:port1),(IP2:port2)&#125;</span><br></pre></td></tr></table></figure></li></ul><ul><li><p>TCP提供可靠的交付服务</p></li><li><p>TCP提供全双工通信</p></li><li><p>面向字节流</p></li></ul><p><img src="https://i.loli.net/2020/01/07/zxAUH6cR8nYBhqi.png" alt="tcp1.png">)<img src="https://i.loli.net/2020/01/07/e3zGocvkX2lbQJR.png" alt="tcp2.png"></p><p><img src="https://i.loli.net/2020/01/07/LTxVzPCHrm453IA.png" alt="tcp3.png"></p><p><img src="https://i.loli.net/2020/01/07/LF3kS7ReVmdUI41.png" alt="tcp4.png"></p><p><img src="https://i.loli.net/2020/01/07/tKeLzubr8ABQypC.png" alt="tcp5.png"></p><p><img src="https://i.loli.net/2020/01/07/MZ8D6pt9gAWIsRq.png" alt="tcp6.png"></p><p>##　TCP协议特点</p><ol><li>TCP实现可靠传输（三次握手）</li><li>TCP实现流量控制</li><li>TCP避免网络拥塞</li></ol>]]></content>
     
     <summary type="html">
     
@@ -49,7 +49,7 @@
     <link href="http://www.wangjunjun.club/2020/01/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-UDP%E5%8D%8F%E8%AE%AE/"/>
     <id>http://www.wangjunjun.club/2020/01/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-UDP%E5%8D%8F%E8%AE%AE/</id>
     <published>2020-01-07T08:59:08.000Z</published>
-    <updated>2020-01-07T09:31:00.941Z</updated>
+    <updated>2020-01-07T09:38:59.914Z</updated>
     
     <content type="html"><![CDATA[<h1 id="UDP协议"><a href="#UDP协议" class="headerlink" title="UDP协议"></a>UDP协议</h1><h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul><li>UDP是无连接的，也就是发送数据之前不需要建立连接</li><li>UDP尽最大努力交付，但是不保证可靠的交付，同时也不支持拥塞控制</li><li>UDP是面向报文的，没有拥塞控制，适合多媒体通信（想想视频播放）</li><li>UDP支持一对一、一对多、多对一、多对多的交互通信</li><li>UDP的首部开销小，只有 8 个字节</li></ul><p><img src="https://i.loli.net/2020/01/07/kiHqwLajTyMFIO2.png" alt="UDP.png"></p><p>UDP首部结构（数字代表字节）</p><p><img src="https://i.loli.net/2020/01/07/Ex2D1j5gCh9r3WV.png" alt="UDP首部.png"></p><p>在计算检验和时，临时把“伪首部”和UDP用户数据报文连接在一起。伪首部仅仅是为了计算检验和</p><p><img src="https://i.loli.net/2020/01/07/BSOedH1CasJoPcD.png" alt="UDP检验和.png"></p>]]></content>
     
