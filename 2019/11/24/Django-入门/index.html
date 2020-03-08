@@ -215,7 +215,8 @@
 <li><strong>init</strong>.py 项目初始化文件，每当服务器启动的时候，都会自动执行</li>
 <li>urls.py :项目的基础url 配置文件</li>
 <li>wsgi.py：应用服务器配置文件</li>
-<li>setting.py：项目的主设置文件<h3 id="2-启动服务"><a href="#2-启动服务" class="headerlink" title="2.启动服务"></a>2.启动服务</h3><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python  manage.py runserver</span><br></pre></td></tr></table></figure>
+<li>setting.py：项目的主设置文件<h3 id="2-启动服务"><a href="#2-启动服务" class="headerlink" title="2.启动服务"></a>2.启动服务</h3><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 安装django</span></span><br><span class="line">pip3 install django==2.0.2</span><br><span class="line"><span class="meta">#</span><span class="bash"> 进入桌面文件夹</span></span><br><span class="line">cd desktop</span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建新项目 mall</span></span><br><span class="line">django-admin startproject mall</span><br><span class="line"><span class="meta">#</span><span class="bash"> 运行manage.py ，启动web服务器</span></span><br><span class="line">python manage.py runserver</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python  manage.py runserver</span><br></pre></td></tr></table></figure>
 manage.py   负责执行Django中的各项操作文件</li>
 <li>启动服务<ul>
 <li>创建管理员</li>
