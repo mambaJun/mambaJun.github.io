@@ -208,7 +208,7 @@
         <div class="post-content">
             <p>[TOC]</p>
 <h1 id="Java虚拟机"><a href="#Java虚拟机" class="headerlink" title="Java虚拟机"></a>Java虚拟机</h1><p><a href="https://docs.oracle.com/javase/8/docs/" target="_blank" rel="noopener">认识Java</a></p>
-<h2 id="Java内存区域-与-内存溢出-异常"><a href="#Java内存区域-与-内存溢出-异常" class="headerlink" title="Java内存区域 与 内存溢出 异常"></a>Java内存区域 与 内存溢出 异常</h2><h3 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h3><h4 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h4><blockquote>
+<h2 id="Java内存区域-与-内存溢出-异常"><a href="#Java内存区域-与-内存溢出-异常" class="headerlink" title="Java内存区域 与 内存溢出 异常"></a>Java内存区域 与 内存溢出 异常</h2><h3 id="一、-运行时数据区域"><a href="#一、-运行时数据区域" class="headerlink" title="一、 运行时数据区域"></a>一、 运行时数据区域</h3><h4 id="1-程序计数器"><a href="#1-程序计数器" class="headerlink" title="1. 程序计数器"></a>1. 程序计数器</h4><blockquote>
 <p>程序计数器（Program Counter Register）是一块较小的内存空间，可以看作是当前线程所执行的字节码的行号指示器。</p>
 </blockquote>
 <p>  每个线程都有独立的程序计数器，各个线程之间计数器互不影响，<code>独立存储线程私有内存</code></p>
@@ -216,13 +216,13 @@
 <li>线程正在执<code>行一个Java方法</code>，计数器记录的是<code>正在执行的虚拟机字节码指令的地址</code></li>
 <li>如果正在执行一个<code>native方法</code>，这个<code>计数器 为 空（undefined）</code></li>
 </ul>
-<h4 id="Java虚拟栈"><a href="#Java虚拟栈" class="headerlink" title="Java虚拟栈"></a>Java虚拟栈</h4><blockquote>
+<h4 id="2-Java虚拟栈"><a href="#2-Java虚拟栈" class="headerlink" title="2. Java虚拟栈"></a>2. Java虚拟栈</h4><blockquote>
 <p>Java虚拟栈（Java Virtual Machine Stacks）<code>也是线程私有的，它的生命周期和线程相同</code>。虚拟机栈描述的是Java方法执行的内存模型：<code>每个方法在执行的同时都会创建一个栈帧</code>（Stack Frame）用于存储<code>局部变量表、操作数栈、动态链接、方法出口</code> 等信息。每个方法从<code>调用</code>直到<code>执行完成</code>的过程，就对应<code>一个栈帧在虚拟机栈中入栈到出栈的过程</code>。</p>
 </blockquote>
-<h4 id="本地-方法栈"><a href="#本地-方法栈" class="headerlink" title="本地 方法栈"></a>本地 方法栈</h4><blockquote>
+<h4 id="3-本地-方法栈"><a href="#3-本地-方法栈" class="headerlink" title="3. 本地 方法栈"></a>3. 本地 方法栈</h4><blockquote>
 <p>本地方法栈（native method stack）与<code>Java虚拟机栈</code>所发挥的作用是非常相似的，它们之间的区别是<code>Java虚拟机栈 为虚拟机执行Java方法（字节码）服务，本地方法栈 为虚拟机使用到的native方法 服务。</code></p>
 </blockquote>
-<h4 id="Java堆"><a href="#Java堆" class="headerlink" title="Java堆"></a>Java堆</h4><blockquote>
+<h4 id="4-Java堆"><a href="#4-Java堆" class="headerlink" title="4. Java堆"></a>4. Java堆</h4><blockquote>
 <p>Java堆（Java Heap）是Java虚拟机所管理的内存中最大的一块。 Java堆是被<code>所有线程共享</code>的一块<code>内存区域</code>，在<code>虚拟机启动时创建</code>。<code>目的：</code>存放对象实例，几乎所有的对象实例都在这里分配内存。</p>
 <blockquote>
 <p>所有的对象实例以及数组都要在堆上分配，但是随着 JIT 编辑器的发展与逃逸分析技术逐渐成熟，栈上分配、标量替换 优化技术将会导致一些微妙变化发生，所有对象都分配在堆上也渐渐变得 不是 那么 <code>绝对</code>了</p>
@@ -236,14 +236,70 @@
 </ol>
 <p>从<code>内存分配</code>的角度来看，线程共享的<code>Java堆</code>中可能划分出<code>多个线程私有的分配缓冲区（Thread Local Allocation Buffer，TLAB）</code></p>
 <p>Java堆<code>只要在逻辑上连续即可，不一定要物理上连续</code>。在实现时候，是可以扩展的（通过-Xmx  和 -Xms 控制）。如果在堆上没有内存完成实例分配，而且堆也无法拓展时 就会抛出 OutOfMemoryError异常</p>
-<h4 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h4><blockquote>
+<h4 id="5-方法区"><a href="#5-方法区" class="headerlink" title="5. 方法区"></a>5. 方法区</h4><blockquote>
 <p>方法区（Method Area）与Java堆一样，是各个线程共享的内存区域，它用于<code>存储已被虚拟机加载</code>的<code>类信息、常量、静态变量、即时编译器 编译后的代码</code>数据。别名（非堆 用来区分Java堆区）</p>
 </blockquote>
 <p>JDK1.7 的 HotSpot 字符串常量池 移出 永久代</p>
 <p>Java虚拟机规范 对 方法区的限制非常宽松，在方法区 很少进行垃圾收集，内存回收目标 主要是针对常量池的回收和堆对类型的卸载</p>
-<h4 id="运行时常量池"><a href="#运行时常量池" class="headerlink" title="运行时常量池"></a>运行时常量池</h4><blockquote>
-<p>常量池（Constant Pool Table）用于存放编译器生成的<code>各种字面量</code>和<code>符号引用</code>，这部分内容将<code>在类加载后</code> 进入方法区运行时常量池里<code>存放</code>。</p>
+<h4 id="6-运行时常量池"><a href="#6-运行时常量池" class="headerlink" title="6. 运行时常量池"></a>6. 运行时常量池</h4><blockquote>
+<p>运行时常量池（Runtime Constant Pool）是方法区的一部分。Class 文件中除了类的 <code>版本、字段、方法、接口</code>等描述的信息外，还有一项信息是<code>常量池（Constant Pool Table）</code>用于存放编译器生成的<code>各种字面量</code>和<code>符号引用</code>，这部分内容将<code>在类加载后</code> 进入方法区运行时常量池里<code>存放</code>。</p>
+<p>运行时常量池 相对于Class文件常量池的另外一个重要特征是具备动态性，Java语言并不要求常量一定只有编译期才能产生，运行期间也可能将新的常量放入池中，<code>例：String 类 的intern() 方法</code></p>
 </blockquote>
+<p>运行时常量池是方法区的一部分，自然受到方法区的限制，当常量池无法再申请到内存的时就会抛出　OutOfMemoryError 异常。</p>
+<h4 id="7-直接内存"><a href="#7-直接内存" class="headerlink" title="7. 直接内存"></a>7. 直接内存</h4><blockquote>
+<p>​    直接内存（Direct Memory）不是<code>虚拟机运行时候数据区的一部分</code>，也不是<code>Java虚拟机规范中定义的内存区域</code>。</p>
+<p>​    在JDK1.4 中新加入的NIO（New Input/Output）类，引入了一种基于通道（Channel）和缓存区（Buffer）的 I/O 方式，它可以使用Native函数库直接分配堆外内存，<code>然后通过一个存储在Java堆中的DirectByteBuffer对象作为这块内存的引用进行操作</code>。这样就能在一些场景中显著提高性能，来避免在Java堆 和 Native堆中来回复制数据。</p>
+<p>​    本机直接内存的分配不会受到Java堆大小的限制。但是，既然是内存，肯定还是会受到本机总内存（包括RAM 以及 SWAP区 或者分页文件）大小以及处理器寻址的限制。</p>
+</blockquote>
+<h3 id="二、HotSpot-虚拟机对象探秘"><a href="#二、HotSpot-虚拟机对象探秘" class="headerlink" title="二、HotSpot 虚拟机对象探秘"></a>二、HotSpot 虚拟机对象探秘</h3><p>这里会介绍 虚拟机内存中的数据的其他细节，比如 它们是<code>如何创建</code>、<code>如何布局</code> 以及 <code>如何访问的</code>，这里探讨<code>HotSpot 虚拟机 在Java堆中 对象分配、布局 和 访问 的全过程</code>。</p>
+<h4 id="1-对象的创建"><a href="#1-对象的创建" class="headerlink" title="1. 对象的创建"></a>1. 对象的创建</h4><ul>
+<li><p>类加载检查</p>
+<blockquote>
+<p>​    虚拟机遇到一条 new 指令时，首先将去检查这个<code>指令的参数</code>是否能在<code>常量池中定位到一个类的符号引用，并且检查这个符号引用代表的类是否已经被加载、解析和初始化过。如果没有，那必须先执行相应的类加载过程。</code></p>
+</blockquote>
+<p>检查是否创建过，创建过直接使用引用，没创建 执行类加载过程</p>
+</li>
+</ul>
+<ul>
+<li><p>虚拟机为新生对象分配内存</p>
+<p>在 <code>类加载检查后（也就是确保类已经生成了）</code>，在类加载完成后已经确定了 要创建对象所需要的内存的大小是多少。</p>
+<p>两种情况：</p>
+<ol>
+<li><p>Java堆绝对规整 </p>
+<p>指针碰撞    已用和空闲 中间放着一个指针作为分界点</p>
+</li>
+<li><p>Java堆不规整 </p>
+<p>空闲列表    虚拟机维护一个列表，记录哪些内存可以使用</p>
+</li>
+</ol>
+</li>
+<li><p>考虑虚拟机创建是否频繁行为</p>
+<p>两种解决方案：</p>
+<ol>
+<li><p>对分配内存空间的动作进行同步处理 实际上虚拟机采用 <code>CAS配上失败重试的方式保证更新操作的原子性</code></p>
+</li>
+<li><p>把内存分配的动作按照线程划分在不同的空间之中进行，即 每个线程在Java堆中预先分配一小块内存，称为<code>本地线程分配缓冲（Thread Local Allocation Buffer，TLAB）</code>。哪个线程要分配内存，就在哪个线程的TLAB上分配，只有TLAB<code>用完分配新的TLAB时</code>，才需要<code>同步锁定</code>。</p>
+<p><code>虚拟机是否使用TLAB：通过 -XX：+/-UseTLAB</code></p>
+</li>
+</ol>
+</li>
+<li><p>内存分配完后，虚拟机将分配到的内存空间都初始化为零值（不包括对象头）</p>
+<p>如果使用 TLAB，在TLAB分配前进行。<code>（保证对象的实例字段在Java代码中可以不赋值就可以直接使用，程序访问到这些字段的数据类型所对应的 零值）</code></p>
+</li>
+<li><p>虚拟机对对象进行必要的设置</p>
+<p>对象信息头（Object Header）中：对象是哪个类实例、如何才能找到类的元数据信息、对象的哈希码、对象的GC分代年龄</p>
+</li>
+</ul>
+<p>到这里位置</p>
+<p>​    从<code>虚拟机的角度</code>看 已经产生一个新的对象产生了，</p>
+<p>​    从<code>Java程序的视角</code>看 对象创建才刚开始<init>方法还没有执行，所有字段都为 零</p>
+<h4 id="2-对象的内存布局"><a href="#2-对象的内存布局" class="headerlink" title="2. 对象的内存布局"></a>2. 对象的内存布局</h4><p>HotSpot 中，对象在<code>内存中存储布局</code>分为 3 块区域：对象头（Header）、实例数据（Instance Data）、对齐填充（Padding）</p>
+<ul>
+<li><p>对象头</p>
+<p>对象头包括两部分信息，</p>
+<p>第一部分用于存储对象自身的运行时数据，哈希码（Hash Code）、GC分代年龄、锁状态、线程持有锁、偏向线程ID、偏向时间戳，这部分长度32bit（32位虚拟机）或64bit（64位虚拟机）<code>Mark Word</code></p>
+</li>
+</ul>
 
         </div>
 
