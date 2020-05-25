@@ -23,8 +23,6 @@
 <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
 
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
-
 
 <!-- 主题依赖的图标库，不要自行修改 -->
 
@@ -144,7 +142,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    727 字
+                    728 字
                   </span>
                 
 
@@ -190,7 +188,8 @@
             
             <article class="markdown-body">
               <p>[TOC]</p>
-<h1 id="计算机网络-应用层小结"><a href="#计算机网络-应用层小结" class="headerlink" title="计算机网络 应用层小结"></a>计算机网络 应用层小结</h1><table>
+<h1 id="计算机网络-应用层小结"><a href="#计算机网络-应用层小结" class="headerlink" title="计算机网络 应用层小结"></a>计算机网络 应用层小结</h1><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>OSI</th>
@@ -198,7 +197,8 @@
 <th>TCP/IP协议集</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>应用层</td>
 <td>应用层</td>
 <td>Telent，FTP，SMTP，DNS，HTTP，RDP，POP3，SMTP等</td>
@@ -231,14 +231,16 @@
 <tr>
 <td>物理层</td>
 <td>网络接口</td>
-<td></td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h2 id="域名系统DNS（Domain-Name-System）"><a href="#域名系统DNS（Domain-Name-System）" class="headerlink" title="域名系统DNS（Domain Name System）"></a>域名系统DNS（Domain Name System）</h2><blockquote>
 <p>​    在用户与互联网的主机通信时，必须要知道对方IP地址。然而用户很难记住二进制的地址。在应用层为了便于用户记住各种网络应用。在互联网中不仅有IP地址，还有域名。域名服务器DNS可以把互联网上的主机名字解析（转换）为 IP地址。域名系统：域名系统其实是名字系统，只不过互联网的命名系统种使用了许多<code>域</code>，所以叫做域名。</p>
 </blockquote>
 <p>DNS域名服务器作用：负责解析域名  将域名解析成IP地址。</p>
 <p>域名：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -246,7 +248,8 @@
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>根域名</td>
 <td></td>
 </tr>
@@ -258,7 +261,9 @@
 <td>二级域名</td>
 <td>自己定义申请的域名</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h3 id="域名解析过程"><a href="#域名解析过程" class="headerlink" title="域名解析过程"></a>域名解析过程</h3><h2 id="动态主机配置协议-DHCP"><a href="#动态主机配置协议-DHCP" class="headerlink" title="动态主机配置协议 DHCP"></a>动态主机配置协议 DHCP</h2><h3 id="DHCP-动态主机配置"><a href="#DHCP-动态主机配置" class="headerlink" title="DHCP 动态主机配置"></a>DHCP 动态主机配置</h3><ul>
 <li>静态IP地址</li>
 <li>动态IP地址</li>
@@ -286,15 +291,7 @@
 </ul>
 <h2 id="远程终端协议-Telnet"><a href="#远程终端协议-Telnet" class="headerlink" title="远程终端协议 Telnet"></a>远程终端协议 Telnet</h2><p>默认23端口</p>
 <h2 id="远程桌面-RDP（Remote-Desktop-Protocol）"><a href="#远程桌面-RDP（Remote-Desktop-Protocol）" class="headerlink" title="远程桌面 RDP（Remote Desktop Protocol）"></a>远程桌面 RDP（Remote Desktop Protocol）</h2><p>默认监听 TCP:3389</p>
-<pre class=" language-hljs shell"><span class="hljs-meta">#</span><span class="bash"><code class="language-hljs shell"><span class="hljs-meta">#</span><span class="bash"> 更改用户密码</span>
-net user administrator al!
-<span class="hljs-meta">#</span><span class="bash"> 添加用户</span>
-net user jun al! /add
-<span class="hljs-meta">#</span><span class="bash"> 将用户添加到远程桌面组 Remote Desktop Users组</span>
-<span class="hljs-meta">#</span><span class="bash"> Server多用户操作系统 启用远程桌面可以多用户同时使用服务器</span></code></pre>
-
-
-
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 更改用户密码</span></span><br><span class="line">net user administrator al!</span><br><span class="line"><span class="meta">#</span><span class="bash"> 添加用户</span></span><br><span class="line">net user jun al! /add</span><br><span class="line"><span class="meta">#</span><span class="bash"> 将用户添加到远程桌面组 Remote Desktop Users组</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Server多用户操作系统 启用远程桌面可以多用户同时使用服务器</span></span><br></pre></td></tr></table></figure>
 <h2 id="超文本传输协议HTTP-（Hyper-Text-Transfer-Protocol）"><a href="#超文本传输协议HTTP-（Hyper-Text-Transfer-Protocol）" class="headerlink" title="超文本传输协议HTTP （Hyper Text Transfer Protocol）"></a>超文本传输协议HTTP （Hyper Text Transfer Protocol）</h2><h3 id="万维网（World-Wide-Web）"><a href="#万维网（World-Wide-Web）" class="headerlink" title="万维网（World Wide Web）"></a>万维网（World Wide Web）</h3><ul>
 <li><p>客户服务器方式</p>
 </li>
@@ -392,7 +389,7 @@ net user jun al! /add
 
   <div class="col-lg-7 mx-auto nopadding-md">
     <div class="container custom post-content mx-auto">
-      <img src="https://octodex.github.com/images/jetpacktocat.png" srcset="/img/loading.gif" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
+      <img src="https://octodex.github.com/images/jetpacktocat.png" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
     </div>
   </div>
 
@@ -435,14 +432,14 @@ net user jun al! /add
   
 
   <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-        <span>Fluid</span></a>
-    </div>
-    
+    <div class="text-center py-3">
+        <div>
+            <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+            <i class="iconfont icon-love"></i>
+            <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+                <span>Fluid</span></a>
+        </div>
+        
   <div>
     
       <!-- 不蒜子统计PV -->
@@ -461,10 +458,10 @@ net user jun al! /add
   </div>
 
 
-    
+        
 
-    
-  </div>
+        
+    </div>
 </footer>
 
 <!-- SCRIPTS -->
@@ -472,8 +469,6 @@ net user jun al! /add
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
 <script  src="/js/main.js" ></script>
 
-
-  <script  src="/js/lazyload.js" ></script>
 
 
 
@@ -530,7 +525,7 @@ net user jun al! /add
       ],
       cursorChar: "_",
       typeSpeed: 70,
-      loop: true,
+      loop: false,
     });
     typed.stop();
     $(document).ready(function () {

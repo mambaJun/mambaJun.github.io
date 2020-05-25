@@ -23,8 +23,6 @@
 <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
 
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
-
 
 <!-- 主题依赖的图标库，不要自行修改 -->
 
@@ -196,46 +194,43 @@
 </li>
 <li><p>直接内存</p>
 </li>
-<li><p>垃圾回收机制 *</p>
-</li>
-<li><p>Java栈<br> 每个Java虚拟机线程都有一个私有的Java栈，一个线程的Java栈在线程创建的时候被创建，Java栈中保存着帧信息，<br> Java栈中保存着局部变量，方法参数，同时和Java方法的调用、返回密切相关</p>
-</li>
-<li><p>本地方法栈<br> 本地方法栈和Java栈十分类似，不同在 </p>
-<pre><code>Java栈用于方法调用
-本地方法栈用于本地方法调用</code></pre><p> 作为对Java虚拟机的重要拓展，Java虚拟机允许Java直接调用本地方法（通常是c写的）</p>
-</li>
-<li><p>PC（Program Counter）<br> PC寄存器也是每个线程私有的空间创建（跟Java栈相似），Java虚拟机会给每个Java线程创建PC寄存器。在任意时刻，一个Java线程总是在执行一个方法，<br> 这个正在执行方法是 <code>当前方法</code> 。</p>
-<pre><code>如果当前方法是本地方法，那么PC寄存器的值是 undefined
-如果是Java方法，PC寄存器就会指向当前正在被执行的指令</code></pre></li>
-<li><p>执行引擎<br> 执行引擎是Java虚拟机最核心组件之一，负责执行虚拟机的字节码，现在虚拟机为了提高执行效率，会使用<code>即时编译（Just In Time JIT）</code>技术将方法编译成机器码后再执行<br><img src="https://i.loli.net/2019/12/27/d9HCTrUg73VPulD.png" srcset="/img/loading.gif" alt="基本结构.png"></p>
-<h2 id="JVM堆结构图-和-分代"><a href="#JVM堆结构图-和-分代" class="headerlink" title="JVM堆结构图 和 分代"></a>JVM堆结构图 和 分代</h2><p><img src="https://i.loli.net/2019/12/27/tKQrexXydm6bLl3.png" srcset="/img/loading.gif" alt="java堆结构.png"><br> Java虚拟机根据对象存活周期不同，把堆内存分成几块，一般分为<code>新生代，老年代，永久代（对于HotSpot虚拟机而言）</code>，JVM就是按照这个策略划分周期</p>
-</li>
+<li>垃圾回收机制 *</li>
+<li>Java栈<br> 每个Java虚拟机线程都有一个私有的Java栈，一个线程的Java栈在线程创建的时候被创建，Java栈中保存着帧信息，<br> Java栈中保存着局部变量，方法参数，同时和Java方法的调用、返回密切相关</li>
+<li>本地方法栈<br> 本地方法栈和Java栈十分类似，不同在 <pre><code> Java栈用于方法调用
+ 本地方法栈用于本地方法调用
+</code></pre> 作为对Java虚拟机的重要拓展，Java虚拟机允许Java直接调用本地方法（通常是c写的）</li>
+<li>PC（Program Counter）<br> PC寄存器也是每个线程私有的空间创建（跟Java栈相似），Java虚拟机会给每个Java线程创建PC寄存器。在任意时刻，一个Java线程总是在执行一个方法，<br> 这个正在执行方法是 <code>当前方法</code> 。<pre><code> 如果当前方法是本地方法，那么PC寄存器的值是 undefined
+ 如果是Java方法，PC寄存器就会指向当前正在被执行的指令
+</code></pre></li>
+<li>执行引擎<br> 执行引擎是Java虚拟机最核心组件之一，负责执行虚拟机的字节码，现在虚拟机为了提高执行效率，会使用<code>即时编译（Just In Time JIT）</code>技术将方法编译成机器码后再执行<br><img src="https://i.loli.net/2019/12/27/d9HCTrUg73VPulD.png" alt="基本结构.png"><h2 id="JVM堆结构图-和-分代"><a href="#JVM堆结构图-和-分代" class="headerlink" title="JVM堆结构图 和 分代"></a>JVM堆结构图 和 分代</h2><img src="https://i.loli.net/2019/12/27/tKQrexXydm6bLl3.png" alt="java堆结构.png"><br> Java虚拟机根据对象存活周期不同，把堆内存分成几块，一般分为<code>新生代，老年代，永久代（对于HotSpot虚拟机而言）</code>，JVM就是按照这个策略划分周期</li>
 </ol>
 <p>为什么要分代？<br>    堆内存是虚拟机管理的<code>内存中最大的一块，垃圾回收最频繁的一块</code>，程序中所有对象实例都存放在堆内存中。给<code>堆内存分代是为了提高对象内存分配和垃圾回收效率</code><br>    如果不划分，所有新创建的对象和生命周期很长的对象放在一起，随着程序执行，堆内存需要频繁进行垃圾收集，每次回收都要遍历所有的对象<br>    遍历对象会浪费巨大的时间代价，影响GC效率</p>
 <pre><code>有了分代的情况，新创建的对象会在新生代中分配内存，经过多次回收依然存活的对象放在老年代中，静态属性、类信息方法老年代中。
 新生代中对象存活时间短，只需要在新生代中频繁进行GC
 老年代中生命周期长，GC频率低，
 永久代中一般不进行垃圾回收
-根据不同年代的特点采用适合的垃圾回收算法，分代收集很大提升了收集效率，这都是内存分代的好处</code></pre><p>内存分代划分<br>    Java虚拟机将堆内存分为<code>新生代、老年代、永久代</code>，永久代是HotSpot VM特有概念<br>    永久代主要存放<code>常量、类信息、静态变量</code>和垃圾回收关系不大</p>
+根据不同年代的特点采用适合的垃圾回收算法，分代收集很大提升了收集效率，这都是内存分代的好处
+</code></pre><p>内存分代划分<br>    Java虚拟机将堆内存分为<code>新生代、老年代、永久代</code>，永久代是HotSpot VM特有概念<br>    永久代主要存放<code>常量、类信息、静态变量</code>和垃圾回收关系不大</p>
 <h3 id="新生代（Yong-Generation）"><a href="#新生代（Yong-Generation）" class="headerlink" title="新生代（Yong Generation）"></a>新生代（Yong Generation）</h3><pre><code>新生成的对象优先存在新生代中，新生代对象存活率低，在新生代中，回收效率高。一般回收70%~95%
 新生代划分为三块，Eden空间和两个较小Survivor空间，默认比例为 8:1:1。
 通过 复制算法 进行
-虚拟机配置阀值默认是15 进入老年代</code></pre><h3 id="老年代（Old-Generation）"><a href="#老年代（Old-Generation）" class="headerlink" title="老年代（Old Generation）"></a>老年代（Old Generation）</h3><pre><code>在新生代中经历多次（虚拟机配置阀值）GC后仍然存活的对象进入老年代，老年代中的对象生命周期长，存活率高，在老年代中进行GC频率相对低，而且回收速度慢</code></pre><h3 id="永久代（Permanent-Generation）"><a href="#永久代（Permanent-Generation）" class="headerlink" title="永久代（Permanent Generation）"></a>永久代（Permanent Generation）</h3><pre><code>永久代存储类信息、常量、静态常量</code></pre><h2 id="JVM垃圾回收算法-和-收集器"><a href="#JVM垃圾回收算法-和-收集器" class="headerlink" title="JVM垃圾回收算法 和 收集器"></a>JVM垃圾回收算法 和 收集器</h2><h3 id="1-垃圾回收常见算法"><a href="#1-垃圾回收常见算法" class="headerlink" title="1 垃圾回收常见算法"></a>1 垃圾回收常见算法</h3><ul>
-<li><p>引用计数法</p>
-</li>
-<li><p>复制算法（Coping）<br>  算法把内存空间划分成两个相等区域，每次只使用一个区域，垃圾回收时，遍历当前使用区域，把当前使用中的对象复制到另外一个区域中。</p>
-<pre><code>次算法每次只处理正在使用中的对象，因此复制成本小，同时复制过去以后还能进行`相应的内存整理`，不会出现“碎片”问题。此算法`缺点是需要两倍内存空间`</code></pre><p>  新生代中的survivor区<br><img src="https://i.loli.net/2019/12/27/YeRsurXDNHEnCyU.png" srcset="/img/loading.gif" alt="复制算法图解"></p>
-</li>
+虚拟机配置阀值默认是15 进入老年代
+</code></pre><h3 id="老年代（Old-Generation）"><a href="#老年代（Old-Generation）" class="headerlink" title="老年代（Old Generation）"></a>老年代（Old Generation）</h3><pre><code>在新生代中经历多次（虚拟机配置阀值）GC后仍然存活的对象进入老年代，老年代中的对象生命周期长，存活率高，在老年代中进行GC频率相对低，而且回收速度慢
+</code></pre><h3 id="永久代（Permanent-Generation）"><a href="#永久代（Permanent-Generation）" class="headerlink" title="永久代（Permanent Generation）"></a>永久代（Permanent Generation）</h3><pre><code>永久代存储类信息、常量、静态常量
+</code></pre><h2 id="JVM垃圾回收算法-和-收集器"><a href="#JVM垃圾回收算法-和-收集器" class="headerlink" title="JVM垃圾回收算法 和 收集器"></a>JVM垃圾回收算法 和 收集器</h2><h3 id="1-垃圾回收常见算法"><a href="#1-垃圾回收常见算法" class="headerlink" title="1 垃圾回收常见算法"></a>1 垃圾回收常见算法</h3><ul>
+<li>引用计数法</li>
+<li>复制算法（Coping）<br>  算法把内存空间划分成两个相等区域，每次只使用一个区域，垃圾回收时，遍历当前使用区域，把当前使用中的对象复制到另外一个区域中。<pre><code>  次算法每次只处理正在使用中的对象，因此复制成本小，同时复制过去以后还能进行`相应的内存整理`，不会出现“碎片”问题。此算法`缺点是需要两倍内存空间`
+</code></pre>  新生代中的survivor区<br><img src="https://i.loli.net/2019/12/27/YeRsurXDNHEnCyU.png" alt="复制算法图解"></li>
 <li><p>标记-清除（Mark-Sweep）<br>算法执行分两个阶段，  </p>
 <ul>
 <li>第一个阶段：从引用根节点开始标记所有被引用的对象</li>
-<li>第二个阶段：遍历整个堆，把未标记对象清除<br><code>此算法需要暂停整个应用</code>，同时，会<code>产生内存碎片</code><br><img src="https://i.loli.net/2019/12/27/jSO4N6x92ZluDqT.png" srcset="/img/loading.gif" alt="标记清除.png"></li>
+<li>第二个阶段：遍历整个堆，把未标记对象清除<br><code>此算法需要暂停整个应用</code>，同时，会<code>产生内存碎片</code><br><img src="https://i.loli.net/2019/12/27/jSO4N6x92ZluDqT.png" alt="标记清除.png"></li>
 </ul>
 </li>
 <li><p>标记-整理（Mark-Compact）<br>算法结合了“标记-清除”和“复制”两个算法优点。分为两个阶段  </p>
 <ul>
 <li>第一个阶段：从根节点开始标记所有被引用对象</li>
-<li>第二个阶段：遍历整的堆，把清除未标记对象并且把对象“压缩”到堆中的其中一块，按顺序排放，<br>这个算法避免了“标记-清除”的碎片问题，也避免了“复制”算法的空间问题<br><img src="https://i.loli.net/2019/12/27/1RnjXCJVL7gNIF4.png" srcset="/img/loading.gif" alt="标记整理.png"></li>
+<li>第二个阶段：遍历整的堆，把清除未标记对象并且把对象“压缩”到堆中的其中一块，按顺序排放，<br>这个算法避免了“标记-清除”的碎片问题，也避免了“复制”算法的空间问题<br><img src="https://i.loli.net/2019/12/27/1RnjXCJVL7gNIF4.png" alt="标记整理.png"></li>
 </ul>
 </li>
 </ul>
@@ -320,7 +315,7 @@
 
   <div class="col-lg-7 mx-auto nopadding-md">
     <div class="container custom post-content mx-auto">
-      <img src="https://octodex.github.com/images/jetpacktocat.png" srcset="/img/loading.gif" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
+      <img src="https://octodex.github.com/images/jetpacktocat.png" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
     </div>
   </div>
 
@@ -363,14 +358,14 @@
   
 
   <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-        <span>Fluid</span></a>
-    </div>
-    
+    <div class="text-center py-3">
+        <div>
+            <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+            <i class="iconfont icon-love"></i>
+            <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+                <span>Fluid</span></a>
+        </div>
+        
   <div>
     
       <!-- 不蒜子统计PV -->
@@ -389,10 +384,10 @@
   </div>
 
 
-    
+        
 
-    
-  </div>
+        
+    </div>
 </footer>
 
 <!-- SCRIPTS -->
@@ -400,8 +395,6 @@
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
 <script  src="/js/main.js" ></script>
 
-
-  <script  src="/js/lazyload.js" ></script>
 
 
 
@@ -458,7 +451,7 @@
       ],
       cursorChar: "_",
       typeSpeed: 70,
-      loop: true,
+      loop: false,
     });
     typed.stop();
     $(document).ready(function () {

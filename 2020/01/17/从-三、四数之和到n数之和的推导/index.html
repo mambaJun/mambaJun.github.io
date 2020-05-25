@@ -23,8 +23,6 @@
 <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
 
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
-
 
 <!-- 主题依赖的图标库，不要自行修改 -->
 
@@ -144,7 +142,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    741 字
+                    767 字
                   </span>
                 
 
@@ -184,7 +182,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：4 months ago
+                  本文最后更新于：4 minutes ago
                 
               </p>
             
@@ -209,77 +207,8 @@
 <li>over<br>提示：<br> for 和 递归 可以互相转换，也就是说通过递归，一直到递归出口，但是递归比for更加消耗内存，这个方法不适用n 过大，还在刷题总结中，后面看看有没有更好的方法</li>
 </ol>
 <ul>
-<li>代码<br>三数之和<pre class=" language-hljs java"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; nums.length - <span class="hljs-number"><code class="language-hljs java"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; nums.length - <span class="hljs-number">2</span>; i++) &#123;
-            <span class="hljs-keyword">if</span> (nums[i] > <span class="hljs-number">0</span>) &#123;
-                <span class="hljs-keyword">break</span>;
-            &#125;
-            <span class="hljs-comment">// 跳过重复答案</span>
-            <span class="hljs-keyword">if</span> (i == <span class="hljs-number">0</span> || (i > <span class="hljs-number">0</span> && nums[i] != nums[i - <span class="hljs-number">1</span>])) &#123;
-                <span class="hljs-keyword">int</span> l = i + <span class="hljs-number">1</span>;
-                <span class="hljs-keyword">int</span> r = nums.length - <span class="hljs-number">1</span>;
-                <span class="hljs-keyword">while</span> (l < r) &#123;
-                    <span class="hljs-keyword">if</span> (nums[i] + nums[l] + nums[r] == target) &#123;
-                        result.add(Arrays.asList(nums[i], nums[l], nums[r]));
-                        <span class="hljs-keyword">while</span> (l < r && nums[l] == nums[l + <span class="hljs-number">1</span>]) l++;
-                        l++;
-                        <span class="hljs-keyword">while</span> (l < r && nums[r] == nums[r - <span class="hljs-number">1</span>]) r--;
-                        r--;
-                        <span class="hljs-keyword">continue</span>;
-                    &#125;
-                    <span class="hljs-keyword">if</span> (nums[i] + nums[l] + nums[r] < target) &#123;
-                        <span class="hljs-keyword">while</span> (l < r && nums[l] == nums[l + <span class="hljs-number">1</span>]) l++;
-                        l++;
-                        <span class="hljs-keyword">continue</span>;
-                    &#125;
-                    <span class="hljs-keyword">if</span> (nums[i] + nums[l] + nums[r] > target) &#123;
-                        <span class="hljs-keyword">while</span> (l < r && nums[r] == nums[r - <span class="hljs-number">1</span>]) r--;
-                        r--;
-                        <span class="hljs-keyword">continue</span>;
-                    &#125;
-                &#125;
-            &#125;
-        &#125;</code></pre>
-四数之和  <pre class=" language-hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> List&lt;List&lt;Integer&gt;&gt; fourSum(<span class="hljs-keyword">int</span>[] nums, <span class="hljs-keyword"><code class="language-hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> List&lt;List&lt;Integer&gt;&gt; fourSum(<span class="hljs-keyword">int</span>[] nums, <span class="hljs-keyword">int</span> target) &#123;
-        List<List<Integer>> result = <span class="hljs-keyword">new</span> ArrayList<>();
-        <span class="hljs-keyword">if</span> (nums == <span class="hljs-keyword">null</span> || nums.length < <span class="hljs-number">4</span>) <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ArrayList<>();
-        Arrays.sort(nums);
-        <span class="hljs-keyword">int</span> length = nums.length;
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i < length - <span class="hljs-number">3</span>; i++) &#123;
-            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = i + <span class="hljs-number">1</span>; j < length - <span class="hljs-number">2</span>; ++j) &#123;
-                <span class="hljs-keyword">int</span> l = j + <span class="hljs-number">1</span>;
-                <span class="hljs-keyword">int</span> r = length - <span class="hljs-number">1</span>;
-                <span class="hljs-keyword">while</span> (l < r) &#123;
-                    <span class="hljs-keyword">if</span> (nums[i] + nums[j] + nums[l] + nums[r] == target) &#123;
-                        result.add(Arrays.asList(nums[i], nums[j], nums[l], nums[r]));
-                        l = moveLeft(nums, l, r);
-                        r = moveRight(nums, l, r);
-                        <span class="hljs-keyword">continue</span>;
-                    &#125;
-                    <span class="hljs-keyword">if</span> (nums[i] + nums[j] + nums[l] + nums[r] < target) &#123;
-                        l = moveLeft(nums, l, r);
-                        <span class="hljs-keyword">continue</span>;
-                    &#125;
-                    r = moveRight(nums, l, r);
-                &#125;
-                <span class="hljs-keyword">while</span> (j < length - <span class="hljs-number">2</span> && nums[j] == nums[j + <span class="hljs-number">1</span>]) j++;
-            &#125;
-            <span class="hljs-keyword">while</span> (i < length - <span class="hljs-number">3</span> && nums[i] == nums[i + <span class="hljs-number">1</span>]) i++;
-        &#125;
-        <span class="hljs-keyword">return</span> result;
-&#125;
-
-<span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">moveRight</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums, <span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> r)</span> </span>&#123;
-    <span class="hljs-keyword">while</span> (l < r && nums[r] == nums[r - <span class="hljs-number">1</span>]) r--;
-    r--;
-    <span class="hljs-keyword">return</span> r;
-&#125;
-
-<span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">moveLeft</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums, <span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> r)</span> </span>&#123;
-    <span class="hljs-keyword">while</span> (l < r && nums[l] == nums[l + <span class="hljs-number">1</span>]) l++;
-    l++;
-    <span class="hljs-keyword">return</span> l;
-&#125;</code></pre>
-</li>
+<li>代码<br>三数之和<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length - <span class="number">2</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 跳过重复答案</span></span><br><span class="line">            <span class="keyword">if</span> (i == <span class="number">0</span> || (i &gt; <span class="number">0</span> &amp;&amp; nums[i] != nums[i - <span class="number">1</span>])) &#123;</span><br><span class="line">                <span class="keyword">int</span> l = i + <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">int</span> r = nums.length - <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">while</span> (l &lt; r) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (nums[i] + nums[l] + nums[r] == target) &#123;</span><br><span class="line">                        result.add(Arrays.asList(nums[i], nums[l], nums[r]));</span><br><span class="line">                        <span class="keyword">while</span> (l &lt; r &amp;&amp; nums[l] == nums[l + <span class="number">1</span>]) l++;</span><br><span class="line">                        l++;</span><br><span class="line">                        <span class="keyword">while</span> (l &lt; r &amp;&amp; nums[r] == nums[r - <span class="number">1</span>]) r--;</span><br><span class="line">                        r--;</span><br><span class="line">                        <span class="keyword">continue</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span> (nums[i] + nums[l] + nums[r] &lt; target) &#123;</span><br><span class="line">                        <span class="keyword">while</span> (l &lt; r &amp;&amp; nums[l] == nums[l + <span class="number">1</span>]) l++;</span><br><span class="line">                        l++;</span><br><span class="line">                        <span class="keyword">continue</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span> (nums[i] + nums[l] + nums[r] &gt; target) &#123;</span><br><span class="line">                        <span class="keyword">while</span> (l &lt; r &amp;&amp; nums[r] == nums[r - <span class="number">1</span>]) r--;</span><br><span class="line">                        r--;</span><br><span class="line">                        <span class="keyword">continue</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+四数之和  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;List&lt;Integer&gt;&gt; fourSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; result = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length &lt; <span class="number">4</span>) <span class="keyword">return</span> <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        Arrays.sort(nums);</span><br><span class="line">        <span class="keyword">int</span> length = nums.length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length - <span class="number">3</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; length - <span class="number">2</span>; ++j) &#123;</span><br><span class="line">                <span class="keyword">int</span> l = j + <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">int</span> r = length - <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">while</span> (l &lt; r) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (nums[i] + nums[j] + nums[l] + nums[r] == target) &#123;</span><br><span class="line">                        result.add(Arrays.asList(nums[i], nums[j], nums[l], nums[r]));</span><br><span class="line">                        l = moveLeft(nums, l, r);</span><br><span class="line">                        r = moveRight(nums, l, r);</span><br><span class="line">                        <span class="keyword">continue</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span> (nums[i] + nums[j] + nums[l] + nums[r] &lt; target) &#123;</span><br><span class="line">                        l = moveLeft(nums, l, r);</span><br><span class="line">                        <span class="keyword">continue</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    r = moveRight(nums, l, r);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">while</span> (j &lt; length - <span class="number">2</span> &amp;&amp; nums[j] == nums[j + <span class="number">1</span>]) j++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span> (i &lt; length - <span class="number">3</span> &amp;&amp; nums[i] == nums[i + <span class="number">1</span>]) i++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">moveRight</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (l &lt; r &amp;&amp; nums[r] == nums[r - <span class="number">1</span>]) r--;</span><br><span class="line">    r--;</span><br><span class="line">    <span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">moveLeft</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (l &lt; r &amp;&amp; nums[l] == nums[l + <span class="number">1</span>]) l++;</span><br><span class="line">    l++;</span><br><span class="line">    <span class="keyword">return</span> l;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 
             </article>
@@ -299,8 +228,6 @@
                     <i class="iconfont icon-tags"></i>
                     
                       <a class="hover-with-bg" href="/tags/leetcode/">leetcode</a>
-                    
-                      <a class="hover-with-bg" href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
                     
                   </div>
                 
@@ -355,7 +282,7 @@
 
   <div class="col-lg-7 mx-auto nopadding-md">
     <div class="container custom post-content mx-auto">
-      <img src="https://octodex.github.com/images/jetpacktocat.png" srcset="/img/loading.gif" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
+      <img src="https://octodex.github.com/images/jetpacktocat.png" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
     </div>
   </div>
 
@@ -398,14 +325,14 @@
   
 
   <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-        <span>Fluid</span></a>
-    </div>
-    
+    <div class="text-center py-3">
+        <div>
+            <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+            <i class="iconfont icon-love"></i>
+            <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+                <span>Fluid</span></a>
+        </div>
+        
   <div>
     
       <!-- 不蒜子统计PV -->
@@ -424,10 +351,10 @@
   </div>
 
 
-    
+        
 
-    
-  </div>
+        
+    </div>
 </footer>
 
 <!-- SCRIPTS -->
@@ -435,8 +362,6 @@
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
 <script  src="/js/main.js" ></script>
 
-
-  <script  src="/js/lazyload.js" ></script>
 
 
 
@@ -493,7 +418,7 @@
       ],
       cursorChar: "_",
       typeSpeed: 70,
-      loop: true,
+      loop: false,
     });
     typed.stop();
     $(document).ready(function () {

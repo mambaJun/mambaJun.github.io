@@ -23,8 +23,6 @@
 <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
 
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
-
 
 <!-- 主题依赖的图标库，不要自行修改 -->
 
@@ -144,7 +142,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    373 字
+                    371 字
                   </span>
                 
 
@@ -203,78 +201,10 @@
 <p>深拷贝实现方式：</p>
 <ul>
 <li><p>方式一：重写 clone 方法进行实现深拷贝</p>
-<pre class=" language-hljs java"><span class="hljs-keyword"><code class="language-hljs java"><span class="hljs-keyword">super</span>.clone()</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">super</span>.clone()</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>方式二：通过对象序列化进行深拷贝<code>推荐使用</code></p>
-<pre class=" language-hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">deepClone</span><span class="hljs-params"><code class="language-hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">deepClone</span><span class="hljs-params">()</span> </span>&#123;
-        ByteArrayOutputStream byteArrayOutputStream = <span class="hljs-keyword">null</span>;
-        ObjectOutputStream objectOutputStream = <span class="hljs-keyword">null</span>;
-        ByteArrayInputStream byteArrayInputStream = <span class="hljs-keyword">null</span>;
-        ObjectInputStream objectInputStream = <span class="hljs-keyword">null</span>;
-
-        <span class="hljs-keyword">try</span> &#123;
-            byteArrayOutputStream = <span class="hljs-keyword">new</span> ByteArrayOutputStream();
-            objectOutputStream = <span class="hljs-keyword">new</span> ObjectOutputStream(byteArrayOutputStream);
-
-            objectOutputStream.writeObject(<span class="hljs-keyword">this</span>);
-
-
-            byteArrayInputStream = <span class="hljs-keyword">new</span> ByteArrayInputStream(byteArrayOutputStream.toByteArray());
-            objectInputStream = <span class="hljs-keyword">new</span> ObjectInputStream(byteArrayInputStream);
-
-            SpringDemo springDemo = (SpringDemo) objectInputStream.readObject();
-            <span class="hljs-keyword">return</span> springDemo;
-        &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;
-            e.printStackTrace();
-        &#125; <span class="hljs-keyword">catch</span> (ClassNotFoundException e) &#123;
-            e.printStackTrace();
-        &#125;<span class="hljs-keyword">finally</span> &#123;
-            <span class="hljs-keyword">try</span> &#123;
-                byteArrayInputStream.close();
-                byteArrayInputStream.close();
-                objectOutputStream.close();
-                byteArrayInputStream.close();
-            &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;
-                e.printStackTrace();
-            &#125;
-        &#125;
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
-    &#125;</code></pre>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">deepClone</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        ByteArrayOutputStream byteArrayOutputStream = <span class="keyword">null</span>;</span><br><span class="line">        ObjectOutputStream objectOutputStream = <span class="keyword">null</span>;</span><br><span class="line">        ByteArrayInputStream byteArrayInputStream = <span class="keyword">null</span>;</span><br><span class="line">        ObjectInputStream objectInputStream = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            byteArrayOutputStream = <span class="keyword">new</span> ByteArrayOutputStream();</span><br><span class="line">            objectOutputStream = <span class="keyword">new</span> ObjectOutputStream(byteArrayOutputStream);</span><br><span class="line"></span><br><span class="line">            objectOutputStream.writeObject(<span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            byteArrayInputStream = <span class="keyword">new</span> ByteArrayInputStream(byteArrayOutputStream.toByteArray());</span><br><span class="line">            objectInputStream = <span class="keyword">new</span> ObjectInputStream(byteArrayInputStream);</span><br><span class="line"></span><br><span class="line">            SpringDemo springDemo = (SpringDemo) objectInputStream.readObject();</span><br><span class="line">            <span class="keyword">return</span> springDemo;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                byteArrayInputStream.close();</span><br><span class="line">                byteArrayInputStream.close();</span><br><span class="line">                objectOutputStream.close();</span><br><span class="line">                byteArrayInputStream.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -353,7 +283,7 @@
 
   <div class="col-lg-7 mx-auto nopadding-md">
     <div class="container custom post-content mx-auto">
-      <img src="https://octodex.github.com/images/jetpacktocat.png" srcset="/img/loading.gif" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
+      <img src="https://octodex.github.com/images/jetpacktocat.png" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
     </div>
   </div>
 
@@ -396,14 +326,14 @@
   
 
   <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-        <span>Fluid</span></a>
-    </div>
-    
+    <div class="text-center py-3">
+        <div>
+            <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+            <i class="iconfont icon-love"></i>
+            <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+                <span>Fluid</span></a>
+        </div>
+        
   <div>
     
       <!-- 不蒜子统计PV -->
@@ -422,10 +352,10 @@
   </div>
 
 
-    
+        
 
-    
-  </div>
+        
+    </div>
 </footer>
 
 <!-- SCRIPTS -->
@@ -433,8 +363,6 @@
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
 <script  src="/js/main.js" ></script>
 
-
-  <script  src="/js/lazyload.js" ></script>
 
 
 
@@ -491,7 +419,7 @@
       ],
       cursorChar: "_",
       typeSpeed: 70,
-      loop: true,
+      loop: false,
     });
     typed.stop();
     $(document).ready(function () {

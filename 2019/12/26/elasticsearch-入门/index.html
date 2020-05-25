@@ -23,8 +23,6 @@
 <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
 
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
-
 
 <!-- 主题依赖的图标库，不要自行修改 -->
 
@@ -144,7 +142,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    312 字
+                    336 字
                   </span>
                 
 
@@ -154,7 +152,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    5
+                    6
                      分钟
                   </span>
                 
@@ -190,70 +188,40 @@
             
             <article class="markdown-body">
               <h1 id="Elasticsearch"><a href="#Elasticsearch" class="headerlink" title="Elasticsearch"></a>Elasticsearch</h1><p><a href="https://www.elastic.co/guide/cn/elasticsearch/guide/current/index.html" target="_blank" rel="noopener">推荐文档</a></p>
-<h2 id="Elasticsearch-简介"><a href="#Elasticsearch-简介" class="headerlink" title="Elasticsearch 简介"></a>Elasticsearch 简介</h2><table>
+<h2 id="Elasticsearch-简介"><a href="#Elasticsearch-简介" class="headerlink" title="Elasticsearch 简介"></a>Elasticsearch 简介</h2><div class="table-container">
+<table>
 <thead>
 <tr>
-<th align="left">Elasticsearch</th>
-<th align="left">MySQL</th>
+<th style="text-align:left">Elasticsearch</th>
+<th style="text-align:left">MySQL</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">索引</td>
-<td align="left">数据库</td>
+<tbody>
+<tr>
+<td style="text-align:left">索引</td>
+<td style="text-align:left">数据库</td>
 </tr>
 <tr>
-<td align="left">类型</td>
-<td align="left">表</td>
+<td style="text-align:left">类型</td>
+<td style="text-align:left">表</td>
 </tr>
 <tr>
-<td align="left">文档</td>
-<td align="left">记录</td>
+<td style="text-align:left">文档</td>
+<td style="text-align:left">记录</td>
 </tr>
 <tr>
-<td align="left">属性</td>
-<td align="left">字段</td>
+<td style="text-align:left">属性</td>
+<td style="text-align:left">字段</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h2 id="Elasticsearch-安装"><a href="#Elasticsearch-安装" class="headerlink" title="Elasticsearch 安装"></a>Elasticsearch 安装</h2><h2 id="Spring-Boot-与-Elasticsearch-整合"><a href="#Spring-Boot-与-Elasticsearch-整合" class="headerlink" title="Spring Boot 与 Elasticsearch 整合"></a>Spring Boot 与 Elasticsearch 整合</h2><p>两种方式</p>
 <ul>
-<li>方式一<pre class=" language-hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name"><code class="language-hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>></span>
-    <span class="hljs-tag"><<span class="hljs-name">groupId</span>></span>io.searchbox<span class="hljs-tag"></<span class="hljs-name">groupId</span>></span>
-    <span class="hljs-tag"><<span class="hljs-name">artifactId</span>></span>jest<span class="hljs-tag"></<span class="hljs-name">artifactId</span>></span>
-    <span class="hljs-tag"><<span class="hljs-name">version</span>></span>6.3.1<span class="hljs-tag"></<span class="hljs-name">version</span>></span>
-<span class="hljs-tag"></<span class="hljs-name">dependency</span>></span></code></pre>
-
+<li>方式一<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.searchbox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jest<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>6.3.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<pre class=" language-hljs pgsql"><code class="language-hljs pgsql">@Autowired
-JestClient jestClient;
-
-@Test
-<span class="hljs-type">void</span> put() throws IOException &#123;
-    UserBO userBO = <span class="hljs-built_in">new</span> UserBO();
-    userBO.setAccount("account");
-    userBO.setId(<span class="hljs-number">1</span>);
-    userBO.setJumpToken("jumpToken");
-    userBO.setPassword("password");
-    userBO.setUsername("username");
-    <span class="hljs-keyword">Index</span> <span class="hljs-keyword">index</span> = <span class="hljs-built_in">new</span> <span class="hljs-keyword">Index</span>.Builder(userBO).<span class="hljs-keyword">index</span>("blog").<span class="hljs-keyword">type</span>("user").build();
-    jestClient.<span class="hljs-keyword">execute</span>(<span class="hljs-keyword">index</span>);
-&#125;
-
-@Test
-<span class="hljs-type">void</span> <span class="hljs-keyword">get</span>() throws IOException &#123;
-    String <span class="hljs-type">json</span> = "&#123;" +
-            "\"query\": &#123;" +
-            "  \"match\":&#123;" +
-            "          \"<span class="hljs-type">name</span>\": \"username\"" +
-            "       &#125; " +
-            "   &#125;" +
-            "&#125;";
-    <span class="hljs-keyword">Search</span> <span class="hljs-keyword">search</span> = <span class="hljs-built_in">new</span> <span class="hljs-keyword">Search</span>.Builder(<span class="hljs-type">json</span>).addIndex("blog").addType("user").build();
-    SearchResult result = jestClient.<span class="hljs-keyword">execute</span>(<span class="hljs-keyword">search</span>);
-    <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println("#########################################");
-    <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(result.getJsonString());
-&#125;</code></pre>
-
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">@Autowired</span><br><span class="line">JestClient jestClient;</span><br><span class="line"></span><br><span class="line">@Test</span><br><span class="line"><span class="type">void</span> put() throws IOException &#123;</span><br><span class="line">    UserBO userBO = <span class="built_in">new</span> UserBO();</span><br><span class="line">    userBO.setAccount("account");</span><br><span class="line">    userBO.setId(<span class="number">1</span>);</span><br><span class="line">    userBO.setJumpToken("jumpToken");</span><br><span class="line">    userBO.setPassword("password");</span><br><span class="line">    userBO.setUsername("username");</span><br><span class="line">    <span class="keyword">Index</span> <span class="keyword">index</span> = <span class="built_in">new</span> <span class="keyword">Index</span>.Builder(userBO).<span class="keyword">index</span>("blog").<span class="keyword">type</span>("user").build();</span><br><span class="line">    jestClient.<span class="keyword">execute</span>(<span class="keyword">index</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@Test</span><br><span class="line"><span class="type">void</span> <span class="keyword">get</span>() throws IOException &#123;</span><br><span class="line">    String <span class="type">json</span> = "&#123;" +</span><br><span class="line">            "\"query\": &#123;" +</span><br><span class="line">            "  \"match\":&#123;" +</span><br><span class="line">            "          \"<span class="type">name</span>\": \"username\"" +</span><br><span class="line">            "       &#125; " +</span><br><span class="line">            "   &#125;" +</span><br><span class="line">            "&#125;";</span><br><span class="line">    <span class="keyword">Search</span> <span class="keyword">search</span> = <span class="built_in">new</span> <span class="keyword">Search</span>.Builder(<span class="type">json</span>).addIndex("blog").addType("user").build();</span><br><span class="line">    SearchResult result = jestClient.<span class="keyword">execute</span>(<span class="keyword">search</span>);</span><br><span class="line">    <span class="keyword">System</span>.<span class="keyword">out</span>.println("#########################################");</span><br><span class="line">    <span class="keyword">System</span>.<span class="keyword">out</span>.println(result.getJsonString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>方式二<br>maven 坐标  <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -263,53 +231,7 @@ JestClient jestClient;
 </li>
 </ul>
 <p>配置文件<br>    spring:<br>      data:<br>        elasticsearch:<br>          repositories:<br>            enabled: true<br>          cluster-nodes: 127.0.0.1:9300 # es的连接地址及端口号<br>          cluster-name: docker-cluster # es集群的名称</p>
-<pre class=" language-hljs Java"><span class="hljs-meta"><code class="language-hljs Java"><span class="hljs-meta">@Data</span>
-<span class="hljs-meta">@ToString</span>
-<span class="hljs-meta">@Document</span>(indexName = <span class="hljs-string">"blog"</span>,type = <span class="hljs-string">"user"</span>,shards = <span class="hljs-number">1</span>,replicas = <span class="hljs-number">0</span>,refreshInterval = <span class="hljs-string">"-1"</span>)
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span> </span>&#123;
-    <span class="hljs-meta">@Id</span>
-    <span class="hljs-keyword">private</span> Integer id;
-
-    <span class="hljs-meta">@Field</span>(type = FieldType.Keyword)
-    <span class="hljs-keyword">private</span> String name;
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">User</span><span class="hljs-params">()</span> </span>&#123;
-    &#125;
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">User</span><span class="hljs-params">(Integer id, String name)</span> </span>&#123;
-        <span class="hljs-keyword">this</span>.id = id;
-        <span class="hljs-keyword">this</span>.name = name;
-    &#125;
-&#125;
-
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">UserRepository</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ElasticsearchRepository</span><<span class="hljs-title">User</span>, <span class="hljs-title">Integer</span>> </span>&#123;
-    <span class="hljs-function">User <span class="hljs-title">findByName</span><span class="hljs-params">(String name)</span></span>;
-&#125;
-
-<span class="hljs-meta">@RestController</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserController</span> </span>&#123;
-    <span class="hljs-meta">@Autowired</span>
-    <span class="hljs-keyword">private</span> ElasticsearchTemplate elasticsearchTemplate;
-    <span class="hljs-meta">@Autowired</span>
-    <span class="hljs-keyword">private</span> UserRepository userRepository;
-
-    <span class="hljs-meta">@GetMapping</span>(<span class="hljs-string">"/user/&#123;name&#125;"</span>)
-    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">get</span><span class="hljs-params">(@PathVariable(<span class="hljs-string">"name"</span>)</span> String name) </span>&#123;
-        User user = userRepository.findByName(name);
-        <span class="hljs-keyword">return</span> user.toString();
-    &#125;
-
-    <span class="hljs-meta">@GetMapping</span>(<span class="hljs-string">"/user/put"</span>)
-    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">put</span><span class="hljs-params">()</span> </span>&#123;
-        User user = <span class="hljs-keyword">new</span> User();
-        user.setId(<span class="hljs-number">10</span>);
-        user.setName(<span class="hljs-string">"zhaoliu"</span>);
-        User save = userRepository.save(user);
-        System.out.println(save);
-        <span class="hljs-keyword">return</span> save.toString();
-    &#125;
-&#125;</code></pre>
-
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@ToString</span></span><br><span class="line"><span class="meta">@Document</span>(indexName = <span class="string">"blog"</span>,type = <span class="string">"user"</span>,shards = <span class="number">1</span>,replicas = <span class="number">0</span>,refreshInterval = <span class="string">"-1"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Field</span>(type = FieldType.Keyword)</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">(Integer id, String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.id = id;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserRepository</span> <span class="keyword">extends</span> <span class="title">ElasticsearchRepository</span>&lt;<span class="title">User</span>, <span class="title">Integer</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function">User <span class="title">findByName</span><span class="params">(String name)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> ElasticsearchTemplate elasticsearchTemplate;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> UserRepository userRepository;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/user/&#123;name&#125;"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">get</span><span class="params">(@PathVariable(<span class="string">"name"</span>)</span> String name) </span>&#123;</span><br><span class="line">        User user = userRepository.findByName(name);</span><br><span class="line">        <span class="keyword">return</span> user.toString();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/user/put"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">put</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        User user = <span class="keyword">new</span> User();</span><br><span class="line">        user.setId(<span class="number">10</span>);</span><br><span class="line">        user.setName(<span class="string">"zhaoliu"</span>);</span><br><span class="line">        User save = userRepository.save(user);</span><br><span class="line">        System.out.println(save);</span><br><span class="line">        <span class="keyword">return</span> save.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
             </article>
             <hr>
@@ -375,7 +297,7 @@ JestClient jestClient;
 
   <div class="col-lg-7 mx-auto nopadding-md">
     <div class="container custom post-content mx-auto">
-      <img src="https://octodex.github.com/images/jetpacktocat.png" srcset="/img/loading.gif" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
+      <img src="https://octodex.github.com/images/jetpacktocat.png" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
     </div>
   </div>
 
@@ -418,14 +340,14 @@ JestClient jestClient;
   
 
   <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-        <span>Fluid</span></a>
-    </div>
-    
+    <div class="text-center py-3">
+        <div>
+            <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+            <i class="iconfont icon-love"></i>
+            <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+                <span>Fluid</span></a>
+        </div>
+        
   <div>
     
       <!-- 不蒜子统计PV -->
@@ -444,10 +366,10 @@ JestClient jestClient;
   </div>
 
 
-    
+        
 
-    
-  </div>
+        
+    </div>
 </footer>
 
 <!-- SCRIPTS -->
@@ -455,8 +377,6 @@ JestClient jestClient;
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
 <script  src="/js/main.js" ></script>
 
-
-  <script  src="/js/lazyload.js" ></script>
 
 
 
@@ -513,7 +433,7 @@ JestClient jestClient;
       ],
       cursorChar: "_",
       typeSpeed: 70,
-      loop: true,
+      loop: false,
     });
     typed.stop();
     $(document).ready(function () {

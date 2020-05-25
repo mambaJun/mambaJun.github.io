@@ -23,8 +23,6 @@
 <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
 
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
-
 
 <!-- 主题依赖的图标库，不要自行修改 -->
 
@@ -144,7 +142,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    469 字
+                    467 字
                   </span>
                 
 
@@ -196,77 +194,11 @@
 </blockquote>
 </blockquote>
 <p>我的理解，想用个栗子来说明<br>    一幅画（可以是油画、水墨画等）始终是幅画<br>    用画框裱起来<br>    用瓶子装起来<br>    这里的 画框 瓶子 就是充当的装饰器<br>    这里的画是独立的没有 画框、瓶子还是画<br>    画框、瓶子也可以不装饰画也还是画框、瓶子<br>    但是用装饰器装饰后在画的表现上添加了新的特点</p>
-<p>优点：装饰类和被装饰类可以独立发展，不会相互耦合，这种模式可以替代继承<br>缺点：多层装饰 增加 整体的复杂<br>使用场景：<br>    1. 拓展一个类的功能<br>    2. 动态添加、撤销 功能</p>
-<p>下面是一个关于装饰模式的代码demo</p>
-<p><img src="https://images.gitee.com/uploads/images/2019/1213/113208_9e7f9b61_1673884.png" srcset="/img/loading.gif" alt="装饰者模式"></p>
-<pre class=" language-hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title"><code class="language-hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Decorator</span> </span>&#123;
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;
-        Shape circle = <span class="hljs-keyword">new</span> Circle();
-        RedShapeDecorator redShapeDecorator = <span class="hljs-keyword">new</span> RedShapeDecorator(circle);
-        circle.draw();
-        System.out.println(<span class="hljs-string">"---------------------------------"</span>);
-        redShapeDecorator.draw();
-        System.out.println(<span class="hljs-string">"#########################################"</span>);
-        Rectangle rectangle = <span class="hljs-keyword">new</span> Rectangle();
-        RedShapeDecorator redShapeDecorator1 = <span class="hljs-keyword">new</span> RedShapeDecorator(rectangle);
-        rectangle.draw();
-        System.out.println(<span class="hljs-string">"-------------------------"</span>);
-        redShapeDecorator1.draw();
-    &#125;
-
-&#125;
-
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RedShapeDecorator</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstractShapeDecorator</span> </span>&#123;
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">RedShapeDecorator</span><span class="hljs-params">(Shape decoratorShape)</span> </span>&#123;
-        <span class="hljs-keyword">super</span>(decoratorShape);
-    &#125;
-
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">draw</span><span class="hljs-params">()</span> </span>&#123;
-        decoratorShape.draw();
-        <span class="hljs-comment">// 装饰器的精髓一步</span>
-        setRedBorder(decoratorShape);
-    &#125;
-
-    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setRedBorder</span><span class="hljs-params">(Shape decoratorShape)</span> </span>&#123;
-        System.out.println(<span class="hljs-string">"Border Color: Red"</span>);
-    &#125;
-&#125;
-
-<span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AbstractShapeDecorator</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Shape</span> </span>&#123;
-    <span class="hljs-keyword">protected</span> Shape decoratorShape;
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">AbstractShapeDecorator</span><span class="hljs-params">(Shape decoratorShape)</span> </span>&#123;
-        <span class="hljs-keyword">this</span>.decoratorShape = decoratorShape;
-    &#125;
-
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">draw</span><span class="hljs-params">()</span> </span>&#123;
-        decoratorShape.draw();
-    &#125;
-&#125;
-
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Circle</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Shape</span> </span>&#123;
-
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">draw</span><span class="hljs-params">()</span> </span>&#123;
-        System.out.println(<span class="hljs-string">"Shape - Circle"</span>);
-    &#125;
-&#125;
-
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Rectangle</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Shape</span> </span>&#123;
-
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">draw</span><span class="hljs-params">()</span> </span>&#123;
-        System.out.println(<span class="hljs-string">"Shape - Rectangle"</span>);
-    &#125;
-&#125;
-
-<span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Shape</span> </span>&#123;
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">draw</span><span class="hljs-params">()</span></span>;
-&#125;</code></pre>
+<p>优点：装饰类和被装饰类可以独立发展，不会相互耦合，这种模式可以替代继承<br>缺点：多层装饰 增加 整体的复杂<br>使用场景：</p>
+<pre><code>1. 拓展一个类的功能
+2. 动态添加、撤销 功能
+</code></pre><p>下面是一个关于装饰模式的代码demo</p>
+<p><img src="https://images.gitee.com/uploads/images/2019/1213/113208_9e7f9b61_1673884.png" alt="装饰者模式"><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Decorator</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Shape circle = <span class="keyword">new</span> Circle();</span><br><span class="line">        RedShapeDecorator redShapeDecorator = <span class="keyword">new</span> RedShapeDecorator(circle);</span><br><span class="line">        circle.draw();</span><br><span class="line">        System.out.println(<span class="string">"---------------------------------"</span>);</span><br><span class="line">        redShapeDecorator.draw();</span><br><span class="line">        System.out.println(<span class="string">"#########################################"</span>);</span><br><span class="line">        Rectangle rectangle = <span class="keyword">new</span> Rectangle();</span><br><span class="line">        RedShapeDecorator redShapeDecorator1 = <span class="keyword">new</span> RedShapeDecorator(rectangle);</span><br><span class="line">        rectangle.draw();</span><br><span class="line">        System.out.println(<span class="string">"-------------------------"</span>);</span><br><span class="line">        redShapeDecorator1.draw();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RedShapeDecorator</span> <span class="keyword">extends</span> <span class="title">AbstractShapeDecorator</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">RedShapeDecorator</span><span class="params">(Shape decoratorShape)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(decoratorShape);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">draw</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        decoratorShape.draw();</span><br><span class="line">        <span class="comment">// 装饰器的精髓一步</span></span><br><span class="line">        setRedBorder(decoratorShape);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setRedBorder</span><span class="params">(Shape decoratorShape)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Border Color: Red"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">AbstractShapeDecorator</span> <span class="keyword">implements</span> <span class="title">Shape</span> </span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> Shape decoratorShape;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AbstractShapeDecorator</span><span class="params">(Shape decoratorShape)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.decoratorShape = decoratorShape;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">draw</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        decoratorShape.draw();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Circle</span> <span class="keyword">implements</span> <span class="title">Shape</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">draw</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Shape - Circle"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span> <span class="keyword">implements</span> <span class="title">Shape</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">draw</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Shape - Rectangle"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Shape</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">draw</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
             </article>
             <hr>
@@ -341,7 +273,7 @@
 
   <div class="col-lg-7 mx-auto nopadding-md">
     <div class="container custom post-content mx-auto">
-      <img src="https://octodex.github.com/images/jetpacktocat.png" srcset="/img/loading.gif" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
+      <img src="https://octodex.github.com/images/jetpacktocat.png" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
     </div>
   </div>
 
@@ -384,14 +316,14 @@
   
 
   <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-        <span>Fluid</span></a>
-    </div>
-    
+    <div class="text-center py-3">
+        <div>
+            <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+            <i class="iconfont icon-love"></i>
+            <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+                <span>Fluid</span></a>
+        </div>
+        
   <div>
     
       <!-- 不蒜子统计PV -->
@@ -410,10 +342,10 @@
   </div>
 
 
-    
+        
 
-    
-  </div>
+        
+    </div>
 </footer>
 
 <!-- SCRIPTS -->
@@ -421,8 +353,6 @@
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
 <script  src="/js/main.js" ></script>
 
-
-  <script  src="/js/lazyload.js" ></script>
 
 
 
@@ -479,7 +409,7 @@
       ],
       cursorChar: "_",
       typeSpeed: 70,
-      loop: true,
+      loop: false,
     });
     typed.stop();
     $(document).ready(function () {

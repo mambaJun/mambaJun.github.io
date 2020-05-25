@@ -23,8 +23,6 @@
 <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
 
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
-
 
 <!-- 主题依赖的图标库，不要自行修改 -->
 
@@ -184,27 +182,20 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：4 hours ago
+                  本文最后更新于：9 hours ago
                 
               </p>
             
             <article class="markdown-body">
               <h1 id="Django-入门"><a href="#Django-入门" class="headerlink" title="Django 入门"></a>Django 入门</h1><p>这篇文章仅仅我初步了解　Django 的入门笔记</p>
-<h2 id="一、-Django的框架模式-MTV"><a href="#一、-Django的框架模式-MTV" class="headerlink" title="一、 Django的框架模式 - MTV"></a>一、 Django的框架模式 - MTV</h2><p>M: Models 层<br>    负责数据库的建模以及 CRUD操作<br>T: Templates 层<br>    用于处理用户显示的内容 如  HTML<br>V: Views 层<br>    处理用户交互操作，从模板中取得数据，再将数据发送给模板，并显示给用户<br><img src="./MTV.png" srcset="/img/loading.gif" alt=""></p>
+<h2 id="一、-Django的框架模式-MTV"><a href="#一、-Django的框架模式-MTV" class="headerlink" title="一、 Django的框架模式 - MTV"></a>一、 Django的框架模式 - MTV</h2><p>M: Models 层<br>    负责数据库的建模以及 CRUD操作<br>T: Templates 层<br>    用于处理用户显示的内容 如  HTML<br>V: Views 层<br>    处理用户交互操作，从模板中取得数据，再将数据发送给模板，并显示给用户<br><img src="./MTV.png" alt=""></p>
 <h2 id="二、-Django-的使用"><a href="#二、-Django-的使用" class="headerlink" title="二、 Django 的使用"></a>二、 Django 的使用</h2><h3 id="1-目录结构介绍"><a href="#1-目录结构介绍" class="headerlink" title="1.目录结构介绍"></a>1.目录结构介绍</h3><ul>
 <li>主目录（名称和项目名相同）<ul>
 <li><strong>init</strong>.py 项目初始化文件，每当服务器启动的时候，都会自动执行</li>
 <li>urls.py :项目的基础url 配置文件</li>
 <li>wsgi.py：应用服务器配置文件</li>
-<li>setting.py：项目的主设置文件<h3 id="2-启动服务"><a href="#2-启动服务" class="headerlink" title="2.启动服务"></a>2.启动服务</h3><pre class=" language-hljs shell"><span class="hljs-meta">#</span><span class="bash"><code class="language-hljs shell"><span class="hljs-meta">#</span><span class="bash"> 安装django</span>
-pip3 install django==2.0.2
-<span class="hljs-meta">#</span><span class="bash"> 进入桌面文件夹</span>
-cd desktop
-<span class="hljs-meta">#</span><span class="bash"> 创建新项目 mall</span>
-django-admin startproject mall
-<span class="hljs-meta">#</span><span class="bash"> 运行manage.py ，启动web服务器</span>
-python manage.py runserver</code></pre>
-<pre class=" language-hljs shell"><code class="language-hljs shell">python  manage.py runserver</code></pre>
+<li>setting.py：项目的主设置文件<h3 id="2-启动服务"><a href="#2-启动服务" class="headerlink" title="2.启动服务"></a>2.启动服务</h3><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 安装django</span></span><br><span class="line">pip3 install django==2.0.2</span><br><span class="line"><span class="meta">#</span><span class="bash"> 进入桌面文件夹</span></span><br><span class="line">cd desktop</span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建新项目 mall</span></span><br><span class="line">django-admin startproject mall</span><br><span class="line"><span class="meta">#</span><span class="bash"> 运行manage.py ，启动web服务器</span></span><br><span class="line">python manage.py runserver</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python  manage.py runserver</span><br></pre></td></tr></table></figure>
 manage.py   负责执行Django中的各项操作文件</li>
 <li>启动服务<ul>
 <li>创建管理员</li>
@@ -217,15 +208,16 @@ manage.py   负责执行Django中的各项操作文件</li>
 </ul>
 <h2 id="三、URL的使用"><a href="#三、URL的使用" class="headerlink" title="三、URL的使用"></a>三、URL的使用</h2><pre><code>1. urls.py：默认是在主目录中，主路由配置文件包含最基本的地址映射，每个请求到达之后都由urls.py 中的
 urlpatterns 列表中的url()进行匹配
-url() 函数匹配上 之后，可能将请求转交给其他urls.py 或者 试图（Views）去处理</code></pre><p> <img src="./%E8%AF%B7%E6%B1%82%E6%B5%81%E7%A8%8B.png" srcset="/img/loading.gif" alt=""><br>    url()函数语法：<br>        url(regex,views,kwargs=None,name=None)<br>        正则表达式：匹配请求的url<br>        视图处理函数或者其他的urls.py<br>        字典，用来给views 传参，没有参数可以省略<br>        字符串，给url()起别名，主要在模板中使用</p>
-<p>##　四、应用的结构组成</p>
-<pre><code>1. migrations 目录：存放数据库中间文件（日志文件）
+url() 函数匹配上 之后，可能将请求转交给其他urls.py 或者 试图（Views）去处理
+</code></pre><p> <img src="./请求流程.png" alt=""><br>    url()函数语法：<br>        url(regex,views,kwargs=None,name=None)<br>        正则表达式：匹配请求的url<br>        视图处理函数或者其他的urls.py<br>        字典，用来给views 传参，没有参数可以省略<br>        字符串，给url()起别名，主要在模板中使用</p>
+<h2 id="四、应用的结构组成"><a href="#四、应用的结构组成" class="headerlink" title="　四、应用的结构组成"></a>　四、应用的结构组成</h2><pre><code>1. migrations 目录：存放数据库中间文件（日志文件）
 2. __init__.py：应用的初始化文件
 3. admin.py：应用的后台管理配置文件
 4. apps.py：应用的属性配置文件
 5. models.py：模型文件，与数据库有关
 6. test.py：测试模块
-7. views.py：定义视图的文件</code></pre><p>​    </p>
+7. views.py：定义视图的文件
+</code></pre><p>​    </p>
 <h2 id="五、数据三大特征"><a href="#五、数据三大特征" class="headerlink" title="五、数据三大特征"></a>五、数据三大特征</h2><ol>
 <li>数据表 到 类 的映射，将数据表自动生成 一个 class 类 同时也允许将一个 class类自动生成数据库中的一张表</li>
 <li>数据类型的映射    允许将表中的字段的数据类型 自动 映射成编程语言中对应的数据类型    也允许 将编程语言的数据类型 自动 映射 成表中的字段的数据类型</li>
@@ -255,57 +247,27 @@ url() 函数匹配上 之后，可能将请求转交给其他urls.py 或者 试�
 </ul>
 </li>
 <li><p>数据模型的版本切换</p>
-<pre class=" language-hljs shell"><code class="language-hljs shell">./manage.py migrate										 # 执行所有应用中最新的数据库中间文件
-./manage.py migrate 应用名称 版本号	# 执行 应用中版本号对应的中间文件
-./manage.py inspectdb > 文件名.py		  # 通过数据库自动导出 Models</code></pre>
-
-
-
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./manage.py migrate										 # 执行所有应用中最新的数据库中间文件</span><br><span class="line">./manage.py migrate 应用名称 版本号	# 执行 应用中版本号对应的中间文件</span><br><span class="line">./manage.py inspectdb &gt; 文件名.py		  # 通过数据库自动导出 Models</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h2 id="六、连接-MySQL"><a href="#六、连接-MySQL" class="headerlink" title="六、连接 MySQL"></a>六、连接 MySQL</h2><ul>
 <li><p>环境按照</p>
-<pre class=" language-hljs shell"><code class="language-hljs shell">sudo apt-get install python3-dev
-sudo apt-get install python3-dev libmysqlclient-dev
-pip install mysqlclient</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python3-dev</span><br><span class="line">sudo apt-get install python3-dev libmysqlclient-dev</span><br><span class="line">pip install mysqlclient</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>项目配置</p>
-<pre class=" language-hljs pyth"><code class="language-hljs pyth">DATABASES &#x3D; &#123;
-    'default': &#123;
-        'ENGINE': 'django.db.backends.mysql',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'NAME': 'django',
-        'OPTIONS': &#123;
-            'init_command': "SET sql_mode&#x3D;'STRICT_TRANS_TABLES'",
-            'charset': 'utf8mb4',
-        &#125;,
-    &#125;
-&#125;</code></pre>
-
-
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">DATABASES &#x3D; &#123;</span><br><span class="line">    &#39;default&#39;: &#123;</span><br><span class="line">        &#39;ENGINE&#39;: &#39;django.db.backends.mysql&#39;,</span><br><span class="line">        &#39;HOST&#39;: &#39;127.0.0.1&#39;,</span><br><span class="line">        &#39;PORT&#39;: &#39;3306&#39;,</span><br><span class="line">        &#39;USER&#39;: &#39;root&#39;,</span><br><span class="line">        &#39;PASSWORD&#39;: &#39;root&#39;,</span><br><span class="line">        &#39;NAME&#39;: &#39;django&#39;,</span><br><span class="line">        &#39;OPTIONS&#39;: &#123;</span><br><span class="line">            &#39;init_command&#39;: &quot;SET sql_mode&#x3D;&#39;STRICT_TRANS_TABLES&#39;&quot;,</span><br><span class="line">            &#39;charset&#39;: &#39;utf8mb4&#39;,</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h2 id="七、模型中的-CRUD"><a href="#七、模型中的-CRUD" class="headerlink" title="七、模型中的 CRUD"></a>七、模型中的 CRUD</h2><h4 id="1-通过-ORM-向-DB-中添加数据"><a href="#1-通过-ORM-向-DB-中添加数据" class="headerlink" title="1.通过 ORM 向 DB 中添加数据"></a>1.通过 ORM 向 DB 中添加数据</h4><ol>
 <li><p>Entry.objects.create(属性=值，……)    </p>
 <p> Entry：具体要操作的Model类</p>
-<pre class=" language-hljs python">Author.objects.create(name=<span class="hljs-string">'张三'</span>,age=<span class="hljs-string"><code class="language-hljs python">Author.objects.create(name=<span class="hljs-string">'张三'</span>,age=<span class="hljs-string">'20'</span>)</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Author.objects.create(name=<span class="string">'张三'</span>,age=<span class="string">'20'</span>)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>创建一个Models对象，通过对象save() 完成</p>
-<pre class=" language-hljs python">obj = Author(name=<span class="hljs-string">'张三'</span>,age=<span class="hljs-string"><code class="language-hljs python">obj = Author(name=<span class="hljs-string">'张三'</span>,age=<span class="hljs-string">'20'</span>)
-obj.save()</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">obj = Author(name=<span class="string">'张三'</span>,age=<span class="string">'20'</span>)</span><br><span class="line">obj.save()</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>使用 字典序 构建对象，通过save() 完成增加</p>
-<pre class=" language-hljs python"><code class="language-hljs python">dic = &#123;
-    <span class="hljs-string">'属性1'</span>: <span class="hljs-string">'值1'</span>,
-     <span class="hljs-string">'属性1'</span>: <span class="hljs-string">'值1'</span>,
-&#125;
-obj = Entry(**dic)
-obj.save()</code></pre>
-
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dic = &#123;</span><br><span class="line">    <span class="string">'属性1'</span>: <span class="string">'值1'</span>,</span><br><span class="line">     <span class="string">'属性1'</span>: <span class="string">'值1'</span>,</span><br><span class="line">&#125;</span><br><span class="line">obj = Entry(**dic)</span><br><span class="line">obj.save()</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <h4 id="2-查询操作（重难点）查询"><a href="#2-查询操作（重难点）查询" class="headerlink" title="2.查询操作（重难点）查询"></a>2.查询操作（重难点）<a href="https://docs.djangoproject.com/en/2.2/ref/models/querysets/" target="_blank" rel="noopener">查询</a></h4><ol>
@@ -343,12 +305,10 @@ obj.save()</code></pre>
 <p>​    查询表达式：每个查询表达式都是一个独立的查询条件，可以用在所有查询条件的位置处</p>
 <ol>
 <li><p>__exact：精确查询，等值判断</p>
-<pre class=" language-hljs python">User.objects.filter(id__exact=<span class="hljs-number"><code class="language-hljs python">User.objects.filter(id__exact=<span class="hljs-number">1</span>)
-select * <span class="hljs-keyword">from</span> user where id = <span class="hljs-number">1</span></code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">User.objects.filter(id__exact=<span class="number">1</span>)</span><br><span class="line">select * <span class="keyword">from</span> user where id = <span class="number">1</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>__contains()：筛选出属性中包含指定关键字的记录（模糊查询）</p>
-<pre class=" language-hljs python">User.objects.filter(name__contains=<span class="hljs-string"><code class="language-hljs python">User.objects.filter(name__contains=<span class="hljs-string">'jun'</span>)
-select * <span class="hljs-keyword">from</span> user where name like <span class="hljs-string">'%jun%'</span></code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">User.objects.filter(name__contains=<span class="string">'jun'</span>)</span><br><span class="line">select * <span class="keyword">from</span> user where name like <span class="string">'%jun%'</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>__lt：筛选出属性值小于指定值的记录</p>
 </li>
@@ -372,18 +332,16 @@ select * <span class="hljs-keyword">from</span> user where name like <span class
 </ol>
 <h4 id="3-修改数据"><a href="#3-修改数据" class="headerlink" title="3. 修改数据"></a>3. 修改数据</h4><ol>
 <li><p>修改单个数据（这里可以类比 JAP里的对单个实体进行操作，先拿再改最后存）</p>
-<pre><code>1. 通过　get() 得到要修改的实体对象
-     2. 通过实体对象的属性修改属性值
-          3. 再通过 实体对象的save() 保存回数据库</code></pre></li>
+<pre><code> 1. 通过　get() 得到要修改的实体对象
+      2. 通过实体对象的属性修改属性值
+           3. 再通过 实体对象的save() 保存回数据库
+</code></pre></li>
 <li><p>批量修改数据（这个意义不是太大）</p>
 <p>Entry.objects.all().update(属性=值，属性=值)</p>
 <p>update  user set 属性=值, 属性=值 </p>
 </li>
 </ol>
-<h4 id="4-删除数据"><a href="#4-删除数据" class="headerlink" title="4. 删除数据"></a>4. 删除数据</h4><pre class=" language-hljs python">User.objects.get(id=<span class="hljs-number"><code class="language-hljs python">User.objects.get(id=<span class="hljs-number">1</span>).delete()</code></pre>
-
-
-
+<h4 id="4-删除数据"><a href="#4-删除数据" class="headerlink" title="4. 删除数据"></a>4. 删除数据</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">User.objects.get(id=<span class="number">1</span>).delete()</span><br></pre></td></tr></table></figure>
 <h2 id="八、安全"><a href="#八、安全" class="headerlink" title="八、安全"></a>八、安全</h2><h3 id="1-CSRF-跨站处理"><a href="#1-CSRF-跨站处理" class="headerlink" title="1. CSRF 跨站处理"></a>1. CSRF 跨站处理</h3>
             </article>
             <hr>
@@ -458,7 +416,7 @@ select * <span class="hljs-keyword">from</span> user where name like <span class
 
   <div class="col-lg-7 mx-auto nopadding-md">
     <div class="container custom post-content mx-auto">
-      <img src="https://octodex.github.com/images/jetpacktocat.png" srcset="/img/loading.gif" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
+      <img src="https://octodex.github.com/images/jetpacktocat.png" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
     </div>
   </div>
 
@@ -501,14 +459,14 @@ select * <span class="hljs-keyword">from</span> user where name like <span class
   
 
   <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-        <span>Fluid</span></a>
-    </div>
-    
+    <div class="text-center py-3">
+        <div>
+            <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+            <i class="iconfont icon-love"></i>
+            <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+                <span>Fluid</span></a>
+        </div>
+        
   <div>
     
       <!-- 不蒜子统计PV -->
@@ -527,10 +485,10 @@ select * <span class="hljs-keyword">from</span> user where name like <span class
   </div>
 
 
-    
+        
 
-    
-  </div>
+        
+    </div>
 </footer>
 
 <!-- SCRIPTS -->
@@ -538,8 +496,6 @@ select * <span class="hljs-keyword">from</span> user where name like <span class
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
 <script  src="/js/main.js" ></script>
 
-
-  <script  src="/js/lazyload.js" ></script>
 
 
 
@@ -596,7 +552,7 @@ select * <span class="hljs-keyword">from</span> user where name like <span class
       ],
       cursorChar: "_",
       typeSpeed: 70,
-      loop: true,
+      loop: false,
     });
     typed.stop();
     $(document).ready(function () {
