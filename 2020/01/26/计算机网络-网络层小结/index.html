@@ -1,214 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
+
+
+
 <head>
-    <meta charset="UTF-8">
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="面向信仰编程">
+  <meta name="author" content="Jun">
+  <meta name="keywords" content="Jun">
+  <title>计算机网络-网络层小结 - Jun</title>
 
-    <meta name="author" content="Jun Smith">
-
-
-    <meta name="subtitle" content="Stay hungry,Stay foolish">
-
-
-    <meta name="description" content="Stay hungry,Stay foolish">
-
-
-    <meta name="keywords" content="Jun">
-
-
-<title>计算机网络-网络层小结 | Jun Smith</title>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
 
 
-
-    <link rel="icon" href="/favicon.ico">
-
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
 
 
+<!-- 主题依赖的图标库，不要自行修改 -->
 
-    <!-- stylesheets list from _config.yml -->
-    
-    <link rel="stylesheet" href="/css/style.css">
-    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
 
 
 
-    <!-- scripts list from _config.yml -->
-    
-    <script src="/js/script.js"></script>
-    
-    <script src="/js/tocbot.min.js"></script>
-    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
 
 
 
-    
-    
-        
-    
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
 
 
-<link rel="alternate" href="/atom.xml" title="Jun Smith" type="application/atom+xml">
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Jun" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
 <body>
-    <div class="wrapper">
-        <header>
-    <nav class="navbar">
-        <div class="container">
-            <div class="navbar-header header-logo"><a href="/">Jun&#39;s Blog</a></div>
-            <div class="menu navbar-right">
-                
-                    <a class="menu-item" href="/archives">Posts</a>
-                
-                    <a class="menu-item" href="/category">Categories</a>
-                
-                    <a class="menu-item" href="/tag">Tags</a>
-                
-                    <a class="menu-item" href="/about">About</a>
-                
-                <input id="switch_default" type="checkbox" class="switch_default">
-                <label for="switch_default" class="toggleBtn"></label>
-            </div>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Jun</strong>&nbsp;</a>
 
-        </div>
-    </nav>
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
 
-    
-    <nav class="navbar-mobile" id="nav-mobile">
-        <div class="container">
-            <div class="navbar-header">
-                <div>
-                    <a href="/">Jun&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
-                </div>
-                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
-            </div>
-            <div class="menu" id="mobile-menu">
-                
-                    <a class="menu-item" href="/archives">Posts</a>
-                
-                    <a class="menu-item" href="/category">Categories</a>
-                
-                    <a class="menu-item" href="/tag">Tags</a>
-                
-                    <a class="menu-item" href="/about">About</a>
-                
-            </div>
-        </div>
-    </nav>
-
-</header>
-<script>
-    var mobileBtn = function f() {
-        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
-        var mobileMenu = document.getElementById("mobile-menu");
-        if(toggleMenu.classList.contains("active")){
-           toggleMenu.classList.remove("active")
-            mobileMenu.classList.remove("active")
-        }else{
-            toggleMenu.classList.add("active")
-            mobileMenu.classList.add("active")
-        }
-    }
-</script>
-        <div class="main">
-            <div class="container">
-    
-    
-        <div class="post-toc">
-    <div class="tocbot-list">
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              Home</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              Archives</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              Categories</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              Tags</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              About</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
     </div>
-    <div class="tocbot-list-menu">
-        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
-        <a onclick="go_top()">Back to top</a>
-        <a onclick="go_bottom()">Go to bottom</a>
-    </div>
-</div>
+  </div>
+</nav>
 
-<script>
-    document.ready(
-        function () {
-            tocbot.init({
-                tocSelector: '.tocbot-list',
-                contentSelector: '.post-content',
-                headingSelector: 'h1, h2, h3, h4, h5',
-                collapseDepth: 1,
-                orderedList: false,
-                scrollSmooth: true,
-            })
-        }
-    )
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/1.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
 
-    function expand_toc() {
-        var b = document.querySelector(".tocbot-toc-expand");
-        tocbot.init({
-            tocSelector: '.tocbot-list',
-            contentSelector: '.post-content',
-            headingSelector: 'h1, h2, h3, h4, h5',
-            collapseDepth: 6,
-            orderedList: false,
-            scrollSmooth: true,
-        });
-        b.setAttribute("onclick", "collapse_toc()");
-        b.innerHTML = "Collapse all"
-    }
-
-    function collapse_toc() {
-        var b = document.querySelector(".tocbot-toc-expand");
-        tocbot.init({
-            tocSelector: '.tocbot-list',
-            contentSelector: '.post-content',
-            headingSelector: 'h1, h2, h3, h4, h5',
-            collapseDepth: 1,
-            orderedList: false,
-            scrollSmooth: true,
-        });
-        b.setAttribute("onclick", "expand_toc()");
-        b.innerHTML = "Expand all"
-    }
-
-    function go_top() {
-        window.scrollTo(0, 0);
-    }
-
-    function go_bottom() {
-        window.scrollTo(0, document.body.scrollHeight);
-    }
-
-</script>
-    
-
-    
-    <article class="post-wrap">
-        <header class="post-header">
-            <h1 class="post-title">计算机网络-网络层小结</h1>
             
-                <div class="post-meta">
-                    
-                        Author: <a itemprop="author" rel="author" href="/">Jun Smith</a>
-                    
-
-                    
-                        <span class="post-time">
-                        Date: <a href="#">January 26, 2020&nbsp;&nbsp;21:12:53</a>
-                        </span>
-                    
-                    
-                        <span class="post-category">
-                    Category:
-                            
-                                <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
-                            
-                        </span>
-                    
+              
+                <div class="mt-3 post-meta">
+                  <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+                  <time datetime="2020-01-26 21:12">
+                    January 26, 2020 pm
+                  </time>
                 </div>
-            
-        </header>
+              
 
-        <div class="post-content">
-            <h1 id="网络层小结"><a href="#网络层小结" class="headerlink" title="网络层小结"></a>网络层小结</h1><h2 id="一、网络层提供的服务"><a href="#一、网络层提供的服务" class="headerlink" title="一、网络层提供的服务"></a>一、网络层提供的服务</h2><p><img src="https://i.loli.net/2020/02/06/MV3FgBenCRmpsar.png" alt="数据包在互联网中的传递.png"></p>
+              <div class="mt-1">
+                
+                  
+                  <span class="post-meta mr-2">
+                    <i class="iconfont icon-chart"></i>
+                    2.3k 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta mr-2">
+                      <i class="iconfont icon-clock-fill"></i>
+                    
+                    
+                    29
+                     分钟
+                  </span>
+                
+
+                
+              </div>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：3 months ago
+                
+              </p>
+            
+            <article class="markdown-body">
+              <h1 id="网络层小结"><a href="#网络层小结" class="headerlink" title="网络层小结"></a>网络层小结</h1><h2 id="一、网络层提供的服务"><a href="#一、网络层提供的服务" class="headerlink" title="一、网络层提供的服务"></a>一、网络层提供的服务</h2><p><img src="https://i.loli.net/2020/02/06/MV3FgBenCRmpsar.png" srcset="/img/loading.gif" alt="数据包在互联网中的传递.png"></p>
 <p>网络层 负责<code>在不同网络之间尽力转发数据包</code> 基于数据包的IP地址转发 不负责丢失重传 不负责顺序</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">Would you like to enter the initial configuration dialog? [yes/no]: no</span><br><span class="line">Press RETURN to get started!</span><br><span class="line"><span class="meta">#</span><span class="bash"> 进入路由器</span></span><br><span class="line"><span class="meta">Router&gt;</span><span class="bash"><span class="built_in">enable</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 终端配置</span></span><br><span class="line"><span class="meta">Router#</span><span class="bash">configure terminal</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 配置 具体的哪个端口</span></span><br><span class="line"><span class="meta">Router(config)#</span><span class="bash">interface FastEthernet0/0</span></span><br><span class="line"><span class="meta">Router(config-if)#</span><span class="bash">no shutdown</span></span><br><span class="line"><span class="meta">Router(config-if)#</span><span class="bash">ip address 10.0.0.1 255.0.0.0</span></span><br><span class="line"></span><br><span class="line"><span class="meta">Router&gt;</span><span class="bash"><span class="built_in">enable</span></span></span><br><span class="line"><span class="meta">Router#</span><span class="bash">configure terminal </span></span><br><span class="line"><span class="meta">Router(config)#</span><span class="bash">interface serial 2/0</span></span><br><span class="line"><span class="meta">Router(config-if)#</span><span class="bash">no shutdown </span></span><br><span class="line"><span class="meta">Router(config-if)#</span><span class="bash">clock rate 64000</span></span><br><span class="line"><span class="meta">Router(config-if)#</span><span class="bash">ip address 11.0.0.1 255.0.0.0</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 退出当前接口</span></span><br><span class="line"><span class="meta">Router(config-if)#</span><span class="bash"><span class="built_in">exit</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 进入一个接口</span></span><br><span class="line"><span class="meta">Router(config)#</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置IP地址	子网掩码</span></span><br><span class="line"><span class="meta">Router(config-if)#</span><span class="bash">ip address 12.0.0.1 255.255.0.0</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 接口打开</span></span><br><span class="line"><span class="meta">Router(config-if)#</span><span class="bash">no shutdown </span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看路由表</span></span><br><span class="line"><span class="meta">Router#</span><span class="bash">show ip route</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 添加静态路由表</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 去哪里网段 -&gt; 12.0.0.0 255.255.0.0</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 去网段中具体的哪个IP -&gt; 11.0.0.2</span></span><br><span class="line"><span class="meta">Router(config)#</span><span class="bash">ip route 12.0.0.0 255.255.0.0 11.0.0.2</span></span><br></pre></td></tr></table></figure>
+<pre class=" language-hljs shell"><code class="language-hljs shell">Would you like to enter the initial configuration dialog? [yes/no]: no
+Press RETURN to get started!
+<span class="hljs-meta">#</span><span class="bash"> 进入路由器</span>
+<span class="hljs-meta">Router></span><span class="bash"><span class="hljs-built_in">enable</span></span>
+<span class="hljs-meta">#</span><span class="bash"> 终端配置</span>
+<span class="hljs-meta">Router#</span><span class="bash">configure terminal</span>
+<span class="hljs-meta">#</span><span class="bash"> 配置 具体的哪个端口</span>
+<span class="hljs-meta">Router(config)#</span><span class="bash">interface FastEthernet0/0</span>
+<span class="hljs-meta">Router(config-if)#</span><span class="bash">no shutdown</span>
+<span class="hljs-meta">Router(config-if)#</span><span class="bash">ip address 10.0.0.1 255.0.0.0</span>
+
+<span class="hljs-meta">Router></span><span class="bash"><span class="hljs-built_in">enable</span></span>
+<span class="hljs-meta">Router#</span><span class="bash">configure terminal </span>
+<span class="hljs-meta">Router(config)#</span><span class="bash">interface serial 2/0</span>
+<span class="hljs-meta">Router(config-if)#</span><span class="bash">no shutdown </span>
+<span class="hljs-meta">Router(config-if)#</span><span class="bash">clock rate 64000</span>
+<span class="hljs-meta">Router(config-if)#</span><span class="bash">ip address 11.0.0.1 255.0.0.0</span>
+<span class="hljs-meta">#</span><span class="bash"> 退出当前接口</span>
+<span class="hljs-meta">Router(config-if)#</span><span class="bash"><span class="hljs-built_in">exit</span></span>
+<span class="hljs-meta">#</span><span class="bash"> 进入一个接口</span>
+<span class="hljs-meta">Router(config)#</span>
+]
+
+<span class="hljs-meta">#</span><span class="bash"> 设置IP地址	子网掩码</span>
+<span class="hljs-meta">Router(config-if)#</span><span class="bash">ip address 12.0.0.1 255.255.0.0</span>
+<span class="hljs-meta">#</span><span class="bash"> 接口打开</span>
+<span class="hljs-meta">Router(config-if)#</span><span class="bash">no shutdown </span>
+
+<span class="hljs-meta">#</span><span class="bash"> 查看路由表</span>
+<span class="hljs-meta">Router#</span><span class="bash">show ip route</span>
+
+<span class="hljs-meta">#</span><span class="bash"> 添加静态路由表</span>
+<span class="hljs-meta">#</span><span class="bash"> 去哪里网段 -> 12.0.0.0 255.255.0.0</span>
+<span class="hljs-meta">#</span><span class="bash"> 去网段中具体的哪个IP -> 11.0.0.2</span>
+<span class="hljs-meta">Router(config)#</span><span class="bash">ip route 12.0.0.0 255.255.0.0 11.0.0.2</span></code></pre>
 
 <p>路由器到路由器之间需要路由表才知道，之间路由器的下一跳如何走</p>
 <p>网络设备与iOS之间的关系</p>
@@ -233,8 +250,8 @@
 <li><p>数据链路层 交换机将比特流 存储 根据 MAC转发</p>
 </li>
 </ol>
-<p><img src="https://i.loli.net/2020/02/09/vnK1iRLkAadI2OW.png" alt="数据过程.png"></p>
-<h2 id="四、网络层协议"><a href="#四、网络层协议" class="headerlink" title="四、网络层协议"></a>四、网络层协议</h2><p><img src="https://i.loli.net/2020/02/09/RYutJ5xls4DVjMq.png" alt="TCPIP协议层次.png"></p>
+<p><img src="https://i.loli.net/2020/02/09/vnK1iRLkAadI2OW.png" srcset="/img/loading.gif" alt="数据过程.png"></p>
+<h2 id="四、网络层协议"><a href="#四、网络层协议" class="headerlink" title="四、网络层协议"></a>四、网络层协议</h2><p><img src="https://i.loli.net/2020/02/09/RYutJ5xls4DVjMq.png" srcset="/img/loading.gif" alt="TCPIP协议层次.png"></p>
 <p>在网络层中 <code>ARP 协议</code> 为 <code>IP协议</code>提供服务,<code>IP协议</code>为<code>ICMP</code>或<code>IGMP</code>提供服务</p>
 <h3 id="1-IP协议-（RIP、OSPF）"><a href="#1-IP协议-（RIP、OSPF）" class="headerlink" title="1. IP协议 （RIP、OSPF）"></a>1. IP协议 （RIP、OSPF）</h3><p>IP协议是个统称，所有能够让路由器学习路由表的协议都是IP协议。分两种<code>静态路由</code>和<code>动态路由</code></p>
 <ul>
@@ -267,7 +284,18 @@
 </li>
 </ul>
 <p>网络畅通的条件 <code>数据包有去有回</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">Router&gt;</span><span class="bash"><span class="built_in">enable</span></span></span><br><span class="line"><span class="meta">Router#</span><span class="bash">config terminal </span></span><br><span class="line"><span class="meta">Router(config)#</span><span class="bash">interface fastEthernet 0/0</span></span><br><span class="line"><span class="meta">Router(config-if)#</span><span class="bash">ip address 192.168.0.1 255.255.255.0</span></span><br><span class="line"><span class="meta">Router(config-if)#</span><span class="bash">no shutdown </span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置串口</span></span><br><span class="line"><span class="meta">Router(config)#</span><span class="bash">interface serial 2/0</span></span><br><span class="line"><span class="meta">Router(config-if)#</span><span class="bash">clock rate ?</span></span><br><span class="line"><span class="meta">Router(config-if)#</span><span class="bash">clock rate 64000</span></span><br><span class="line"><span class="meta">Router(config-if)#</span><span class="bash">ip address 172.16.0.1 255.255.255.0</span></span><br><span class="line"><span class="meta">Router(config-if)#</span><span class="bash">no shutdown</span></span><br></pre></td></tr></table></figure>
+<pre class=" language-hljs shell"><span class="hljs-meta">Router&gt;</span><span class="bash"><span class="hljs-built_in"><code class="language-hljs shell"><span class="hljs-meta">Router&gt;</span><span class="bash"><span class="hljs-built_in">enable</span></span>
+<span class="hljs-meta">Router#</span><span class="bash">config terminal </span>
+<span class="hljs-meta">Router(config)#</span><span class="bash">interface fastEthernet 0/0</span>
+<span class="hljs-meta">Router(config-if)#</span><span class="bash">ip address 192.168.0.1 255.255.255.0</span>
+<span class="hljs-meta">Router(config-if)#</span><span class="bash">no shutdown </span>
+
+<span class="hljs-meta">#</span><span class="bash"> 设置串口</span>
+<span class="hljs-meta">Router(config)#</span><span class="bash">interface serial 2/0</span>
+<span class="hljs-meta">Router(config-if)#</span><span class="bash">clock rate ?</span>
+<span class="hljs-meta">Router(config-if)#</span><span class="bash">clock rate 64000</span>
+<span class="hljs-meta">Router(config-if)#</span><span class="bash">ip address 172.16.0.1 255.255.255.0</span>
+<span class="hljs-meta">Router(config-if)#</span><span class="bash">no shutdown</span></code></pre>
 
 
 <h3 id="2-ARP协议"><a href="#2-ARP协议" class="headerlink" title="2. ARP协议"></a>2. ARP协议</h3><p><code>ARP</code>将IP地址通过广播 目标MAC地址是 形如<code>FF-FF-FF-FF-FF-FF</code> 解析目标IP地址的MAC地址，分两种情况</p>
@@ -277,7 +305,7 @@
 <li>如果目标IP地址不在本网段中，将获得网关的MAC地址</li>
 </ol>
 <p>查看本地缓存物理地址</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arp -a</span><br></pre></td></tr></table></figure>
+<pre class=" language-hljs shell"><code class="language-hljs shell">arp -a</code></pre>
 
 
 
@@ -286,22 +314,68 @@
 </ol>
 <p>​    ping（Packet Internet Grope）,因特网包探索器，用于测试网络连接量的程序。ping发送一个ICMP回声请求消息给目的地并报告是否收到希望的ICMP回声应答。</p>
 <p>​    ping 指的是端对端联通，通常用来作为可用性的检查，但是某个病毒强行大量远程执行ping命令抢占网络资源，导致系统变慢，网络变慢。严禁ping入侵作为大多数防火墙的一个基本功能</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查看 ping 参数</span></span><br><span class="line">ping /?</span><br><span class="line"><span class="meta">#</span><span class="bash"> 一直ping</span></span><br><span class="line">ping IP -t		# ping 10.0.0.1 -t</span><br><span class="line"><span class="meta">#</span><span class="bash"> 指定ping 发包大小</span></span><br><span class="line">ping -l 200 IP	# ping -l 200 10.0.0.1 		ping 10.0.0.1  -l 200</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置 TTL 值，能够跟踪数据包途径的路由器</span></span><br><span class="line">ping IP -i TTL	# ping 8.8.8.8 -i 1</span><br></pre></td></tr></table></figure>
+<pre class=" language-hljs shell"><span class="hljs-meta">#</span><span class="bash"><code class="language-hljs shell"><span class="hljs-meta">#</span><span class="bash"> 查看 ping 参数</span>
+ping /?
+<span class="hljs-meta">#</span><span class="bash"> 一直ping</span>
+ping IP -t		# ping 10.0.0.1 -t
+<span class="hljs-meta">#</span><span class="bash"> 指定ping 发包大小</span>
+ping -l 200 IP	# ping -l 200 10.0.0.1 		ping 10.0.0.1  -l 200
+<span class="hljs-meta">#</span><span class="bash"> 设置 TTL 值，能够跟踪数据包途径的路由器</span>
+ping IP -i TTL	# ping 8.8.8.8 -i 1</code></pre>
 
 <p>DOS 下面可以ping 网站可以解析出域名说明 网络层是通的</p>
 <ol start="2">
 <li>pathping (windows 专有 跟踪数据包路径 计算丢包情况)</li>
 </ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Jun&gt;pathping www.baidu.com</span><br><span class="line"></span><br><span class="line">通过最多 30 个跃点跟踪</span><br><span class="line">到 www.a.shifen.com [180.101.49.12] 的路由:</span><br><span class="line">  0  DESKTOP-PNGGK3V [192.168.1.4]</span><br><span class="line">  1  CHINATELECOM [192.168.1.1]</span><br><span class="line">  2  100.82.128.1</span><br><span class="line">  3  218.2.122.197</span><br><span class="line">  4  58.213.94.54</span><br><span class="line">  5     *        *        *</span><br><span class="line">正在计算统计信息，已耗时 100 秒...</span><br><span class="line">            指向此处的源   此节点/链接</span><br><span class="line">跃点  RTT    已丢失/已发送 = Pct  已丢失/已发送 = Pct  地址</span><br><span class="line">  0                                           DESKTOP-PNGGK3V [192.168.1.4]</span><br><span class="line">                                7/ 100 =  7%   |</span><br><span class="line">  1  153ms     7/ 100 =  7%     0/ 100 =  0%  CHINATELECOM [192.168.1.1]</span><br><span class="line">                                6/ 100 =  6%   |</span><br><span class="line">  2  143ms    16/ 100 = 16%     3/ 100 =  3%  100.82.128.1</span><br><span class="line">                                0/ 100 =  0%   |</span><br><span class="line">  3  178ms    13/ 100 = 13%     0/ 100 =  0%  218.2.122.197</span><br><span class="line">                                3/ 100 =  3%   |</span><br><span class="line">  4  169ms    16/ 100 = 16%     0/ 100 =  0%  58.213.94.54</span><br><span class="line"></span><br><span class="line">跟踪完成。</span><br></pre></td></tr></table></figure>
+<pre class=" language-hljs shell"><code class="language-hljs shell">C:\Users\Jun>pathping www.baidu.com
+
+通过最多 30 个跃点跟踪
+到 www.a.shifen.com [180.101.49.12] 的路由:
+  0  DESKTOP-PNGGK3V [192.168.1.4]
+  1  CHINATELECOM [192.168.1.1]
+  2  100.82.128.1
+  3  218.2.122.197
+  4  58.213.94.54
+  5     *        *        *
+正在计算统计信息，已耗时 100 秒...
+            指向此处的源   此节点/链接
+跃点  RTT    已丢失/已发送 = Pct  已丢失/已发送 = Pct  地址
+  0                                           DESKTOP-PNGGK3V [192.168.1.4]
+                                7/ 100 =  7%   |
+  1  153ms     7/ 100 =  7%     0/ 100 =  0%  CHINATELECOM [192.168.1.1]
+                                6/ 100 =  6%   |
+  2  143ms    16/ 100 = 16%     3/ 100 =  3%  100.82.128.1
+                                0/ 100 =  0%   |
+  3  178ms    13/ 100 = 13%     0/ 100 =  0%  218.2.122.197
+                                3/ 100 =  3%   |
+  4  169ms    16/ 100 = 16%     0/ 100 =  0%  58.213.94.54
+
+跟踪完成。</code></pre>
 
 <ol start="3">
 <li>tracert (windows 专有)</li>
 </ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Jun&gt;tracert www.baidu.com</span><br><span class="line"></span><br><span class="line">通过最多 30 个跃点跟踪</span><br><span class="line">到 www.a.shifen.com [180.101.49.12] 的路由:</span><br><span class="line"></span><br><span class="line">  1    99 ms   118 ms   119 ms  CHINATELECOM [192.168.1.1]</span><br><span class="line">  2     *        *       77 ms  100.82.128.1</span><br><span class="line">  3   232 ms   110 ms   133 ms  218.2.122.197</span><br><span class="line">  4    55 ms   110 ms   133 ms  58.213.94.54</span><br><span class="line">  5     *        *      254 ms  58.213.94.90</span><br><span class="line">  6    58 ms   106 ms   120 ms  58.213.96.130</span><br><span class="line">  7     *        *        *     请求超时。</span><br><span class="line">  8     *        *        *     请求超时。</span><br><span class="line">  9     *        *        *     请求超时。</span><br><span class="line"> 10    75 ms   105 ms   119 ms  180.101.49.12</span><br><span class="line"></span><br><span class="line">跟踪完成。</span><br></pre></td></tr></table></figure>
+<pre class=" language-hljs shell"><code class="language-hljs shell">C:\Users\Jun>tracert www.baidu.com
+
+通过最多 30 个跃点跟踪
+到 www.a.shifen.com [180.101.49.12] 的路由:
+
+  1    99 ms   118 ms   119 ms  CHINATELECOM [192.168.1.1]
+  2     *        *       77 ms  100.82.128.1
+  3   232 ms   110 ms   133 ms  218.2.122.197
+  4    55 ms   110 ms   133 ms  58.213.94.54
+  5     *        *      254 ms  58.213.94.90
+  6    58 ms   106 ms   120 ms  58.213.96.130
+  7     *        *        *     请求超时。
+  8     *        *        *     请求超时。
+  9     *        *        *     请求超时。
+ 10    75 ms   105 ms   119 ms  180.101.49.12
+
+跟踪完成。</code></pre>
 
 <ol start="4">
 <li><p>traceroute IP    路由器上跟踪数据包路径的命令</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">traceroute 10.0.0.1</span><br></pre></td></tr></table></figure>
+<pre class=" language-hljs shell"><code class="language-hljs shell">traceroute 10.0.0.1</code></pre>
 
 
 
@@ -317,7 +391,7 @@
 <h3 id="4-Internet组播管理协议-IGMP"><a href="#4-Internet组播管理协议-IGMP" class="headerlink" title="4. Internet组播管理协议 IGMP"></a>4. Internet组播管理协议 IGMP</h3><p>点到点（联想TCP）</p>
 <p>广播（联想UDP）</p>
 <p>组播=多播（联想看电视可以换频道）</p>
-<h2 id="五、IP数据包格式"><a href="#五、IP数据包格式" class="headerlink" title="五、IP数据包格式"></a>五、IP数据包格式</h2><h3 id="1-IP数据包"><a href="#1-IP数据包" class="headerlink" title="1.IP数据包"></a>1.IP数据包</h3><p><img src="https://i.loli.net/2020/02/11/YKT3bzwxRA8XWJ1.png" alt="IP数据包.png"></p>
+<h2 id="五、IP数据包格式"><a href="#五、IP数据包格式" class="headerlink" title="五、IP数据包格式"></a>五、IP数据包格式</h2><h3 id="1-IP数据包"><a href="#1-IP数据包" class="headerlink" title="1.IP数据包"></a>1.IP数据包</h3><p><img src="https://i.loli.net/2020/02/11/YKT3bzwxRA8XWJ1.png" srcset="/img/loading.gif" alt="IP数据包.png"></p>
 <h4 id="A-IP数据包由首部和数据两部分组成。"><a href="#A-IP数据包由首部和数据两部分组成。" class="headerlink" title="A. IP数据包由首部和数据两部分组成。"></a>A. IP数据包由首部和数据两部分组成。</h4><ul>
 <li>首部的前一部分是固定长度，共20字节，是所有IP数据报必须具有的。</li>
 <li>在首部的固定部分的后面是一些可选阻断，其长度是可变的。</li>
@@ -349,7 +423,7 @@
 </tr>
 <tr>
 <td>片偏移</td>
-<td align="left">ping <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a> -t -l 65500 ,可以ping 发大包，来抓包演示一下片偏移<br />片偏移表示在整个字节中的位置<img src="https://i.loli.net/2020/02/11/wMpZ5qBIQ8zgVRv.png" alt="IP数据报分片举例.png"></td>
+<td align="left">ping <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a> -t -l 65500 ,可以ping 发大包，来抓包演示一下片偏移<br />片偏移表示在整个字节中的位置<img src="https://i.loli.net/2020/02/11/wMpZ5qBIQ8zgVRv.png" srcset="/img/loading.gif" alt="IP数据报分片举例.png"></td>
 </tr>
 <tr>
 <td>生存时间  TTL  Time  to live</td>
@@ -357,16 +431,16 @@
 </tr>
 <tr>
 <td>协议号</td>
-<td align="left">协议字段指出将数据部分交给哪个进程处理，协议可以是<br />传输层的中（TCP - 6、UDP - 17）<br /> 网络层中 （ICMP - 1、IGMP - 2、OSPF - 89）<br />　TCP－１<img src="https://i.loli.net/2020/02/11/oJfn1eKIX74Fs8h.png" alt="IP中协议号.png"></td>
+<td align="left">协议字段指出将数据部分交给哪个进程处理，协议可以是<br />传输层的中（TCP - 6、UDP - 17）<br /> 网络层中 （ICMP - 1、IGMP - 2、OSPF - 89）<br />　TCP－１<img src="https://i.loli.net/2020/02/11/oJfn1eKIX74Fs8h.png" srcset="/img/loading.gif" alt="IP中协议号.png"></td>
 </tr>
 <tr>
 <td>首部检验和</td>
-<td align="left"><img src="https://i.loli.net/2020/02/11/OE9BpbvS6aQinx1.png" alt="首部检验和校验过程.png"></td>
+<td align="left"><img src="https://i.loli.net/2020/02/11/OE9BpbvS6aQinx1.png" srcset="/img/loading.gif" alt="首部检验和校验过程.png"></td>
 </tr>
 </tbody></table>
 </li>
 </ol>
-<p><img src="https://i.loli.net/2020/02/11/5YdSiePDEUMVJ6m.png" alt="IP首部演示.png"></p>
+<p><img src="https://i.loli.net/2020/02/11/5YdSiePDEUMVJ6m.png" srcset="/img/loading.gif" alt="IP首部演示.png"></p>
 <p>网络层 数据包 65535字节（ 2^16 - 1）,数据链路层 数据最大 1500字节  MTU（最大传输单元）,当网络层的数据包大于 1500字节，网络层就会<code>数据包分片</code>,一般情况下不用分片。在接收方的数据链路层将分片重新组装成数据包给网络层。</p>
 <h2 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h2><ul>
 <li>网络设备的机械特性<ul>
@@ -415,76 +489,287 @@
 <li>交换机</li>
 </ul>
 
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
+                    
+                      <a class="hover-with-bg" href="/tags/IP%E5%8D%8F%E8%AE%AE/">IP协议</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/01/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%BF%90%E8%BE%93%E5%B1%82-%E6%A6%82%E8%BF%B0%E5%92%8C%E8%BF%90%E8%BE%93%E5%B1%82%E6%9C%8D%E5%8A%A1/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">运输层-概述和运输层服务</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/01/17/%E4%BB%8E-%E4%B8%89%E3%80%81%E5%9B%9B%E6%95%B0%E4%B9%8B%E5%92%8C%E5%88%B0n%E6%95%B0%E4%B9%8B%E5%92%8C%E7%9A%84%E6%8E%A8%E5%AF%BC/">
+                        <span class="hidden-mobile">从 三、四数之和到n数之和的推导</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
         </div>
-
-        
-            <section class="post-copyright">
-                
-                    <p class="copyright-item">
-                        <span>Author:</span>
-                        <span>Jun Smith</span>
-                    </p>
-                
-                
-                    <p class="copyright-item">
-                        <span>Permalink:</span>
-                        <span><a href="http://www.wangjunjun.club/2020/01/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E7%BD%91%E7%BB%9C%E5%B1%82%E5%B0%8F%E7%BB%93/">http://www.wangjunjun.club/2020/01/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E7%BD%91%E7%BB%9C%E5%B1%82%E5%B0%8F%E7%BB%93/</a></span>
-                    </p>
-                
-                
-                    <p class="copyright-item">
-                        <span>License:</span>
-                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
-                    </p>
-                
-                
-                     <p class="copyright-item">
-                         <span>Slogan:</span>
-                         <span>Do you believe in <strong>DESTINY<strong>?</span>
-                     </p>
-                
-
-            </section>
-        
-        <section class="post-tags">
-            <div>
-                <span>Tag(s):</span>
-                <span class="tag">
-                    
-                    
-                        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"># 计算机网络</a>
-                    
-                        <a href="/tags/IP%E5%8D%8F%E8%AE%AE/"># IP协议</a>
-                    
-                        
-                </span>
-            </div>
-            <div>
-                <a href="javascript:window.history.back();" target="_blank" rel="noopener">back</a>
-                <span>· </span>
-                <a href="/">home</a>
-            </div>
-        </section>
-        <section class="post-nav">
-            
-                <a class="prev" rel="prev" href="/2020/01/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%BF%90%E8%BE%93%E5%B1%82-%E6%A6%82%E8%BF%B0%E5%92%8C%E8%BF%90%E8%BE%93%E5%B1%82%E6%9C%8D%E5%8A%A1/">运输层-概述和运输层服务</a>
-            
-            
-            <a class="next" rel="next" href="/2020/01/17/%E4%BB%8E-%E4%B8%89%E3%80%81%E5%9B%9B%E6%95%B0%E4%B9%8B%E5%92%8C%E5%88%B0n%E6%95%B0%E4%B9%8B%E5%92%8C%E7%9A%84%E6%8E%A8%E5%AF%BC/">从 三、四数之和到n数之和的推导</a>
-            
-        </section>
-
-
-    </article>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
 </div>
 
-        </div>
-        <footer id="footer" class="footer">
-    <div class="copyright">
-        <span>© Jun Smith | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+  <div class="col-lg-7 mx-auto nopadding-md">
+    <div class="container custom post-content mx-auto">
+      <img src="https://octodex.github.com/images/jetpacktocat.png" srcset="/img/loading.gif" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
     </div>
+  </div>
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+  <div>
+    
+      <!-- 不蒜子统计PV -->
+      
+      <span id="busuanzi_container_site_pv" style="display: none">
+      总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    </span>
+    
+    
+      <!-- 不蒜子统计UV -->
+      
+      <span id="busuanzi_container_site_uv" style="display: none">
+      总访客数 <span id="busuanzi_value_site_uv"></span> 人
+    </span>
+    
+  </div>
+
+
+    
+
+    
+  </div>
 </footer>
 
-    </div>
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "计算机网络-网络层小结&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: true,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
