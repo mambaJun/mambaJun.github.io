@@ -17,7 +17,7 @@
   <meta name="description" content="面向信仰编程">
   <meta name="author" content="Jun">
   <meta name="keywords" content="Jun">
-  <title>汇编语言 学习笔记一 - Jun</title>
+  <title>docker 部署ngxin镜像启动失败 外加一些常用操作 - Jun</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
@@ -131,8 +131,8 @@
               
                 <div class="mt-3 post-meta">
                   <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-                  <time datetime="2020-03-29 10:15">
-                    March 29, 2020 am
+                  <time datetime="2020-05-26 12:52">
+                    May 26, 2020 pm
                   </time>
                 </div>
               
@@ -142,7 +142,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    0 字
+                    368 字
                   </span>
                 
 
@@ -152,7 +152,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    1
+                    5
                      分钟
                   </span>
                 
@@ -182,29 +182,28 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2 months ago
+                  本文最后更新于：8 days ago
                 
               </p>
             
             <article class="markdown-body">
-              
+              <h1 id="docker-部署ngxin镜像启动失败-外加一些常用操作"><a href="#docker-部署ngxin镜像启动失败-外加一些常用操作" class="headerlink" title="docker 部署ngxin镜像启动失败 外加一些常用操作"></a>docker 部署ngxin镜像启动失败 外加一些常用操作</h1><p>今天在docker里部署nginx遇到一个坑,如下:<br> [emerg] “user” directive is not allowed here in /etc/nginx/conf.d/nginx.conf:2</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 直接运行nginx 镜像</span></span><br><span class="line">docker run -d -p 80:80 --name nginx_1 \</span><br><span class="line">-v /opt/nginx/project:/usr/share/nginx/html \</span><br><span class="line">-v /opt/nginx/conf/nginx.conf:/etc/nginx/nginx.conf \</span><br><span class="line">-v /opt/nginx/logs:/var/log/nginx \</span><br><span class="line">-v /opt/nginx/cache:/var/cache/nginx/ \</span><br><span class="line">--privileged=true nginx</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看镜像,结果镜像没有起来</span></span><br><span class="line">docker ps</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看日志</span></span><br><span class="line">docker logs 126d58471a08</span><br><span class="line"><span class="meta">#</span><span class="bash"> 错误结果说是 nginx.conf 的错误</span></span><br><span class="line">[emerg] "user" directive is not allowed here in /etc/nginx/conf.d/nginx.conf:2</span><br></pre></td></tr></table></figure>
+<p>解决方法:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 先跑一个</span></span><br><span class="line">docker run --name nginx_2 -d nginx</span><br><span class="line"><span class="meta">#</span><span class="bash"> 将它里的配置文件复制到想要映射的位置</span></span><br><span class="line">docker cp 126d58471a08:/etc/nginx/nginx.conf /opt/nginx/conf/</span><br><span class="line"><span class="meta">#</span><span class="bash"> 删掉之前的nginx 镜像,重新创建</span></span><br><span class="line">docker run -d -p 80:80 --name nginx_1 \</span><br><span class="line">-v /opt/nginx/project:/usr/share/nginx/html \</span><br><span class="line">-v /opt/nginx/conf/nginx.conf:/etc/nginx/nginx.conf \</span><br><span class="line">-v /opt/nginx/logs:/var/log/nginx \</span><br><span class="line">-v /opt/nginx/cache:/var/cache/nginx/ \</span><br><span class="line">--privileged=true nginx</span><br></pre></td></tr></table></figure><br>我这里有个想法,就不实验了,复制好了配置文件,直接启动之前的没有起来的镜像,看看是不是也可以,这样就省的重新 删除创建了,感兴趣的小伙伴可以试试.</p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>到此为止镜像已经成功起来,下面记录一些常用操作<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 进入系统</span></span><br><span class="line">docker exec -it 126d58471a08 /bin/bash</span><br><span class="line"><span class="meta">#</span><span class="bash"> 检查配置⽂件</span></span><br><span class="line">nginx -t</span><br><span class="line"><span class="meta">#</span><span class="bash"> 重新载⼊配置⽂件</span></span><br><span class="line">nginx -s reload</span><br><span class="line"><span class="meta">#</span><span class="bash"> 重启 Nginx</span></span><br><span class="line">nginx -s reopen </span><br><span class="line"><span class="meta">#</span><span class="bash"> 停⽌ Nginx</span></span><br><span class="line">nginx -s stop</span><br></pre></td></tr></table></figure></p>
+
             </article>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">汇编语言</a>
-                    
-                  </div>
-                
                 
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">汇编语言</a>
+                      <a class="hover-with-bg" href="/tags/nginx/">nginx</a>
+                    
+                      <a class="hover-with-bg" href="/tags/docker/">docker</a>
                     
                   </div>
                 
@@ -217,9 +216,9 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/05/25/flex-%E5%B8%83%E5%B1%80/">
+                      <a href="/2020/06/02/linux%E5%91%BD%E4%BB%A4%E7%AC%94%E8%AE%B0/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">flex 布局</span>
+                        <span class="hidden-mobile">linux命令笔记</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -227,8 +226,8 @@
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/03/05/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA%20%E4%B8%80/">
-                        <span class="hidden-mobile">Java 虚拟机 一</span>
+                      <a href="/2020/05/25/flex-%E5%B8%83%E5%B1%80/">
+                        <span class="hidden-mobile">flex 布局</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -391,7 +390,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "汇编语言 学习笔记一&nbsp;",
+        "docker 部署ngxin镜像启动失败 外加一些常用操作&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

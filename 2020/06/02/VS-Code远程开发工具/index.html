@@ -17,7 +17,7 @@
   <meta name="description" content="面向信仰编程">
   <meta name="author" content="Jun">
   <meta name="keywords" content="Jun">
-  <title>Hello World - Jun</title>
+  <title>VS Code远程开发工具 - Jun</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
@@ -131,8 +131,8 @@
               
                 <div class="mt-3 post-meta">
                   <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-                  <time datetime="2019-11-23 11:38">
-                    November 23, 2019 am
+                  <time datetime="2020-06-02 10:35">
+                    June 2, 2020 am
                   </time>
                 </div>
               
@@ -142,7 +142,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    73 字
+                    510 字
                   </span>
                 
 
@@ -152,7 +152,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    1
+                    5
                      分钟
                   </span>
                 
@@ -182,20 +182,47 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：6 months ago
+                  本文最后更新于：a few seconds ago
                 
               </p>
             
             <article class="markdown-body">
-              <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+              <h1 id="VS-Code-远程开发工具"><a href="#VS-Code-远程开发工具" class="headerlink" title="VS Code 远程开发工具"></a>VS Code 远程开发工具</h1><p>最看了一篇<a href="https://mp.weixin.qq.com/s/xwfWJolHsiSBGaJDlgD8Kw" target="_blank" rel="noopener">微信文章</a>，讲的是如何用VS Code进行远程开发，刚巧我租了一台云服务器。今天就介绍给大家，废话不说，淦！</p>
+<p><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%20%E7%AC%AC%E4%B8%80%E6%AD%A5.png" alt=""><br><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%20%E7%AC%AC%E4%BA%8C%E6%AD%A5.png" alt=""><br><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%20%E7%AC%AC%E4%B8%89%E6%AD%A5.png" alt=""><br><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/screen.png" alt=""></p>
+<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><blockquote>
+<p><strong>Visual Studio Code</strong>（简称<strong>VS Code</strong>）是一个由微软开发，同时支持Windows 、 Linux和macOS等操作系统且开放源代码的代码编辑器，它支持测试，并内置了Git 版本控制功能，同时也具有开发环境功能，例如代码补全（类似于 IntelliSense）、代码片段和代码重构等。该编辑器支持用户个性化配置，例如改变主题颜色、键盘快捷方式等各种属性和参数，同时还在编辑器中内置了扩展程序管理的功能 - 引用维基百科</p>
+</blockquote>
+<p>VS Code 最迷人的地方在于强大的插件支持，基本上啥功能的插件都可以找到。</p>
+<p>VS Code远程开发的工作原理，大概是这样的：</p>
+<p><img src="/media/jun/programming/VS Code远程原理.png" alt=""></p>
+<p>下面讲一下如何进行配置，我的local OS是Ubuntu，Remote OS是CentOS 7 云主机。</p>
+<h2 id="远程开发配置"><a href="#远程开发配置" class="headerlink" title="远程开发配置"></a>远程开发配置</h2><h3 id="配置SSH环境变量"><a href="#配置SSH环境变量" class="headerlink" title="配置SSH环境变量"></a>配置SSH环境变量</h3><p>远程开发本地的VS Code用的SSH协议和远程服务器通信，所以先配置SSH环境，因为GIt自带SSH客户端，所以先把 Git安装一下。</p>
+<p><a href="https://www.runoob.com/git/git-install-setup.html" target="_blank" rel="noopener">可以参考这里 Git 安装配置</a></p>
+<h3 id="VS-Code安装远程开发插件"><a href="#VS-Code安装远程开发插件" class="headerlink" title="VS Code安装远程开发插件"></a>VS Code安装远程开发插件</h3><p>连接远程主机，需要在VS Code安装远程开发插件：</p>
+<p><img src="/media/jun/programming/VS Code远程插件.png" alt=""></p>
+<ul>
+<li>Remote - SSH：通过SSH连接虚拟或者 Linux主机</li>
+<li>Remote - Containers：连接Docker开发容器</li>
+<li>Remote - WSL：裂解Windows Subsystem for Linux（Linux子系统）</li>
+</ul>
+<p>因为我连接的是Linux主机，只需要安装Remote - SSH插件即可。</p>
+<h3 id="配置远程连接"><a href="#配置远程连接" class="headerlink" title="配置远程连接"></a>配置远程连接</h3><ol>
+<li><p>首先点侧边栏的「远程资源管理器」之后点击「设置按钮」，进入远程机器配置界面。</p>
+<p><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/远程连接 第一步.png" alt="编辑器配置"></p>
+</li>
+</ol>
+<ol>
+<li><p>修改 ssh配置文件，用来登录远程主机，</p>
+<ol>
+<li>Linux版本</li>
+</ol>
+<p><img src="/media/jun/programming/远程连接 第二步.png" alt=""></p>
+<p>​    2. Windows版本</p>
+<p><img src="/media/jun/programming/远程连接 第三步.png" alt=""></p>
+</li>
+<li><p>点击连接，登录远程服务器，需要数据远程主机密码</p>
+</li>
+</ol>
 
             </article>
             <hr>
@@ -205,10 +232,17 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/hexo/">hexo</a>
+                      <a class="hover-with-bg" href="/categories/%E5%A5%BD%E4%B8%9C%E8%A5%BF/">好东西</a>
                     
                   </div>
                 
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/VS-Code/">VS Code</a>
+                    
+                  </div>
                 
               </div>
               
@@ -219,15 +253,15 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2019/11/24/Django-%E5%85%A5%E9%97%A8/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Django 入门</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </div>
                   <div class="post-next col-6">
                     
+                    
+                      <a href="/2020/06/02/linux%E5%91%BD%E4%BB%A4%E7%AC%94%E8%AE%B0/">
+                        <span class="hidden-mobile">linux命令笔记</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </div>
                 </div>
@@ -387,7 +421,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Hello World&nbsp;",
+        "VS Code远程开发工具&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
