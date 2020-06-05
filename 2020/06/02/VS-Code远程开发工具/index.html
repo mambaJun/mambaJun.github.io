@@ -142,7 +142,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    510 字
+                    861 字
                   </span>
                 
 
@@ -152,7 +152,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    5
+                    9
                      分钟
                   </span>
                 
@@ -182,13 +182,12 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：a few seconds ago
+                  本文最后更新于：a day ago
                 
               </p>
             
             <article class="markdown-body">
               <h1 id="VS-Code-远程开发工具"><a href="#VS-Code-远程开发工具" class="headerlink" title="VS Code 远程开发工具"></a>VS Code 远程开发工具</h1><p>最看了一篇<a href="https://mp.weixin.qq.com/s/xwfWJolHsiSBGaJDlgD8Kw" target="_blank" rel="noopener">微信文章</a>，讲的是如何用VS Code进行远程开发，刚巧我租了一台云服务器。今天就介绍给大家，废话不说，淦！</p>
-<p><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%20%E7%AC%AC%E4%B8%80%E6%AD%A5.png" alt=""><br><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%20%E7%AC%AC%E4%BA%8C%E6%AD%A5.png" alt=""><br><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%20%E7%AC%AC%E4%B8%89%E6%AD%A5.png" alt=""><br><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/screen.png" alt=""></p>
 <h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><blockquote>
 <p><strong>Visual Studio Code</strong>（简称<strong>VS Code</strong>）是一个由微软开发，同时支持Windows 、 Linux和macOS等操作系统且开放源代码的代码编辑器，它支持测试，并内置了Git 版本控制功能，同时也具有开发环境功能，例如代码补全（类似于 IntelliSense）、代码片段和代码重构等。该编辑器支持用户个性化配置，例如改变主题颜色、键盘快捷方式等各种属性和参数，同时还在编辑器中内置了扩展程序管理的功能 - 引用维基百科</p>
 </blockquote>
@@ -208,7 +207,7 @@
 <p>因为我连接的是Linux主机，只需要安装Remote - SSH插件即可。</p>
 <h3 id="配置远程连接"><a href="#配置远程连接" class="headerlink" title="配置远程连接"></a>配置远程连接</h3><ol>
 <li><p>首先点侧边栏的「远程资源管理器」之后点击「设置按钮」，进入远程机器配置界面。</p>
-<p><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/远程连接 第一步.png" alt="编辑器配置"></p>
+<p><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%20%E7%AC%AC%E4%B8%80%E6%AD%A5.png" alt=""></p>
 </li>
 </ol>
 <ol>
@@ -216,11 +215,27 @@
 <ol>
 <li>Linux版本</li>
 </ol>
-<p><img src="/media/jun/programming/远程连接 第二步.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%20%E7%AC%AC%E4%BA%8C%E6%AD%A5.png" alt=""></p>
 <p>​    2. Windows版本</p>
-<p><img src="/media/jun/programming/远程连接 第三步.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%20%E7%AC%AC%E4%B8%89%E6%AD%A5.png" alt=""></p>
 </li>
-<li><p>点击连接，登录远程服务器，需要数据远程主机密码</p>
+<li><p>点击连接，登录远程服务器，需要数据远程主机密码，输入确认即可。第一次连接会做初始化工作，可能会慢一点，耐心等等。</p>
+<p><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E7%AC%AC%E5%9B%9B%E6%AD%A5.png" alt=""></p>
+</li>
+<li><p>登录成功，即可像操作本地环境一样，在VS Code客户端操作远程云主机上的文件。注意，<strong>下图中的「打开文件夹」已经是远端机器上的目录结构了。</strong></p>
+</li>
+<li><p>远程VS Code 安装插件。安装的插件是在云服务器的VS Code上，对本机的VS Code没有影响，插件在远端提供功能，比如代码审查、自动补齐等等，而这所有的一切就像在本地操作一样，对文件的更改也是直接操作的云主机上的文件，丝滑连接。</p>
+</li>
+<li><p>代码编辑与远程终端调试。打开文件编辑的是云服务器的文件，同时可以打开云服务终端，直接在终端操作编译或者查看云服务器信息。</p>
+</li>
+</ol>
+<h2 id="配置SSH免密登录"><a href="#配置SSH免密登录" class="headerlink" title="配置SSH免密登录"></a>配置SSH免密登录</h2><p>   按照上面的配置步骤，每次连接到远程服务器，都需要输入服务器登录密码很麻烦，可以配置SSH免密登录，免去每次输入密码的烦恼，具体操作步骤如下：</p>
+<ol>
+<li><p>打开终端生成密钥对</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打开生成的秘钥保存路径，拷贝 <code>id_rsa.pub</code> 内容，添加到到云服务器的 <code>~/.ssh/authorized_keys</code> 文件后面。</p>
+<p>OK了！！！</p>
 </li>
 </ol>
 
@@ -252,6 +267,12 @@
                 <div class="post-prevnext row">
                   <div class="post-prev col-6">
                     
+                    
+                      <a href="/2020/06/05/linux-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">linux 文件管理</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </div>
                   <div class="post-next col-6">
