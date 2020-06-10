@@ -142,7 +142,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    511 字
+                    857 字
                   </span>
                 
 
@@ -152,7 +152,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    5
+                    9
                      分钟
                   </span>
                 
@@ -182,7 +182,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：10 days ago
+                  本文最后更新于：5 days ago
                 
               </p>
             
@@ -238,7 +238,23 @@
 <p>​    在接收方，SSL从TCP套接字读取数据，解密后把数据交给应用层。</p>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在发送方发送前 和 在接收方接收前 进行数据安全验证，位于应用层和传输层之间。</span><br><span class="line">用来防止数据泄露。</span><br></pre></td></tr></table></figure>
 <p>HTTPS    TCP + 443</p>
-<h3 id="4-2-网络层安全-IPSec"><a href="#4-2-网络层安全-IPSec" class="headerlink" title="4.2 网络层安全 IPSec"></a>4.2 网络层安全 IPSec</h3><h2 id="五、链路加密与端到端加密"><a href="#五、链路加密与端到端加密" class="headerlink" title="五、链路加密与端到端加密"></a>五、链路加密与端到端加密</h2><h2 id="六、防火墙"><a href="#六、防火墙" class="headerlink" title="六、防火墙"></a>六、防火墙</h2>
+<p><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/SSL位置.png" alt="SSL位置"></p>
+<h3 id="4-2-网络层安全-IPSec"><a href="#4-2-网络层安全-IPSec" class="headerlink" title="4.2 网络层安全 IPSec"></a>4.2 网络层安全 IPSec</h3><h4 id="安全关联-SA（Security-Association）"><a href="#安全关联-SA（Security-Association）" class="headerlink" title="安全关联 SA（Security Association）"></a>安全关联 SA（Security Association）</h4><p>​    在使用 AH 或 ESP之前，先要从源主机到目的主机建立一条网络层的逻辑连接。此逻辑连接叫做安全关联 SA。</p>
+<p>​    IPsec 就把传统的因特网无连接的网络层转换为具有逻辑连接的层。</p>
+<blockquote>
+<p>SA（安全关联）是构成IPSec的基础，是两个通信实体经协商（利用IKE协议）建立起来的一种协定，它决定了用来保护数据分组安全的安全协议（AH协议或ESP协议）、转码方式，密钥及密钥的有效存在时间等。</p>
+</blockquote>
+<h4 id="鉴别首部-AH（Authentication-Header）"><a href="#鉴别首部-AH（Authentication-Header）" class="headerlink" title="鉴别首部 AH（Authentication Header）"></a>鉴别首部 AH（Authentication Header）</h4><blockquote>
+<p>鉴别首部 AH（Authentication Header）：AH鉴别源点和检查数据完整性，但<code>不能保密</code>。</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/鉴别首部协议AH在数据报中的位置.png" alt="鉴别首部协议AH在数据报中的位置"></p>
+<p>在使用鉴别首部协议 AH时，把AH 首部插在原数据报数据部分的前面，同时把<code>IP首部中的协议字段置为　51</code>。</p>
+<h4 id="封装安全有效载荷（Encapsulation-Security）"><a href="#封装安全有效载荷（Encapsulation-Security）" class="headerlink" title="封装安全有效载荷（Encapsulation Security）"></a>封装安全有效载荷（Encapsulation Security）</h4><blockquote>
+<p>封装安全有效载荷 ESP（Encapsulation Security）：ESP 比AH复杂得多，它鉴别源点、检查数据完整性和<code>提供保密</code>。</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/封装安全有效载荷ESP在数据报中的位置.png" alt="封装安全有效载荷ESP在数据报中的位置"></p>
+<p>使用ESP时，IP数据报首部的协议字段置为50。当IP首部检查到协议字段是 50 时，就知道在IP首部后面紧接着的是ESP首部，同时在原IP数据报后面增加了两个字段，即ESP尾部和ESP数据。</p>
+<h2 id="五、链路加密与端到端加密"><a href="#五、链路加密与端到端加密" class="headerlink" title="五、链路加密与端到端加密"></a>五、链路加密与端到端加密</h2><h2 id="六、防火墙"><a href="#六、防火墙" class="headerlink" title="六、防火墙"></a>六、防火墙</h2>
             </article>
             <hr>
             <div>
@@ -270,9 +286,9 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/03/05/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA%20%E4%BA%8C/">
+                      <a href="/2020/03/05/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA%20%E4%B8%80/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Java 虚拟机 二</span>
+                        <span class="hidden-mobile">Java 虚拟机 一</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
