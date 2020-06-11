@@ -182,7 +182,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：15 days ago
+                  本文最后更新于：16 days ago
                 
               </p>
             
@@ -318,7 +318,7 @@
 <li>可以在服务器网卡上设置只开放必要端口，实现服务器的网络安全</li>
 </ul>
 <p>如何查看服务侦听</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查看会话</span></span><br><span class="line">netstat -n</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看建立会话的进程</span></span><br><span class="line">netstat -nb</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看计算机侦听端口</span></span><br><span class="line">netstat -an</span><br><span class="line"><span class="meta">#</span><span class="bash"> 根据状态筛选</span></span><br><span class="line">netstat -n : find "ESTABLISHED"</span><br><span class="line"><span class="meta">#</span><span class="bash"> 测试到远程计算机某个端口是否打开 telnet 192.168.1.1 3389</span></span><br><span class="line">telnet 192.168.1.1 3389</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查看会话</span></span><br><span class="line">netstat -n</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看建立会话的进程</span></span><br><span class="line">netstat -nb</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看计算机侦听端口</span></span><br><span class="line">netstat -an</span><br><span class="line"><span class="meta">#</span><span class="bash"> 根据状态筛选</span></span><br><span class="line">netstat -n : find "ESTABLISHED"</span><br><span class="line"><span class="meta">#</span><span class="bash"> 测试到远程计算机某个端口是否打开 telnet 192.168.1.1 3389</span></span><br><span class="line">telnet 192.168.1.1 3389</span><br></pre></td></tr></table></figure>
 <h3 id="传输层功能-和-端口范围"><a href="#传输层功能-和-端口范围" class="headerlink" title="传输层功能 和 端口范围"></a>传输层功能 和 端口范围</h3><p><img src="https://i.loli.net/2020/02/14/zpdTxJjk5Vu174t.png" alt="传输层功能.png"></p>
 <h4 id="传输层功能"><a href="#传输层功能" class="headerlink" title="传输层功能"></a>传输层功能</h4><p>传输层功能：为<code>应用进程之间</code>提供端到端的逻辑通信</p>
 <ul>

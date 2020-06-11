@@ -156,6 +156,54 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2020/06/11/Linux-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" target="_self">
+          <img src="/img/linux_logo.png" alt="Linux 权限管理">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a class="index-header" href="/2020/06/11/Linux-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">Linux 权限管理</a>
+
+      <a href="/2020/06/11/Linux-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" class="index-excerpt">
+        
+        
+          
+        
+        <div>Linux权限管理   文件的权限主要针对三类对象进行定义：                owner: 属主, u                group: 属组, g                other: 其他, o
+每个文件针对每类访问者都定义了三种权限：        r: Readable        w: Writable        x: eXcutable
+    文件</div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-06-11
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/linux/">linux</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">权限管理</a>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2020/06/10/Docker-%E9%83%A8%E7%BD%B2Jenkins%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2/" target="_self">
           <img src="/img/docker.png" alt="Docker 部署Jenkins自动化部署">
         </a>
@@ -171,11 +219,8 @@
         
         <div>Docker 部署Jenkins自动化部署一直都在因为打包，重新部署烦恼，今天我试着利用docker搭建Jenkins实现自动化部署。
 
-获取Jenkins最新镜像
-1docker pull jenkins
-
-启动 Jenkins镜像
-1docker run -d -p 8081:8080 -v ~/jenkins:/opt/jenkins --name jenkins --restart=alw</div>
+获取并启动 Jenkins镜像
+docker run -d -p 8081:8080 -v /opt/jenkins:/var/jenkins_home --name jenkins --restart=always jenkins:2.46.1# 这个权限别忘</div>
       </a>
 
       <div class="index-btm post-metas">
@@ -395,11 +440,11 @@ Visual Studio Code（简称VS Code）是一个由微软开发，同时支持Wind
         <div>在Linux上 常用命令笔记这里的命令都是在centos 7的环境上测试的
 命令的优先级
 alias  &gt; 内部命令 &gt; hash表（记录外部命令的路径） &gt; $PATH  &gt; 找不到命令
-查看历史12# 设置历史格式 加时间HISTTIMEFORMAT="%F %T "
+查看历史# 设置历史格式 加时间HISTTIMEFORMAT="%F %T "
 
 求帮助
 简单查看
-123456# 查看命令的用法whatis lsls (1)           </div>
+# 查看命令的用法whatis lsls (1)               - li</div>
       </a>
 
       <div class="index-btm post-metas">
@@ -446,7 +491,7 @@ alias  &gt; 内部命令 &gt; hash表（记录外部命令的路径） &gt; $PAT
           
         
         <div>docker 部署ngxin镜像启动失败 外加一些常用操作今天在docker里部署nginx遇到一个坑,如下: [emerg] “user” directive is not allowed here in /etc/nginx/conf.d/nginx.conf:2
-12345678910111213# 直接运行nginx 镜像docker run -d -p 80:80 --name ngin</div>
+# 直接运行nginx 镜像docker run -d -p 80:80 --name nginx_1 \-v /opt/ngin</div>
       </a>
 
       <div class="index-btm post-metas">
@@ -652,13 +697,13 @@ MAC地址欺骗
 IP 地址欺骗
 
 中断 — 有意中断他人在网络上的通信 本质上是ARP 欺骗
- 1arp -a
+ arp -a
 
 
 
 篡改 — 故意篡改网络上传送的报文
 
-伪造 — 伪</div>
+伪造 — 伪造</div>
       </a>
 
       <div class="index-btm post-metas">
@@ -684,49 +729,6 @@ IP 地址欺骗
               <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a>
             
           </div>
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020/02/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E4%BC%A0%E8%BE%93%E5%B1%82%E5%B0%8F%E7%BB%93/">计算机网络-传输层小结</a>
-
-      <a href="/2020/02/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E4%BC%A0%E8%BE%93%E5%B1%82%E5%B0%8F%E7%BB%93/" class="index-excerpt">
-        
-        
-          
-        
-        <div>title: 计算机网络-传输层小结date: 2020-02-13 13:35:15tags:
-
-传输层
-TCP/UDP协议categories:
-计算机网络
-
-index_img: /img/default.png  
-[TOC]
-传输层学习笔记主要内容包括：
-
-传输层的功能
-传输层协议UDP 和 TCP
-网络安全
-TCP可靠传输的实现
-TCP流量控制
-TCP的拥塞控制
-TCP的传输连接管理
-</div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-02-19
-          </div>
-        
-        
         
       </div>
     </div>

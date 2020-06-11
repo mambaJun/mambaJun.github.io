@@ -182,7 +182,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：7 days ago
+                  本文最后更新于：8 days ago
                 
               </p>
             
@@ -232,7 +232,7 @@
 <h2 id="配置SSH免密登录"><a href="#配置SSH免密登录" class="headerlink" title="配置SSH免密登录"></a>配置SSH免密登录</h2><p>   按照上面的配置步骤，每次连接到远程服务器，都需要输入服务器登录密码很麻烦，可以配置SSH免密登录，免去每次输入密码的烦恼，具体操作步骤如下：</p>
 <ol>
 <li><p>打开终端生成密钥对</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>打开生成的秘钥保存路径，拷贝 <code>id_rsa.pub</code> 内容，添加到到云服务器的 <code>~/.ssh/authorized_keys</code> 文件后面。</p>
 <p>OK了！！！</p>
