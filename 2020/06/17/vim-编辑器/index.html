@@ -182,7 +182,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：3 minutes ago
+                  本文最后更新于：a few seconds ago
                 
               </p>
             
@@ -235,38 +235,42 @@
 </li>
 <li><p>光标跳转：</p>
 <ul>
-<li><p>字符间跳转：</p>
-<pre><code>h, j, k, l
-    h: 左
-    l: 右
-    j: 下
-    k: 上
-</code></pre><h1 id="COMMAND：跳转由-指定的个数的字符；"><a href="#COMMAND：跳转由-指定的个数的字符；" class="headerlink" title="COMMAND：跳转由#指定的个数的字符；"></a>COMMAND：跳转由#指定的个数的字符；</h1></li>
+<li><p>字符间跳转：<br>h, j, k, l</p>
+<pre><code>      h: 左
+      l: 右
+      j: 下
+      k: 上
+</code></pre><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">COMMAND：跳转由<span class="comment">#指定的个数的字符；</span></span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
 <li><p>行首行尾跳转：</p>
 <pre><code>^: 跳转至行首的第一个非空白字符；
-0: 跳转至行首；
-$: 跳转至行尾；
+  0: 跳转至行首；
+  $: 跳转至行尾；
 </code></pre></li>
 <li><p>行间移动：</p>
 <pre><code>#G：跳转至由#指定行；
-G：最后一行；
-1G, gg: 第一行；
+  G：最后一行；
+  1G, gg: 第一行；
 </code></pre></li>
 <li><p>句间移动：</p>
 <pre><code>)
-(
+  (
 </code></pre></li>
 <li><p>段落间移动：</p>
 <pre><code>}
-{
+  {
 </code></pre></li>
 </ul>
-</li>
+<ol>
 <li><p>vim的编辑命令：</p>
 <ul>
 <li><p>字符编辑：</p>
 <pre><code>x: 删除光标处的字符；
-#x: 删除光标处起始的#个字符；
+  #x: 删除光标处起始的#个字符；
 </code></pre><p>xp: 交换光标所在处的字符及其后面字符的位置；</p>
 </li>
 <li><p>替换命令(r, replace)</p>
@@ -274,9 +278,9 @@ G：最后一行；
 </code></pre></li>
 <li><p>删除命令：</p>
 <pre><code>d: 删除命令，可结合光标跳转字符，实现范围删除；
-    d$:
-    d^:
-    d0:
+      d$:
+      d^:
+      d0:
 </code></pre><p>​        dw<br>​        de<br>​        db</p>
 <p>​        #COMMAND</p>
 <p>​        dd: 删除光标所在的行；<br>​        #dd：多行删除；</p>
@@ -286,15 +290,15 @@ G：最后一行；
 </ol>
 <ul>
 <li>粘贴命令(p, put, paste)：<pre><code>p：缓冲区存的如果为整行，则粘贴当前光标所在行的下方；否则，则粘贴至当前光标所在处的后面；
-P：缓冲区存的如果为整行，则粘贴当前光标所在行的上方；否则，则粘贴至当前光标所在处的前面；
+  P：缓冲区存的如果为整行，则粘贴当前光标所在行的上方；否则，则粘贴至当前光标所在处的前面；
 </code></pre></li>
 </ul>
 <ul>
 <li><p>复制命令(y, yank)：</p>
 <pre><code>y: 复制，工作行为相似于d命令；
-    y$
-    y0
-    y^
+      y$
+      y0
+      y^
 </code></pre><p>​        ye<br>​        yw<br>​        yb</p>
 <p>​        #COMMAND</p>
 <p>​        yy：复制行<br>​        #yy: 复制多行；</p>
@@ -303,7 +307,7 @@ P：缓冲区存的如果为整行，则粘贴当前光标所在行的上方；�
 <ol>
 <li><p>改变命令(c, change)</p>
 <pre><code>c: 修改
-    编辑模式 --&gt; 输入模式
+       编辑模式 --&gt; 输入模式
 </code></pre><p>​    c$<br>​    c^<br>​    c0</p>
 <p>​    cb<br>​    ce<br>​    cw</p>
 <p>​    #COMMAND    </p>
@@ -315,14 +319,14 @@ P：缓冲区存的如果为整行，则粘贴当前光标所在行的上方；�
 <ul>
 <li><p>可视化模式：</p>
 <pre><code>v: 按字符选定
-V：按行行定
+  V：按行行定
 </code></pre></li>
 <li><p>Note：经常结合编辑命令；</p>
 <pre><code>    d, c, y
 </code></pre></li>
 <li><p>撤消此前的编辑：</p>
 <pre><code>u(undo)：撤消此前的操作；
-    #u: 撤消指定次数的操作；
+      #u: 撤消指定次数的操作；
 </code></pre></li>
 <li><p>撤消此前的撤消：</p>
 <pre><code>Ctrl+r
@@ -332,7 +336,7 @@ V：按行行定
 </code></pre></li>
 <li><p>翻屏操作：</p>
 <pre><code>Ctrl+f: 向文件尾部翻一屏；
-Ctrl+b: 向文件首部翻一屏；
+  Ctrl+b: 向文件首部翻一屏；
 </code></pre><p>​    Ctrl+d: 向文件尾部翻半屏；<br>​    Ctrl+u：向文件首部翻半屏；</p>
 </li>
 </ul>
