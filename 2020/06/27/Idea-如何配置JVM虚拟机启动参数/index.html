@@ -17,7 +17,7 @@
   <meta name="description" content="面向信仰编程">
   <meta name="author" content="Jun">
   <meta name="keywords" content="Jun">
-  <title>计算机网络-数据链路层小结 - Jun</title>
+  <title>IDEA 如何配置JVM虚拟机启动参数 - Jun</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
@@ -131,8 +131,8 @@
               
                 <div class="mt-3 post-meta">
                   <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-                  <time datetime="2020-06-05 13:26">
-                    June 5, 2020 pm
+                  <time datetime="2020-06-27 21:29">
+                    June 27, 2020 pm
                   </time>
                 </div>
               
@@ -142,7 +142,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    1.5k 字
+                    13 字
                   </span>
                 
 
@@ -152,7 +152,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    15
+                    1
                      分钟
                   </span>
                 
@@ -182,96 +182,31 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：22 days ago
+                  本文最后更新于：2 minutes ago
                 
               </p>
             
             <article class="markdown-body">
-              <p>title: 计算机网络-数据链路层小结<br>date: 2020-02-22 13:35:15<br>tags:</p>
-<ul>
-<li>数据链路层<br>categories:</li>
-<li>计算机网络</li>
-</ul>
-<p>[TOC]</p>
-<h1 id="计算机网络-数据链路层"><a href="#计算机网络-数据链路层" class="headerlink" title="计算机网络 数据链路层"></a>计算机网络 数据链路层</h1><h2 id="数据链路层基本概念及基本问题"><a href="#数据链路层基本概念及基本问题" class="headerlink" title="数据链路层基本概念及基本问题"></a>数据链路层基本概念及基本问题</h2><p><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/数据发送模型.png" alt="数据发送模型"></p>
-<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><h4 id="链路（link）"><a href="#链路（link）" class="headerlink" title="链路（link）"></a>链路（link）</h4><p>链路是一条点到点的物理线路段，中间没有其他点，一条链路只是一条通路的一个组成部分。</p>
-<h4 id="数据链路（data-link）"><a href="#数据链路（data-link）" class="headerlink" title="数据链路（data link）"></a>数据链路（data link）</h4><p>除了物理线路外，还必须有通信协议来控制这些数据的传输。若把实现这些协议的硬件和软件加到链路上，就构成了<code>数据链路</code>。</p>
-<ol>
-<li>目前最常用的方法是使用适配器（网卡）来实现这些协议的硬件和软件。</li>
-<li>一般的适配器都包括了数据链路层和物理层这两层的功能。</li>
-</ol>
-<h4 id="帧"><a href="#帧" class="headerlink" title="帧"></a>帧</h4><p>数据链路层传送的是<code>帧</code></p>
-<p>在两个对等的数据链路层之间画出一个数字管道，而在这条数字管道上<code>传输的数据单位是帧</code>。</p>
-<p><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/数据链路层 帧.png" alt="数据链路层 帧"></p>
-<h3 id="三个基本问题"><a href="#三个基本问题" class="headerlink" title="三个基本问题"></a>三个基本问题</h3><h4 id="封装成帧"><a href="#封装成帧" class="headerlink" title="封装成帧"></a>封装成帧</h4><p>封装成帧就是在一段<code>数据</code>的<code>前后分别添加首部和尾部</code>，然后就构成了一个帧。确定帧的界限。</p>
-<p>首部和尾部的一个重要作用就是进行<code>帧定界</code></p>
-<p><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/封装成帧.png" alt="封装成帧"></p>
-<p>MTU 最大传输单元  帧的数据部分最大为 1500字节</p>
-<h4 id="透明传输"><a href="#透明传输" class="headerlink" title="透明传输"></a>透明传输</h4><p>如果传输的数据是ASCII码中“可打印字符（共95个）”集时，是一个正常的帧，但是当数据中出现帧尾的时候，就会错误的认为一个帧的范围，数据<code>不是仅由“可打印字符”组成时，就会出问题</code>，如图：</p>
-<p><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/透明传输.png" alt="透明传输"></p>
-<p><code>解决方案</code>： 使用<code>转义字符</code>的字节填充方法</p>
-<p><strong><em>个人认为这种解决方案C语言中的转义字符思想一样，所以类比理解就好了</em></strong></p>
-<ul>
-<li><p>发送端</p>
-<p>​    发送端的数据链路层在数据中出现控制字符”SOH“ 或 ”EOT“ 的前面插入一个转义字符”ESC“（十六进制编码 1B）</p>
-</li>
-<li><p>接收端</p>
-<p>​    <code>字节填充</code>（byte stuffing）或<code>字符填充</code>（character stuffing）接收端的数据链路层在<code>将数据送往网络层之前</code>删除插入的转义字符。</p>
-</li>
-</ul>
-<p>如果转义字符也出现在数据中，就在转义字符前再插入一个转义字符</p>
-<p><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/透明传输 转义字符法.png" alt="透明传输 转义字符 字节填充方法"></p>
-<h4 id="差错控制"><a href="#差错控制" class="headerlink" title="差错控制"></a>差错控制</h4><h5 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h5><p>传输过程中可能会出现产生 比特差错：<code>1 可能变成0 ，0可能变成1</code></p>
-<p>在一段时间中，传输错误的比特占所有传输比特总数的比率称为 <code>误码率（BER Bit Error Rate）</code></p>
-<p><code>为了保证数据传输的可靠性</code>，在计算机网络传输数据时，必须才用各种差错检查措施。</p>
-<h5 id="计算方法"><a href="#计算方法" class="headerlink" title="计算方法"></a>计算方法</h5><ol>
-<li><p>循环冗余检验 CRC</p>
-<p>在数据链路层 传送的帧中，广泛使用了循环冗余检验 CRC的方法。</p>
-<p>在发送端，先把数据划分为组，假定每组 k 个比特。</p>
-<blockquote>
-<p>假设带待传送的一组数据 M=101001（现在k=6）。我们在M的后面再添加供差错检测用的 n 位 冗余码一起发送。</p>
-</blockquote>
-<p>冗余码的计算</p>
-<p>用二进制的模 2 运算进行2^n ,这相当于在M后面添加n个0。</p>
-<p>得到的（k + n）位的数除以是先选定好的长度为（n + 1）位的除数 P，得出商是Q而余数是R，余数R比除数P少一位，即 R是 n 位。</p>
-<p><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/循环冗余检验的计算过程.png" alt="循环冗余检验的计算过程"></p>
-</li>
-<li><p>帧检验序列 FCS</p>
-<p>在数据后面添加上的冗余码称为 <code>帧检验序列</code> FCS （frame check sequence）</p>
-<p>循环冗余检验 CRC 和 帧检验序列 FCS 不等同。</p>
-<ul>
-<li>CRS是一种常用的检错方法，而FCS是添加在数据后面的冗余码</li>
-<li>FCS 可以用CRC这种方法得出，但 CRC 并非用来获得FCS的唯一方法</li>
-</ul>
-</li>
-</ol>
-<p>小结：CRC差错检测技术</p>
-<p>仅用循环冗余检验 CRC差错检测技术只能做到<code>无差错接收</code>（accept）</p>
-<ul>
-<li>无差错接收是指 <code>凡是接受的帧（即不包括丢弃的帧），我们都能非常接近于1的概率认为这些帧在传输过程中没有产生差错</code>。换句话就是 <code>凡是接收端数据链路层接受的帧都没有传输差错（有差错的帧就丢弃不接受）</code></li>
-</ul>
-<p>CRC是一种 <code>没有比特差错</code>，而不是<code>没有传输差错</code>的检测机制</p>
-<p>要做到 <code>可靠传输</code> 就必须再加上 <code>确认</code>和<code>重传</code>机制</p>
-<h2 id="两种情况下的数据链路层"><a href="#两种情况下的数据链路层" class="headerlink" title="两种情况下的数据链路层"></a>两种情况下的数据链路层</h2><h3 id="使用点对点（PPP）信道的数据链路层"><a href="#使用点对点（PPP）信道的数据链路层" class="headerlink" title="使用点对点（PPP）信道的数据链路层"></a>使用点对点（PPP）信道的数据链路层</h3><h3 id="使用广播信道（CSMA-CD）的数据链路层"><a href="#使用广播信道（CSMA-CD）的数据链路层" class="headerlink" title="使用广播信道（CSMA/CD）的数据链路层"></a>使用广播信道（CSMA/CD）的数据链路层</h3><p>CSMA/CD （Carrier Sense Multiple Access with Collision Detection）</p>
-<ul>
-<li><p>多点接入 表示许多计算机以<code>多点接入</code>的方式连接在<code>一根总线</code>上。</p>
-</li>
-<li><p>载波监听 是指<code>每一个站在发送数据之前</code>先要检测一下总线上是否有其他计算机在发送数据，如果有，则暂时不发送数据，以免发送碰撞</p>
-<p>载波监听 就是用电子技术检测总线上有没有其他计算机发送数据信号</p>
-</li>
-</ul>
-<h2 id="以太局域网"><a href="#以太局域网" class="headerlink" title="以太局域网"></a>以太局域网</h2><h3 id="MAC的硬件地址（MAC地址）"><a href="#MAC的硬件地址（MAC地址）" class="headerlink" title="MAC的硬件地址（MAC地址）"></a>MAC的硬件地址（MAC地址）</h3><p>在局域网中，硬件地址又称物理地址（或MAC地址）</p>
-<blockquote>
-<p>​    802标准中 地址严格地将 每个站的名字（或标识符）,<code>IEEE 的注册管理机构</code> RA负责向 厂家 分配<code>地址段的前三个字节（高位24位）</code>，地址字段中的<code>后三个字节（低位24位）</code>由厂家自行指派，称为<code>拓展标识</code>，必须保证生产出的适配器没有重复地址。</p>
-<p>​    一个地址块可以生成2^24个不同的地址，这种48位地址称为<code>MAC-48</code>，通用名称<code>EUI-48</code>。</p>
-<p>​    <code>MAC地址</code>，实际上就是适配器地址或适配器标识符EUI-48。</p>
-</blockquote>
-<h2 id="扩展以太网"><a href="#扩展以太网" class="headerlink" title="扩展以太网"></a>扩展以太网</h2><h2 id="高速以太网"><a href="#高速以太网" class="headerlink" title="高速以太网"></a>高速以太网</h2>
+              <h1 id="IDEA-如何配置JVM虚拟机启动参数"><a href="#IDEA-如何配置JVM虚拟机启动参数" class="headerlink" title="IDEA 如何配置JVM虚拟机启动参数"></a>IDEA 如何配置JVM虚拟机启动参数</h1>
             </article>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/JVM/">JVM</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/IDEA-JVM/">IDEA JVM</a>
+                    
+                  </div>
                 
               </div>
               
@@ -282,18 +217,12 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/06/07/%E8%BD%AF%E9%93%BE%E6%8E%A5%E5%92%8C%E7%A1%AC%E9%93%BE%E6%8E%A5/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">软链接和硬链接</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </div>
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/06/05/linux-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/">
-                        <span class="hidden-mobile">linux 文件管理</span>
+                      <a href="/2020/06/17/vim-%E7%BC%96%E8%BE%91%E5%99%A8/">
+                        <span class="hidden-mobile">vim 编辑器</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -456,7 +385,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "计算机网络-数据链路层小结&nbsp;",
+        "IDEA 如何配置JVM虚拟机启动参数&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

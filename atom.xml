@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.wangjunjun.club/"/>
-  <updated>2020-06-17T15:13:46.718Z</updated>
+  <updated>2020-06-27T14:04:13.541Z</updated>
   <id>http://www.wangjunjun.club/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>IDEA 如何配置JVM虚拟机启动参数</title>
+    <link href="http://www.wangjunjun.club/2020/06/27/Idea-%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AEJVM%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%90%AF%E5%8A%A8%E5%8F%82%E6%95%B0/"/>
+    <id>http://www.wangjunjun.club/2020/06/27/Idea-%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AEJVM%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%90%AF%E5%8A%A8%E5%8F%82%E6%95%B0/</id>
+    <published>2020-06-27T13:29:42.000Z</published>
+    <updated>2020-06-27T14:04:13.541Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="IDEA-如何配置JVM虚拟机启动参数"><a href="#IDEA-如何配置JVM虚拟机启动参数" class="headerlink" title="IDEA 如何配置JVM虚拟机启动参数"></a>IDEA 如何配置JVM虚拟机启动参数</h1>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;IDEA-如何配置JVM虚拟机启动参数&quot;&gt;&lt;a href=&quot;#IDEA-如何配置JVM虚拟机启动参数&quot; class=&quot;headerlink&quot; title=&quot;IDEA 如何配置JVM虚拟机启动参数&quot;&gt;&lt;/a&gt;IDEA 如何配置JVM虚拟机启动参数&lt;/h1&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="JVM" scheme="http://www.wangjunjun.club/categories/JVM/"/>
+    
+    
+      <category term="IDEA JVM" scheme="http://www.wangjunjun.club/tags/IDEA-JVM/"/>
+    
+  </entry>
   
   <entry>
     <title>vim 编辑器</title>
@@ -520,34 +546,6 @@
     
     
       <category term="leetcode" scheme="http://www.wangjunjun.club/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>计算机网络-TCP协议</title>
-    <link href="http://www.wangjunjun.club/2020/01/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-TCP%E5%8D%8F%E8%AE%AE/"/>
-    <id>http://www.wangjunjun.club/2020/01/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-TCP%E5%8D%8F%E8%AE%AE/</id>
-    <published>2020-01-07T09:30:47.000Z</published>
-    <updated>2020-05-26T04:38:30.500Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="传输控制协议-TCP"><a href="#传输控制协议-TCP" class="headerlink" title="传输控制协议 TCP"></a>传输控制协议 TCP</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul><li><p>TCP是面向连接的传输协议</p></li><li><p>每一条TCP连接只能有两个端点（endpoint），每一条TCP连接只能是点对点（一对一）</p><p>TCP连接的端点不是主机，不是主机IP地址，不是应用进程，也不是传输层的协议端口。TCP连接的端点是套接字（socket）（进程的入口）</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">套接字 socket &#x3D; （IP地址：端口）</span><br><span class="line">每一条TCP连接唯一地被通信两端的两个端点（套接字）确定</span><br><span class="line">TCP连接 ::&#x3D; &#123;Socket1,Socket2&#125;&#x3D;&#123;(IP1:port1),(IP2:port2)&#125;</span><br></pre></td></tr></table></figure></li></ul><ul><li><p>TCP提供可靠的交付服务</p></li><li><p>TCP提供全双工通信</p></li><li><p>面向字节流</p></li></ul><p><img src="https://i.loli.net/2020/01/07/zxAUH6cR8nYBhqi.png" alt="tcp1.png"><img src="https://i.loli.net/2020/01/07/e3zGocvkX2lbQJR.png" alt="tcp2.png"></p><p><img src="https://i.loli.net/2020/01/07/LTxVzPCHrm453IA.png" alt="tcp3.png"></p><p><img src="https://i.loli.net/2020/01/07/LF3kS7ReVmdUI41.png" alt="tcp4.png"></p><p><img src="https://i.loli.net/2020/01/07/tKeLzubr8ABQypC.png" alt="tcp5.png"></p><p><img src="https://i.loli.net/2020/01/07/MZ8D6pt9gAWIsRq.png" alt="tcp6.png"></p><h2 id="TCP协议特点"><a href="#TCP协议特点" class="headerlink" title="　TCP协议特点"></a>　TCP协议特点</h2><ol><li>TCP实现可靠传输（三次握手）</li><li>TCP实现流量控制</li><li>TCP避免网络拥塞</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;传输控制协议-TCP&quot;&gt;&lt;a href=&quot;#传输控制协议-TCP&quot; class=&quot;headerlink&quot; title=&quot;传输控制协议 TCP&quot;&gt;&lt;/a&gt;传输控制协议 TCP&lt;/h1&gt;&lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerli
-      
-    
-    </summary>
-    
-    
-      <category term="计算机网络" scheme="http://www.wangjunjun.club/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-    
-      <category term="计算机网络" scheme="http://www.wangjunjun.club/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-      <category term="TCP协议" scheme="http://www.wangjunjun.club/tags/TCP%E5%8D%8F%E8%AE%AE/"/>
     
   </entry>
   
