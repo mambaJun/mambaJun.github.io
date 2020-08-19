@@ -1,7 +1,7 @@
+
+
 <!DOCTYPE html>
-<html lang="en">
-
-
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
 
 
 
@@ -20,19 +20,16 @@
   <title>Jun</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
 
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
 
 
 
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
-
-
 
 
 <link  rel="stylesheet" href="/css/main.css" />
@@ -40,6 +37,8 @@
 <!-- 自定义样式保持在最底部 -->
 
 
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Jun" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
@@ -49,7 +48,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>Jun</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>Jun's space</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -64,52 +63,73 @@
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/">
-              <i class="iconfont icon-home-fill"></i>
-              Home</a>
-          </li>
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
         
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/archives/">
-              <i class="iconfont icon-archive-fill"></i>
-              Archives</a>
-          </li>
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
         
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/categories/">
-              <i class="iconfont icon-category-fill"></i>
-              Categories</a>
-          </li>
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
         
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/tags/">
-              <i class="iconfont icon-tags-fill"></i>
-              Tags</a>
-          </li>
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
         
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/about/">
-              <i class="iconfont icon-user-fill"></i>
-              About</a>
-          </li>
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
       </ul>
@@ -117,12 +137,12 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
+    <div class="banner intro-2" id="background" parallax=true
          style="background: url('/img/index.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container text-center white-text fadeInUp">
+          <div class="container page-header text-center fade-in-up">
             <span class="h2" id="subtitle">
               
             </span>
@@ -155,27 +175,34 @@
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2019/12/13/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/">设计模式 - 装饰者模式</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2019/12/13/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/">设计模式 - 装饰者模式</a>
+      </h1>
 
-      <a href="/2019/12/13/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2019/12/13/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/">
           
-        
-        <div>设计模式 -  装饰者模式
+          
+            
+          
+          设计模式 -  装饰者模式
 构造型模式：这些设计模式关注类和对象的组合。继承的观念被用来组合接口和定义组合对象获得新功能的方式
 
 装饰器模式：允许向一个现有的对象添加新功能，同时又不改变其结构。这种类型的设计模式属于结构型模式，它是作为现有的类的包装
 
 
-我的理解，想用个栗子来说明    一幅画（可以是油画、水墨画等）始终是幅画    用画框裱起来    用瓶子装起来    这里的 画框 瓶子 就</div>
-      </a>
+我的理解，想用个栗子来说明    一幅画（可以是油画、水墨画等）始终是幅画    用画框裱起来    用瓶子装起来    这里的 画框 瓶子 就
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2019-12-13
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-12-13 11:34" pubdate>
+              2019-12-13
+            </time>
           </div>
         
         
@@ -197,7 +224,7 @@
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
@@ -205,19 +232,22 @@
     
       <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2019/12/05/docker-%E5%85%A5%E9%97%A8/" target="_self">
-          <img src="/img/default.png" alt="docker 入门">
+          <img src="/img/default.png" srcset="/img/loading.gif" alt="docker 入门">
         </a>
       </div>
     
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a class="index-header" href="/2019/12/05/docker-%E5%85%A5%E9%97%A8/">docker 入门</a>
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2019/12/05/docker-%E5%85%A5%E9%97%A8/">docker 入门</a>
+      </h1>
 
-      <a href="/2019/12/05/docker-%E5%85%A5%E9%97%A8/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2019/12/05/docker-%E5%85%A5%E9%97%A8/">
           
-        
-        <div>@TOC
+          
+            
+          
+          @TOC
 Docker 笔记一、Docker 简介
 是什么：
 一次封装，多处运行，解决运行环境和配置问题软件容器，方便做持续集成并有助于整体发布的容器虚拟化技术
@@ -237,13 +267,17 @@ Docker 笔记一、Docker 简介
 
 
 去哪下二、Docker 安装
-Docker基</div>
-      </a>
+Docker基
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2019-12-05
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-12-05 17:59" pubdate>
+              2019-12-05
+            </time>
           </div>
         
         
@@ -263,7 +297,7 @@ Docker基</div>
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
@@ -271,28 +305,35 @@ Docker基</div>
     
       <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2019/11/30/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/" target="_self">
-          <img src="/img/default.png" alt="设计模式 - 适配器模式">
+          <img src="/img/default.png" srcset="/img/loading.gif" alt="设计模式 - 适配器模式">
         </a>
       </div>
     
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a class="index-header" href="/2019/11/30/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/">设计模式 - 适配器模式</a>
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2019/11/30/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/">设计模式 - 适配器模式</a>
+      </h1>
 
-      <a href="/2019/11/30/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2019/11/30/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/">
           
-        
-        <div>适配器模式（Adapter Pattern）一、基本介绍
+          
+            
+          
+          适配器模式（Adapter Pattern）一、基本介绍
 适配器模式 将某个类的接口转换成客户端期望的另外一个接口表示，主要目的
 
-</div>
-      </a>
+
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2019-11-30
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-11-30 10:20" pubdate>
+              2019-11-30
+            </time>
           </div>
         
         
@@ -314,7 +355,7 @@ Docker基</div>
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
@@ -322,31 +363,38 @@ Docker基</div>
     
       <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2019/11/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F/" target="_self">
-          <img src="/img/default.png" alt="设计模式 - 建造者模式">
+          <img src="/img/default.png" srcset="/img/loading.gif" alt="设计模式 - 建造者模式">
         </a>
       </div>
     
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a class="index-header" href="/2019/11/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F/">设计模式 - 建造者模式</a>
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2019/11/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F/">设计模式 - 建造者模式</a>
+      </h1>
 
-      <a href="/2019/11/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2019/11/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F/">
           
-        
-        <div>设计模式 - 建造者模式（Builder Pattern）一、基本介绍
+          
+            
+          
+          设计模式 - 建造者模式（Builder Pattern）一、基本介绍
 建造者模式（生成器模式）：是一种对象构建模式。可以将复杂对象的构造过程抽象出来，使这个抽象过程的不同实现方法可以构造出不同属性的对象。
 构建者模式 是一步步创建一个复杂的对象，运行用户只通过指定复杂对象的类型 和内容 就可以构建他们，用户不需要知道内部的具体细节
 
 建造者模式中的四个对象
 
-Product（产品角色）：一个具体</div>
-      </a>
+Product（产品角色）：一个具体
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2019-11-29
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-11-29 16:22" pubdate>
+              2019-11-29
+            </time>
           </div>
         
         
@@ -368,34 +416,41 @@ Product（产品角色）：一个具体</div>
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2019/11/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/">设计模式 - 原型模式</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2019/11/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/">设计模式 - 原型模式</a>
+      </h1>
 
-      <a href="/2019/11/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2019/11/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/">
           
-        
-        <div>设计模式 -原型模式   （Prototype）一、基本介绍
+          
+            
+          
+          设计模式 -原型模式   （Prototype）一、基本介绍
 原型模式：用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象
 原型模式是一个创建型设计模式，允许一个对象再创建另外一个可定制的对象，不需要知道创建的细节
 工作原理：通过将一个原型对象传给那个要发动创建的对象，这个要发动创建的对象通过请求原型对象拷贝它们自己来进行创建，对象.clone()
 
 二、注意事项
 浅拷贝
-浅拷贝 只对</div>
-      </a>
+浅拷贝 只对
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2019-11-29
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-11-29 15:14" pubdate>
+              2019-11-29
+            </time>
           </div>
         
         
@@ -417,21 +472,24 @@ Product（产品角色）：一个具体</div>
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2019/11/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">设计模式 - 工厂模式</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2019/11/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">设计模式 - 工厂模式</a>
+      </h1>
 
-      <a href="/2019/11/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2019/11/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">
           
-        
-        <div>设计模式 - 工厂模式一、简单（静态）工厂A、抛出场景
+          
+            
+          
+          设计模式 - 工厂模式一、简单（静态）工厂A、抛出场景
 一个外卖项目：要便于各种菜品的拓展，便于维护
 菜品种类很多（黄焖鸡、大盘鸡等）
 菜品制作有 prepare，make，package步骤
@@ -440,13 +498,17 @@ Product（产品角色）：一个具体</div>
 B、基本介绍
 简单工厂模式是由一个工厂对象决定创建出哪一种产品类的实例。简单工厂模式是工厂模式中最简单的使用模式
 
-Calendar calendar = Calendar.getInst</div>
-      </a>
+Calendar calendar = Calendar.getInst
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2019-11-28
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-11-28 14:12" pubdate>
+              2019-11-28
+            </time>
           </div>
         
         
@@ -468,32 +530,39 @@ Calendar calendar = Calendar.getInst</div>
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2019/11/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-UML%E7%B1%BB%E5%9B%BE/">设计模式 - UML类图</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2019/11/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-UML%E7%B1%BB%E5%9B%BE/">设计模式 - UML类图</a>
+      </h1>
 
-      <a href="/2019/11/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-UML%E7%B1%BB%E5%9B%BE/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2019/11/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-UML%E7%B1%BB%E5%9B%BE/">
           
-        
-        <div>UML 类图一、基本介绍
+          
+            
+          
+          UML 类图一、基本介绍
 UML—Unified modeling language（统一建模语言），是一种用于软件系统分析和设计的语言工具，它用于帮助软件开发人员进行思考和记录思路的结果。
 
 UML 本身是一套符号的规定，就像数学符号和化学符号一样，这些符号用于描述软件模型中的各个元素和他们之间的关系，比如类、接口、实现、泛华、依赖、组合、聚合等。
 用例图类图时序图协作图配置图
-</div>
-      </a>
+
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2019-11-28
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-11-28 09:43" pubdate>
+              2019-11-28
+            </time>
           </div>
         
         
@@ -515,21 +584,24 @@ UML 本身是一套符号的规定，就像数学符号和化学符号一样，�
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2019/11/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E9%97%B2%E8%B0%88%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E4%B8%83%E5%A4%A7%E5%8E%9F%E5%88%99/">设计模式 - 闲谈设计模式</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2019/11/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E9%97%B2%E8%B0%88%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E4%B8%83%E5%A4%A7%E5%8E%9F%E5%88%99/">设计模式 - 闲谈设计模式</a>
+      </h1>
 
-      <a href="/2019/11/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E9%97%B2%E8%B0%88%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E4%B8%83%E5%A4%A7%E5%8E%9F%E5%88%99/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2019/11/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E9%97%B2%E8%B0%88%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E4%B8%83%E5%A4%A7%E5%8E%9F%E5%88%99/">
           
-        
-        <div>闲谈设计模式 - 七大原则
+          
+            
+          
+          闲谈设计模式 - 七大原则
 懂了设计模式，你就懂了面向对象分析和设计（OOA/D）的精要.
 
 一、设计模式的目的编写软件的过程，面临 == 耦合性、内聚性、维护性、可扩展性、重用性、灵活性== 等各方面的挑战。
@@ -540,13 +612,17 @@ UML 本身是一套符号的规定，就像数学符号和化学符号一样，�
 可扩展性：增加新的功能非常方便
 可靠性：当增加新的功能后对原来功能没有影响
 
-二、设</div>
-      </a>
+二、设
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2019-11-26
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-11-26 15:37" pubdate>
+              2019-11-26
+            </time>
           </div>
         
         
@@ -568,7 +644,7 @@ UML 本身是一套符号的规定，就像数学符号和化学符号一样，�
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
@@ -576,19 +652,22 @@ UML 本身是一套符号的规定，就像数学符号和化学符号一样，�
     
       <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2019/11/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" target="_self">
-          <img src="/img/default.png" alt="设计模式 - 单例模式">
+          <img src="/img/default.png" srcset="/img/loading.gif" alt="设计模式 - 单例模式">
         </a>
       </div>
     
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a class="index-header" href="/2019/11/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">设计模式 - 单例模式</a>
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2019/11/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">设计模式 - 单例模式</a>
+      </h1>
 
-      <a href="/2019/11/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2019/11/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">
           
-        
-        <div>单例模式（Singleton mode）一、概念采取一定的方法保证在整个软件系统中 ，对某个类只能存在一个对象实例，并且该类只提供一个取得其对象实例的方法。
+          
+            
+          
+          单例模式（Singleton mode）一、概念采取一定的方法保证在整个软件系统中 ，对某个类只能存在一个对象实例，并且该类只提供一个取得其对象实例的方法。
 一、应用场景
 只需要一个实例
 各种 Manager
@@ -596,13 +675,18 @@ UML 本身是一套符号的规定，就像数学符号和化学符号一样，�
 
 
 
-三、设计模式写法（八种）1.饿汉式 （静态常量）class Singleton &#123;    private Singleton() &#123;&#125</div>
-      </a>
+三、设计模式写法（八种）1.饿汉式 （静态常量）class class Singleton &#123;
+    private Singleton() &#12
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2019-11-26
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-11-26 14:19" pubdate>
+              2019-11-26
+            </time>
           </div>
         
         
@@ -624,7 +708,7 @@ UML 本身是一套符号的规定，就像数学符号和化学符号一样，�
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
 
@@ -686,45 +770,33 @@ UML 本身是一套符号的规定，就像数学符号和化学符号一样，�
   
 
   <footer class="mt-5">
-    <div class="text-center py-3">
-        <div>
-            <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-            <i class="iconfont icon-love"></i>
-            <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-                <span>Fluid</span></a>
-        </div>
-        
-  <div>
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
     
-      <!-- 不蒜子统计PV -->
-      
-      <span id="busuanzi_container_site_pv" style="display: none">
-      总访问量 <span id="busuanzi_value_site_pv"></span> 次
-    </span>
+
     
-    
-      <!-- 不蒜子统计UV -->
-      
-      <span id="busuanzi_container_site_uv" style="display: none">
-      总访客数 <span id="busuanzi_value_site_uv"></span> 人
-    </span>
+
     
   </div>
-
-
-        
-
-        
-    </div>
 </footer>
 
 <!-- SCRIPTS -->
 <script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
 <script  src="/js/main.js" ></script>
 
+<!-- Plugins -->
 
 
+  
+    <script  src="/js/lazyload.js" ></script>
+  
 
 
 
@@ -733,12 +805,9 @@ UML 本身是一套符号的规定，就像数学符号和化学符号一样，�
 
 
 
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 
-
-<!-- Plugins -->
 
 
 
@@ -747,7 +816,7 @@ UML 本身是一套符号的规定，就像数学符号和化学符号一样，�
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "面向信仰编程&nbsp;",
+        "Life Oriented Programming&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
@@ -762,21 +831,6 @@ UML 本身是一套符号的规定，就像数学符号和化学符号一样，�
 
 
 
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "hover",
-      
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
-  </script>
-
 
 
   <script  src="/js/local-search.js" ></script>
@@ -788,6 +842,8 @@ UML 本身是一套符号的规定，就像数学符号和化学符号一样，�
       this.onclick = null
     }
   </script>
+
+
 
 
 

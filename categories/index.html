@@ -1,7 +1,7 @@
+
+
 <!DOCTYPE html>
-<html lang="en">
-
-
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
 
 
 
@@ -20,19 +20,16 @@
   <title>Categories - Jun</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
 
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
 
 
 
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
-
-
 
 
 <link  rel="stylesheet" href="/css/main.css" />
@@ -40,6 +37,8 @@
 <!-- 自定义样式保持在最底部 -->
 
 
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Jun" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
@@ -49,7 +48,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>Jun</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>Jun's space</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -64,52 +63,73 @@
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/">
-              <i class="iconfont icon-home-fill"></i>
-              Home</a>
-          </li>
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
         
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/archives/">
-              <i class="iconfont icon-archive-fill"></i>
-              Archives</a>
-          </li>
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
         
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/categories/">
-              <i class="iconfont icon-category-fill"></i>
-              Categories</a>
-          </li>
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
         
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/tags/">
-              <i class="iconfont icon-tags-fill"></i>
-              Tags</a>
-          </li>
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
         
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/about/">
-              <i class="iconfont icon-user-fill"></i>
-              About</a>
-          </li>
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
       </ul>
@@ -117,12 +137,12 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
+    <div class="banner intro-2" id="background" parallax=true
          style="background: url('/img/3.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container text-center white-text fadeInUp">
+          <div class="container page-header text-center fade-in-up">
             <span class="h2" id="subtitle">
               
             </span>
@@ -147,7 +167,461 @@
               <div class="col-12 col-md-10 m-auto">
                 
 
-<ul class="category-tree-list"><li class="category-tree-list-item"><a class="category-tree-list-link" href="/categories/JVM/">JVM</a><span class="category-tree-list-count">1</span></li><li class="category-tree-list-item"><a class="category-tree-list-link" href="/categories/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/">Java虚拟机</a><span class="category-tree-list-count">2</span></li><li class="category-tree-list-item"><a class="category-tree-list-link" href="/categories/docker/">docker</a><span class="category-tree-list-count">1</span></li><li class="category-tree-list-item"><a class="category-tree-list-link" href="/categories/linux/">linux</a><span class="category-tree-list-count">5</span></li><li class="category-tree-list-item"><a class="category-tree-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-tree-list-count">1</span></li><li class="category-tree-list-item"><a class="category-tree-list-link" href="/categories/%E5%A5%BD%E4%B8%9C%E8%A5%BF/">好东西</a><span class="category-tree-list-count">1</span></li><li class="category-tree-list-item"><a class="category-tree-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法</a><span class="category-tree-list-count">1</span></li><li class="category-tree-list-item"><a class="category-tree-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a><span class="category-tree-list-count">6</span></li><li class="category-tree-list-item"><a class="category-tree-list-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a><span class="category-tree-list-count">8</span></li></ul>
+
+
+
+
+
+
+<div class="category-list">
+  
+  
+  
+  
+    
+    
+    <div class="category row">
+      <a
+        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
+        id="heading-cke1fy97n001yn7acgee53tv8" role="tab" data-toggle="collapse" href="#collapse-cke1fy97n001yn7acgee53tv8"
+        aria-expanded="false"
+      >
+        设计模式
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="category-count col-2 col-md-1">
+        <i class="iconfont icon-articles"></i>
+        <span>8</span>
+      </a>
+      <div class="category-collapse">
+        
+          
+  <div id="collapse-cke1fy97n001yn7acgee53tv8" class="collapse in" role="tabpanel"
+       aria-labelledby="heading-cke1fy97n001yn7acgee53tv8">
+    
+    
+    
+      
+      
+        <a href="/2019/12/13/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/" class="list-group-item list-group-item-action">
+          <span class="category-post">设计模式 - 装饰者模式</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2019/11/30/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/" class="list-group-item list-group-item-action">
+          <span class="category-post">设计模式 - 适配器模式</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2019/11/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F/" class="list-group-item list-group-item-action">
+          <span class="category-post">设计模式 - 建造者模式</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2019/11/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/" class="list-group-item list-group-item-action">
+          <span class="category-post">设计模式 - 原型模式</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2019/11/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" class="list-group-item list-group-item-action">
+          <span class="category-post">设计模式 - 工厂模式</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2019/11/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-UML%E7%B1%BB%E5%9B%BE/" class="list-group-item list-group-item-action">
+          <span class="category-post">设计模式 - UML类图</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2019/11/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E9%97%B2%E8%B0%88%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E4%B8%83%E5%A4%A7%E5%8E%9F%E5%88%99/" class="list-group-item list-group-item-action">
+          <span class="category-post">设计模式 - 闲谈设计模式</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2019/11/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" class="list-group-item list-group-item-action">
+          <span class="category-post">设计模式 - 单例模式</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    <div class="category row">
+      <a
+        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
+        id="heading-cke1fy977001fn7ac6drl4h3d" role="tab" data-toggle="collapse" href="#collapse-cke1fy977001fn7ac6drl4h3d"
+        aria-expanded="false"
+      >
+        计算机网络
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="category-count col-2 col-md-1">
+        <i class="iconfont icon-articles"></i>
+        <span>6</span>
+      </a>
+      <div class="category-collapse">
+        
+          
+  <div id="collapse-cke1fy977001fn7ac6drl4h3d" class="collapse in" role="tabpanel"
+       aria-labelledby="heading-cke1fy977001fn7ac6drl4h3d">
+    
+    
+    
+      
+      
+        <a href="/2020/02/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" class="list-group-item list-group-item-action">
+          <span class="category-post">计算机网络-网络安全</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2020/02/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%BA%94%E7%94%A8%E5%B1%82%E5%B0%8F%E7%BB%93/" class="list-group-item list-group-item-action">
+          <span class="category-post">计算机网络-应用层小结</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2020/01/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%BF%90%E8%BE%93%E5%B1%82-%E6%A6%82%E8%BF%B0%E5%92%8C%E8%BF%90%E8%BE%93%E5%B1%82%E6%9C%8D%E5%8A%A1/" class="list-group-item list-group-item-action">
+          <span class="category-post">运输层-概述和运输层服务</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2020/01/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E7%BD%91%E7%BB%9C%E5%B1%82%E5%B0%8F%E7%BB%93/" class="list-group-item list-group-item-action">
+          <span class="category-post">计算机网络-网络层小结</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2020/01/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-TCP%E5%8D%8F%E8%AE%AE/" class="list-group-item list-group-item-action">
+          <span class="category-post">计算机网络-TCP协议</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2020/01/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-UDP%E5%8D%8F%E8%AE%AE/" class="list-group-item list-group-item-action">
+          <span class="category-post">计算机网络 UDP协议</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    <div class="category row">
+      <a
+        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
+        id="heading-cke1fy96i000nn7ac7kyugoq6" role="tab" data-toggle="collapse" href="#collapse-cke1fy96i000nn7ac7kyugoq6"
+        aria-expanded="false"
+      >
+        linux
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      <a href="/categories/linux/" class="category-count col-2 col-md-1">
+        <i class="iconfont icon-articles"></i>
+        <span>5</span>
+      </a>
+      <div class="category-collapse">
+        
+          
+  <div id="collapse-cke1fy96i000nn7ac7kyugoq6" class="collapse in" role="tabpanel"
+       aria-labelledby="heading-cke1fy96i000nn7ac7kyugoq6">
+    
+    
+    
+      
+      
+        <a href="/2020/06/17/vim-%E7%BC%96%E8%BE%91%E5%99%A8/" class="list-group-item list-group-item-action">
+          <span class="category-post">vim 编辑器</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2020/06/11/Linux-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" class="list-group-item list-group-item-action">
+          <span class="category-post">Linux 权限管理</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2020/06/07/%E8%BD%AF%E9%93%BE%E6%8E%A5%E5%92%8C%E7%A1%AC%E9%93%BE%E6%8E%A5/" class="list-group-item list-group-item-action">
+          <span class="category-post">软链接和硬链接</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2020/06/05/linux-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" class="list-group-item list-group-item-action">
+          <span class="category-post">linux 文件管理</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2020/06/02/linux%E5%91%BD%E4%BB%A4%E7%AC%94%E8%AE%B0/" class="list-group-item list-group-item-action">
+          <span class="category-post">linux命令笔记</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    <div class="category row">
+      <a
+        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
+        id="heading-cke1fy966000en7ac5mb9ah7p" role="tab" data-toggle="collapse" href="#collapse-cke1fy966000en7ac5mb9ah7p"
+        aria-expanded="false"
+      >
+        Java虚拟机
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      <a href="/categories/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/" class="category-count col-2 col-md-1">
+        <i class="iconfont icon-articles"></i>
+        <span>2</span>
+      </a>
+      <div class="category-collapse">
+        
+          
+  <div id="collapse-cke1fy966000en7ac5mb9ah7p" class="collapse in" role="tabpanel"
+       aria-labelledby="heading-cke1fy966000en7ac5mb9ah7p">
+    
+    
+    
+      
+      
+        <a href="/2020/03/05/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA%20%E4%BA%8C/" class="list-group-item list-group-item-action">
+          <span class="category-post">Java 虚拟机 二</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2020/03/05/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA%20%E4%B8%80/" class="list-group-item list-group-item-action">
+          <span class="category-post">Java 虚拟机 一</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    <div class="category row">
+      <a
+        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
+        id="heading-cke1fy95x0007n7acfftzcg9x" role="tab" data-toggle="collapse" href="#collapse-cke1fy95x0007n7acfftzcg9x"
+        aria-expanded="false"
+      >
+        JVM
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      <a href="/categories/JVM/" class="category-count col-2 col-md-1">
+        <i class="iconfont icon-articles"></i>
+        <span>1</span>
+      </a>
+      <div class="category-collapse">
+        
+          
+  <div id="collapse-cke1fy95x0007n7acfftzcg9x" class="collapse in" role="tabpanel"
+       aria-labelledby="heading-cke1fy95x0007n7acfftzcg9x">
+    
+    
+    
+      
+      
+        <a href="/2020/06/27/Idea-%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AEJVM%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%90%AF%E5%8A%A8%E5%8F%82%E6%95%B0/" class="list-group-item list-group-item-action">
+          <span class="category-post">IDEA 如何配置JVM虚拟机启动参数</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    <div class="category row">
+      <a
+        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
+        id="heading-cke1fy96n000un7acbg8icggv" role="tab" data-toggle="collapse" href="#collapse-cke1fy96n000un7acbg8icggv"
+        aria-expanded="false"
+      >
+        好东西
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      <a href="/categories/%E5%A5%BD%E4%B8%9C%E8%A5%BF/" class="category-count col-2 col-md-1">
+        <i class="iconfont icon-articles"></i>
+        <span>1</span>
+      </a>
+      <div class="category-collapse">
+        
+          
+  <div id="collapse-cke1fy96n000un7acbg8icggv" class="collapse in" role="tabpanel"
+       aria-labelledby="heading-cke1fy96n000un7acbg8icggv">
+    
+    
+    
+      
+      
+        <a href="/2020/06/02/VS-Code%E8%BF%9C%E7%A8%8B%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="list-group-item list-group-item-action">
+          <span class="category-post">VS Code远程开发工具</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    <div class="category row">
+      <a
+        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
+        id="heading-cke1fy96q000zn7acd6mr7pv6" role="tab" data-toggle="collapse" href="#collapse-cke1fy96q000zn7acd6mr7pv6"
+        aria-expanded="false"
+      >
+        前端
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      <a href="/categories/%E5%89%8D%E7%AB%AF/" class="category-count col-2 col-md-1">
+        <i class="iconfont icon-articles"></i>
+        <span>1</span>
+      </a>
+      <div class="category-collapse">
+        
+          
+  <div id="collapse-cke1fy96q000zn7acd6mr7pv6" class="collapse in" role="tabpanel"
+       aria-labelledby="heading-cke1fy96q000zn7acd6mr7pv6">
+    
+    
+    
+      
+      
+        <a href="/2020/05/25/flex-%E5%B8%83%E5%B1%80/" class="list-group-item list-group-item-action">
+          <span class="category-post">flex 布局</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    <div class="category row">
+      <a
+        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
+        id="heading-cke1fy9710017n7ach25s8s68" role="tab" data-toggle="collapse" href="#collapse-cke1fy9710017n7ach25s8s68"
+        aria-expanded="false"
+      >
+        数据结构与算法
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" class="category-count col-2 col-md-1">
+        <i class="iconfont icon-articles"></i>
+        <span>1</span>
+      </a>
+      <div class="category-collapse">
+        
+          
+  <div id="collapse-cke1fy9710017n7ach25s8s68" class="collapse in" role="tabpanel"
+       aria-labelledby="heading-cke1fy9710017n7ach25s8s68">
+    
+    
+    
+      
+      
+        <a href="/2020/01/17/%E4%BB%8E-%E4%B8%89%E3%80%81%E5%9B%9B%E6%95%B0%E4%B9%8B%E5%92%8C%E5%88%B0n%E6%95%B0%E4%B9%8B%E5%92%8C%E7%9A%84%E6%8E%A8%E5%AF%BC/" class="list-group-item list-group-item-action">
+          <span class="category-post">从 三、四数之和到n数之和的推导</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    <div class="category row">
+      <a
+        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
+        id="heading-cke1fy9a9004mn7ace1sp4z84" role="tab" data-toggle="collapse" href="#collapse-cke1fy9a9004mn7ace1sp4z84"
+        aria-expanded="false"
+      >
+        docker
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      <a href="/categories/docker/" class="category-count col-2 col-md-1">
+        <i class="iconfont icon-articles"></i>
+        <span>1</span>
+      </a>
+      <div class="category-collapse">
+        
+          
+  <div id="collapse-cke1fy9a9004mn7ace1sp4z84" class="collapse in" role="tabpanel"
+       aria-labelledby="heading-cke1fy9a9004mn7ace1sp4z84">
+    
+    
+    
+      
+      
+        <a href="/2019/12/05/docker-%E5%85%A5%E9%97%A8/" class="list-group-item list-group-item-action">
+          <span class="category-post">docker 入门</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+</div>
 
               </div>
             </div>
@@ -192,45 +666,33 @@
   
 
   <footer class="mt-5">
-    <div class="text-center py-3">
-        <div>
-            <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-            <i class="iconfont icon-love"></i>
-            <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-                <span>Fluid</span></a>
-        </div>
-        
-  <div>
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
     
-      <!-- 不蒜子统计PV -->
-      
-      <span id="busuanzi_container_site_pv" style="display: none">
-      总访问量 <span id="busuanzi_value_site_pv"></span> 次
-    </span>
+
     
-    
-      <!-- 不蒜子统计UV -->
-      
-      <span id="busuanzi_container_site_uv" style="display: none">
-      总访客数 <span id="busuanzi_value_site_uv"></span> 人
-    </span>
+
     
   </div>
-
-
-        
-
-        
-    </div>
 </footer>
 
 <!-- SCRIPTS -->
 <script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
 <script  src="/js/main.js" ></script>
 
+<!-- Plugins -->
 
 
+  
+    <script  src="/js/lazyload.js" ></script>
+  
 
 
 
@@ -239,12 +701,9 @@
 
 
 
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 
-
-<!-- Plugins -->
 
 
 
@@ -268,21 +727,6 @@
 
 
 
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "hover",
-      
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
-  </script>
-
 
 
   <script  src="/js/local-search.js" ></script>
@@ -294,6 +738,8 @@
       this.onclick = null
     }
   </script>
+
+
 
 
 

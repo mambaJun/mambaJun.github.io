@@ -1,7 +1,7 @@
+
+
 <!DOCTYPE html>
-<html lang="en">
-
-
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
 
 
 
@@ -20,19 +20,26 @@
   <title>计算机网络-数据链路层小结 - Jun</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
+  
+
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
 
 
 
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
-
-
 
 
 <link  rel="stylesheet" href="/css/main.css" />
@@ -40,6 +47,8 @@
 <!-- 自定义样式保持在最底部 -->
 
 
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Jun" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
@@ -49,7 +58,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>Jun</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>Jun's space</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -64,52 +73,73 @@
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/">
-              <i class="iconfont icon-home-fill"></i>
-              Home</a>
-          </li>
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
         
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/archives/">
-              <i class="iconfont icon-archive-fill"></i>
-              Archives</a>
-          </li>
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
         
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/categories/">
-              <i class="iconfont icon-category-fill"></i>
-              Categories</a>
-          </li>
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
         
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/tags/">
-              <i class="iconfont icon-tags-fill"></i>
-              Tags</a>
-          </li>
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
         
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/about/">
-              <i class="iconfont icon-user-fill"></i>
-              About</a>
-          </li>
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
       </ul>
@@ -117,48 +147,50 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
-         style="background: url('/img/1.jpg') no-repeat center center;
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container text-center white-text fadeInUp">
+          <div class="container page-header text-center fade-in-up">
             <span class="h2" id="subtitle">
               
             </span>
 
             
               
-                <div class="mt-3 post-meta">
-                  <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-                  <time datetime="2020-06-05 13:26">
-                    June 5, 2020 pm
-                  </time>
-                </div>
-              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-06-05 13:26" pubdate>
+      June 5, 2020 pm
+    </time>
+  </div>
 
-              <div class="mt-1">
-                
-                  
-                  <span class="post-meta mr-2">
-                    <i class="iconfont icon-chart"></i>
-                    1.5k 字
-                  </span>
-                
 
-                
-                  
-                  <span class="post-meta mr-2">
-                      <i class="iconfont icon-clock-fill"></i>
-                    
-                    
-                    15
-                     分钟
-                  </span>
-                
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.5k 字
+    </span>
+  
 
-                
-              </div>
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      15
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
             
           </div>
 
@@ -178,22 +210,18 @@
     <div class="col-lg-8 nopadding-md">
       <div class="container nopadding-md" id="board-ctn">
         <div class="py-5" id="board">
-          <div class="post-content mx-auto" id="post">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">计算机网络-数据链路层小结</h1>
             
-              <p class="note note-info">
-                
-                  本文最后更新于：23 days ago
-                
-              </p>
-            
-            <article class="markdown-body">
+            <div class="markdown-body" id="post-body">
               <p>title: 计算机网络-数据链路层小结<br>date: 2020-02-22 13:35:15<br>tags:</p>
 <ul>
 <li>数据链路层<br>categories:</li>
 <li>计算机网络</li>
 </ul>
 <p>[TOC]</p>
-<h1 id="计算机网络-数据链路层"><a href="#计算机网络-数据链路层" class="headerlink" title="计算机网络 数据链路层"></a>计算机网络 数据链路层</h1><h2 id="数据链路层基本概念及基本问题"><a href="#数据链路层基本概念及基本问题" class="headerlink" title="数据链路层基本概念及基本问题"></a>数据链路层基本概念及基本问题</h2><p><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/数据发送模型.png" alt="数据发送模型"></p>
+<h1 id="计算机网络-数据链路层"><a href="#计算机网络-数据链路层" class="headerlink" title="计算机网络 数据链路层"></a>计算机网络 数据链路层</h1><h2 id="数据链路层基本概念及基本问题"><a href="#数据链路层基本概念及基本问题" class="headerlink" title="数据链路层基本概念及基本问题"></a>数据链路层基本概念及基本问题</h2><p><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/数据发送模型.png" srcset="/img/loading.gif" alt="数据发送模型"></p>
 <h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><h4 id="链路（link）"><a href="#链路（link）" class="headerlink" title="链路（link）"></a>链路（link）</h4><p>链路是一条点到点的物理线路段，中间没有其他点，一条链路只是一条通路的一个组成部分。</p>
 <h4 id="数据链路（data-link）"><a href="#数据链路（data-link）" class="headerlink" title="数据链路（data link）"></a>数据链路（data link）</h4><p>除了物理线路外，还必须有通信协议来控制这些数据的传输。若把实现这些协议的硬件和软件加到链路上，就构成了<code>数据链路</code>。</p>
 <ol>
@@ -202,13 +230,13 @@
 </ol>
 <h4 id="帧"><a href="#帧" class="headerlink" title="帧"></a>帧</h4><p>数据链路层传送的是<code>帧</code></p>
 <p>在两个对等的数据链路层之间画出一个数字管道，而在这条数字管道上<code>传输的数据单位是帧</code>。</p>
-<p><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/数据链路层 帧.png" alt="数据链路层 帧"></p>
+<p><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/数据链路层 帧.png" srcset="/img/loading.gif" alt="数据链路层 帧"></p>
 <h3 id="三个基本问题"><a href="#三个基本问题" class="headerlink" title="三个基本问题"></a>三个基本问题</h3><h4 id="封装成帧"><a href="#封装成帧" class="headerlink" title="封装成帧"></a>封装成帧</h4><p>封装成帧就是在一段<code>数据</code>的<code>前后分别添加首部和尾部</code>，然后就构成了一个帧。确定帧的界限。</p>
 <p>首部和尾部的一个重要作用就是进行<code>帧定界</code></p>
-<p><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/封装成帧.png" alt="封装成帧"></p>
+<p><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/封装成帧.png" srcset="/img/loading.gif" alt="封装成帧"></p>
 <p>MTU 最大传输单元  帧的数据部分最大为 1500字节</p>
 <h4 id="透明传输"><a href="#透明传输" class="headerlink" title="透明传输"></a>透明传输</h4><p>如果传输的数据是ASCII码中“可打印字符（共95个）”集时，是一个正常的帧，但是当数据中出现帧尾的时候，就会错误的认为一个帧的范围，数据<code>不是仅由“可打印字符”组成时，就会出问题</code>，如图：</p>
-<p><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/透明传输.png" alt="透明传输"></p>
+<p><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/透明传输.png" srcset="/img/loading.gif" alt="透明传输"></p>
 <p><code>解决方案</code>： 使用<code>转义字符</code>的字节填充方法</p>
 <p><strong><em>个人认为这种解决方案C语言中的转义字符思想一样，所以类比理解就好了</em></strong></p>
 <ul>
@@ -220,7 +248,7 @@
 </li>
 </ul>
 <p>如果转义字符也出现在数据中，就在转义字符前再插入一个转义字符</p>
-<p><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/透明传输 转义字符法.png" alt="透明传输 转义字符 字节填充方法"></p>
+<p><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/透明传输 转义字符法.png" srcset="/img/loading.gif" alt="透明传输 转义字符 字节填充方法"></p>
 <h4 id="差错控制"><a href="#差错控制" class="headerlink" title="差错控制"></a>差错控制</h4><h5 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h5><p>传输过程中可能会出现产生 比特差错：<code>1 可能变成0 ，0可能变成1</code></p>
 <p>在一段时间中，传输错误的比特占所有传输比特总数的比率称为 <code>误码率（BER Bit Error Rate）</code></p>
 <p><code>为了保证数据传输的可靠性</code>，在计算机网络传输数据时，必须才用各种差错检查措施。</p>
@@ -234,7 +262,7 @@
 <p>冗余码的计算</p>
 <p>用二进制的模 2 运算进行2^n ,这相当于在M后面添加n个0。</p>
 <p>得到的（k + n）位的数除以是先选定好的长度为（n + 1）位的除数 P，得出商是Q而余数是R，余数R比除数P少一位，即 R是 n 位。</p>
-<p><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/循环冗余检验的计算过程.png" alt="循环冗余检验的计算过程"></p>
+<p><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/循环冗余检验的计算过程.png" srcset="/img/loading.gif" alt="循环冗余检验的计算过程"></p>
 </li>
 <li><p>帧检验序列 FCS</p>
 <p>在数据后面添加上的冗余码称为 <code>帧检验序列</code> FCS （frame check sequence）</p>
@@ -267,7 +295,7 @@
 <p>​    <code>MAC地址</code>，实际上就是适配器地址或适配器标识符EUI-48。</p>
 </blockquote>
 <h2 id="扩展以太网"><a href="#扩展以太网" class="headerlink" title="扩展以太网"></a>扩展以太网</h2><h2 id="高速以太网"><a href="#高速以太网" class="headerlink" title="高速以太网"></a>高速以太网</h2>
-            </article>
+            </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
@@ -275,36 +303,36 @@
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">
-                  <div class="post-prev col-6">
+                  <article class="post-prev col-6">
                     
                     
                       <a href="/2020/06/07/%E8%BD%AF%E9%93%BE%E6%8E%A5%E5%92%8C%E7%A1%AC%E9%93%BE%E6%8E%A5/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">软链接和硬链接</span>
-                        <span class="visible-mobile">上一篇</span>
+                        <span class="visible-mobile">Previous</span>
                       </a>
                     
-                  </div>
-                  <div class="post-next col-6">
+                  </article>
+                  <article class="post-next col-6">
                     
                     
                       <a href="/2020/06/05/linux-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/">
                         <span class="hidden-mobile">linux 文件管理</span>
-                        <span class="visible-mobile">下一篇</span>
+                        <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
-                  </div>
+                  </article>
                 </div>
               
             </div>
 
             
-          </div>
+          </article>
         </div>
       </div>
     </div>
@@ -321,12 +349,6 @@
 </div>
 
 <!-- Custom -->
-
-  <div class="col-lg-7 mx-auto nopadding-md">
-    <div class="container custom post-content mx-auto">
-      <img src="https://octodex.github.com/images/jetpacktocat.png" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
-    </div>
-  </div>
 
 
     
@@ -367,47 +389,45 @@
   
 
   <footer class="mt-5">
-    <div class="text-center py-3">
-        <div>
-            <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-            <i class="iconfont icon-love"></i>
-            <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-                <span>Fluid</span></a>
-        </div>
-        
-  <div>
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
     
-      <!-- 不蒜子统计PV -->
-      
-      <span id="busuanzi_container_site_pv" style="display: none">
-      总访问量 <span id="busuanzi_value_site_pv"></span> 次
-    </span>
+
     
-    
-      <!-- 不蒜子统计UV -->
-      
-      <span id="busuanzi_container_site_uv" style="display: none">
-      总访客数 <span id="busuanzi_value_site_uv"></span> 人
-    </span>
+
     
   </div>
-
-
-        
-
-        
-    </div>
 </footer>
 
 <!-- SCRIPTS -->
 <script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
 <script  src="/js/main.js" ></script>
 
-
+<!-- Plugins -->
 
 
   
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
   <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
   <script>
     $(document).ready(function () {
@@ -416,7 +436,7 @@
 
       tocbot.init({
         tocSelector: '#tocbot',
-        contentSelector: '.post-content',
+        contentSelector: '#post-body',
         headingSelector: 'h1,h2,h3,h4,h5,h6',
         linkClass: 'tocbot-link',
         activeLinkClass: 'tocbot-active-link',
@@ -432,22 +452,6 @@
       }
     });
   </script>
-
-
-
-
-
-  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
-  <script  src="/js/clipboard-use.js" ></script>
-
-
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
-
-
-
-
-<!-- Plugins -->
 
 
 
@@ -513,6 +517,8 @@
       }
     );
   </script>
+
+
 
 
 

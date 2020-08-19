@@ -1,7 +1,7 @@
+
+
 <!DOCTYPE html>
-<html lang="en">
-
-
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
 
 
 
@@ -20,19 +20,26 @@
   <title>JVM学习 - Jun</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
+  
+
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
 
 
 
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
-
-
 
 
 <link  rel="stylesheet" href="/css/main.css" />
@@ -40,6 +47,8 @@
 <!-- 自定义样式保持在最底部 -->
 
 
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Jun" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
@@ -49,7 +58,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>Jun</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>Jun's space</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -64,52 +73,73 @@
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/">
-              <i class="iconfont icon-home-fill"></i>
-              Home</a>
-          </li>
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
         
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/archives/">
-              <i class="iconfont icon-archive-fill"></i>
-              Archives</a>
-          </li>
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
         
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/categories/">
-              <i class="iconfont icon-category-fill"></i>
-              Categories</a>
-          </li>
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
         
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/tags/">
-              <i class="iconfont icon-tags-fill"></i>
-              Tags</a>
-          </li>
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
         
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/about/">
-              <i class="iconfont icon-user-fill"></i>
-              About</a>
-          </li>
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
       </ul>
@@ -117,48 +147,50 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
-         style="background: url('/img/1.jpg') no-repeat center center;
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container text-center white-text fadeInUp">
+          <div class="container page-header text-center fade-in-up">
             <span class="h2" id="subtitle">
               
             </span>
 
             
               
-                <div class="mt-3 post-meta">
-                  <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-                  <time datetime="2019-12-27 15:03">
-                    December 27, 2019 pm
-                  </time>
-                </div>
-              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2019-12-27 15:03" pubdate>
+      December 27, 2019 pm
+    </time>
+  </div>
 
-              <div class="mt-1">
-                
-                  
-                  <span class="post-meta mr-2">
-                    <i class="iconfont icon-chart"></i>
-                    1.9k 字
-                  </span>
-                
 
-                
-                  
-                  <span class="post-meta mr-2">
-                      <i class="iconfont icon-clock-fill"></i>
-                    
-                    
-                    20
-                     分钟
-                  </span>
-                
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.9k 字
+    </span>
+  
 
-                
-              </div>
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      20
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
             
           </div>
 
@@ -178,15 +210,11 @@
     <div class="col-lg-8 nopadding-md">
       <div class="container nopadding-md" id="board-ctn">
         <div class="py-5" id="board">
-          <div class="post-content mx-auto" id="post">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">JVM学习</h1>
             
-              <p class="note note-info">
-                
-                  本文最后更新于：a month ago
-                
-              </p>
-            
-            <article class="markdown-body">
+            <div class="markdown-body" id="post-body">
               <h1 id="JVM入门（一）"><a href="#JVM入门（一）" class="headerlink" title="JVM入门（一）"></a>JVM入门（一）</h1><h2 id="JVM-结构"><a href="#JVM-结构" class="headerlink" title="JVM 结构"></a>JVM 结构</h2><ol>
 <li><p>类加载子系统 和 方法区<br> 类加载子系统：负责从文件系统和网络中加载 Class信息，加载的类信息存放在一块 -&gt; 称为方法区<br> 除了类的信息外，方法区还存放运行时常量池信息，包括字符串面量，数字常量（这部分常量信息是Class文件中常量池部分内存映射）</p>
 </li>
@@ -202,7 +230,7 @@
 <li>PC（Program Counter）<br> PC寄存器也是每个线程私有的空间创建（跟Java栈相似），Java虚拟机会给每个Java线程创建PC寄存器。在任意时刻，一个Java线程总是在执行一个方法，<br> 这个正在执行方法是 <code>当前方法</code> 。<pre><code> 如果当前方法是本地方法，那么PC寄存器的值是 undefined
  如果是Java方法，PC寄存器就会指向当前正在被执行的指令
 </code></pre></li>
-<li>执行引擎<br> 执行引擎是Java虚拟机最核心组件之一，负责执行虚拟机的字节码，现在虚拟机为了提高执行效率，会使用<code>即时编译（Just In Time JIT）</code>技术将方法编译成机器码后再执行<br><img src="https://i.loli.net/2019/12/27/d9HCTrUg73VPulD.png" alt="基本结构.png"><h2 id="JVM堆结构图-和-分代"><a href="#JVM堆结构图-和-分代" class="headerlink" title="JVM堆结构图 和 分代"></a>JVM堆结构图 和 分代</h2><img src="https://i.loli.net/2019/12/27/tKQrexXydm6bLl3.png" alt="java堆结构.png"><br> Java虚拟机根据对象存活周期不同，把堆内存分成几块，一般分为<code>新生代，老年代，永久代（对于HotSpot虚拟机而言）</code>，JVM就是按照这个策略划分周期</li>
+<li>执行引擎<br> 执行引擎是Java虚拟机最核心组件之一，负责执行虚拟机的字节码，现在虚拟机为了提高执行效率，会使用<code>即时编译（Just In Time JIT）</code>技术将方法编译成机器码后再执行<br><img src="https://i.loli.net/2019/12/27/d9HCTrUg73VPulD.png" srcset="/img/loading.gif" alt="基本结构.png"><h2 id="JVM堆结构图-和-分代"><a href="#JVM堆结构图-和-分代" class="headerlink" title="JVM堆结构图 和 分代"></a>JVM堆结构图 和 分代</h2><img src="https://i.loli.net/2019/12/27/tKQrexXydm6bLl3.png" srcset="/img/loading.gif" alt="java堆结构.png"><br> Java虚拟机根据对象存活周期不同，把堆内存分成几块，一般分为<code>新生代，老年代，永久代（对于HotSpot虚拟机而言）</code>，JVM就是按照这个策略划分周期</li>
 </ol>
 <p>为什么要分代？<br>    堆内存是虚拟机管理的<code>内存中最大的一块，垃圾回收最频繁的一块</code>，程序中所有对象实例都存放在堆内存中。给<code>堆内存分代是为了提高对象内存分配和垃圾回收效率</code><br>    如果不划分，所有新创建的对象和生命周期很长的对象放在一起，随着程序执行，堆内存需要频繁进行垃圾收集，每次回收都要遍历所有的对象<br>    遍历对象会浪费巨大的时间代价，影响GC效率</p>
 <pre><code>有了分代的情况，新创建的对象会在新生代中分配内存，经过多次回收依然存活的对象放在老年代中，静态属性、类信息方法老年代中。
@@ -220,17 +248,17 @@
 </code></pre><h2 id="JVM垃圾回收算法-和-收集器"><a href="#JVM垃圾回收算法-和-收集器" class="headerlink" title="JVM垃圾回收算法 和 收集器"></a>JVM垃圾回收算法 和 收集器</h2><h3 id="1-垃圾回收常见算法"><a href="#1-垃圾回收常见算法" class="headerlink" title="1 垃圾回收常见算法"></a>1 垃圾回收常见算法</h3><ul>
 <li>引用计数法</li>
 <li>复制算法（Coping）<br>  算法把内存空间划分成两个相等区域，每次只使用一个区域，垃圾回收时，遍历当前使用区域，把当前使用中的对象复制到另外一个区域中。<pre><code>  次算法每次只处理正在使用中的对象，因此复制成本小，同时复制过去以后还能进行`相应的内存整理`，不会出现“碎片”问题。此算法`缺点是需要两倍内存空间`
-</code></pre>  新生代中的survivor区<br><img src="https://i.loli.net/2019/12/27/YeRsurXDNHEnCyU.png" alt="复制算法图解"></li>
+</code></pre>  新生代中的survivor区<br><img src="https://i.loli.net/2019/12/27/YeRsurXDNHEnCyU.png" srcset="/img/loading.gif" alt="复制算法图解"></li>
 <li><p>标记-清除（Mark-Sweep）<br>算法执行分两个阶段，  </p>
 <ul>
 <li>第一个阶段：从引用根节点开始标记所有被引用的对象</li>
-<li>第二个阶段：遍历整个堆，把未标记对象清除<br><code>此算法需要暂停整个应用</code>，同时，会<code>产生内存碎片</code><br><img src="https://i.loli.net/2019/12/27/jSO4N6x92ZluDqT.png" alt="标记清除.png"></li>
+<li>第二个阶段：遍历整个堆，把未标记对象清除<br><code>此算法需要暂停整个应用</code>，同时，会<code>产生内存碎片</code><br><img src="https://i.loli.net/2019/12/27/jSO4N6x92ZluDqT.png" srcset="/img/loading.gif" alt="标记清除.png"></li>
 </ul>
 </li>
 <li><p>标记-整理（Mark-Compact）<br>算法结合了“标记-清除”和“复制”两个算法优点。分为两个阶段  </p>
 <ul>
 <li>第一个阶段：从根节点开始标记所有被引用对象</li>
-<li>第二个阶段：遍历整的堆，把清除未标记对象并且把对象“压缩”到堆中的其中一块，按顺序排放，<br>这个算法避免了“标记-清除”的碎片问题，也避免了“复制”算法的空间问题<br><img src="https://i.loli.net/2019/12/27/1RnjXCJVL7gNIF4.png" alt="标记整理.png"></li>
+<li>第二个阶段：遍历整的堆，把清除未标记对象并且把对象“压缩”到堆中的其中一块，按顺序排放，<br>这个算法避免了“标记-清除”的碎片问题，也避免了“复制”算法的空间问题<br><img src="https://i.loli.net/2019/12/27/1RnjXCJVL7gNIF4.png" srcset="/img/loading.gif" alt="标记整理.png"></li>
 </ul>
 </li>
 </ul>
@@ -249,7 +277,7 @@
 </ul>
 <h3 id="3"><a href="#3" class="headerlink" title="3"></a>3</h3><p>​    </p>
 
-            </article>
+            </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
@@ -266,36 +294,36 @@
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">
-                  <div class="post-prev col-6">
+                  <article class="post-prev col-6">
                     
                     
                       <a href="/2020/01/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-UDP%E5%8D%8F%E8%AE%AE/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">计算机网络 UDP协议</span>
-                        <span class="visible-mobile">上一篇</span>
+                        <span class="visible-mobile">Previous</span>
                       </a>
                     
-                  </div>
-                  <div class="post-next col-6">
+                  </article>
+                  <article class="post-next col-6">
                     
                     
                       <a href="/2019/12/26/elasticsearch-%E5%85%A5%E9%97%A8/">
                         <span class="hidden-mobile">Spring boot 整合 Elasticsearch</span>
-                        <span class="visible-mobile">下一篇</span>
+                        <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
-                  </div>
+                  </article>
                 </div>
               
             </div>
 
             
-          </div>
+          </article>
         </div>
       </div>
     </div>
@@ -312,12 +340,6 @@
 </div>
 
 <!-- Custom -->
-
-  <div class="col-lg-7 mx-auto nopadding-md">
-    <div class="container custom post-content mx-auto">
-      <img src="https://octodex.github.com/images/jetpacktocat.png" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
-    </div>
-  </div>
 
 
     
@@ -358,47 +380,45 @@
   
 
   <footer class="mt-5">
-    <div class="text-center py-3">
-        <div>
-            <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-            <i class="iconfont icon-love"></i>
-            <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-                <span>Fluid</span></a>
-        </div>
-        
-  <div>
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
     
-      <!-- 不蒜子统计PV -->
-      
-      <span id="busuanzi_container_site_pv" style="display: none">
-      总访问量 <span id="busuanzi_value_site_pv"></span> 次
-    </span>
+
     
-    
-      <!-- 不蒜子统计UV -->
-      
-      <span id="busuanzi_container_site_uv" style="display: none">
-      总访客数 <span id="busuanzi_value_site_uv"></span> 人
-    </span>
+
     
   </div>
-
-
-        
-
-        
-    </div>
 </footer>
 
 <!-- SCRIPTS -->
 <script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
 <script  src="/js/main.js" ></script>
 
-
+<!-- Plugins -->
 
 
   
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
   <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
   <script>
     $(document).ready(function () {
@@ -407,7 +427,7 @@
 
       tocbot.init({
         tocSelector: '#tocbot',
-        contentSelector: '.post-content',
+        contentSelector: '#post-body',
         headingSelector: 'h1,h2,h3,h4,h5,h6',
         linkClass: 'tocbot-link',
         activeLinkClass: 'tocbot-active-link',
@@ -423,22 +443,6 @@
       }
     });
   </script>
-
-
-
-
-
-  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
-  <script  src="/js/clipboard-use.js" ></script>
-
-
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
-
-
-
-
-<!-- Plugins -->
 
 
 
@@ -504,6 +508,8 @@
       }
     );
   </script>
+
+
 
 
 

@@ -1,7 +1,7 @@
+
+
 <!DOCTYPE html>
-<html lang="en">
-
-
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
 
 
 
@@ -20,19 +20,26 @@
   <title>计算机网络-传输层小结 - Jun</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
+  
+
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
 
 
 
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
-
-
 
 
 <link  rel="stylesheet" href="/css/main.css" />
@@ -40,6 +47,8 @@
 <!-- 自定义样式保持在最底部 -->
 
 
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Jun" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
@@ -49,7 +58,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>Jun</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>Jun's space</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -64,52 +73,73 @@
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/">
-              <i class="iconfont icon-home-fill"></i>
-              Home</a>
-          </li>
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
         
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/archives/">
-              <i class="iconfont icon-archive-fill"></i>
-              Archives</a>
-          </li>
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
         
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/categories/">
-              <i class="iconfont icon-category-fill"></i>
-              Categories</a>
-          </li>
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
         
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/tags/">
-              <i class="iconfont icon-tags-fill"></i>
-              Tags</a>
-          </li>
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
         
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/about/">
-              <i class="iconfont icon-user-fill"></i>
-              About</a>
-          </li>
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
       </ul>
@@ -117,48 +147,50 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
-         style="background: url('/img/1.jpg') no-repeat center center;
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container text-center white-text fadeInUp">
+          <div class="container page-header text-center fade-in-up">
             <span class="h2" id="subtitle">
               
             </span>
 
             
               
-                <div class="mt-3 post-meta">
-                  <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-                  <time datetime="2020-02-19 02:28">
-                    February 19, 2020 am
-                  </time>
-                </div>
-              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-02-19 02:28" pubdate>
+      February 19, 2020 am
+    </time>
+  </div>
 
-              <div class="mt-1">
-                
-                  
-                  <span class="post-meta mr-2">
-                    <i class="iconfont icon-chart"></i>
-                    4.5k 字
-                  </span>
-                
 
-                
-                  
-                  <span class="post-meta mr-2">
-                      <i class="iconfont icon-clock-fill"></i>
-                    
-                    
-                    49
-                     分钟
-                  </span>
-                
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      4.5k 字
+    </span>
+  
 
-                
-              </div>
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      49
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
             
           </div>
 
@@ -178,15 +210,11 @@
     <div class="col-lg-8 nopadding-md">
       <div class="container nopadding-md" id="board-ctn">
         <div class="py-5" id="board">
-          <div class="post-content mx-auto" id="post">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">计算机网络-传输层小结</h1>
             
-              <p class="note note-info">
-                
-                  本文最后更新于：a month ago
-                
-              </p>
-            
-            <article class="markdown-body">
+            <div class="markdown-body" id="post-body">
               <p>title: 计算机网络-传输层小结<br>date: 2020-02-13 13:35:15<br>tags:</p>
 <ul>
 <li>传输层</li>
@@ -262,7 +290,7 @@
 </ul>
 <p>一个数据包最大是 65535（2^16）字节</p>
 <p>数据链路层 46-1500 字节</p>
-<h3 id="应用层和传输层协议之间的关系"><a href="#应用层和传输层协议之间的关系" class="headerlink" title="应用层和传输层协议之间的关系"></a>应用层和传输层协议之间的关系</h3><p><img src="https://i.loli.net/2020/02/13/P4bXVAFnZhkouiU.png" alt="应用层和传输层关系.png"></p>
+<h3 id="应用层和传输层协议之间的关系"><a href="#应用层和传输层协议之间的关系" class="headerlink" title="应用层和传输层协议之间的关系"></a>应用层和传输层协议之间的关系</h3><p><img src="https://i.loli.net/2020/02/13/P4bXVAFnZhkouiU.png" srcset="/img/loading.gif" alt="应用层和传输层关系.png"></p>
 <p>常见的应用层协议使用的端口</p>
 <div class="table-container">
 <table>
@@ -318,8 +346,17 @@
 <li>可以在服务器网卡上设置只开放必要端口，实现服务器的网络安全</li>
 </ul>
 <p>如何查看服务侦听</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查看会话</span></span><br><span class="line">netstat -n</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看建立会话的进程</span></span><br><span class="line">netstat -nb</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看计算机侦听端口</span></span><br><span class="line">netstat -an</span><br><span class="line"><span class="meta">#</span><span class="bash"> 根据状态筛选</span></span><br><span class="line">netstat -n : find "ESTABLISHED"</span><br><span class="line"><span class="meta">#</span><span class="bash"> 测试到远程计算机某个端口是否打开 telnet 192.168.1.1 3389</span></span><br><span class="line">telnet 192.168.1.1 3389</span><br></pre></td></tr></table></figure>
-<h3 id="传输层功能-和-端口范围"><a href="#传输层功能-和-端口范围" class="headerlink" title="传输层功能 和 端口范围"></a>传输层功能 和 端口范围</h3><p><img src="https://i.loli.net/2020/02/14/zpdTxJjk5Vu174t.png" alt="传输层功能.png"></p>
+<pre class=" language-hljs shell"><span class="hljs-meta">#</span><span class="bash"><code class="language-hljs shell"><span class="hljs-meta">#</span><span class="bash"> 查看会话</span>
+netstat -n
+<span class="hljs-meta">#</span><span class="bash"> 查看建立会话的进程</span>
+netstat -nb
+<span class="hljs-meta">#</span><span class="bash"> 查看计算机侦听端口</span>
+netstat -an
+<span class="hljs-meta">#</span><span class="bash"> 根据状态筛选</span>
+netstat -n : find "ESTABLISHED"
+<span class="hljs-meta">#</span><span class="bash"> 测试到远程计算机某个端口是否打开 telnet 192.168.1.1 3389</span>
+telnet 192.168.1.1 3389</code></pre>
+<h3 id="传输层功能-和-端口范围"><a href="#传输层功能-和-端口范围" class="headerlink" title="传输层功能 和 端口范围"></a>传输层功能 和 端口范围</h3><p><img src="https://i.loli.net/2020/02/14/zpdTxJjk5Vu174t.png" srcset="/img/loading.gif" alt="传输层功能.png"></p>
 <h4 id="传输层功能"><a href="#传输层功能" class="headerlink" title="传输层功能"></a>传输层功能</h4><p>传输层功能：为<code>应用进程之间</code>提供端到端的逻辑通信</p>
 <ul>
 <li>传输层还要对收到的报文进行差错检测</li>
@@ -329,7 +366,7 @@
 <li>网络层 提供主机之间的逻辑通信</li>
 <li>传输层提供进程之间的逻辑通信</li>
 </ul>
-<p><img src="https://i.loli.net/2020/02/14/nrfCAaeLzmVqZW1.png" alt="传输层和网络层的主要区别.png"></p>
+<p><img src="https://i.loli.net/2020/02/14/nrfCAaeLzmVqZW1.png" srcset="/img/loading.gif" alt="传输层和网络层的主要区别.png"></p>
 <h4 id="端口-0-65535"><a href="#端口-0-65535" class="headerlink" title="端口 0 ~ 65535"></a>端口 0 ~ 65535</h4><p>端口用一个 16 位端口号进行标志</p>
 <p>端口号只具有本地意义，即端口号只是为了标志本计算机应用层中各个进程。在因特网中不同计算机的相同端口号咯是没有联系的。</p>
 <p>端口分类（三类端口）</p>
@@ -345,8 +382,8 @@
 <li>UDP支持一对一，一对多，多对一和多对多的交互通信</li>
 <li>UDP的首部开销小，只有八个字节</li>
 </ol>
-<h3 id="UDP首部：首部开销小，只有八个字节"><a href="#UDP首部：首部开销小，只有八个字节" class="headerlink" title="UDP首部：首部开销小，只有八个字节"></a>UDP首部：首部开销小，只有八个字节</h3><p><img src="https://i.loli.net/2020/02/14/c9oGH51gdEab8MV.png" alt="UDP协议首部.png"></p>
-<p><img src="https://i.loli.net/2020/02/14/dn1VuitPBqDr63N.png" alt="UDP首部格式.png"></p>
+<h3 id="UDP首部：首部开销小，只有八个字节"><a href="#UDP首部：首部开销小，只有八个字节" class="headerlink" title="UDP首部：首部开销小，只有八个字节"></a>UDP首部：首部开销小，只有八个字节</h3><p><img src="https://i.loli.net/2020/02/14/c9oGH51gdEab8MV.png" srcset="/img/loading.gif" alt="UDP协议首部.png"></p>
+<p><img src="https://i.loli.net/2020/02/14/dn1VuitPBqDr63N.png" srcset="/img/loading.gif" alt="UDP首部格式.png"></p>
 <div class="table-container">
 <table>
 <thead>
@@ -358,7 +395,7 @@
 <tbody>
 <tr>
 <td>检验和</td>
-<td><img src="https://i.loli.net/2020/02/14/e2Tlziw8da1mgvF.png" alt="UDP检验和计算.png"></td>
+<td><img src="https://i.loli.net/2020/02/14/e2Tlziw8da1mgvF.png" srcset="/img/loading.gif" alt="UDP检验和计算.png"></td>
 </tr>
 <tr>
 <td>长度</td>
@@ -394,31 +431,31 @@
 </ol>
 <h3 id="TCP面向字节流-传输"><a href="#TCP面向字节流-传输" class="headerlink" title="TCP面向字节流 传输"></a>TCP面向字节流 传输</h3><ol>
 <li><p>发送方  和 接收方 建立连接，准备文件</p>
-<p><img src="https://i.loli.net/2020/01/07/zxAUH6cR8nYBhqi.png" alt="tcp1.png"></p>
+<p><img src="https://i.loli.net/2020/01/07/zxAUH6cR8nYBhqi.png" srcset="/img/loading.gif" alt="tcp1.png"></p>
 </li>
 <li><p>发送方 将数据分块 缓存到 TCP 缓存，每次缓存大小没有规律</p>
 </li>
 </ol>
-<p>   <img src="https://i.loli.net/2020/01/07/e3zGocvkX2lbQJR.png" alt="tcp2.png"></p>
+<p>   <img src="https://i.loli.net/2020/01/07/e3zGocvkX2lbQJR.png" srcset="/img/loading.gif" alt="tcp2.png"></p>
 <ol>
 <li><p>从缓存中取出数据（这里的取出也是没有规律），添加TCP 头封装成数据包</p>
-<p><img src="https://i.loli.net/2020/01/07/LTxVzPCHrm453IA.png" alt="tcp3.png"></p>
+<p><img src="https://i.loli.net/2020/01/07/LTxVzPCHrm453IA.png" srcset="/img/loading.gif" alt="tcp3.png"></p>
 </li>
 <li><p>接收端 将收到的数据放入 TCP缓存中，同时去掉 TCP 头，<code>按照顺序</code>将发送端分割的数据包组装起来</p>
-<p><img src="https://i.loli.net/2020/01/07/LF3kS7ReVmdUI41.png" alt="tcp4.png"></p>
+<p><img src="https://i.loli.net/2020/01/07/LF3kS7ReVmdUI41.png" srcset="/img/loading.gif" alt="tcp4.png"></p>
 </li>
 <li><p>接收端 从 TCP缓存中读取数据（这里的读取大小也是没有规律，每次读几个不定）</p>
-<p><img src="https://i.loli.net/2020/01/07/tKeLzubr8ABQypC.png" alt="tcp5.png"></p>
-<p><img src="https://i.loli.net/2020/01/07/MZ8D6pt9gAWIsRq.png" alt="tcp6.png"></p>
+<p><img src="https://i.loli.net/2020/01/07/tKeLzubr8ABQypC.png" srcset="/img/loading.gif" alt="tcp5.png"></p>
+<p><img src="https://i.loli.net/2020/01/07/MZ8D6pt9gAWIsRq.png" srcset="/img/loading.gif" alt="tcp6.png"></p>
 </li>
 </ol>
 <h3 id="TCP的连接"><a href="#TCP的连接" class="headerlink" title="TCP的连接"></a>TCP的连接</h3><p>TCP把连接作为最基本的抽象，每一条TCP连接有两个端点</p>
 <p>TCP连接的端口不是主机，不是IP地址，不是应用程序，不是传输层的协议端口。</p>
 <p>TCP连接的端点叫做　<code>套接字（socket）</code></p>
 <p>​    套接字：端口号 + IP地址</p>
-<p><img src="https://i.loli.net/2020/02/14/6Q4ZkxWdFGzNDCh.png" alt="套接字.png"></p>
-<h3 id="TCP-报文段的首部格式"><a href="#TCP-报文段的首部格式" class="headerlink" title="TCP 报文段的首部格式"></a>TCP 报文段的首部格式</h3><p><img src="https://i.loli.net/2020/02/14/Ii36hva4fMpOj2e.png" alt="TCP首部样例.png"></p>
-<p><img src="https://i.loli.net/2020/02/14/Q2Wji7YFmqXaJhn.png" alt="TCP首部格式.png"></p>
+<p><img src="https://i.loli.net/2020/02/14/6Q4ZkxWdFGzNDCh.png" srcset="/img/loading.gif" alt="套接字.png"></p>
+<h3 id="TCP-报文段的首部格式"><a href="#TCP-报文段的首部格式" class="headerlink" title="TCP 报文段的首部格式"></a>TCP 报文段的首部格式</h3><p><img src="https://i.loli.net/2020/02/14/Ii36hva4fMpOj2e.png" srcset="/img/loading.gif" alt="TCP首部样例.png"></p>
+<p><img src="https://i.loli.net/2020/02/14/Q2Wji7YFmqXaJhn.png" srcset="/img/loading.gif" alt="TCP首部格式.png"></p>
 <div class="table-container">
 <table>
 <thead>
@@ -494,7 +531,7 @@
 </tr>
 <tr>
 <td>紧急指针Urgent Pointer</td>
-<td>前提是　URG＝１，紧急指针才有意义。紧急指针指出了紧急数据的末尾在报文段中的位置。当所有紧急数据被处理完时，TCP就告诉应用程序恢复到正常操作。<code>即使窗口为0也可以发送紧急数据</code><br /> 比如 紧急指针是50， 从数据部分开始计算 数据大小为50字节<img src="https://i.loli.net/2020/02/15/DvlgwFrG2IUYEdz.png" alt="TCP紧急指针.png"></td>
+<td>前提是　URG＝１，紧急指针才有意义。紧急指针指出了紧急数据的末尾在报文段中的位置。当所有紧急数据被处理完时，TCP就告诉应用程序恢复到正常操作。<code>即使窗口为0也可以发送紧急数据</code><br /> 比如 紧急指针是50， 从数据部分开始计算 数据大小为50字节<img src="https://i.loli.net/2020/02/15/DvlgwFrG2IUYEdz.png" srcset="/img/loading.gif" alt="TCP紧急指针.png"></td>
 </tr>
 <tr>
 <td>选项（可变长度）</td>
@@ -508,12 +545,12 @@
 </table>
 </div>
 <h3 id="TCP协议如何实现可靠传输"><a href="#TCP协议如何实现可靠传输" class="headerlink" title="TCP协议如何实现可靠传输"></a>TCP协议如何实现可靠传输</h3><h4 id="1-可靠传输的工作原理（原理）"><a href="#1-可靠传输的工作原理（原理）" class="headerlink" title="1. 可靠传输的工作原理（原理）"></a>1. 可靠传输的工作原理（原理）</h4><p>​    只要发送端接收不到确认包，就重发数据包</p>
-<h5 id="1-停止等待协议"><a href="#1-停止等待协议" class="headerlink" title="1. 停止等待协议"></a>1. 停止等待协议</h5><p><img src="https://i.loli.net/2020/02/14/bmgN2ZtsEUJKwIk.png" alt="停止等待协议.png"></p>
+<h5 id="1-停止等待协议"><a href="#1-停止等待协议" class="headerlink" title="1. 停止等待协议"></a>1. 停止等待协议</h5><p><img src="https://i.loli.net/2020/02/14/bmgN2ZtsEUJKwIk.png" srcset="/img/loading.gif" alt="停止等待协议.png"></p>
 <ol>
 <li><p>无差错情况</p>
 </li>
 <li><p>超时重传</p>
-<p><img src="https://i.loli.net/2020/02/14/kZqdDmcU62IGnJM.png" alt="停止等待协议等待时间过程.png"></p>
+<p><img src="https://i.loli.net/2020/02/14/kZqdDmcU62IGnJM.png" srcset="/img/loading.gif" alt="停止等待协议等待时间过程.png"></p>
 <p><code>等待时间</code>=分组时间（TD） + 往返时间（RTT） + 接收确认包时间（TA）</p>
 </li>
 </ol>
@@ -527,7 +564,7 @@
 <p>发送方经过等待时间，重传数据包，接收方丢弃之间收到的数据包，重传确认包，发送方收到第一次迟到的确认包，不做任何反应</p>
 </li>
 </ol>
-<p><img src="https://i.loli.net/2020/02/14/fkoFGyE6T5Qdci4.png" alt="确认丢失和确认迟到.png">小结</p>
+<p><img src="https://i.loli.net/2020/02/14/fkoFGyE6T5Qdci4.png" srcset="/img/loading.gif" alt="确认丢失和确认迟到.png">小结</p>
 <p>使用上述的确认和重传机制，就可以在不可靠的传输网络上实现可靠的通信，这种可靠传输协议叫做<code>自动重传请求ARQ(Automatic Repeat Request)</code></p>
 <p>ARQ 重传请求是自动进行的，接收方不需要请求 发送方 重传 某个出错的分组</p>
 <p>停止等待协议</p>
@@ -536,18 +573,18 @@
 <li>缺点 信道利用率低</li>
 </ul>
 <p>信道利用率公式：</p>
-<p><img src="https://i.loli.net/2020/02/14/GELK4Ve7iCokprX.png" alt="信道利用率公式.png"></p>
+<p><img src="https://i.loli.net/2020/02/14/GELK4Ve7iCokprX.png" srcset="/img/loading.gif" alt="信道利用率公式.png"></p>
 <h5 id="2-流水线传输"><a href="#2-流水线传输" class="headerlink" title="2. 流水线传输"></a>2. 流水线传输</h5><p>发送方 <code>连续发送多个分组，不必每次发完一个分组就停下来等待对方确认</code>，由于信道上一直有数据不间断的传送，这种方式获得很高的信道利用率</p>
-<p><img src="https://i.loli.net/2020/02/14/g82L3zXaN6fsFuP.png" alt="流水线传输过程.png"></p>
+<p><img src="https://i.loli.net/2020/02/14/g82L3zXaN6fsFuP.png" srcset="/img/loading.gif" alt="流水线传输过程.png"></p>
 <p>连续 ARQ协议</p>
 <p>发送方维持一个发送窗口，从头开始发送窗口里的数据包，窗口里的数据是可以发送不可以删除，当收到确认后对应的数据包才可以从缓存中删除，窗口向前滑动。</p>
-<p><img src="https://i.loli.net/2020/02/14/wr1YUm8gZQMp5aJ.png" alt="流水线传输窗口.png"><br><img src="https://i.loli.net/2020/02/14/3sD9irtFSRkUXlb.png" alt="流水线传输窗口1.png"><br><img src="https://i.loli.net/2020/02/14/q8wmky2c4HNDMxG.png" alt="流水线传输窗口2.png"><br><img src="https://i.loli.net/2020/02/14/bECm2RGWO5kZ4T8.png" alt="流水线传输窗口3.png"></p>
+<p><img src="https://i.loli.net/2020/02/14/wr1YUm8gZQMp5aJ.png" srcset="/img/loading.gif" alt="流水线传输窗口.png"><br><img src="https://i.loli.net/2020/02/14/3sD9irtFSRkUXlb.png" srcset="/img/loading.gif" alt="流水线传输窗口1.png"><br><img src="https://i.loli.net/2020/02/14/q8wmky2c4HNDMxG.png" srcset="/img/loading.gif" alt="流水线传输窗口2.png"><br><img src="https://i.loli.net/2020/02/14/bECm2RGWO5kZ4T8.png" srcset="/img/loading.gif" alt="流水线传输窗口3.png"></p>
 <p><code>累计确认</code>：表明接收方已经正确接收序号为n的以前且包括n在内的所有分组</p>
-<h4 id="2-TCP的可靠传输-（原理应用）"><a href="#2-TCP的可靠传输-（原理应用）" class="headerlink" title="2. TCP的可靠传输 （原理应用）"></a>2. TCP的可靠传输 （原理应用）</h4><h5 id="1-以字节位为单位的滑动窗口"><a href="#1-以字节位为单位的滑动窗口" class="headerlink" title="1. 以字节位为单位的滑动窗口"></a>1. 以字节位为单位的滑动窗口</h5><p><img src="https://i.loli.net/2020/02/15/giMn5VNmaOJcG7Q.png" alt="窗口发送1.png"></p>
-<p><img src="https://i.loli.net/2020/02/15/MNDqfvCGTW7lXs3.png" alt="窗口发送2.png"></p>
-<p><img src="https://i.loli.net/2020/02/15/57Ci3mGPIzxYkS4.png" alt="窗口发送3.png"></p>
-<p><img src="https://i.loli.net/2020/02/15/rsEBCUN6kqD92JV.png" alt="窗口发送4.png"></p>
-<p><img src="https://i.loli.net/2020/02/15/EDq73NYu5KRWkBJ.png" alt="窗口发送5.png"></p>
+<h4 id="2-TCP的可靠传输-（原理应用）"><a href="#2-TCP的可靠传输-（原理应用）" class="headerlink" title="2. TCP的可靠传输 （原理应用）"></a>2. TCP的可靠传输 （原理应用）</h4><h5 id="1-以字节位为单位的滑动窗口"><a href="#1-以字节位为单位的滑动窗口" class="headerlink" title="1. 以字节位为单位的滑动窗口"></a>1. 以字节位为单位的滑动窗口</h5><p><img src="https://i.loli.net/2020/02/15/giMn5VNmaOJcG7Q.png" srcset="/img/loading.gif" alt="窗口发送1.png"></p>
+<p><img src="https://i.loli.net/2020/02/15/MNDqfvCGTW7lXs3.png" srcset="/img/loading.gif" alt="窗口发送2.png"></p>
+<p><img src="https://i.loli.net/2020/02/15/57Ci3mGPIzxYkS4.png" srcset="/img/loading.gif" alt="窗口发送3.png"></p>
+<p><img src="https://i.loli.net/2020/02/15/rsEBCUN6kqD92JV.png" srcset="/img/loading.gif" alt="窗口发送4.png"></p>
+<p><img src="https://i.loli.net/2020/02/15/EDq73NYu5KRWkBJ.png" srcset="/img/loading.gif" alt="窗口发送5.png"></p>
 <h5 id="2-超时重传时间的设置"><a href="#2-超时重传时间的设置" class="headerlink" title="2. 超时重传时间的设置"></a>2. 超时重传时间的设置</h5><p>TCP每发送一个报文段，就对这个报文段设置一次<code>计时器</code>。只要计数器设置的重传时间到但还没有收到确认，就要重传这一段报文段</p>
 <h3 id="TCP协议如何实现流量控制"><a href="#TCP协议如何实现流量控制" class="headerlink" title="TCP协议如何实现流量控制"></a>TCP协议如何实现流量控制</h3><p>流量控制：让发送方的发送速率不要太快，要让接收方来得及接收。</p>
 <h4 id="1-利用滑动窗口实现流量控制"><a href="#1-利用滑动窗口实现流量控制" class="headerlink" title="1. 利用滑动窗口实现流量控制"></a>1. 利用滑动窗口实现流量控制</h4><p>发送方和接收方建立连接</p>
@@ -556,7 +593,7 @@
 <h3 id="TCP协议如何避免网络拥塞"><a href="#TCP协议如何避免网络拥塞" class="headerlink" title="TCP协议如何避免网络拥塞"></a>TCP协议如何避免网络拥塞</h3><h4 id="拥塞控制介绍"><a href="#拥塞控制介绍" class="headerlink" title="拥塞控制介绍"></a>拥塞控制介绍</h4><p>出现资源拥塞的条件： 对资源需求的总和 &gt; 可用资源</p>
 <p><code>拥塞控制</code>：是一个全局性的过程，涉及到所有的主机、所以的路由器，以及与降低网络传输性能有关的所有因素。</p>
 <p><code>流量控制</code>：指在给定的发送端 和 接收端 之间的点对点通信量的控制，它所要做的是抑制发送端发送数据的速率，以便使接收端来得及接收。</p>
-<p><img src="https://i.loli.net/2020/02/17/jkCFIdHlucXnxKe.png" alt="拥塞控制起的作用‘.png"></p>
+<p><img src="https://i.loli.net/2020/02/17/jkCFIdHlucXnxKe.png" srcset="/img/loading.gif" alt="拥塞控制起的作用‘.png"></p>
 <h4 id="拥塞控制处理方法"><a href="#拥塞控制处理方法" class="headerlink" title="拥塞控制处理方法"></a>拥塞控制处理方法</h4><p>TCP 进行拥塞控制的算法有四种：</p>
 <ul>
 <li>慢开始</li>
@@ -566,14 +603,14 @@
 </ul>
 <p><code>发送方维持拥塞窗口 cwnd （congestion window）</code></p>
 <p>发送窗口的实际上限值 = Min[rwnd，cwnd]x</p>
-<h5 id="1-慢开始算法的原理"><a href="#1-慢开始算法的原理" class="headerlink" title="1. 慢开始算法的原理"></a>1. 慢开始算法的原理</h5><p><img src="https://i.loli.net/2020/02/17/1uJthsLwRfbmgdX.png" alt="慢开始算法的原理.png"></p>
+<h5 id="1-慢开始算法的原理"><a href="#1-慢开始算法的原理" class="headerlink" title="1. 慢开始算法的原理"></a>1. 慢开始算法的原理</h5><p><img src="https://i.loli.net/2020/02/17/1uJthsLwRfbmgdX.png" srcset="/img/loading.gif" alt="慢开始算法的原理.png"></p>
 <p>发送方控制拥塞窗口的原则是：</p>
 <ul>
 <li>只要网络没有出现拥塞，拥塞窗口就再增大一些，以便把更多的分组发送出去。</li>
 <li>只要网络出现拥塞，拥塞窗口就减小一些，以减少注入到网络中的分组数。</li>
 </ul>
 <h5 id="2-拥塞避免算法"><a href="#2-拥塞避免算法" class="headerlink" title="2. 拥塞避免算法"></a>2. 拥塞避免算法</h5><p>拥塞避免算法思路：让拥塞窗口cwnd缓慢增大，即每经过一个往返世纪那就把发送方的拥塞窗口cwnd加1，而不是加倍，使拥塞窗口cwnd按线性规律缓慢增长。</p>
-<p><img src="https://i.loli.net/2020/02/17/j9BicZP172LaHCK.png" alt="慢开始和拥塞避免算法的实现举例.png"></p>
+<p><img src="https://i.loli.net/2020/02/17/j9BicZP172LaHCK.png" srcset="/img/loading.gif" alt="慢开始和拥塞避免算法的实现举例.png"></p>
 <p>拥塞避免不是说完全避免了拥塞，而是在拥塞避免阶段把拥塞窗口控制位按现行规律增长，使网络比较不容易出现拥塞。</p>
 <h5 id="3-快重传算法"><a href="#3-快重传算法" class="headerlink" title="3. 快重传算法"></a>3. 快重传算法</h5><h5 id="4-快恢复"><a href="#4-快恢复" class="headerlink" title="4. 快恢复"></a>4. 快恢复</h5><h4 id="TCP-的传输连接管理-（三次握手）"><a href="#TCP-的传输连接管理-（三次握手）" class="headerlink" title="TCP 的传输连接管理 （三次握手）"></a>TCP 的传输连接管理 （三次握手）</h4><h5 id="传输连接有三个阶段："><a href="#传输连接有三个阶段：" class="headerlink" title="传输连接有三个阶段："></a>传输连接有三个阶段：</h5><ul>
 <li>建立连接</li>
@@ -583,7 +620,7 @@
 <p>TCP 连接的建立都是才用<code>客户服务器方式</code></p>
 <p>主动发起连接的应用进程叫做<code>客户（client）</code></p>
 <p>被动等待连接建立的应用进程叫做<code>服务器（server）</code></p>
-<p><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/TCP连接建立三次握手.png" alt="TCP连接建立三次握手"></p>
+<p><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/TCP连接建立三次握手.png" srcset="/img/loading.gif" alt="TCP连接建立三次握手"></p>
 <h6 id="1-建立连接"><a href="#1-建立连接" class="headerlink" title="1. 建立连接"></a>1. 建立连接</h6><p>​    刚开始两端TCP进程都是 <code>closed（关闭）状态</code>。主机A作为客户端主动打开连接，主机B作为服务器被动打开连接。</p>
 <p>​    一开始，主机B的TCP服务器进程先创建传输控制块 TCB，准备接受客户进程的连接请求。然后服务器进程就处于 <code>LISTEN（收听）状态</code>,等待客户的连接请求，如果有客户请求，作出响应。</p>
 <p>​    主机A的TCP客户进程也是首先创建<code>传输控制模块 TCB</code>，然后在打算建立 TCP连接时，向B发出连接请求报文段，这时首部中的同步位 SYN=1，同时选择一个初始号 seq=x。<code>TCP规定，SYN报文段（即SYN=1的报文段）不能携带数据，但要消耗一个序号</code>，同时TCP客户进程进入SYN-SENT（同步已发送）状态。</p>
@@ -593,8 +630,8 @@
 <p>​    </p>
 <p>思考：当客户端A收到服务器B的响应后为什么还要确认？</p>
 <p>​    为了防止已失效的连接请求报文段又传给服务器B</p>
-<h6 id="2-数据传送"><a href="#2-数据传送" class="headerlink" title="2. 数据传送"></a>2. 数据传送</h6><h6 id="3-连接释放"><a href="#3-连接释放" class="headerlink" title="3. 连接释放"></a>3. 连接释放</h6><p><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/TCP握手建立状态.png" alt="握手建立各个状态"></p>
-<p><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/TCP握手释放过程.png" alt=""></p>
+<h6 id="2-数据传送"><a href="#2-数据传送" class="headerlink" title="2. 数据传送"></a>2. 数据传送</h6><h6 id="3-连接释放"><a href="#3-连接释放" class="headerlink" title="3. 连接释放"></a>3. 连接释放</h6><p><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/TCP握手建立状态.png" srcset="/img/loading.gif" alt="握手建立各个状态"></p>
+<p><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/TCP握手释放过程.png" srcset="/img/loading.gif" alt=""></p>
 <p>数据传输结束后，，通信的双方都可释放连接。</p>
 <ol>
 <li>A进程先向TCP发出连接释放报文段，并停止发数据，主动关闭TCP连接。A把连接释放报文段首部的终止控制位（FIN）置1，其序号seq=u（等于前面以传送的数据的最后一个字节序号加一）。这时A进入<code>FIN-WAIT（终止等待）状态</code>等待 B 的确认。<code>TCP规定，FIN报文段即使不携带数据，也要消耗一个序号。</code></li>
@@ -602,7 +639,7 @@
 <li>A 在收到 B的连接释放报文后，必须对此发出确认。把标记字段中的ACK置1，确认号ack=w+1,而自己的序号是 seq=u+1（<code>TCP 规定 前面发送过的 FIN报文段要消耗一个序号</code>）。然后进入到TIME-WAIT（时间等待）状态。<code>此时TCP连接还没释放掉，必须经过时间等待计时器 （TIME-WAIT timer）设置的时间2MSL后，A才进入CLOSED状态。时间 MSL叫做最长报文段寿命（Maximum Segment Lifetime）</code></li>
 </ol>
 
-            </article>
+            </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
@@ -610,36 +647,36 @@
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">
-                  <div class="post-prev col-6">
+                  <article class="post-prev col-6">
                     
                     
                       <a href="/2020/02/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">计算机网络-网络安全</span>
-                        <span class="visible-mobile">上一篇</span>
+                        <span class="visible-mobile">Previous</span>
                       </a>
                     
-                  </div>
-                  <div class="post-next col-6">
+                  </article>
+                  <article class="post-next col-6">
                     
                     
                       <a href="/2020/02/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%BA%94%E7%94%A8%E5%B1%82%E5%B0%8F%E7%BB%93/">
                         <span class="hidden-mobile">计算机网络-应用层小结</span>
-                        <span class="visible-mobile">下一篇</span>
+                        <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
-                  </div>
+                  </article>
                 </div>
               
             </div>
 
             
-          </div>
+          </article>
         </div>
       </div>
     </div>
@@ -656,12 +693,6 @@
 </div>
 
 <!-- Custom -->
-
-  <div class="col-lg-7 mx-auto nopadding-md">
-    <div class="container custom post-content mx-auto">
-      <img src="https://octodex.github.com/images/jetpacktocat.png" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
-    </div>
-  </div>
 
 
     
@@ -702,47 +733,45 @@
   
 
   <footer class="mt-5">
-    <div class="text-center py-3">
-        <div>
-            <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-            <i class="iconfont icon-love"></i>
-            <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-                <span>Fluid</span></a>
-        </div>
-        
-  <div>
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
     
-      <!-- 不蒜子统计PV -->
-      
-      <span id="busuanzi_container_site_pv" style="display: none">
-      总访问量 <span id="busuanzi_value_site_pv"></span> 次
-    </span>
+
     
-    
-      <!-- 不蒜子统计UV -->
-      
-      <span id="busuanzi_container_site_uv" style="display: none">
-      总访客数 <span id="busuanzi_value_site_uv"></span> 人
-    </span>
+
     
   </div>
-
-
-        
-
-        
-    </div>
 </footer>
 
 <!-- SCRIPTS -->
 <script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
 <script  src="/js/main.js" ></script>
 
-
+<!-- Plugins -->
 
 
   
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
   <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
   <script>
     $(document).ready(function () {
@@ -751,7 +780,7 @@
 
       tocbot.init({
         tocSelector: '#tocbot',
-        contentSelector: '.post-content',
+        contentSelector: '#post-body',
         headingSelector: 'h1,h2,h3,h4,h5,h6',
         linkClass: 'tocbot-link',
         activeLinkClass: 'tocbot-active-link',
@@ -767,22 +796,6 @@
       }
     });
   </script>
-
-
-
-
-
-  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
-  <script  src="/js/clipboard-use.js" ></script>
-
-
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
-
-
-
-
-<!-- Plugins -->
 
 
 
@@ -848,6 +861,8 @@
       }
     );
   </script>
+
+
 
 
 
