@@ -27,7 +27,7 @@
 
   
     
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
   
 
   
@@ -50,7 +50,7 @@
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Jun" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+</head>
 
 
 <body>
@@ -216,7 +216,7 @@
             
             <div class="markdown-body" id="post-body">
               <h1 id="docker-部署ngxin镜像启动失败-外加一些常用操作"><a href="#docker-部署ngxin镜像启动失败-外加一些常用操作" class="headerlink" title="docker 部署ngxin镜像启动失败 外加一些常用操作"></a>docker 部署ngxin镜像启动失败 外加一些常用操作</h1><p>今天在docker里部署nginx遇到一个坑,如下:<br> [emerg] “user” directive is not allowed here in /etc/nginx/conf.d/nginx.conf:2</p>
-<pre class=" language-hljs shell"><span class="hljs-meta">#</span><span class="bash"><code class="language-hljs shell"><span class="hljs-meta">#</span><span class="bash"> 直接运行nginx 镜像</span>
+<pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 直接运行nginx 镜像</span>
 docker run -d -p 80:80 --name nginx_1 \
 -v /opt/nginx/project:/usr/share/nginx/html \
 -v /opt/nginx/conf/nginx.conf:/etc/nginx/nginx.conf \
@@ -229,7 +229,7 @@ docker ps
 docker logs 126d58471a08
 <span class="hljs-meta">#</span><span class="bash"> 错误结果说是 nginx.conf 的错误</span>
 [emerg] "user" directive is not allowed here in /etc/nginx/conf.d/nginx.conf:2</code></pre>
-<p>解决方法:<br><pre class=" language-hljs shell"><span class="hljs-meta">#</span><span class="bash"><code class="language-hljs shell"><span class="hljs-meta">#</span><span class="bash"> 先跑一个</span>
+<p>解决方法:<br><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 先跑一个</span>
 docker run --name nginx_2 -d nginx
 <span class="hljs-meta">#</span><span class="bash"> 将它里的配置文件复制到想要映射的位置</span>
 docker cp 126d58471a08:/etc/nginx/nginx.conf /opt/nginx/conf/
@@ -240,7 +240,7 @@ docker run -d -p 80:80 --name nginx_1 \
 -v /opt/nginx/logs:/var/log/nginx \
 -v /opt/nginx/cache:/var/cache/nginx/ \
 --privileged=true nginx</code></pre><br>我这里有个想法,就不实验了,复制好了配置文件,直接启动之前的没有起来的镜像,看看是不是也可以,这样就省的重新 删除创建了,感兴趣的小伙伴可以试试.</p>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>到此为止镜像已经成功起来,下面记录一些常用操作<br><pre class=" language-hljs shell"><span class="hljs-meta">#</span><span class="bash"><code class="language-hljs shell"><span class="hljs-meta">#</span><span class="bash"> 进入系统</span>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>到此为止镜像已经成功起来,下面记录一些常用操作<br><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 进入系统</span>
 docker exec -it 126d58471a08 /bin/bash
 <span class="hljs-meta">#</span><span class="bash"> 检查配置⽂件</span>
 nginx -t

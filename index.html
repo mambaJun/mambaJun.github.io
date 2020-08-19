@@ -40,7 +40,7 @@
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Jun" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+</head>
 
 
 <body>
@@ -626,14 +626,14 @@ Visual Studio Code（简称VS Code）是一个由微软开发，同时支持Wind
           在Linux上 常用命令笔记这里的命令都是在centos 7的环境上测试的
 命令的优先级
 alias  &gt; 内部命令 &gt; hash表（记录外部命令的路径） &gt; $PATH  &gt; 找不到命令
-查看历史## 设置历史格式 加时间
+查看历史# 设置历史格式 加时间
 HISTTIMEFORMAT="%F %T "
 
 求帮助
 简单查看
-## 查看命令的用法
+# 查看命令的用法
 whatis ls
-ls (1)              
+ls (1)               -
         </a>
       </p>
 
@@ -687,9 +687,9 @@ ls (1)
             
           
           docker 部署ngxin镜像启动失败 外加一些常用操作今天在docker里部署nginx遇到一个坑,如下: [emerg] “user” directive is not allowed here in /etc/nginx/conf.d/nginx.conf:2
-## 直接运行nginx 镜像
+# 直接运行nginx 镜像
 docker run -d -p 80:80 --name nginx_1 \
--v /opt/n
+-v /opt/ng
         </a>
       </p>
 

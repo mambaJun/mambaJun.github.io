@@ -27,7 +27,7 @@
 
   
     
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
   
 
   
@@ -50,7 +50,7 @@
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Jun" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+</head>
 
 
 <body>
@@ -172,7 +172,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      512 字
+      501 字
     </span>
   
 
@@ -218,12 +218,12 @@
               <h1 id="在Linux上-常用命令笔记"><a href="#在Linux上-常用命令笔记" class="headerlink" title="在Linux上 常用命令笔记"></a>在Linux上 常用命令笔记</h1><p>这里的命令都是在centos 7的环境上测试的</p>
 <p>命令的优先级</p>
 <p>alias  &gt; 内部命令 &gt; hash表（记录外部命令的路径） &gt; $PATH  &gt; 找不到命令</p>
-<h3 id="查看历史"><a href="#查看历史" class="headerlink" title="查看历史"></a>查看历史</h3><pre class=" language-hljs shell"><span class="hljs-meta">#</span><span class="bash"><code class="language-hljs shell"><span class="hljs-meta">#</span><span class="bash"> 设置历史格式 加时间</span>
+<h3 id="查看历史"><a href="#查看历史" class="headerlink" title="查看历史"></a>查看历史</h3><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 设置历史格式 加时间</span>
 HISTTIMEFORMAT="%F %T "</code></pre>
 <p><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/history.png" srcset="/img/loading.gif" alt=""></p>
 <h3 id="求帮助"><a href="#求帮助" class="headerlink" title="求帮助"></a>求帮助</h3><ul>
 <li><p>简单查看</p>
-<pre class=" language-hljs shell"><span class="hljs-meta">#</span><span class="bash"><code class="language-hljs shell"><span class="hljs-meta">#</span><span class="bash"> 查看命令的用法</span>
+<pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 查看命令的用法</span>
 whatis ls
 ls (1)               - list directory contents
 man -f ls
@@ -231,11 +231,11 @@ man -f ls
 mandb</code></pre>
 </li>
 <li><p>详细查看</p>
-<pre class=" language-hljs shell"><code class="language-hljs shell">help help
+<pre><code class="hljs shell">help help
 man help</code></pre>
 </li>
 </ul>
-<h3 id="起别名"><a href="#起别名" class="headerlink" title="起别名"></a>起别名</h3><pre class=" language-hljs shell"><span class="hljs-meta">#</span><span class="bash"> 给常用长命令起别名格式: <span class="hljs-built_in"><code class="language-hljs shell"><span class="hljs-meta">#</span><span class="bash"> 给常用长命令起别名格式: <span class="hljs-built_in">alias</span> aplianame=cmd</span>
+<h3 id="起别名"><a href="#起别名" class="headerlink" title="起别名"></a>起别名</h3><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 给常用长命令起别名格式: <span class="hljs-built_in">alias</span> aplianame=cmd</span>
 alias cdnet='cd /etc/sysconfig/network-scripts/'
 
 <span class="hljs-meta">#</span><span class="bash"> 起别名 不会保存，一旦退出就失效了，写入 文件中，使开机后命令从文件中读到内存中</span>
@@ -247,13 +247,13 @@ source .bashrc
 . .bashrc
 
 <span class="hljs-meta">#</span><span class="bash"> 上面该的文件，仅仅对当前用户有效，想要对所有用户有效，设置 /etc/bashrc，生效同理</span></code></pre>
-<h3 id="日期和时间"><a href="#日期和时间" class="headerlink" title="日期和时间"></a>日期和时间</h3><pre class=" language-hljs shell"><span class="hljs-meta">#</span><span class="bash"><code class="language-hljs shell"><span class="hljs-meta">#</span><span class="bash"> 系统时间</span>
+<h3 id="日期和时间"><a href="#日期和时间" class="headerlink" title="日期和时间"></a>日期和时间</h3><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 系统时间</span>
 date
 <span class="hljs-meta">#</span><span class="bash"> 时区</span>
  /etc/localtime
 <span class="hljs-meta"> #</span><span class="bash"> 日历</span>
  cal</code></pre>
-<h3 id="远程桌面共享"><a href="#远程桌面共享" class="headerlink" title="远程桌面共享"></a>远程桌面共享</h3><pre class=" language-hljs shell"><span class="hljs-meta">#</span><span class="bash"><code class="language-hljs shell"><span class="hljs-meta">#</span><span class="bash"> 1. 终端断网</span>
+<h3 id="远程桌面共享"><a href="#远程桌面共享" class="headerlink" title="远程桌面共享"></a>远程桌面共享</h3><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 1. 终端断网</span>
 screen 
 screen -ls		# 显示所有会话
 screen -r [session] # 恢复会话
@@ -265,10 +265,10 @@ screen -x help  # -x 加入
 <span class="hljs-meta">#</span><span class="bash"> 退出</span>
 exit</code></pre>
 <p><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/screen.png" srcset="/img/loading.gif" alt=""></p>
-<h3 id="查看所有用户执行命令"><a href="#查看所有用户执行命令" class="headerlink" title="查看所有用户执行命令"></a>查看所有用户执行命令</h3><pre class=" language-hljs shell"><code class="language-hljs shell">w</code></pre>
-<h3 id="模式切换"><a href="#模式切换" class="headerlink" title="模式切换"></a>模式切换</h3><pre class=" language-hljs shell"><code class="language-hljs shell">init 3 # 纯命令
+<h3 id="查看所有用户执行命令"><a href="#查看所有用户执行命令" class="headerlink" title="查看所有用户执行命令"></a>查看所有用户执行命令</h3><pre><code class="hljs shell">w</code></pre>
+<h3 id="模式切换"><a href="#模式切换" class="headerlink" title="模式切换"></a>模式切换</h3><pre><code class="hljs shell">init 3 # 纯命令
 init 5 # 切换到桌面</code></pre>
-<pre class=" language-hljs shell"><span class="hljs-meta">#</span><span class="bash"><code class="language-hljs shell"><span class="hljs-meta">#</span><span class="bash"> 查看登录者</span>
+<pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 查看登录者</span>
 whoami
 <span class="hljs-meta">#</span><span class="bash"> 用户是不是管理员 0-是 非0-不是</span>
 id -u

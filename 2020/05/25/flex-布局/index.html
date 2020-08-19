@@ -27,7 +27,7 @@
 
   
     
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
   
 
   
@@ -50,7 +50,7 @@
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Jun" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+</head>
 
 
 <body>
@@ -226,7 +226,7 @@
 </ul>
 <p>注意：还是说明一下，水平和垂直 只是相对的，可以互换，主要是看怎么调整的结果</p>
 <h3 id="Flex-容器"><a href="#Flex-容器" class="headerlink" title="Flex 容器"></a>Flex 容器</h3><p>Flex布局的前提是先确定一个容器，可以类比一个房子，房子里的 item 都可以使用 flex 进行布局了。</p>
-<pre class=" language-hljs css"><span class="hljs-selector-class"><code class="language-hljs css"><span class="hljs-selector-class">.container</span> &#123;
+<pre><code class="hljs css"><span class="hljs-selector-class">.container</span> &#123;
     <span class="hljs-attribute">display</span>: flex | inline-flex;
 &#125;</code></pre>
 <ul>
@@ -242,7 +242,7 @@
 <li>align-items</li>
 <li>align-content</li>
 </ol>
-<h4 id="1-flex-direction：决定主轴的方向-即项目的排列方向"><a href="#1-flex-direction：决定主轴的方向-即项目的排列方向" class="headerlink" title="1.flex-direction：决定主轴的方向(即项目的排列方向)"></a>1.flex-direction：决定主轴的方向(即项目的排列方向)</h4><pre class=" language-hljs css"><span class="hljs-selector-class"><code class="language-hljs css"><span class="hljs-selector-class">.container</span> &#123;
+<h4 id="1-flex-direction：决定主轴的方向-即项目的排列方向"><a href="#1-flex-direction：决定主轴的方向-即项目的排列方向" class="headerlink" title="1.flex-direction：决定主轴的方向(即项目的排列方向)"></a>1.flex-direction：决定主轴的方向(即项目的排列方向)</h4><pre><code class="hljs css"><span class="hljs-selector-class">.container</span> &#123;
     <span class="hljs-attribute">flex-direction</span>: row | row-reverse | column | column-reverse;
 &#125;</code></pre>
 <ul>
@@ -251,7 +251,7 @@
 <li>column：主轴为垂直方向，起点在上沿</li>
 <li>column-reverse：主轴为垂直方向，起点在下沿</li>
 </ul>
-<h4 id="2-flex-wrap-决定容器内项目是否可换行"><a href="#2-flex-wrap-决定容器内项目是否可换行" class="headerlink" title="2. flex-wrap: 决定容器内项目是否可换行"></a>2. flex-wrap: 决定容器内项目是否可换行</h4><pre class=" language-hljs css"><span class="hljs-selector-class"><code class="language-hljs css"><span class="hljs-selector-class">.container</span> &#123;
+<h4 id="2-flex-wrap-决定容器内项目是否可换行"><a href="#2-flex-wrap-决定容器内项目是否可换行" class="headerlink" title="2. flex-wrap: 决定容器内项目是否可换行"></a>2. flex-wrap: 决定容器内项目是否可换行</h4><pre><code class="hljs css"><span class="hljs-selector-class">.container</span> &#123;
     <span class="hljs-attribute">flex-wrap</span>: nowrap | wrap | wrap-reverse;
 &#125;</code></pre>
 <ul>
@@ -259,10 +259,10 @@
 <li>wrap：项目主轴总尺寸超出容器时换行，第一行在上方</li>
 <li>wrap-reverse：换行，第一行在下方</li>
 </ul>
-<h4 id="3-flex-flow-flex-direction-和-flex-wrap-的简写形式"><a href="#3-flex-flow-flex-direction-和-flex-wrap-的简写形式" class="headerlink" title="3. flex-flow: flex-direction 和 flex-wrap 的简写形式"></a>3. flex-flow: flex-direction 和 flex-wrap 的简写形式</h4><pre class=" language-hljs css"><span class="hljs-selector-class"><code class="language-hljs css"><span class="hljs-selector-class">.container</span> &#123;
-    <span class="hljs-attribute">flex-flow</span>: <flex-direction> || <flex-wrap>;
+<h4 id="3-flex-flow-flex-direction-和-flex-wrap-的简写形式"><a href="#3-flex-flow-flex-direction-和-flex-wrap-的简写形式" class="headerlink" title="3. flex-flow: flex-direction 和 flex-wrap 的简写形式"></a>3. flex-flow: flex-direction 和 flex-wrap 的简写形式</h4><pre><code class="hljs css"><span class="hljs-selector-class">.container</span> &#123;
+    <span class="hljs-attribute">flex-flow</span>: &lt;flex-direction&gt; || &lt;flex-wrap&gt;;
 &#125;</code></pre>
-<h4 id="4-justify-content：定义了项目在-主轴-的对齐方式"><a href="#4-justify-content：定义了项目在-主轴-的对齐方式" class="headerlink" title="4. justify-content：定义了项目在 主轴 的对齐方式"></a>4. justify-content：定义了项目在 <strong><em>主轴</em></strong> 的对齐方式</h4><pre class=" language-hljs css"><span class="hljs-selector-class"><code class="language-hljs css"><span class="hljs-selector-class">.container</span> &#123;
+<h4 id="4-justify-content：定义了项目在-主轴-的对齐方式"><a href="#4-justify-content：定义了项目在-主轴-的对齐方式" class="headerlink" title="4. justify-content：定义了项目在 主轴 的对齐方式"></a>4. justify-content：定义了项目在 <strong><em>主轴</em></strong> 的对齐方式</h4><pre><code class="hljs css"><span class="hljs-selector-class">.container</span> &#123;
     <span class="hljs-attribute">justify-content</span>: flex-start | flex-end | center | space-between | space-around;
 &#125;</code></pre>
 <ul>
@@ -272,7 +272,7 @@
 <li>space-between：两端对齐，项目之间的间隔相等，即剩余空间等分成间隙</li>
 <li>space-around：每个项目两侧的间隔相等，所以项目之间的间隔比项目与边缘的间隔大一倍</li>
 </ul>
-<h4 id="5-align-items-定义了项目在交叉轴上的对齐方式"><a href="#5-align-items-定义了项目在交叉轴上的对齐方式" class="headerlink" title="5. align-items: 定义了项目在交叉轴上的对齐方式"></a>5. align-items: 定义了项目在交叉轴上的对齐方式</h4><pre class=" language-hljs css"><span class="hljs-selector-class"><code class="language-hljs css"><span class="hljs-selector-class">.container</span> &#123;
+<h4 id="5-align-items-定义了项目在交叉轴上的对齐方式"><a href="#5-align-items-定义了项目在交叉轴上的对齐方式" class="headerlink" title="5. align-items: 定义了项目在交叉轴上的对齐方式"></a>5. align-items: 定义了项目在交叉轴上的对齐方式</h4><pre><code class="hljs css"><span class="hljs-selector-class">.container</span> &#123;
     <span class="hljs-attribute">align-items</span>: flex-start | flex-end | center | baseline | stretch;
 &#125;</code></pre>
 <ul>
@@ -282,7 +282,7 @@
 <li>center：交叉轴的中点对齐</li>
 <li>baseline: 项目的第一行文字的基线对齐</li>
 </ul>
-<h4 id="6-align-content-定义了多根轴线的对齐方式，如果项目只有一根轴线，那么该属性将不起作用"><a href="#6-align-content-定义了多根轴线的对齐方式，如果项目只有一根轴线，那么该属性将不起作用" class="headerlink" title="6. align-content: 定义了多根轴线的对齐方式，如果项目只有一根轴线，那么该属性将不起作用"></a><strong>6. align-content: 定义了多根轴线的对齐方式，如果项目只有一根轴线，那么该属性将不起作用</strong></h4><pre class=" language-hljs css"><span class="hljs-selector-class"><code class="language-hljs css"><span class="hljs-selector-class">.container</span> &#123;
+<h4 id="6-align-content-定义了多根轴线的对齐方式，如果项目只有一根轴线，那么该属性将不起作用"><a href="#6-align-content-定义了多根轴线的对齐方式，如果项目只有一根轴线，那么该属性将不起作用" class="headerlink" title="6. align-content: 定义了多根轴线的对齐方式，如果项目只有一根轴线，那么该属性将不起作用"></a><strong>6. align-content: 定义了多根轴线的对齐方式，如果项目只有一根轴线，那么该属性将不起作用</strong></h4><pre><code class="hljs css"><span class="hljs-selector-class">.container</span> &#123;
     <span class="hljs-attribute">align-content</span>: flex-start | flex-end | center | space-between | space-around | stretch;
 &#125;</code></pre>
 <h3 id="Flex-Item-属性"><a href="#Flex-Item-属性" class="headerlink" title="Flex Item 属性"></a>Flex Item 属性</h3><p>flex item 有六种属性</p>
@@ -294,11 +294,11 @@
 <li>flex</li>
 <li>align-self</li>
 </ol>
-<h4 id="1-order-定义项目在容器中的排列顺序，数值越小，排列越靠前，默认值为-0"><a href="#1-order-定义项目在容器中的排列顺序，数值越小，排列越靠前，默认值为-0" class="headerlink" title="1. order: 定义项目在容器中的排列顺序，数值越小，排列越靠前，默认值为 0"></a><strong>1. order: 定义项目在容器中的排列顺序，数值越小，排列越靠前，默认值为 0</strong></h4><pre class=" language-hljs css"><span class="hljs-selector-class"><code class="language-hljs css"><span class="hljs-selector-class">.item</span> &#123;
-    <span class="hljs-attribute">order</span>: <integer>;
+<h4 id="1-order-定义项目在容器中的排列顺序，数值越小，排列越靠前，默认值为-0"><a href="#1-order-定义项目在容器中的排列顺序，数值越小，排列越靠前，默认值为-0" class="headerlink" title="1. order: 定义项目在容器中的排列顺序，数值越小，排列越靠前，默认值为 0"></a><strong>1. order: 定义项目在容器中的排列顺序，数值越小，排列越靠前，默认值为 0</strong></h4><pre><code class="hljs css"><span class="hljs-selector-class">.item</span> &#123;
+    <span class="hljs-attribute">order</span>: &lt;integer&gt;;
 &#125;</code></pre>
-<h4 id="2-flex-basis-定义了在分配多余空间之前，项目占据的主轴空间，浏览器根据这个属性，计算主轴是否有多余空间"><a href="#2-flex-basis-定义了在分配多余空间之前，项目占据的主轴空间，浏览器根据这个属性，计算主轴是否有多余空间" class="headerlink" title="2. flex-basis: 定义了在分配多余空间之前，项目占据的主轴空间，浏览器根据这个属性，计算主轴是否有多余空间"></a><strong>2. flex-basis: 定义了在分配多余空间之前，项目占据的主轴空间，浏览器根据这个属性，计算主轴是否有多余空间</strong></h4><pre class=" language-hljs css"><span class="hljs-selector-class"><code class="language-hljs css"><span class="hljs-selector-class">.item</span> &#123;
-    <span class="hljs-attribute">flex-basis</span>: <length> | auto;
+<h4 id="2-flex-basis-定义了在分配多余空间之前，项目占据的主轴空间，浏览器根据这个属性，计算主轴是否有多余空间"><a href="#2-flex-basis-定义了在分配多余空间之前，项目占据的主轴空间，浏览器根据这个属性，计算主轴是否有多余空间" class="headerlink" title="2. flex-basis: 定义了在分配多余空间之前，项目占据的主轴空间，浏览器根据这个属性，计算主轴是否有多余空间"></a><strong>2. flex-basis: 定义了在分配多余空间之前，项目占据的主轴空间，浏览器根据这个属性，计算主轴是否有多余空间</strong></h4><pre><code class="hljs css"><span class="hljs-selector-class">.item</span> &#123;
+    <span class="hljs-attribute">flex-basis</span>: &lt;length&gt; | auto;
 &#125;</code></pre>
 <ul>
 <li>默认值：auto，即项目本来的大小, 这时候 item 的宽高取决于 width 或 height 的值。</li>
@@ -308,14 +308,14 @@
 </ul>
 </li>
 </ul>
-<h4 id="3-flex-grow-定义项目的放大比例"><a href="#3-flex-grow-定义项目的放大比例" class="headerlink" title="3. flex-grow: 定义项目的放大比例"></a>3<strong>. flex-grow: 定义项目的放大比例</strong></h4><pre class=" language-hljs css"><span class="hljs-selector-class"><code class="language-hljs css"><span class="hljs-selector-class">.item</span> &#123;
-    <span class="hljs-attribute">flex-grow</span>: <number>;
+<h4 id="3-flex-grow-定义项目的放大比例"><a href="#3-flex-grow-定义项目的放大比例" class="headerlink" title="3. flex-grow: 定义项目的放大比例"></a>3<strong>. flex-grow: 定义项目的放大比例</strong></h4><pre><code class="hljs css"><span class="hljs-selector-class">.item</span> &#123;
+    <span class="hljs-attribute">flex-grow</span>: &lt;number&gt;;
 &#125;</code></pre>
-<h4 id="4-flex-shrink-定义了项目的缩小比例"><a href="#4-flex-shrink-定义了项目的缩小比例" class="headerlink" title="4. flex-shrink: 定义了项目的缩小比例"></a><strong>4. flex-shrink: 定义了项目的缩小比例</strong></h4><pre class=" language-hljs css"><span class="hljs-selector-class"><code class="language-hljs css"><span class="hljs-selector-class">.item</span> &#123;
-    <span class="hljs-attribute">flex-shrink</span>: <number>;
+<h4 id="4-flex-shrink-定义了项目的缩小比例"><a href="#4-flex-shrink-定义了项目的缩小比例" class="headerlink" title="4. flex-shrink: 定义了项目的缩小比例"></a><strong>4. flex-shrink: 定义了项目的缩小比例</strong></h4><pre><code class="hljs css"><span class="hljs-selector-class">.item</span> &#123;
+    <span class="hljs-attribute">flex-shrink</span>: &lt;number&gt;;
 &#125;</code></pre>
-<h4 id="5-flex-flex-grow-flex-shrink-和-flex-basis的简写"><a href="#5-flex-flex-grow-flex-shrink-和-flex-basis的简写" class="headerlink" title="5. flex: flex-grow, flex-shrink 和 flex-basis的简写"></a><strong>5. flex: flex-grow, flex-shrink 和 flex-basis的简写</strong></h4><pre class=" language-hljs css"><span class="hljs-selector-class"><code class="language-hljs css"><span class="hljs-selector-class">.item</span>&#123;
-    <span class="hljs-attribute">flex</span>: none | [ <<span class="hljs-string">'flex-grow'</span>> <<span class="hljs-string">'flex-shrink'</span>>? || <<span class="hljs-string">'flex-basis'</span>> ]
+<h4 id="5-flex-flex-grow-flex-shrink-和-flex-basis的简写"><a href="#5-flex-flex-grow-flex-shrink-和-flex-basis的简写" class="headerlink" title="5. flex: flex-grow, flex-shrink 和 flex-basis的简写"></a><strong>5. flex: flex-grow, flex-shrink 和 flex-basis的简写</strong></h4><pre><code class="hljs css"><span class="hljs-selector-class">.item</span>&#123;
+    <span class="hljs-attribute">flex</span>: none | [ &lt;<span class="hljs-string">'flex-grow'</span>&gt; &lt;<span class="hljs-string">'flex-shrink'</span>&gt;? || &lt;<span class="hljs-string">'flex-basis'</span>&gt; ]
 &#125;</code></pre>
 <p>flex 的默认值是以上三个属性值的组合。假设以上三个属性同样取默认值，则 flex 的默认值是 0 1 auto。</p>
 <p>有关快捷值：auto (1 1 auto) 和 none (0 0 auto)</p>
@@ -323,7 +323,7 @@
 <ul>
 <li>当 flex 取值为一个非负数字，则该数字为 flex-grow 值，flex-shrink 取 1，flex-basis 取 0%，如下是等同的：</li>
 </ul>
-<pre class=" language-hljs css"><span class="hljs-selector-class">.item</span> &#123;<span class="hljs-attribute">flex</span>: <span class="hljs-number"><code class="language-hljs css"><span class="hljs-selector-class">.item</span> &#123;<span class="hljs-attribute">flex</span>: <span class="hljs-number">1</span>;&#125;
+<pre><code class="hljs css"><span class="hljs-selector-class">.item</span> &#123;<span class="hljs-attribute">flex</span>: <span class="hljs-number">1</span>;&#125;
 <span class="hljs-selector-class">.item</span> &#123;
     <span class="hljs-attribute">flex-grow</span>: <span class="hljs-number">1</span>;
     <span class="hljs-attribute">flex-shrink</span>: <span class="hljs-number">1</span>;
@@ -332,7 +332,7 @@
 <ul>
 <li>当 flex 取值为 0 时，对应的三个值分别为 0 1 0%</li>
 </ul>
-<pre class=" language-hljs css"><span class="hljs-selector-class">.item</span> &#123;<span class="hljs-attribute">flex</span>: <span class="hljs-number"><code class="language-hljs css"><span class="hljs-selector-class">.item</span> &#123;<span class="hljs-attribute">flex</span>: <span class="hljs-number">0</span>;&#125;
+<pre><code class="hljs css"><span class="hljs-selector-class">.item</span> &#123;<span class="hljs-attribute">flex</span>: <span class="hljs-number">0</span>;&#125;
 <span class="hljs-selector-class">.item</span> &#123;
     <span class="hljs-attribute">flex-grow</span>: <span class="hljs-number">0</span>;
     <span class="hljs-attribute">flex-shrink</span>: <span class="hljs-number">1</span>;
@@ -341,7 +341,7 @@
 <ul>
 <li>当 flex 取值为一个长度或百分比，则视为 flex-basis 值，flex-grow 取 1，flex-shrink 取 1，有如下等同情况（注意 0% 是一个百分比而不是一个非负数字）</li>
 </ul>
-<pre class=" language-hljs css"><span class="hljs-selector-class">.item-1</span> &#123;<span class="hljs-attribute">flex</span>: <span class="hljs-number"><code class="language-hljs css"><span class="hljs-selector-class">.item-1</span> &#123;<span class="hljs-attribute">flex</span>: <span class="hljs-number">0%</span>;&#125;
+<pre><code class="hljs css"><span class="hljs-selector-class">.item-1</span> &#123;<span class="hljs-attribute">flex</span>: <span class="hljs-number">0%</span>;&#125;
 <span class="hljs-selector-class">.item-1</span> &#123;
     <span class="hljs-attribute">flex-grow</span>: <span class="hljs-number">1</span>;
     <span class="hljs-attribute">flex-shrink</span>: <span class="hljs-number">1</span>;
@@ -357,7 +357,7 @@
 <ul>
 <li>当 flex 取值为两个非负数字，则分别视为 flex-grow 和 flex-shrink 的值，flex-basis 取 0%，如下是等同的：</li>
 </ul>
-<pre class=" language-hljs css"><span class="hljs-selector-class">.item</span> &#123;<span class="hljs-attribute">flex</span>: <span class="hljs-number">2</span> <span class="hljs-number"><code class="language-hljs css"><span class="hljs-selector-class">.item</span> &#123;<span class="hljs-attribute">flex</span>: <span class="hljs-number">2</span> <span class="hljs-number">3</span>;&#125;
+<pre><code class="hljs css"><span class="hljs-selector-class">.item</span> &#123;<span class="hljs-attribute">flex</span>: <span class="hljs-number">2</span> <span class="hljs-number">3</span>;&#125;
 <span class="hljs-selector-class">.item</span> &#123;
     <span class="hljs-attribute">flex-grow</span>: <span class="hljs-number">2</span>;
     <span class="hljs-attribute">flex-shrink</span>: <span class="hljs-number">3</span>;
@@ -366,7 +366,7 @@
 <ul>
 <li>当 flex 取值为一个非负数字和一个长度或百分比，则分别视为 flex-grow 和 flex-basis 的值，flex-shrink 取 1，如下是等同的：</li>
 </ul>
-<pre class=" language-hljs css"><span class="hljs-selector-class">.item</span> &#123;<span class="hljs-attribute">flex</span>: <span class="hljs-number">11</span> <span class="hljs-number"><code class="language-hljs css"><span class="hljs-selector-class">.item</span> &#123;<span class="hljs-attribute">flex</span>: <span class="hljs-number">11</span> <span class="hljs-number">32px</span>;&#125;
+<pre><code class="hljs css"><span class="hljs-selector-class">.item</span> &#123;<span class="hljs-attribute">flex</span>: <span class="hljs-number">11</span> <span class="hljs-number">32px</span>;&#125;
 <span class="hljs-selector-class">.item</span> &#123;
     <span class="hljs-attribute">flex-grow</span>: <span class="hljs-number">11</span>;
     <span class="hljs-attribute">flex-shrink</span>: <span class="hljs-number">1</span>;

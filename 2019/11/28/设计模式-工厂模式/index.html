@@ -27,7 +27,7 @@
 
   
     
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
   
 
   
@@ -50,7 +50,7 @@
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Jun" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+</head>
 
 
 <body>
@@ -172,7 +172,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      765 字
+      770 字
     </span>
   
 
@@ -224,7 +224,7 @@
 <h3 id="B、基本介绍"><a href="#B、基本介绍" class="headerlink" title="B、基本介绍"></a>B、基本介绍</h3><ul>
 <li>简单工厂模式是由一个工厂对象决定创建出哪一种产品类的实例。简单工厂模式是工厂模式中最简单的使用模式</li>
 </ul>
-<pre class=" language-hljs java"><code class="language-hljs java">Calendar calendar = Calendar.getInstance();
+<pre><code class="hljs java">Calendar calendar = Calendar.getInstance();
 
 <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Calendar <span class="hljs-title">getInstance</span><span class="hljs-params">()</span> </span>&#123;
     <span class="hljs-keyword">return</span> createCalendar(TimeZone.getDefault(), Locale.getDefault(Category.FORMAT));
@@ -275,9 +275,9 @@
         &#125;
 
         <span class="hljs-keyword">if</span> (var3 == <span class="hljs-keyword">null</span>) &#123;
-            <span class="hljs-keyword">if</span> (var1.getLanguage() == <span class="hljs-string">"th"</span> && var1.getCountry() == <span class="hljs-string">"TH"</span>) &#123;
+            <span class="hljs-keyword">if</span> (var1.getLanguage() == <span class="hljs-string">"th"</span> &amp;&amp; var1.getCountry() == <span class="hljs-string">"TH"</span>) &#123;
                 var3 = <span class="hljs-keyword">new</span> BuddhistCalendar(var0, var1);
-            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (var1.getVariant() == <span class="hljs-string">"JP"</span> && var1.getLanguage() == <span class="hljs-string">"ja"</span> && var1.getCountry() == <span class="hljs-string">"JP"</span>) &#123;
+            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (var1.getVariant() == <span class="hljs-string">"JP"</span> &amp;&amp; var1.getLanguage() == <span class="hljs-string">"ja"</span> &amp;&amp; var1.getCountry() == <span class="hljs-string">"JP"</span>) &#123;
                 var3 = <span class="hljs-keyword">new</span> JapaneseImperialCalendar(var0, var1);
             &#125; <span class="hljs-keyword">else</span> &#123;
                 var3 = <span class="hljs-keyword">new</span> GregorianCalendar(var0, var1);
@@ -291,7 +291,7 @@
 <p>抽象工厂模式可以将简单工厂模式 和 工厂方法模式进行整合</p>
 <p>从设计层面看，抽象工厂模式是对简单工厂模式的改进（进一步抽象）</p>
 <p>将工厂抽象成两层，AbsFactory（抽象工厂）和 具体实现的工厂子类。根据创建对象类型使用对应的工厂子类。将单个的简单工厂类变成了工厂簇，更利于代码的维护和拓展。</p>
-<pre class=" language-hljs django"><span class="hljs-template-tag">&#123;% <span class="hljs-name"><code class="language-hljs django"><span class="hljs-template-tag">&#123;% <span class="hljs-name">abstractFactory</span>.png slug %&#125;</span></code></pre>
+<pre><code class="hljs django"><span class="hljs-template-tag">&#123;% <span class="hljs-name">abstractFactory</span>.png slug %&#125;</span></code></pre>
 <h2 id="四、工厂模式总结"><a href="#四、工厂模式总结" class="headerlink" title="四、工厂模式总结"></a>四、工厂模式总结</h2><ol>
 <li>意义<ol>
 <li>将实例化代码提取出来，放到一个类中统一管理和维护，达到和项目的依赖关系解耦，提高项目的拓展和维护性。</li>

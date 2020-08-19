@@ -27,7 +27,7 @@
 
   
     
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
   
 
   
@@ -50,7 +50,7 @@
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Jun" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+</head>
 
 
 <body>
@@ -217,10 +217,10 @@
             <div class="markdown-body" id="post-body">
               <h1 id="网络层小结"><a href="#网络层小结" class="headerlink" title="网络层小结"></a>网络层小结</h1><h2 id="一、网络层提供的服务"><a href="#一、网络层提供的服务" class="headerlink" title="一、网络层提供的服务"></a>一、网络层提供的服务</h2><p><img src="https://i.loli.net/2020/02/06/MV3FgBenCRmpsar.png" srcset="/img/loading.gif" alt="数据包在互联网中的传递.png"></p>
 <p>网络层 负责<code>在不同网络之间尽力转发数据包</code> 基于数据包的IP地址转发 不负责丢失重传 不负责顺序</p>
-<pre class=" language-hljs shell"><code class="language-hljs shell">Would you like to enter the initial configuration dialog? [yes/no]: no
+<pre><code class="hljs shell">Would you like to enter the initial configuration dialog? [yes/no]: no
 Press RETURN to get started!
 <span class="hljs-meta">#</span><span class="bash"> 进入路由器</span>
-<span class="hljs-meta">Router></span><span class="bash"><span class="hljs-built_in">enable</span></span>
+<span class="hljs-meta">Router&gt;</span><span class="bash"><span class="hljs-built_in">enable</span></span>
 <span class="hljs-meta">#</span><span class="bash"> 终端配置</span>
 <span class="hljs-meta">Router#</span><span class="bash">configure terminal</span>
 <span class="hljs-meta">#</span><span class="bash"> 配置 具体的哪个端口</span>
@@ -228,7 +228,7 @@ Press RETURN to get started!
 <span class="hljs-meta">Router(config-if)#</span><span class="bash">no shutdown</span>
 <span class="hljs-meta">Router(config-if)#</span><span class="bash">ip address 10.0.0.1 255.0.0.0</span>
 
-<span class="hljs-meta">Router></span><span class="bash"><span class="hljs-built_in">enable</span></span>
+<span class="hljs-meta">Router&gt;</span><span class="bash"><span class="hljs-built_in">enable</span></span>
 <span class="hljs-meta">Router#</span><span class="bash">configure terminal </span>
 <span class="hljs-meta">Router(config)#</span><span class="bash">interface serial 2/0</span>
 <span class="hljs-meta">Router(config-if)#</span><span class="bash">no shutdown </span>
@@ -249,8 +249,8 @@ Press RETURN to get started!
 <span class="hljs-meta">Router#</span><span class="bash">show ip route</span>
 
 <span class="hljs-meta">#</span><span class="bash"> 添加静态路由表</span>
-<span class="hljs-meta">#</span><span class="bash"> 去哪里网段 -> 12.0.0.0 255.255.0.0</span>
-<span class="hljs-meta">#</span><span class="bash"> 去网段中具体的哪个IP -> 11.0.0.2</span>
+<span class="hljs-meta">#</span><span class="bash"> 去哪里网段 -&gt; 12.0.0.0 255.255.0.0</span>
+<span class="hljs-meta">#</span><span class="bash"> 去网段中具体的哪个IP -&gt; 11.0.0.2</span>
 <span class="hljs-meta">Router(config)#</span><span class="bash">ip route 12.0.0.0 255.255.0.0 11.0.0.2</span></code></pre>
 <p>路由器到路由器之间需要路由表才知道，之间路由器的下一跳如何走</p>
 <p>网络设备与iOS之间的关系</p>
@@ -294,7 +294,7 @@ Press RETURN to get started!
 </li>
 </ul>
 <p>网络畅通的条件 <code>数据包有去有回</code></p>
-<pre class=" language-hljs shell"><span class="hljs-meta">Router&gt;</span><span class="bash"><span class="hljs-built_in"><code class="language-hljs shell"><span class="hljs-meta">Router&gt;</span><span class="bash"><span class="hljs-built_in">enable</span></span>
+<pre><code class="hljs shell"><span class="hljs-meta">Router&gt;</span><span class="bash"><span class="hljs-built_in">enable</span></span>
 <span class="hljs-meta">Router#</span><span class="bash">config terminal </span>
 <span class="hljs-meta">Router(config)#</span><span class="bash">interface fastEthernet 0/0</span>
 <span class="hljs-meta">Router(config-if)#</span><span class="bash">ip address 192.168.0.1 255.255.255.0</span>
@@ -313,13 +313,13 @@ Press RETURN to get started!
 <li>如果目标IP地址不在本网段中，将获得网关的MAC地址</li>
 </ol>
 <p>查看本地缓存物理地址</p>
-<pre class=" language-hljs shell"><code class="language-hljs shell">arp -a</code></pre>
+<pre><code class="hljs shell">arp -a</code></pre>
 <h3 id="3-网际控制报文协议-ICMP"><a href="#3-网际控制报文协议-ICMP" class="headerlink" title="3. 网际控制报文协议 ICMP"></a>3. 网际控制报文协议 ICMP</h3><h4 id="1-ping-基于网络层ICMP协议-来排除网络故障"><a href="#1-ping-基于网络层ICMP协议-来排除网络故障" class="headerlink" title="1. ping 基于网络层ICMP协议 来排除网络故障"></a>1. ping 基于网络层ICMP协议 来排除网络故障</h4><ol>
 <li>ping 命令诊断网络故障</li>
 </ol>
 <p>​    ping（Packet Internet Grope）,因特网包探索器，用于测试网络连接量的程序。ping发送一个ICMP回声请求消息给目的地并报告是否收到希望的ICMP回声应答。</p>
 <p>​    ping 指的是端对端联通，通常用来作为可用性的检查，但是某个病毒强行大量远程执行ping命令抢占网络资源，导致系统变慢，网络变慢。严禁ping入侵作为大多数防火墙的一个基本功能</p>
-<pre class=" language-hljs shell"><span class="hljs-meta">#</span><span class="bash"><code class="language-hljs shell"><span class="hljs-meta">#</span><span class="bash"> 查看 ping 参数</span>
+<pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 查看 ping 参数</span>
 ping /?
 <span class="hljs-meta">#</span><span class="bash"> 一直ping</span>
 ping IP -t		# ping 10.0.0.1 -t
@@ -331,7 +331,7 @@ ping IP -i TTL	# ping 8.8.8.8 -i 1</code></pre>
 <ol>
 <li>pathping (windows 专有 跟踪数据包路径 计算丢包情况)</li>
 </ol>
-<pre class=" language-hljs shell"><code class="language-hljs shell">C:\Users\Jun>pathping www.baidu.com
+<pre><code class="hljs shell">C:\Users\Jun&gt;pathping www.baidu.com
 
 通过最多 30 个跃点跟踪
 到 www.a.shifen.com [180.101.49.12] 的路由:
@@ -358,7 +358,7 @@ ping IP -i TTL	# ping 8.8.8.8 -i 1</code></pre>
 <ol>
 <li>tracert (windows 专有)</li>
 </ol>
-<pre class=" language-hljs shell"><code class="language-hljs shell">C:\Users\Jun>tracert www.baidu.com
+<pre><code class="hljs shell">C:\Users\Jun&gt;tracert www.baidu.com
 
 通过最多 30 个跃点跟踪
 到 www.a.shifen.com [180.101.49.12] 的路由:
@@ -377,7 +377,7 @@ ping IP -i TTL	# ping 8.8.8.8 -i 1</code></pre>
 跟踪完成。</code></pre>
 <ol>
 <li><p>traceroute IP    路由器上跟踪数据包路径的命令</p>
-<pre class=" language-hljs shell"><code class="language-hljs shell">traceroute 10.0.0.1</code></pre>
+<pre><code class="hljs shell">traceroute 10.0.0.1</code></pre>
 </li>
 </ol>
 <h4 id="2-TTL-Time-to-live-生存周期"><a href="#2-TTL-Time-to-live-生存周期" class="headerlink" title="2. TTL  (Time to live) 生存周期"></a>2. TTL  (Time to live) 生存周期</h4><p>TTL 从 一个数（初始值跟操作系统有关，这个值是可以设置的）开始倒数 没经过一个路由器就减一，当 TTL=0时，数据包被丢弃，防止数据包在网络中循环，占用网路资源</p>

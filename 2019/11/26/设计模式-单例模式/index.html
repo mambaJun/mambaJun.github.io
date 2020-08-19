@@ -27,7 +27,7 @@
 
   
     
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
   
 
   
@@ -50,7 +50,7 @@
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Jun" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+</head>
 
 
 <body>
@@ -172,7 +172,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      792 字
+      785 字
     </span>
   
 
@@ -223,7 +223,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="三、设计模式写法（八种）"><a href="#三、设计模式写法（八种）" class="headerlink" title="三、设计模式写法（八种）"></a>三、设计模式写法（八种）</h2><h3 id="1-饿汉式-（静态常量）"><a href="#1-饿汉式-（静态常量）" class="headerlink" title="1.饿汉式 （静态常量）"></a>1.饿汉式 （静态常量）</h3><pre class=" language-hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title"><code class="language-hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span> </span>&#123;
+<h2 id="三、设计模式写法（八种）"><a href="#三、设计模式写法（八种）" class="headerlink" title="三、设计模式写法（八种）"></a>三、设计模式写法（八种）</h2><h3 id="1-饿汉式-（静态常量）"><a href="#1-饿汉式-（静态常量）" class="headerlink" title="1.饿汉式 （静态常量）"></a>1.饿汉式 （静态常量）</h3><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span> </span>&#123;
     <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">Singleton</span><span class="hljs-params">()</span> </span>&#123;&#125;
 
     <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">static</span> Singleton instance = <span class="hljs-keyword">new</span> Singleton();
@@ -236,7 +236,7 @@
  2. 类的内部创建对象
  3. 向外暴露一个静态公共方法（getInstance）
  4. 代码实现
-</code></pre><h3 id="2-饿汉式（静态代码块）"><a href="#2-饿汉式（静态代码块）" class="headerlink" title="2. 饿汉式（静态代码块）"></a>2. 饿汉式（静态代码块）</h3><pre class=" language-hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title"><code class="language-hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span> </span>&#123;
+</code></pre><h3 id="2-饿汉式（静态代码块）"><a href="#2-饿汉式（静态代码块）" class="headerlink" title="2. 饿汉式（静态代码块）"></a>2. 饿汉式（静态代码块）</h3><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span> </span>&#123;
     <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">Singleton</span><span class="hljs-params">()</span> </span>&#123;&#125;
 
     <span class="hljs-keyword">private</span>    <span class="hljs-keyword">static</span> Singleton instance;
@@ -250,7 +250,7 @@
     &#125;
 &#125;</code></pre>
 <p>​    小结：饿汉式说白了就是创建类的时候创建实例，这样可以保证线程安全，但是如果项目中没有用到就会造成资源浪费</p>
-<h3 id="3-懒汉式（线程不安全）"><a href="#3-懒汉式（线程不安全）" class="headerlink" title="3. 懒汉式（线程不安全）"></a>3. 懒汉式（线程不安全）</h3><pre class=" language-hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title"><code class="language-hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span> </span>&#123;
+<h3 id="3-懒汉式（线程不安全）"><a href="#3-懒汉式（线程不安全）" class="headerlink" title="3. 懒汉式（线程不安全）"></a>3. 懒汉式（线程不安全）</h3><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span> </span>&#123;
     <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">Singleton</span><span class="hljs-params">()</span> </span>&#123;&#125;
 
     <span class="hljs-keyword">private</span>  <span class="hljs-keyword">static</span> Singleton instance;
@@ -262,7 +262,7 @@
         <span class="hljs-keyword">return</span> instance;
     &#125;
 &#125;</code></pre>
-<h3 id="4-懒汉式（线程安全，同步方法）"><a href="#4-懒汉式（线程安全，同步方法）" class="headerlink" title="4. 懒汉式（线程安全，同步方法）"></a>4. 懒汉式（线程安全，同步方法）</h3><pre class=" language-hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title"><code class="language-hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span> </span>&#123;
+<h3 id="4-懒汉式（线程安全，同步方法）"><a href="#4-懒汉式（线程安全，同步方法）" class="headerlink" title="4. 懒汉式（线程安全，同步方法）"></a>4. 懒汉式（线程安全，同步方法）</h3><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span> </span>&#123;
     <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">Singleton</span><span class="hljs-params">()</span> </span>&#123;&#125;
 
     <span class="hljs-keyword">private</span>  <span class="hljs-keyword">static</span> Singleton instance;
@@ -275,7 +275,7 @@
     &#125;
 &#125;</code></pre>
 <p><code>这种方式会效率太低，不推荐使用</code></p>
-<h3 id="5-懒汉式（线程安全，同步代码块）"><a href="#5-懒汉式（线程安全，同步代码块）" class="headerlink" title="5. 懒汉式（线程安全，同步代码块）"></a>5. 懒汉式（线程安全，同步代码块）</h3><pre class=" language-hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title"><code class="language-hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span> </span>&#123;
+<h3 id="5-懒汉式（线程安全，同步代码块）"><a href="#5-懒汉式（线程安全，同步代码块）" class="headerlink" title="5. 懒汉式（线程安全，同步代码块）"></a>5. 懒汉式（线程安全，同步代码块）</h3><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span> </span>&#123;
     <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">Singleton</span><span class="hljs-params">()</span> </span>&#123;&#125;
 
     <span class="hljs-keyword">private</span>  <span class="hljs-keyword">static</span> Singleton instance;
@@ -290,7 +290,7 @@
     &#125;
 &#125;</code></pre>
 <p><code>不能起到线程同步的作用，在实际中不能使用</code></p>
-<h3 id="6-双重检查（Double-Check）"><a href="#6-双重检查（Double-Check）" class="headerlink" title="6.双重检查（Double Check）"></a>6.双重检查（Double Check）</h3><pre class=" language-hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title"><code class="language-hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span> </span>&#123;
+<h3 id="6-双重检查（Double-Check）"><a href="#6-双重检查（Double-Check）" class="headerlink" title="6.双重检查（Double Check）"></a>6.双重检查（Double Check）</h3><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span> </span>&#123;
     <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">Singleton</span><span class="hljs-params">()</span> </span>&#123;&#125;
 
     <span class="hljs-keyword">private</span> <span class="hljs-keyword">volatile</span> <span class="hljs-keyword">static</span> Singleton instance;
@@ -307,7 +307,7 @@
     &#125;
 &#125;</code></pre>
 <p>两次 <code>if (instance == null)</code> 解决线程安全问题，同时解决懒加载问题，<code>推荐使用</code></p>
-<h3 id="7-静态内部类"><a href="#7-静态内部类" class="headerlink" title="7.静态内部类"></a>7.静态内部类</h3><pre class=" language-hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title"><code class="language-hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span> </span>&#123;
+<h3 id="7-静态内部类"><a href="#7-静态内部类" class="headerlink" title="7.静态内部类"></a>7.静态内部类</h3><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span> </span>&#123;
     <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">Singleton</span><span class="hljs-params">()</span> </span>&#123;&#125;
 
     <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SingletonInstance</span></span>&#123;

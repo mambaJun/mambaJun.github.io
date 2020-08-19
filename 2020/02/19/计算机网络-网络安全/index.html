@@ -27,7 +27,7 @@
 
   
     
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
   
 
   
@@ -50,7 +50,7 @@
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Jun" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+</head>
 
 
 <body>
@@ -234,7 +234,7 @@
 <p>IP 地址欺骗</p>
 </li>
 <li><p>中断 — 有意中断他人在网络上的通信<br> <code>本质上是ARP 欺骗</code></p>
- <pre class=" language-hljs shell"><code class="language-hljs shell">arp -a</code></pre>
+ <pre><code class="hljs shell">arp -a</code></pre>
 </li>
 </ol>
 <ol>
@@ -264,7 +264,7 @@
 </ul>
 <h2 id="四、因特网使用的安全协议"><a href="#四、因特网使用的安全协议" class="headerlink" title="四、因特网使用的安全协议"></a>四、因特网使用的安全协议</h2><h3 id="4-1-安全套接字-SSL"><a href="#4-1-安全套接字-SSL" class="headerlink" title="4.1 安全套接字 SSL"></a>4.1 安全套接字 SSL</h3><p>​    在发送发，SSL收到应用层的数据（如HTTP或IMAP报文），对数据进行加密，然后把加密的数据送往TCP套接字。</p>
 <p>​    在接收方，SSL从TCP套接字读取数据，解密后把数据交给应用层。</p>
-<pre class=" language-hljs tex"><code class="language-hljs tex">在发送方发送前 和 在接收方接收前 进行数据安全验证，位于应用层和传输层之间。
+<pre><code class="hljs tex">在发送方发送前 和 在接收方接收前 进行数据安全验证，位于应用层和传输层之间。
 用来防止数据泄露。</code></pre>
 <p>HTTPS    TCP + 443</p>
 <p><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/SSL位置.png" srcset="/img/loading.gif" alt="SSL位置"></p>

@@ -27,7 +27,7 @@
 
   
     
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
   
 
   
@@ -50,7 +50,7 @@
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Jun" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+</head>
 
 
 <body>
@@ -172,7 +172,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      373 字
+      371 字
     </span>
   
 
@@ -229,10 +229,10 @@
 <p>深拷贝实现方式：</p>
 <ul>
 <li><p>方式一：重写 clone 方法进行实现深拷贝</p>
-<pre class=" language-hljs java"><span class="hljs-keyword"><code class="language-hljs java"><span class="hljs-keyword">super</span>.clone()</code></pre>
+<pre><code class="hljs java"><span class="hljs-keyword">super</span>.clone()</code></pre>
 </li>
 <li><p>方式二：通过对象序列化进行深拷贝<code>推荐使用</code></p>
-<pre class=" language-hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">deepClone</span><span class="hljs-params"><code class="language-hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">deepClone</span><span class="hljs-params">()</span> </span>&#123;
+<pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">deepClone</span><span class="hljs-params">()</span> </span>&#123;
         ByteArrayOutputStream byteArrayOutputStream = <span class="hljs-keyword">null</span>;
         ObjectOutputStream objectOutputStream = <span class="hljs-keyword">null</span>;
         ByteArrayInputStream byteArrayInputStream = <span class="hljs-keyword">null</span>;

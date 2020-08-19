@@ -27,7 +27,7 @@
 
   
     
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
   
 
   
@@ -50,7 +50,7 @@
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Jun" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+</head>
 
 
 <body>
@@ -217,9 +217,9 @@
             <div class="markdown-body" id="post-body">
               <h1 id="Linux权限管理"><a href="#Linux权限管理" class="headerlink" title="Linux权限管理"></a>Linux权限管理</h1><h2 id="权限介绍"><a href="#权限介绍" class="headerlink" title="权限介绍"></a>权限介绍</h2><p>   文件的权限主要针对三类对象进行定义：<br>                owner: 属主, u<br>                group: 属组, g<br>                other: 其他, o</p>
 <p>每个文件针对每类访问者都定义了三种权限：<br>        r: readable<br>        w: writable<br>        x: excute</p>
-<pre class=" language-hljs shell"><code class="language-hljs shell">-rwxrw-r--  1 user  user   665 6月  11 23:33 f1
+<pre><code class="hljs shell">-rwxrw-r--  1 user  user   665 6月  11 23:33 f1
  |u    | g  | o</code></pre>
-<pre class=" language-hljs txt"><code class="language-hljs txt">文件：
+<pre><code class="hljs txt">文件：
         r: 可使用文件查看类工具获取其内容；
         w: 可修改其内容；
         x: 可以把此文件提请内核启动为一个进程；
@@ -229,7 +229,7 @@
         w: 可在此目录中创建文件，也可删除此目录中的文件；
         x: 可以使用ls -l查看此目录中文件列表，可以cd进入此目录；</code></pre>
 <h2 id="修改权限"><a href="#修改权限" class="headerlink" title="修改权限"></a>修改权限</h2><p>修改文件权限：chmod<br>                chmod [OPTION]… OCTAL-MODE FILE…</p>
-<pre class=" language-hljs txt"><code class="language-hljs txt">chmod [OPTION]... MODE[,MODE]... FILE...
+<pre><code class="hljs txt">chmod [OPTION]... MODE[,MODE]... FILE...
        MODE:
        修改一类用户的所有权限：
        u&#x3D;
@@ -309,7 +309,7 @@ chmod [OPTION]... --reference&#x3D;RFILE FILE...
 </tbody>
 </table>
 </div>
-<h2 id="修改文件所属者和组"><a href="#修改文件所属者和组" class="headerlink" title="修改文件所属者和组"></a>修改文件所属者和组</h2><pre class=" language-hljs txt"><code class="language-hljs txt">修改文件的属主和属组：
+<h2 id="修改文件所属者和组"><a href="#修改文件所属者和组" class="headerlink" title="修改文件所属者和组"></a>修改文件所属者和组</h2><pre><code class="hljs txt">修改文件的属主和属组：
         仅root可用；
 
         修改文件的属主：chown
@@ -331,11 +331,11 @@ chmod [OPTION]... --reference&#x3D;RFILE FILE...
         		chgrp [OPTION]... --reference&#x3D;RFILE FILE...</code></pre>
 <h1 id="权限掩码"><a href="#权限掩码" class="headerlink" title="权限掩码"></a>权限掩码</h1><p>文件或目录创建时的遮罩码：umask<br>        FILE: 666-umask<br>                Note: 如果某类的用户的权限减得的结果中存在x权限，则将其权限+1<br>        DIR: 777-umask</p>
 <p><strong>新建的权限=666 - umask</strong></p>
-<pre class=" language-hljs shell"><code class="language-hljs shell">umask: 查看
+<pre><code class="hljs shell">umask: 查看
 umask #: 设定
 umask -S  # 查看创建后权限</code></pre>
 <p>命令总结：chmod, chown, chgrp, umask</p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><pre class=" language-hljs txt"><code class="language-hljs txt">文件管理、用户管理、权限管理、bash的基础特性
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><pre><code class="hljs txt">文件管理、用户管理、权限管理、bash的基础特性
         文件管理：cp, mv, rm
         用户管理：
                 useradd, usermod, chsh, chfn, chage, userdel

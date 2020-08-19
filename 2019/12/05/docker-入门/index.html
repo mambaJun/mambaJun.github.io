@@ -27,7 +27,7 @@
 
   
     
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
   
 
   
@@ -50,7 +50,7 @@
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Jun" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+</head>
 
 
 <body>
@@ -238,10 +238,10 @@
 <li>Docker基本组成<ul>
 <li>镜像image</li>
 <li>容器 container：用镜像创建的运行实例</li>
-<li>仓库 repository<h2 id="三、Docker常用命令"><a href="#三、Docker常用命令" class="headerlink" title="三、Docker常用命令"></a>三、Docker常用命令</h2><pre class=" language-hljs shell"><span class="hljs-meta">$</span><span class="bash"><code class="language-hljs shell"><span class="hljs-meta">$</span><span class="bash"> docker run -it images_name</span></code></pre></li>
+<li>仓库 repository<h2 id="三、Docker常用命令"><a href="#三、Docker常用命令" class="headerlink" title="三、Docker常用命令"></a>三、Docker常用命令</h2><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> docker run -it images_name</span></code></pre></li>
 </ul>
 </li>
-<li>运行Ubuntu<pre class=" language-hljs shell"><span class="hljs-meta">$</span><span class="bash"><code class="language-hljs shell"><span class="hljs-meta">$</span><span class="bash"> docker run -it -v /myDataVolume:/dataVolumeContainer ubuntu</span>
+<li>运行Ubuntu<pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> docker run -it -v /myDataVolume:/dataVolumeContainer ubuntu</span>
 <span class="hljs-meta">$</span><span class="bash"> docker start 3af88b62bae9</span>
 <span class="hljs-meta">$</span><span class="bash"> docker attach 3af88b62bae9</span></code></pre>
 </li>
@@ -275,7 +275,7 @@
 <li>容器添加<ul>
 <li>直接命令添加<ol>
 <li>命令<br> docker run -it -v /myDataVolume:/dataVolumeContainer ubuntu</li>
-<li>查看数据卷是否挂载成功<br> docker inspect 3af88b62bae9 （CONTAINER ID） <pre class=" language-hljs json"><code class="language-hljs json">"HostConfig": &#123;
+<li>查看数据卷是否挂载成功<br> docker inspect 3af88b62bae9 （CONTAINER ID） <pre><code class="hljs json">"HostConfig": &#123;
     "Binds": [
         <span class="hljs-string">"/myDataVolume:/dataVolumeContainer"</span>
     ]
@@ -290,36 +290,36 @@
 </li>
 <li>DockerFile添加<ul>
 <li>根目录下新建 my_docker 文件夹 并 进入</li>
-<li>在 Dockerfile 中使用 VOLUME命令 来给镜像添加一个或多个数据卷  <pre class=" language-hljs text"><code class="language-hljs text">说明：
+<li>在 Dockerfile 中使用 VOLUME命令 来给镜像添加一个或多个数据卷  <pre><code class="hljs text">说明：
   出于可移植和分享的考虑，用 -v 主机目录:容器目录 这种方法 不能直接在Dockerfile中实现
   由于宿主机目录是依赖特定宿主机的，并不能保证在所有宿主机上都存在这样的特定目录</code></pre></li>
-<li>File 构建<pre class=" language-hljs shell"><code class="language-hljs shell">docker run -it -v /host1:/dataVolumeContainer1 -v /host2:/dataVolumeContainer2 ubuntu /bin/bash
+<li>File 构建<pre><code class="hljs shell">docker run -it -v /host1:/dataVolumeContainer1 -v /host2:/dataVolumeContainer2 ubuntu /bin/bash
 
 <span class="hljs-meta">#</span><span class="bash"> volume <span class="hljs-built_in">test</span></span>
 FROM ubuntu
 VOLUME ["/dataVolumeContainer1","/dataVolumeContainer2"]
 CMD echo "finished,--------------success"
 CMD /bin/bash</code></pre></li>
-<li>build后生成镜像<pre class=" language-hljs shell"><span class="hljs-meta">$</span><span class="bash"><code class="language-hljs shell"><span class="hljs-meta">$</span><span class="bash"> docker build -f ./Dockerfile -t dockder_file/ubuntu .</span>
+<li>build后生成镜像<pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> docker build -f ./Dockerfile -t dockder_file/ubuntu .</span>
 
 Sending build context to Docker daemon  17.92kB
 Step 1/4 : FROM ubuntu
-<span class="hljs-meta"> ---></span><span class="bash"> 775349758637</span>
+<span class="hljs-meta"> ---&gt;</span><span class="bash"> 775349758637</span>
 Step 2/4 : VOLUME ["/dataVolumeContainer1","/dataVolumeContainer2"]
-<span class="hljs-meta"> ---></span><span class="bash"> Running <span class="hljs-keyword">in</span> 7c7ad759b784</span>
+<span class="hljs-meta"> ---&gt;</span><span class="bash"> Running <span class="hljs-keyword">in</span> 7c7ad759b784</span>
 Removing intermediate container 7c7ad759b784
-<span class="hljs-meta"> ---></span><span class="bash"> 0af71e73f90a</span>
+<span class="hljs-meta"> ---&gt;</span><span class="bash"> 0af71e73f90a</span>
 Step 3/4 : CMD echo "finished,--------------success"
-<span class="hljs-meta"> ---></span><span class="bash"> Running <span class="hljs-keyword">in</span> 20b46d5d6917</span>
+<span class="hljs-meta"> ---&gt;</span><span class="bash"> Running <span class="hljs-keyword">in</span> 20b46d5d6917</span>
 Removing intermediate container 20b46d5d6917
-<span class="hljs-meta"> ---></span><span class="bash"> 0ed798ff540c</span>
+<span class="hljs-meta"> ---&gt;</span><span class="bash"> 0ed798ff540c</span>
 Step 4/4 : CMD /bin/bash
-<span class="hljs-meta"> ---></span><span class="bash"> Running <span class="hljs-keyword">in</span> 99f343a2a2df</span>
+<span class="hljs-meta"> ---&gt;</span><span class="bash"> Running <span class="hljs-keyword">in</span> 99f343a2a2df</span>
 Removing intermediate container 99f343a2a2df
-<span class="hljs-meta"> ---></span><span class="bash"> 6199b6ca4626</span>
+<span class="hljs-meta"> ---&gt;</span><span class="bash"> 6199b6ca4626</span>
 Successfully built 6199b6ca4626
 Successfully tagged dockder_file/ubuntu:latest</code></pre></li>
-<li>run 容器 <pre class=" language-hljs shell"><code class="language-hljs shell">docker run -it dockder_file/ubuntu /bin/bash</code></pre></li>
+<li>run 容器 <pre><code class="hljs shell">docker run -it dockder_file/ubuntu /bin/bash</code></pre></li>
 <li>主机对应默认地址：/var/lib/docker/volumes/ 下</li>
 </ul>
 </li>
@@ -332,12 +332,12 @@ Successfully tagged dockder_file/ubuntu:latest</code></pre></li>
 <li>是什么<br>  命名的容器挂载数据卷，其他容器通过挂载这个（父容器）实现数据共享，挂载数据卷的容器，叫做数据卷容器<br>  说白了，活动硬盘上挂载活动硬盘，实现数据传递</li>
 <li>总体介绍</li>
 <li>容器间传递共享   —volumes-from<ol>
-<li>先启动一个父容器 dc01 <pre class=" language-hljs shell"><code class="language-hljs shell">docker run -it --name dc01 dockder_file/ubuntu</code></pre></li>
-<li>dc02/dc03 继承 dc01     <pre class=" language-hljs shell"><code class="language-hljs shell">docker run -it --name dc02 --volumes-from dc01 dockder_file/ubuntu</code></pre></li>
-<li>回到dc01 可以看到02/03各自添加的都能共享了 <pre class=" language-hljs shell"><code class="language-hljs shell">docker run -it --name dc01 dockder_file/ubuntu</code></pre></li>
-<li>删除 dc01，dc02修改后是否可以访问 <pre class=" language-hljs shell"><code class="language-hljs shell">docker run -it --name dc01 dockder_file/ubuntu</code></pre></li>
-<li>删除dc02 后dc03是否可以访问 <pre class=" language-hljs shell"><code class="language-hljs shell">docker run -it --name dc01 dockder_file/ubuntu</code></pre></li>
-<li>新建dc04继承dc03 后在删除dc03 <pre class=" language-hljs shell"><code class="language-hljs shell">docker run -it --name dc01 dockder_file/ubuntu</code></pre></li>
+<li>先启动一个父容器 dc01 <pre><code class="hljs shell">docker run -it --name dc01 dockder_file/ubuntu</code></pre></li>
+<li>dc02/dc03 继承 dc01     <pre><code class="hljs shell">docker run -it --name dc02 --volumes-from dc01 dockder_file/ubuntu</code></pre></li>
+<li>回到dc01 可以看到02/03各自添加的都能共享了 <pre><code class="hljs shell">docker run -it --name dc01 dockder_file/ubuntu</code></pre></li>
+<li>删除 dc01，dc02修改后是否可以访问 <pre><code class="hljs shell">docker run -it --name dc01 dockder_file/ubuntu</code></pre></li>
+<li>删除dc02 后dc03是否可以访问 <pre><code class="hljs shell">docker run -it --name dc01 dockder_file/ubuntu</code></pre></li>
+<li>新建dc04继承dc03 后在删除dc03 <pre><code class="hljs shell">docker run -it --name dc01 dockder_file/ubuntu</code></pre></li>
 <li>结论： 容器之间配置信息的传递，数据卷的生命周期一直持续到没有容器使用它为止（即一旦容器创建后，它的信息传递的关系，不再受别的任何容器影响）</li>
 </ol>
 </li>
@@ -401,8 +401,8 @@ Successfully tagged dockder_file/ubuntu:latest</code></pre></li>
 </li>
 <li>案例<ul>
 <li>Base镜像（scratch）<br>  Docker Hub 中 99% 的镜像都是通过 在 base 镜像中安装 和 配置需要的软件构建出来的</li>
-<li>自定义镜像 myCentOS<pre class=" language-hljs shell"><code class="language-hljs shell">FROM centos
-MAINTAINER Jun<wjxajh@gmail.com>
+<li>自定义镜像 myCentOS<pre><code class="hljs shell">FROM centos
+MAINTAINER Jun&lt;wjxajh@gmail.com&gt;
 
 ENV MYPATH /usr/local
 WORKDIR $MYPATH
@@ -422,23 +422,23 @@ CMD echo /bin/bash</code></pre></li>
 <li>小总结<br><img src="./image/小总结.png" srcset="/img/loading.gif" alt=""><h2 id="七、Docker常用安装"><a href="#七、Docker常用安装" class="headerlink" title="七、Docker常用安装"></a>七、Docker常用安装</h2></li>
 <li>总体步骤</li>
 <li>安装 tomcat</li>
-<li>安装 MySQL  <pre class=" language-hljs shell"><code class="language-hljs shell">docker run -p 3306:3306 --name local_mysql 
+<li>安装 MySQL  <pre><code class="hljs shell">docker run -p 3306:3306 --name local_mysql 
 -v /opt/mysql/conf:/etc/mysql/conf 
 -v /opt/mysql/logs:/logs 
 -v /opt/mysql/data:/var/lib/mysql 
 -e MYSQL_ROOT_PASSWORD=root 
 -d mysql:5.7</code></pre>
-和 MySQL进行交互<pre class=" language-hljs shell"><code class="language-hljs shell">docker exec -it 2a95e24f4184 /bin/bash</code></pre>
-导出数据库数据到数据卷<pre class=" language-hljs shell"><code class="language-hljs shell">exec mysqldump --all-databases -uroot -proot > /logs/all-databases.sql</code></pre></li>
-<li>安装 redis<pre class=" language-hljs shell"><code class="language-hljs shell">docker run -p 6379:6379 --name redis_01
+和 MySQL进行交互<pre><code class="hljs shell">docker exec -it 2a95e24f4184 /bin/bash</code></pre>
+导出数据库数据到数据卷<pre><code class="hljs shell">exec mysqldump --all-databases -uroot -proot &gt; /logs/all-databases.sql</code></pre></li>
+<li>安装 redis<pre><code class="hljs shell">docker run -p 6379:6379 --name redis_01
 -v /opt/redis/data:/redis/data 
 -v /opt/redis/conf:/usr/local/etc/redis/redis.conf 
 -d redis 
 redis-server 
 /usr/local/etc/redis/redis.conf 
 --appendonly yes</code></pre>
-<pre class=" language-hljs shell"><code class="language-hljs shell">docker exec -it feed1bbcfc7d redis-cli</code></pre></li>
-<li>安装 nginx <pre class=" language-hljs shell"><code class="language-hljs shell">docker run -p 80:80 --name nginx_1 
+<pre><code class="hljs shell">docker exec -it feed1bbcfc7d redis-cli</code></pre></li>
+<li>安装 nginx <pre><code class="hljs shell">docker run -p 80:80 --name nginx_1 
 -v /opt/nginx/conf:/etc/nginx/conf.d/ 
 -v /opt/nginx/logs:/var/log/nginx/ 
 -v /opt/nginx/cache:/var/cache/nginx/ 
@@ -448,7 +448,7 @@ redis-server
 <li>本地镜像发布到阿里云流程<br>  <img src="./image/本地镜像发布到阿里云流程.png" srcset="/img/loading.gif" alt="">      </li>
 <li>镜像的生成方法<ol>
 <li>Dockerfile</li>
-<li>从容器创建一个新的镜像<pre class=" language-hljs shell"><code class="language-hljs shell">docker commit [OPTIONS]  容器ID [REPOSITORY[:TAG]]] 
+<li>从容器创建一个新的镜像<pre><code class="hljs shell">docker commit [OPTIONS]  容器ID [REPOSITORY[:TAG]]] 
  docker commit -a Jun -m "commit demo" 2a95e24f4184 mysql:1.0</code></pre></li>
 </ol>
 </li>

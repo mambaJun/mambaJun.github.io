@@ -27,7 +27,7 @@
 
   
     
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
   
 
   
@@ -50,7 +50,7 @@
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Jun" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+</head>
 
 
 <body>
@@ -260,7 +260,7 @@
 <h2 id="配置SSH免密登录"><a href="#配置SSH免密登录" class="headerlink" title="配置SSH免密登录"></a>配置SSH免密登录</h2><p>   按照上面的配置步骤，每次连接到远程服务器，都需要输入服务器登录密码很麻烦，可以配置SSH免密登录，免去每次输入密码的烦恼，具体操作步骤如下：</p>
 <ol>
 <li><p>打开终端生成密钥对</p>
-<pre class=" language-hljs shell"><code class="language-hljs shell">ssh-keygen -t rsa</code></pre>
+<pre><code class="hljs shell">ssh-keygen -t rsa</code></pre>
 </li>
 <li><p>打开生成的秘钥保存路径，拷贝 <code>id_rsa.pub</code> 内容，添加到到云服务器的 <code>~/.ssh/authorized_keys</code> 文件后面。</p>
 <p>OK了！！！</p>

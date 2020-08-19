@@ -27,7 +27,7 @@
 
   
     
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
   
 
   
@@ -50,7 +50,7 @@
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Jun" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+</head>
 
 
 <body>
@@ -172,7 +172,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      312 字
+      337 字
     </span>
   
 
@@ -182,7 +182,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5
+      6
        分钟
     </span>
   
@@ -246,14 +246,14 @@
 </div>
 <h2 id="Elasticsearch-安装"><a href="#Elasticsearch-安装" class="headerlink" title="Elasticsearch 安装"></a>Elasticsearch 安装</h2><h2 id="Spring-Boot-与-Elasticsearch-整合"><a href="#Spring-Boot-与-Elasticsearch-整合" class="headerlink" title="Spring Boot 与 Elasticsearch 整合"></a>Spring Boot 与 Elasticsearch 整合</h2><p>两种方式</p>
 <ul>
-<li>方式一<pre class=" language-hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name"><code class="language-hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>></span>
-    <span class="hljs-tag"><<span class="hljs-name">groupId</span>></span>io.searchbox<span class="hljs-tag"></<span class="hljs-name">groupId</span>></span>
-    <span class="hljs-tag"><<span class="hljs-name">artifactId</span>></span>jest<span class="hljs-tag"></<span class="hljs-name">artifactId</span>></span>
-    <span class="hljs-tag"><<span class="hljs-name">version</span>></span>6.3.1<span class="hljs-tag"></<span class="hljs-name">version</span>></span>
-<span class="hljs-tag"></<span class="hljs-name">dependency</span>></span></code></pre>
+<li>方式一<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.searchbox<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>jest<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>6.3.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code></pre>
 </li>
 </ul>
-<pre class=" language-hljs pgsql"><code class="language-hljs pgsql">@Autowired
+<pre><code class="hljs pgsql">@Autowired
 JestClient jestClient;
 
 @Test
@@ -291,7 +291,7 @@ JestClient jestClient;
 </li>
 </ul>
 <p>配置文件<br>    spring:<br>      data:<br>        elasticsearch:<br>          repositories:<br>            enabled: true<br>          cluster-nodes: 127.0.0.1:9300 # es的连接地址及端口号<br>          cluster-name: docker-cluster # es集群的名称</p>
-<pre class=" language-hljs Java"><span class="hljs-meta"><code class="language-hljs Java"><span class="hljs-meta">@Data</span>
+<pre><code class="hljs Java"><span class="hljs-meta">@Data</span>
 <span class="hljs-meta">@ToString</span>
 <span class="hljs-meta">@Document</span>(indexName = <span class="hljs-string">"blog"</span>,type = <span class="hljs-string">"user"</span>,shards = <span class="hljs-number">1</span>,replicas = <span class="hljs-number">0</span>,refreshInterval = <span class="hljs-string">"-1"</span>)
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span> </span>&#123;
@@ -310,7 +310,7 @@ JestClient jestClient;
     &#125;
 &#125;
 
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">UserRepository</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ElasticsearchRepository</span><<span class="hljs-title">User</span>, <span class="hljs-title">Integer</span>> </span>&#123;
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">UserRepository</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ElasticsearchRepository</span>&lt;<span class="hljs-title">User</span>, <span class="hljs-title">Integer</span>&gt; </span>&#123;
     <span class="hljs-function">User <span class="hljs-title">findByName</span><span class="hljs-params">(String name)</span></span>;
 &#125;
 
