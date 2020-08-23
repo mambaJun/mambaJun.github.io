@@ -17,7 +17,7 @@
   <meta name="description" content="Life Oriented Programming">
   <meta name="author" content="Jun">
   <meta name="keywords" content="Jun&#39;s space">
-  <title>IDEA 如何配置JVM虚拟机启动参数 - Jun&#39;s space</title>
+  <title>[LeetCode]1221.分割平衡字符串 - Jun&#39;s space</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -161,8 +161,8 @@
               
   <div class="mt-3 post-meta">
     <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2020-06-27 21:29" pubdate>
-      June 27, 2020 pm
+    <time datetime="2020-08-21 20:59" pubdate>
+      August 21, 2020 pm
     </time>
   </div>
 
@@ -172,7 +172,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      76 字
+      347 字
     </span>
   
 
@@ -182,7 +182,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      4
        分钟
     </span>
   
@@ -212,13 +212,51 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">IDEA 如何配置JVM虚拟机启动参数</h1>
+            <h1 style="display: none">[LeetCode]1221.分割平衡字符串</h1>
             
             <div class="markdown-body" id="post-body">
-              <h1 id="IDEA-如何配置JVM虚拟机启动参数"><a href="#IDEA-如何配置JVM虚拟机启动参数" class="headerlink" title="IDEA 如何配置JVM虚拟机启动参数"></a>IDEA 如何配置JVM虚拟机启动参数</h1><p>在读《深入理解Java虚拟机》中有个IDE设置JVM的启动参数（VM Arg）,小编用的IDEA不知道如何设置，所以写个博客记录一下</p>
-<p><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/idea%20jvm%20第一步.png" srcset="/img/loading.gif" alt=""></p>
-<p>下面的两个箭头代表两个方法，二选一即可</p>
-<p><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/idea%20jvm%20第二步.png" srcset="/img/loading.gif" alt=""><br><img src="https://raw.githubusercontent.com/mambaJun/picture/master/blog/idea%20jvm%20第三步.png" srcset="/img/loading.gif" alt=""></p>
+              <h1 id="1221-分割平衡字符串"><a href="#1221-分割平衡字符串" class="headerlink" title="1221.分割平衡字符串"></a><a href="https://leetcode-cn.com/problems/split-a-string-in-balanced-strings/" target="_blank" rel="noopener">1221.分割平衡字符串</a></h1><p>难度：简单</p>
+<p>题目描述：</p>
+<blockquote>
+<p>在一个「平衡字符串」中，’L’ 和 ‘R’ 字符的数量是相同的。</p>
+<p>给出一个平衡字符串 s，请你将它分割成尽可能多的平衡字符串。</p>
+<p>返回可以通过分割得到的平衡字符串的最大数量。</p>
+<p>示例 1：</p>
+<blockquote>
+<p>输入：s = “RLRRLLRLRL”<br>输出：4<br>解释：s 可以分割为 “RL”, “RRLL”, “RL”, “RL”, 每个子字符串中都包含相同数量的 ‘L’ 和 ‘R’。</p>
+</blockquote>
+<p>示例 2：</p>
+<blockquote>
+<p>输入：s = “RLLLLRRRLR”<br>输出：3<br>解释：s 可以分割为 “RL”, “LLLRRR”, “LR”, 每个子字符串中都包含相同数量的 ‘L’ 和 ‘R’。</p>
+</blockquote>
+<p>示例 3：</p>
+<blockquote>
+<p>输入：s = “LLLLRRRR”<br>输出：1<br>解释：s 只能保持原样 “LLLLRRRR”.</p>
+</blockquote>
+<p>提示：</p>
+<p>1 &lt;= s.length &lt;= 1000<br>s[i] = ‘L’ 或 ‘R’<br>分割得到的每个字符串都必须是平衡字符串。</p>
+</blockquote>
+<p>思路/心得：</p>
+<p>此题是 贪心算法：局部最优解 就是 整体的解，每一步的 能求解就求解</p>
+<p>这道题目很简单，只要留意这句话 <code>&#39;L&#39; 和 &#39;R&#39; 字符的数量是相同的</code>注意 R 或 L 不需要必须是连续的</p>
+<p>代码：</p>
+<pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">balancedStringSplit</span><span class="hljs-params">(String s)</span> </span>&#123;
+        <span class="hljs-keyword">int</span> count = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">if</span> (s == <span class="hljs-keyword">null</span> || s.length() == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> count;
+
+        <span class="hljs-keyword">int</span> n = s.length();
+
+        <span class="hljs-keyword">int</span> balance = <span class="hljs-number">0</span>;
+
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;
+        <span class="hljs-keyword">char</span> ch = s.charAt(i);
+        <span class="hljs-keyword">if</span> (ch == <span class="hljs-string">'L'</span>) balance++;
+        <span class="hljs-keyword">if</span> (ch == <span class="hljs-string">'R'</span>) balance--;
+        <span class="hljs-keyword">if</span> (balance == <span class="hljs-number">0</span>) count++;
+        &#125;
+
+        <span class="hljs-keyword">return</span> count;
+&#125;</code></pre>
 
             </div>
             <hr>
@@ -228,7 +266,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/JVM/">JVM</a>
+                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法</a>
                     
                   </div>
                 
@@ -236,7 +274,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/IDEA-JVM/">IDEA JVM</a>
+                      <a class="hover-with-bg" href="/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/">贪心算法</a>
                     
                   </div>
                 
@@ -249,18 +287,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/08/21/LeetCode-1221-%E5%88%86%E5%89%B2%E5%B9%B3%E8%A1%A1%E5%AD%97%E7%AC%A6%E4%B8%B2/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">[LeetCode]1221.分割平衡字符串</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/06/17/vim-%E7%BC%96%E8%BE%91%E5%99%A8/">
-                        <span class="hidden-mobile">vim 编辑器</span>
+                      <a href="/2020/06/27/Idea-%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AEJVM%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%90%AF%E5%8A%A8%E5%8F%82%E6%95%B0/">
+                        <span class="hidden-mobile">IDEA 如何配置JVM虚拟机启动参数</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -399,7 +431,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "IDEA 如何配置JVM虚拟机启动参数&nbsp;",
+        "[LeetCode]1221.分割平衡字符串&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
