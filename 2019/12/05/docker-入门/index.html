@@ -1,221 +1,193 @@
 
 
 <!DOCTYPE html>
-<html lang="en" data-default-color-scheme=&#34;auto&#34;>
-
-
-
+<html lang="en" color-mode=light>
 <head>
-  <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" type="image/png" href="/img/favicon.png">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="Life Oriented Programming">
-  <meta name="author" content="Jun">
-  <meta name="keywords" content="Jun&#39;s space">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>docker 入门 - Jun&#39;s space</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  <meta name="keywords" content="Jun's space">
+  <meta name="description" content="@TOC
+Docker 笔记一、Docker 简介
+是...">
+  <meta name="author" content="Jun">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+  
+<link rel="stylesheet" href="/css/style.css">
 
-
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
     
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_s6x2xcokxrl.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: '/images/theme/loading.gif'
+      },
+      donate: {
+        enable: false,
+        alipay: 'https://pic.izhaoo.com/alipay.jpg',
+        wechat: 'https://pic.izhaoo.com/wechat.jpg'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '/images/theme/welcome-image.jpg',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: false,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'simple'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      }
+    }
+  </script>
+
   
 
   
 
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-<!-- 自定义样式保持在最底部 -->
-
-
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Jun's space" type="application/atom+xml">
 </head>
 
+<body class="lock-screen">
+  <div class="loading"></div>
+  
 
-<body>
-  <header style="height: 70vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>Jun's space</strong>&nbsp;</a>
 
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                Home
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/">
-                <i class="iconfont icon-archive-fill"></i>
-                Archives
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/">
-                <i class="iconfont icon-category-fill"></i>
-                Categories
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                Tags
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                About
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
-          </li>
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
-          </li>
-        
-      </ul>
+  <nav class="navbar">
+    <div class="left">
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
     </div>
+    <div class="center">docker 入门</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+  </nav>
+
+  
+
+<nav class="menu">
+  <div class="menu-wrap">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/galleries/ " class="underline "> 摄影</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a> | <a target="_blank" href="https://beian.miit.gov.cn/">苏ICP备19033306号</a></p></div>
+    
   </div>
 </nav>
-
-    <div class="banner intro-2" id="background" parallax=true
-         style="background: url('/img/default.png') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container page-header text-center fade-in-up">
-            <span class="h2" id="subtitle">
-              
-            </span>
-
-            
-              
-  <div class="mt-3 post-meta">
-    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2019-12-05 17:59" pubdate>
-      December 5, 2019 pm
-    </time>
-  </div>
-
-
-<div class="mt-1">
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      2.8k 字
-    </span>
-  
-
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="https://pic.izhaoo.com/20200718151427.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">docker 入门</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>December 05, 2019</span>
       
-      
-      33
-       分钟
-    </span>
-  
-
-  
-  
-</div>
-
-            
-          </div>
-
-          
-        </div>
-      </div>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>6922</span>
     </div>
-  </header>
-
-  <main>
-    
-      
-
-<div class="container-fluid">
-  <div class="row">
-    <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
-        <div class="py-5" id="board">
-          <article class="post-content mx-auto" id="post">
-            <!-- SEO header -->
-            <h1 style="display: none">docker 入门</h1>
-            
-            <div class="markdown-body" id="post-body">
-              <p>@<a href="目录">TOC</a></p>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        <p>@<a href="目录">TOC</a></p>
 <h1 id="Docker-笔记"><a href="#Docker-笔记" class="headerlink" title="Docker 笔记"></a>Docker 笔记</h1><h2 id="一、Docker-简介"><a href="#一、Docker-简介" class="headerlink" title="一、Docker 简介"></a>一、Docker 简介</h2><ul>
 <li>是什么：<ul>
 <li>一次封装，多处运行，解决运行环境和配置问题软件容器，方便做持续集成并有助于整体发布的容器虚拟化技术</li>
@@ -238,12 +210,10 @@
 <li>Docker基本组成<ul>
 <li>镜像image</li>
 <li>容器 container：用镜像创建的运行实例</li>
-<li>仓库 repository<h2 id="三、Docker常用命令"><a href="#三、Docker常用命令" class="headerlink" title="三、Docker常用命令"></a>三、Docker常用命令</h2><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> docker run -it images_name</span></code></pre></li>
+<li>仓库 repository<h2 id="三、Docker常用命令"><a href="#三、Docker常用命令" class="headerlink" title="三、Docker常用命令"></a>三、Docker常用命令</h2><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> docker run -it images_name</span><br></code></pre></td></tr></table></figure></li>
 </ul>
 </li>
-<li>运行Ubuntu<pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> docker run -it -v /myDataVolume:/dataVolumeContainer ubuntu</span>
-<span class="hljs-meta">$</span><span class="bash"> docker start 3af88b62bae9</span>
-<span class="hljs-meta">$</span><span class="bash"> docker attach 3af88b62bae9</span></code></pre>
+<li>运行Ubuntu<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> docker run -it -v /myDataVolume:/dataVolumeContainer ubuntu</span><br><span class="hljs-meta">$</span><span class="bash"> docker start 3af88b62bae9</span><br><span class="hljs-meta">$</span><span class="bash"> docker attach 3af88b62bae9</span><br></code></pre></td></tr></table></figure>
 </li>
 </ul>
 <h2 id="四、Docker镜像"><a href="#四、Docker镜像" class="headerlink" title="四、Docker镜像"></a>四、Docker镜像</h2><ul>
@@ -251,7 +221,7 @@
 <li>Docker镜像加载原理<ul>
 <li>docker的镜像实际上由一层层的文件系统组成，这种层级的文件系统 UnionFS</li>
 <li>bootfs（boot file system）只要包含bootloader和kernel，bootloader主要是引导加载kernel，Linux刚启动时会加载bootfs文件系统，<br>在Docker镜像的最底层是bootfs。这一层和Linux/Unix系统是一样的，包含boot加载器和内核。当boot加载完成之后整个内核就都在内存中了，<br>此时内存的使用权已由bootfs转交给内核，此时系统也会卸载bootfs。</li>
-<li>rootfs（root file system）在bootfs之上，包含的就是经典Linux系统中的/dev /proc /bin /etc等标准目录和文件。rootfs就是各种不同<br>的操作系统发行版本，如Ubuntu、CentOS等等<br><img src="./image/UnionFS.png" srcset="/img/loading.gif" alt=""></li>
+<li>rootfs（root file system）在bootfs之上，包含的就是经典Linux系统中的/dev /proc /bin /etc等标准目录和文件。rootfs就是各种不同<br>的操作系统发行版本，如Ubuntu、CentOS等等<br><img   class="lazyload" data-original="./image/UnionFS.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt=""></li>
 <li>最大的好处： 共享资源<br>  有多个镜像都是从同一个base镜像构建，那么宿主机只要在磁盘上保存一份base镜像，同时内存中也只要加载一份base镜像，就可以给所有容器服务了。<br>  而且镜像的每一层都可以共享</li>
 </ul>
 </li>
@@ -275,11 +245,7 @@
 <li>容器添加<ul>
 <li>直接命令添加<ol>
 <li>命令<br> docker run -it -v /myDataVolume:/dataVolumeContainer ubuntu</li>
-<li>查看数据卷是否挂载成功<br> docker inspect 3af88b62bae9 （CONTAINER ID） <pre><code class="hljs json">"HostConfig": &#123;
-    "Binds": [
-        <span class="hljs-string">"/myDataVolume:/dataVolumeContainer"</span>
-    ]
-&#125;</code></pre></li>
+<li>查看数据卷是否挂载成功<br> docker inspect 3af88b62bae9 （CONTAINER ID） <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs json">"HostConfig": &#123;<br>    "Binds": [<br>        <span class="hljs-string">"/myDataVolume:/dataVolumeContainer"</span><br>    ]<br>&#125;<br></code></pre></td></tr></table></figure></li>
 <li>容器和宿主机之间数据共享</li>
 <li>容器停止退出后，主机修改后数据是否同步<pre><code> $ docker start 3af88b62bae9
  $ docker attach 3af88b62bae9
@@ -290,36 +256,10 @@
 </li>
 <li>DockerFile添加<ul>
 <li>根目录下新建 my_docker 文件夹 并 进入</li>
-<li>在 Dockerfile 中使用 VOLUME命令 来给镜像添加一个或多个数据卷  <pre><code class="hljs text">说明：
-  出于可移植和分享的考虑，用 -v 主机目录:容器目录 这种方法 不能直接在Dockerfile中实现
-  由于宿主机目录是依赖特定宿主机的，并不能保证在所有宿主机上都存在这样的特定目录</code></pre></li>
-<li>File 构建<pre><code class="hljs shell">docker run -it -v /host1:/dataVolumeContainer1 -v /host2:/dataVolumeContainer2 ubuntu /bin/bash
-
-<span class="hljs-meta">#</span><span class="bash"> volume <span class="hljs-built_in">test</span></span>
-FROM ubuntu
-VOLUME ["/dataVolumeContainer1","/dataVolumeContainer2"]
-CMD echo "finished,--------------success"
-CMD /bin/bash</code></pre></li>
-<li>build后生成镜像<pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> docker build -f ./Dockerfile -t dockder_file/ubuntu .</span>
-
-Sending build context to Docker daemon  17.92kB
-Step 1/4 : FROM ubuntu
-<span class="hljs-meta"> ---&gt;</span><span class="bash"> 775349758637</span>
-Step 2/4 : VOLUME ["/dataVolumeContainer1","/dataVolumeContainer2"]
-<span class="hljs-meta"> ---&gt;</span><span class="bash"> Running <span class="hljs-keyword">in</span> 7c7ad759b784</span>
-Removing intermediate container 7c7ad759b784
-<span class="hljs-meta"> ---&gt;</span><span class="bash"> 0af71e73f90a</span>
-Step 3/4 : CMD echo "finished,--------------success"
-<span class="hljs-meta"> ---&gt;</span><span class="bash"> Running <span class="hljs-keyword">in</span> 20b46d5d6917</span>
-Removing intermediate container 20b46d5d6917
-<span class="hljs-meta"> ---&gt;</span><span class="bash"> 0ed798ff540c</span>
-Step 4/4 : CMD /bin/bash
-<span class="hljs-meta"> ---&gt;</span><span class="bash"> Running <span class="hljs-keyword">in</span> 99f343a2a2df</span>
-Removing intermediate container 99f343a2a2df
-<span class="hljs-meta"> ---&gt;</span><span class="bash"> 6199b6ca4626</span>
-Successfully built 6199b6ca4626
-Successfully tagged dockder_file/ubuntu:latest</code></pre></li>
-<li>run 容器 <pre><code class="hljs shell">docker run -it dockder_file/ubuntu /bin/bash</code></pre></li>
+<li>在 Dockerfile 中使用 VOLUME命令 来给镜像添加一个或多个数据卷  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">说明：<br>  出于可移植和分享的考虑，用 -v 主机目录:容器目录 这种方法 不能直接在Dockerfile中实现<br>  由于宿主机目录是依赖特定宿主机的，并不能保证在所有宿主机上都存在这样的特定目录<br></code></pre></td></tr></table></figure></li>
+<li>File 构建<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker run -it -v /host1:/dataVolumeContainer1 -v /host2:/dataVolumeContainer2 ubuntu /bin/bash<br><br><span class="hljs-meta">#</span><span class="bash"> volume <span class="hljs-built_in">test</span></span><br>FROM ubuntu<br>VOLUME ["/dataVolumeContainer1","/dataVolumeContainer2"]<br>CMD echo "finished,--------------success"<br>CMD /bin/bash<br></code></pre></td></tr></table></figure></li>
+<li>build后生成镜像<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> docker build -f ./Dockerfile -t dockder_file/ubuntu .</span><br><br>Sending build context to Docker daemon  17.92kB<br>Step 1/4 : FROM ubuntu<br><span class="hljs-meta"> ---&gt;</span><span class="bash"> 775349758637</span><br>Step 2/4 : VOLUME ["/dataVolumeContainer1","/dataVolumeContainer2"]<br><span class="hljs-meta"> ---&gt;</span><span class="bash"> Running <span class="hljs-keyword">in</span> 7c7ad759b784</span><br>Removing intermediate container 7c7ad759b784<br><span class="hljs-meta"> ---&gt;</span><span class="bash"> 0af71e73f90a</span><br>Step 3/4 : CMD echo "finished,--------------success"<br><span class="hljs-meta"> ---&gt;</span><span class="bash"> Running <span class="hljs-keyword">in</span> 20b46d5d6917</span><br>Removing intermediate container 20b46d5d6917<br><span class="hljs-meta"> ---&gt;</span><span class="bash"> 0ed798ff540c</span><br>Step 4/4 : CMD /bin/bash<br><span class="hljs-meta"> ---&gt;</span><span class="bash"> Running <span class="hljs-keyword">in</span> 99f343a2a2df</span><br>Removing intermediate container 99f343a2a2df<br><span class="hljs-meta"> ---&gt;</span><span class="bash"> 6199b6ca4626</span><br>Successfully built 6199b6ca4626<br>Successfully tagged dockder_file/ubuntu:latest<br></code></pre></td></tr></table></figure></li>
+<li>run 容器 <figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker run -it dockder_file/ubuntu /bin/bash<br></code></pre></td></tr></table></figure></li>
 <li>主机对应默认地址：/var/lib/docker/volumes/ 下</li>
 </ul>
 </li>
@@ -332,12 +272,12 @@ Successfully tagged dockder_file/ubuntu:latest</code></pre></li>
 <li>是什么<br>  命名的容器挂载数据卷，其他容器通过挂载这个（父容器）实现数据共享，挂载数据卷的容器，叫做数据卷容器<br>  说白了，活动硬盘上挂载活动硬盘，实现数据传递</li>
 <li>总体介绍</li>
 <li>容器间传递共享   —volumes-from<ol>
-<li>先启动一个父容器 dc01 <pre><code class="hljs shell">docker run -it --name dc01 dockder_file/ubuntu</code></pre></li>
-<li>dc02/dc03 继承 dc01     <pre><code class="hljs shell">docker run -it --name dc02 --volumes-from dc01 dockder_file/ubuntu</code></pre></li>
-<li>回到dc01 可以看到02/03各自添加的都能共享了 <pre><code class="hljs shell">docker run -it --name dc01 dockder_file/ubuntu</code></pre></li>
-<li>删除 dc01，dc02修改后是否可以访问 <pre><code class="hljs shell">docker run -it --name dc01 dockder_file/ubuntu</code></pre></li>
-<li>删除dc02 后dc03是否可以访问 <pre><code class="hljs shell">docker run -it --name dc01 dockder_file/ubuntu</code></pre></li>
-<li>新建dc04继承dc03 后在删除dc03 <pre><code class="hljs shell">docker run -it --name dc01 dockder_file/ubuntu</code></pre></li>
+<li>先启动一个父容器 dc01 <figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker run -it --name dc01 dockder_file/ubuntu<br></code></pre></td></tr></table></figure></li>
+<li>dc02/dc03 继承 dc01     <figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker run -it --name dc02 --volumes-from dc01 dockder_file/ubuntu<br></code></pre></td></tr></table></figure></li>
+<li>回到dc01 可以看到02/03各自添加的都能共享了 <figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker run -it --name dc01 dockder_file/ubuntu<br></code></pre></td></tr></table></figure></li>
+<li>删除 dc01，dc02修改后是否可以访问 <figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker run -it --name dc01 dockder_file/ubuntu<br></code></pre></td></tr></table></figure></li>
+<li>删除dc02 后dc03是否可以访问 <figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker run -it --name dc01 dockder_file/ubuntu<br></code></pre></td></tr></table></figure></li>
+<li>新建dc04继承dc03 后在删除dc03 <figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker run -it --name dc01 dockder_file/ubuntu<br></code></pre></td></tr></table></figure></li>
 <li>结论： 容器之间配置信息的传递，数据卷的生命周期一直持续到没有容器使用它为止（即一旦容器创建后，它的信息传递的关系，不再受别的任何容器影响）</li>
 </ol>
 </li>
@@ -396,60 +336,30 @@ Successfully tagged dockder_file/ubuntu:latest</code></pre></li>
       - 参数列表格式：CMD [&quot;参数1&quot;,&quot;参数2&quot;......]。在指定了 ENTRYPOINT 指令后，用 CMD 指定具体参数
 </code></pre></li>
 <li>ENTRYPOINT：指定一个容器启动时要运行的命令，ENTRYPOINT 的目的和 CMD一样，都是在指定容器启动程序及参数</li>
-<li>ONBUILD：当构建一个被继承的 Dockerfile时运行命令，父镜像在被子继承后父镜像的 onbuild 被触发<br><img src="./image/Dockerfile.png" srcset="/img/loading.gif" alt=""></li>
+<li>ONBUILD：当构建一个被继承的 Dockerfile时运行命令，父镜像在被子继承后父镜像的 onbuild 被触发<br><img   class="lazyload" data-original="./image/Dockerfile.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt=""></li>
 </ul>
 </li>
 <li>案例<ul>
 <li>Base镜像（scratch）<br>  Docker Hub 中 99% 的镜像都是通过 在 base 镜像中安装 和 配置需要的软件构建出来的</li>
-<li>自定义镜像 myCentOS<pre><code class="hljs shell">FROM centos
-MAINTAINER Jun&lt;wjxajh@gmail.com&gt;
-
-ENV MYPATH /usr/local
-WORKDIR $MYPATH
-
-RUN yum -y install vim 
-RUN yum -y install net-tools
-
-EXPOSE 80
-
-CMD echo $MYPATH
-CMD echo "success --------------------- ok"
-CMD echo /bin/bash</code></pre></li>
+<li>自定义镜像 myCentOS<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs shell">FROM centos<br>MAINTAINER Jun&lt;wjxajh@gmail.com&gt;<br><br>ENV MYPATH /usr/local<br>WORKDIR $MYPATH<br><br>RUN yum -y install vim <br>RUN yum -y install net-tools<br><br>EXPOSE 80<br><br>CMD echo $MYPATH<br>CMD echo "success --------------------- ok"<br>CMD echo /bin/bash<br></code></pre></td></tr></table></figure></li>
 <li>CMD/ENTRYPOINT 镜像案例</li>
 <li>自定义镜像 Tomcat9</li>
 </ul>
 </li>
-<li>小总结<br><img src="./image/小总结.png" srcset="/img/loading.gif" alt=""><h2 id="七、Docker常用安装"><a href="#七、Docker常用安装" class="headerlink" title="七、Docker常用安装"></a>七、Docker常用安装</h2></li>
+<li>小总结<br><img   class="lazyload" data-original="./image/小总结.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt=""><h2 id="七、Docker常用安装"><a href="#七、Docker常用安装" class="headerlink" title="七、Docker常用安装"></a>七、Docker常用安装</h2></li>
 <li>总体步骤</li>
 <li>安装 tomcat</li>
-<li>安装 MySQL  <pre><code class="hljs shell">docker run -p 3306:3306 --name local_mysql 
--v /opt/mysql/conf:/etc/mysql/conf 
--v /opt/mysql/logs:/logs 
--v /opt/mysql/data:/var/lib/mysql 
--e MYSQL_ROOT_PASSWORD=root 
--d mysql:5.7</code></pre>
-和 MySQL进行交互<pre><code class="hljs shell">docker exec -it 2a95e24f4184 /bin/bash</code></pre>
-导出数据库数据到数据卷<pre><code class="hljs shell">exec mysqldump --all-databases -uroot -proot &gt; /logs/all-databases.sql</code></pre></li>
-<li>安装 redis<pre><code class="hljs shell">docker run -p 6379:6379 --name redis_01
--v /opt/redis/data:/redis/data 
--v /opt/redis/conf:/usr/local/etc/redis/redis.conf 
--d redis 
-redis-server 
-/usr/local/etc/redis/redis.conf 
---appendonly yes</code></pre>
-<pre><code class="hljs shell">docker exec -it feed1bbcfc7d redis-cli</code></pre></li>
-<li>安装 nginx <pre><code class="hljs shell">docker run -p 80:80 --name nginx_1 
--v /opt/nginx/conf:/etc/nginx/conf.d/ 
--v /opt/nginx/logs:/var/log/nginx/ 
--v /opt/nginx/cache:/var/cache/nginx/ 
--v /opt/nginx/project:/usr/share/nginx/ 
--d nginx</code></pre>
+<li>安装 MySQL  <figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker run -p 3306:3306 --name local_mysql <br>-v /opt/mysql/conf:/etc/mysql/conf <br>-v /opt/mysql/logs:/logs <br>-v /opt/mysql/data:/var/lib/mysql <br>-e MYSQL_ROOT_PASSWORD=root <br>-d mysql:5.7<br></code></pre></td></tr></table></figure>
+和 MySQL进行交互<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker exec -it 2a95e24f4184 /bin/bash<br></code></pre></td></tr></table></figure>
+导出数据库数据到数据卷<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">exec mysqldump --all-databases -uroot -proot &gt; /logs/all-databases.sql<br></code></pre></td></tr></table></figure></li>
+<li>安装 redis<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker run -p 6379:6379 --name redis_01<br>-v /opt/redis/data:/redis/data <br>-v /opt/redis/conf:/usr/local/etc/redis/redis.conf <br>-d redis <br>redis-server <br>/usr/local/etc/redis/redis.conf <br>--appendonly yes<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker exec -it feed1bbcfc7d redis-cli<br></code></pre></td></tr></table></figure></li>
+<li>安装 nginx <figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker run -p 80:80 --name nginx_1 <br>-v /opt/nginx/conf:/etc/nginx/conf.d/ <br>-v /opt/nginx/logs:/var/log/nginx/ <br>-v /opt/nginx/cache:/var/cache/nginx/ <br>-v /opt/nginx/project:/usr/share/nginx/ <br>-d nginx<br></code></pre></td></tr></table></figure>
 <h2 id="八、本地镜像发布到阿里云-阿里云开发者平台"><a href="#八、本地镜像发布到阿里云-阿里云开发者平台" class="headerlink" title="八、本地镜像发布到阿里云 阿里云开发者平台"></a>八、本地镜像发布到阿里云 <a href="https://dev.aliyun.com/search.html" target="_blank" rel="noopener">阿里云开发者平台</a></h2></li>
-<li>本地镜像发布到阿里云流程<br>  <img src="./image/本地镜像发布到阿里云流程.png" srcset="/img/loading.gif" alt="">      </li>
+<li>本地镜像发布到阿里云流程<br>  <img   class="lazyload" data-original="./image/本地镜像发布到阿里云流程.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="">      </li>
 <li>镜像的生成方法<ol>
 <li>Dockerfile</li>
-<li>从容器创建一个新的镜像<pre><code class="hljs shell">docker commit [OPTIONS]  容器ID [REPOSITORY[:TAG]]] 
- docker commit -a Jun -m "commit demo" 2a95e24f4184 mysql:1.0</code></pre></li>
+<li>从容器创建一个新的镜像<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker commit [OPTIONS]  容器ID [REPOSITORY[:TAG]]] <br> docker commit -a Jun -m "commit demo" 2a95e24f4184 mysql:1.0<br></code></pre></td></tr></table></figure></li>
 </ol>
 </li>
 <li>将本地镜像推送到阿里云<ol>
@@ -467,261 +377,149 @@ redis-server
 <li>将阿里云的镜像下载到本地</li>
 </ul>
 
-            </div>
-            <hr>
-            <div>
-              <div class="post-metas mb-3">
-                
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/docker/">docker</a>
-                    
-                  </div>
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/docker/">docker</a>
-                    
-                  </div>
-                
-              </div>
-              
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
-              
-              
-                <div class="post-prevnext row">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2019/12/13/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">设计模式 - 装饰者模式</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2019/11/30/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/">
-                        <span class="hidden-mobile">设计模式 - 适配器模式</span>
-                        <span class="visible-mobile">Next</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
-            </div>
-
-            
-          </article>
-        </div>
-      </div>
-    </div>
-    
-      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
-  <div id="tocbot"></div>
-</div>
-
-      </div>
-    
-  </div>
-</div>
-
-<!-- Custom -->
-
-
-    
-  </main>
-
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
   
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-    </a>
+    <li><strong>本文作者：</strong>Jun</li>
+    <li><strong>本文链接：</strong><a href="http://mambajun.github.io/2019/12/05/docker-%E5%85%A5%E9%97%A8/index.html" title="http:&#x2F;&#x2F;mambajun.github.io&#x2F;2019&#x2F;12&#x2F;05&#x2F;docker-%E5%85%A5%E9%97%A8&#x2F;index.html">http:&#x2F;&#x2F;mambajun.github.io&#x2F;2019&#x2F;12&#x2F;05&#x2F;docker-%E5%85%A5%E9%97%A8&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
   
+</ul>
+        
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li></ul> 
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
-    </div>
-  </div>
-</div>
-  
+        
+  <nav class="nav">
+    <a href="/2019/12/13/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/"><i class="iconfont iconleft"></i>设计模式 - 装饰者模式</a>
+    <a href="/2019/11/30/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/">设计模式 - 适配器模式<i class="iconfont iconright"></i></a>
+  </nav>
 
-  
-
-  
-
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-        <span>Fluid</span></a>
-    </div>
-    
-
-    
-
-    
-  </div>
-</footer>
-
-<!-- SCRIPTS -->
-<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
-<script  src="/js/main.js" ></script>
-
-<!-- Plugins -->
-
-
-  
-    <script  src="/js/lazyload.js" ></script>
-  
-
-
-
-  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
-  <script  src="/js/clipboard-use.js" ></script>
-
-
-
-
-
-
-
-  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
-  <script>
-    $(document).ready(function () {
-      var boardCtn = $('#board-ctn');
-      var boardTop = boardCtn.offset().top;
-
-      tocbot.init({
-        tocSelector: '#tocbot',
-        contentSelector: '#post-body',
-        headingSelector: 'h1,h2,h3,h4,h5,h6',
-        linkClass: 'tocbot-link',
-        activeLinkClass: 'tocbot-active-link',
-        listClass: 'tocbot-list',
-        isCollapsedClass: 'tocbot-is-collapsed',
-        collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 0,
-        scrollSmooth: true,
-        headingsOffset: -boardTop
-      });
-      if ($('.toc-list-item').length > 0) {
-        $('#toc').css('visibility', 'visible');
-      }
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
-  <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "docker 入门&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "hover",
+      </section>
       
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
-  </script>
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Docker-笔记"><span class="toc-text">Docker 笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、Docker-简介"><span class="toc-text">一、Docker 简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、Docker-安装"><span class="toc-text">二、Docker 安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、Docker常用命令"><span class="toc-text">三、Docker常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、Docker镜像"><span class="toc-text">四、Docker镜像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、Docker-容器数据卷（Docker容器中的数据持久化（保存下来））"><span class="toc-text">五、Docker 容器数据卷（Docker容器中的数据持久化（保存下来））</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、DockerFile解析"><span class="toc-text">六、DockerFile解析</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#表示注释"><span class="toc-text">表示注释</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#七、Docker常用安装"><span class="toc-text">七、Docker常用安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#八、本地镜像发布到阿里云-阿里云开发者平台"><span class="toc-text">八、本地镜像发布到阿里云 阿里云开发者平台</span></a></li></ol></li></ol>
+  </aside>
 
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
 
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="https://blog.csdn.net/qq_40990854 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  '#DA2E76'"></i>
+      </a><a 
+        href="https://github.com/mambaJun "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:smithjun@qq.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a> | <a target="_blank" href="https://beian.miit.gov.cn/">苏ICP备19033306号</a></p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+    <div class="scrollbar j-scrollbar">
+  <div class="scrollbar-current j-scrollbar-current"></div>
+</div>
+  
+  
+    
+<script src="/js/color-mode.js"></script>
 
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      searchFunc(path, 'local-search-input', 'local-search-result');
-      this.onclick = null
-    }
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <script>
-    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
-      function () {
-        var element = document.createElement('a');
-        $(element).attr('data-fancybox', 'images');
-        $(element).attr('href', $(this).attr('src'));
-        $(this).wrap(element);
-      }
-    );
-  </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
 </body>
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
 </html>

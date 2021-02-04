@@ -1,0 +1,489 @@
+
+
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Django 入门 - Jun&#39;s space</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  <meta name="keywords" content="Jun's space">
+  <meta name="description" content="Django 入门这篇文章仅仅我初步了解　Django...">
+  <meta name="author" content="Jun">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_s6x2xcokxrl.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: '/images/theme/loading.gif'
+      },
+      donate: {
+        enable: false,
+        alipay: 'https://pic.izhaoo.com/alipay.jpg',
+        wechat: 'https://pic.izhaoo.com/wechat.jpg'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '/images/theme/welcome-image.jpg',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: false,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'simple'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Jun's space" type="application/atom+xml">
+</head>
+
+<body class="lock-screen">
+  <div class="loading"></div>
+  
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+    </div>
+    <div class="center">Django 入门</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+  </nav>
+
+  
+
+<nav class="menu">
+  <div class="menu-wrap">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/galleries/ " class="underline "> 摄影</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a> | <a target="_blank" href="https://beian.miit.gov.cn/">苏ICP备19033306号</a></p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="https://pic.izhaoo.com/2017072104.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">Django 入门</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>November 24, 2019</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>3879</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        <h1 id="Django-入门"><a href="#Django-入门" class="headerlink" title="Django 入门"></a>Django 入门</h1><p>这篇文章仅仅我初步了解　Django 的入门笔记</p>
+<h2 id="一、-Django的框架模式-MTV"><a href="#一、-Django的框架模式-MTV" class="headerlink" title="一、 Django的框架模式 - MTV"></a>一、 Django的框架模式 - MTV</h2><p>M: Models 层<br>    负责数据库的建模以及 CRUD操作<br>T: Templates 层<br>    用于处理用户显示的内容 如  HTML<br>V: Views 层<br>    处理用户交互操作，从模板中取得数据，再将数据发送给模板，并显示给用户<br><img   class="lazyload" data-original="./MTV.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt=""></p>
+<h2 id="二、-Django-的使用"><a href="#二、-Django-的使用" class="headerlink" title="二、 Django 的使用"></a>二、 Django 的使用</h2><h3 id="1-目录结构介绍"><a href="#1-目录结构介绍" class="headerlink" title="1.目录结构介绍"></a>1.目录结构介绍</h3><ul>
+<li>主目录（名称和项目名相同）<ul>
+<li><strong>init</strong>.py 项目初始化文件，每当服务器启动的时候，都会自动执行</li>
+<li>urls.py :项目的基础url 配置文件</li>
+<li>wsgi.py：应用服务器配置文件</li>
+<li>setting.py：项目的主设置文件<h3 id="2-启动服务"><a href="#2-启动服务" class="headerlink" title="2.启动服务"></a>2.启动服务</h3><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 安装django</span><br>pip3 install django==2.0.2<br><span class="hljs-meta">#</span><span class="bash"> 进入桌面文件夹</span><br>cd desktop<br><span class="hljs-meta">#</span><span class="bash"> 创建新项目 mall</span><br>django-admin startproject mall<br><span class="hljs-meta">#</span><span class="bash"> 运行manage.py ，启动web服务器</span><br>python manage.py runserver<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">python  manage.py runserver<br></code></pre></td></tr></table></figure>
+manage.py   负责执行Django中的各项操作文件</li>
+<li>启动服务<ul>
+<li>创建管理员</li>
+<li>创建应用</li>
+<li>数据库的同步操作</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="三、URL的使用"><a href="#三、URL的使用" class="headerlink" title="三、URL的使用"></a>三、URL的使用</h2><pre><code>1. urls.py：默认是在主目录中，主路由配置文件包含最基本的地址映射，每个请求到达之后都由urls.py 中的
+urlpatterns 列表中的url()进行匹配
+url() 函数匹配上 之后，可能将请求转交给其他urls.py 或者 试图（Views）去处理
+</code></pre><p> <img   class="lazyload" data-original="./请求流程.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt=""><br>    url()函数语法：<br>        url(regex,views,kwargs=None,name=None)<br>        正则表达式：匹配请求的url<br>        视图处理函数或者其他的urls.py<br>        字典，用来给views 传参，没有参数可以省略<br>        字符串，给url()起别名，主要在模板中使用</p>
+<h2 id="四、应用的结构组成"><a href="#四、应用的结构组成" class="headerlink" title="　四、应用的结构组成"></a>　四、应用的结构组成</h2><pre><code>1. migrations 目录：存放数据库中间文件（日志文件）
+2. __init__.py：应用的初始化文件
+3. admin.py：应用的后台管理配置文件
+4. apps.py：应用的属性配置文件
+5. models.py：模型文件，与数据库有关
+6. test.py：测试模块
+7. views.py：定义视图的文件
+</code></pre><p>​    </p>
+<h2 id="五、数据三大特征"><a href="#五、数据三大特征" class="headerlink" title="五、数据三大特征"></a>五、数据三大特征</h2><ol>
+<li>数据表 到 类 的映射，将数据表自动生成 一个 class 类 同时也允许将一个 class类自动生成数据库中的一张表</li>
+<li>数据类型的映射    允许将表中的字段的数据类型 自动 映射成编程语言中对应的数据类型    也允许 将编程语言的数据类型 自动 映射 成表中的字段的数据类型</li>
+<li>关系映射    在编程语言中允许将表与表之间的关系映射出来    表与表之间的关系也可以自动映射到编程语言的Class中4. 编写 Models    - Models 中的每个class 都称为 模型类 实体类    - Models 中的每个模型类，必须继承 models.Model</li>
+</ol>
+<h3 id="模型-字段类型-和-字段选项"><a href="#模型-字段类型-和-字段选项" class="headerlink" title="模型 字段类型 和 字段选项"></a>模型 字段类型 和 字段选项</h3><ul>
+<li><p>字段类型（Field Type）</p>
+<ul>
+<li>BooleanField() </li>
+<li>CharField() </li>
+<li>DateField()    </li>
+<li>DateField()    </li>
+<li>DateTimeField()   </li>
+<li>DecimalField()   </li>
+<li>EmailField() # 存电子邮件 - varchar    </li>
+<li>FloatField()    </li>
+<li>ImageField(upload_to=’’) # 存图片路径 - varchar    </li>
+<li>IntergerField()    </li>
+<li>URLField()    </li>
+<li>TextField() # 存大量文本数据 - text</li>
+</ul>
+</li>
+<li><h3 id="字段选项（Field-Option）"><a href="#字段选项（Field-Option）" class="headerlink" title="字段选项（Field Option）"></a>字段选项（Field Option）</h3><ul>
+<li><h3 id="max-length-在-CharField-必须设置选项"><a href="#max-length-在-CharField-必须设置选项" class="headerlink" title="max_length # 在 CharField() 必须设置选项"></a>max_length # 在 CharField() 必须设置选项</h3></li>
+<li><h3 id="default"><a href="#default" class="headerlink" title="default"></a>default</h3></li>
+<li><h3 id="null-指定当前字段是否允许为空，默认值-false"><a href="#null-指定当前字段是否允许为空，默认值-false" class="headerlink" title="null # 指定当前字段是否允许为空，默认值 false"></a>null # 指定当前字段是否允许为空，默认值 false</h3></li>
+</ul>
+</li>
+<li><p>数据模型的版本切换</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">./manage.py migrate										 # 执行所有应用中最新的数据库中间文件<br>./manage.py migrate 应用名称 版本号	# 执行 应用中版本号对应的中间文件<br>./manage.py inspectdb &gt; 文件名.py		  # 通过数据库自动导出 Models<br></code></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="六、连接-MySQL"><a href="#六、连接-MySQL" class="headerlink" title="六、连接 MySQL"></a>六、连接 MySQL</h2><ul>
+<li><p>环境按照</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo apt-get install python3-dev<br>sudo apt-get install python3-dev libmysqlclient-dev<br>pip install mysqlclient<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>项目配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs pyth">DATABASES &#x3D; &#123;<br>    &#39;default&#39;: &#123;<br>        &#39;ENGINE&#39;: &#39;django.db.backends.mysql&#39;,<br>        &#39;HOST&#39;: &#39;127.0.0.1&#39;,<br>        &#39;PORT&#39;: &#39;3306&#39;,<br>        &#39;USER&#39;: &#39;root&#39;,<br>        &#39;PASSWORD&#39;: &#39;root&#39;,<br>        &#39;NAME&#39;: &#39;django&#39;,<br>        &#39;OPTIONS&#39;: &#123;<br>            &#39;init_command&#39;: &quot;SET sql_mode&#x3D;&#39;STRICT_TRANS_TABLES&#39;&quot;,<br>            &#39;charset&#39;: &#39;utf8mb4&#39;,<br>        &#125;,<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="七、模型中的-CRUD"><a href="#七、模型中的-CRUD" class="headerlink" title="七、模型中的 CRUD"></a>七、模型中的 CRUD</h2><h4 id="1-通过-ORM-向-DB-中添加数据"><a href="#1-通过-ORM-向-DB-中添加数据" class="headerlink" title="1.通过 ORM 向 DB 中添加数据"></a>1.通过 ORM 向 DB 中添加数据</h4><ol>
+<li><p>Entry.objects.create(属性=值，……)    </p>
+<p> Entry：具体要操作的Model类</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">Author.objects.create(name=<span class="hljs-string">'张三'</span>,age=<span class="hljs-string">'20'</span>)<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>创建一个Models对象，通过对象save() 完成</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">obj = Author(name=<span class="hljs-string">'张三'</span>,age=<span class="hljs-string">'20'</span>)<br>obj.save()<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>使用 字典序 构建对象，通过save() 完成增加</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">dic = &#123;<br>    <span class="hljs-string">'属性1'</span>: <span class="hljs-string">'值1'</span>,<br>     <span class="hljs-string">'属性1'</span>: <span class="hljs-string">'值1'</span>,<br>&#125;<br>obj = Entry(**dic)<br>obj.save()<br></code></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="2-查询操作（重难点）查询"><a href="#2-查询操作（重难点）查询" class="headerlink" title="2.查询操作（重难点）查询"></a>2.查询操作（重难点）<a href="https://docs.djangoproject.com/en/2.2/ref/models/querysets/" target="_blank" rel="noopener">查询</a></h4><ol>
+<li><p>通过Entry.objects 调用方法</p>
+<ol>
+<li>基本查询操作<ul>
+<li>all()</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>查询指定列</p>
+<ol>
+<li>value()</li>
+</ol>
+</li>
+<li><p>排序函数</p>
+<ol>
+<li>order_by()</li>
+</ol>
+</li>
+<li><p>对条件取反</p>
+<ol>
+<li>exclude()</li>
+</ol>
+</li>
+<li><p>根据条件查询部分行数据 ==重难点==</p>
+<ol>
+<li><p>使用Entry 中的属性作为查询参数，多个参数，用 ， 隔开 映射到SQL 语句上是用 and 进行关联的</p>
+<ol>
+<li>filter()</li>
+</ol>
+</li>
+<li><p>通过 <a href="https://docs.djangoproject.com/en/2.2/ref/models/querysets/#id4" target="_blank" rel="noopener">Field Lookup</a>(查询表达式)完成复杂条件查询（这里有点像 QueryDSL，各种方法，但是按照SQL的思维来就可以了，只不过稍微要注意用法，直接去官网查询即可）</p>
+<p>​    查询表达式：每个查询表达式都是一个独立的查询条件，可以用在所有查询条件的位置处</p>
+<ol>
+<li><p>__exact：精确查询，等值判断</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">User.objects.filter(id__exact=<span class="hljs-number">1</span>)<br>select * <span class="hljs-keyword">from</span> user where id = <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>__contains()：筛选出属性中包含指定关键字的记录（模糊查询）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">User.objects.filter(name__contains=<span class="hljs-string">'jun'</span>)<br>select * <span class="hljs-keyword">from</span> user where name like <span class="hljs-string">'%jun%'</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>__lt：筛选出属性值小于指定值的记录</p>
+</li>
+<li><p>__lte：筛选出属性值小于等于指定值的记录</p>
+</li>
+<li><p>__gt：筛选出属性值大于指定值的记录</p>
+</li>
+<li><p>__gte：筛选出属性值大于等于指定值记录</p>
+</li>
+<li><p>__startswith:</p>
+</li>
+<li><p>__endswith:</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>查询只返回一条数据</p>
+<p>Entry.objects.get(查询条件/表达式)</p>
+</li>
+</ol>
+<h4 id="3-修改数据"><a href="#3-修改数据" class="headerlink" title="3. 修改数据"></a>3. 修改数据</h4><ol>
+<li><p>修改单个数据（这里可以类比 JAP里的对单个实体进行操作，先拿再改最后存）</p>
+<pre><code> 1. 通过　get() 得到要修改的实体对象
+      2. 通过实体对象的属性修改属性值
+           3. 再通过 实体对象的save() 保存回数据库
+</code></pre></li>
+<li><p>批量修改数据（这个意义不是太大）</p>
+<p>Entry.objects.all().update(属性=值，属性=值)</p>
+<p>update  user set 属性=值, 属性=值 </p>
+</li>
+</ol>
+<h4 id="4-删除数据"><a href="#4-删除数据" class="headerlink" title="4. 删除数据"></a>4. 删除数据</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">User.objects.get(id=<span class="hljs-number">1</span>).delete()<br></code></pre></td></tr></table></figure>
+<h2 id="八、安全"><a href="#八、安全" class="headerlink" title="八、安全"></a>八、安全</h2><h3 id="1-CSRF-跨站处理"><a href="#1-CSRF-跨站处理" class="headerlink" title="1. CSRF 跨站处理"></a>1. CSRF 跨站处理</h3>
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>Jun</li>
+    <li><strong>本文链接：</strong><a href="http://mambajun.github.io/2019/11/24/Django-%E5%85%A5%E9%97%A8/index.html" title="http:&#x2F;&#x2F;mambajun.github.io&#x2F;2019&#x2F;11&#x2F;24&#x2F;Django-%E5%85%A5%E9%97%A8&#x2F;index.html">http:&#x2F;&#x2F;mambajun.github.io&#x2F;2019&#x2F;11&#x2F;24&#x2F;Django-%E5%85%A5%E9%97%A8&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/" rel="tag">Django</a></li></ul> 
+
+        
+  <nav class="nav">
+    <a href="/2019/11/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"><i class="iconfont iconleft"></i>设计模式 - 单例模式</a>
+    <a></a>
+  </nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Django-入门"><span class="toc-text">Django 入门</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、-Django的框架模式-MTV"><span class="toc-text">一、 Django的框架模式 - MTV</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、-Django-的使用"><span class="toc-text">二、 Django 的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-目录结构介绍"><span class="toc-text">1.目录结构介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-启动服务"><span class="toc-text">2.启动服务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、URL的使用"><span class="toc-text">三、URL的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、应用的结构组成"><span class="toc-text">　四、应用的结构组成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、数据三大特征"><span class="toc-text">五、数据三大特征</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#模型-字段类型-和-字段选项"><span class="toc-text">模型 字段类型 和 字段选项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字段选项（Field-Option）"><span class="toc-text">字段选项（Field Option）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#max-length-在-CharField-必须设置选项"><span class="toc-text">max_length # 在 CharField() 必须设置选项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#default"><span class="toc-text">default</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null-指定当前字段是否允许为空，默认值-false"><span class="toc-text">null # 指定当前字段是否允许为空，默认值 false</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、连接-MySQL"><span class="toc-text">六、连接 MySQL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、模型中的-CRUD"><span class="toc-text">七、模型中的 CRUD</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#八、安全"><span class="toc-text">八、安全</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-CSRF-跨站处理"><span class="toc-text">1. CSRF 跨站处理</span></a></li></ol></li></ol></li></ol>
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="https://blog.csdn.net/qq_40990854 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  '#DA2E76'"></i>
+      </a><a 
+        href="https://github.com/mambaJun "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:smithjun@qq.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a> | <a target="_blank" href="https://beian.miit.gov.cn/">苏ICP备19033306号</a></p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+    <div class="scrollbar j-scrollbar">
+  <div class="scrollbar-current j-scrollbar-current"></div>
+</div>
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+</body>
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

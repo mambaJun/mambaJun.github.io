@@ -1,234 +1,203 @@
 
 
 <!DOCTYPE html>
-<html lang="en" data-default-color-scheme=&#34;auto&#34;>
-
-
-
+<html lang="en" color-mode=light>
 <head>
-  <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" type="image/png" href="/img/favicon.png">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="Life Oriented Programming">
-  <meta name="author" content="Jun">
-  <meta name="keywords" content="Jun&#39;s space">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>flex 布局 - Jun&#39;s space</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  <meta name="keywords" content="Jun's space">
+  <meta name="description" content="Flex 布局
+最近接触了 Flex布局，话不多说，干...">
+  <meta name="author" content="Jun">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+  
+<link rel="stylesheet" href="/css/style.css">
 
-
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
     
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_s6x2xcokxrl.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: '/images/theme/loading.gif'
+      },
+      donate: {
+        enable: false,
+        alipay: 'https://pic.izhaoo.com/alipay.jpg',
+        wechat: 'https://pic.izhaoo.com/wechat.jpg'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '/images/theme/welcome-image.jpg',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: false,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'simple'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      }
+    }
+  </script>
+
   
 
   
 
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-<!-- 自定义样式保持在最底部 -->
-
-
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Jun's space" type="application/atom+xml">
 </head>
 
+<body class="lock-screen">
+  <div class="loading"></div>
+  
 
-<body>
-  <header style="height: 70vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>Jun's space</strong>&nbsp;</a>
 
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                Home
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/">
-                <i class="iconfont icon-archive-fill"></i>
-                Archives
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/">
-                <i class="iconfont icon-category-fill"></i>
-                Categories
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                Tags
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                About
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
-          </li>
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
-          </li>
-        
-      </ul>
+  <nav class="navbar">
+    <div class="left">
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
     </div>
+    <div class="center">flex 布局</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+  </nav>
+
+  
+
+<nav class="menu">
+  <div class="menu-wrap">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/galleries/ " class="underline "> 摄影</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a> | <a target="_blank" href="https://beian.miit.gov.cn/">苏ICP备19033306号</a></p></div>
+    
   </div>
 </nav>
-
-    <div class="banner intro-2" id="background" parallax=true
-         style="background: url('/img/default.png') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container page-header text-center fade-in-up">
-            <span class="h2" id="subtitle">
-              
-            </span>
-
-            
-              
-  <div class="mt-3 post-meta">
-    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2020-05-25 17:34" pubdate>
-      May 25, 2020 pm
-    </time>
-  </div>
-
-
-<div class="mt-1">
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      1.6k 字
-    </span>
-  
-
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="https://pic.izhaoo.com/20200305030152.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">flex 布局</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>May 25, 2020</span>
       
-      
-      20
-       分钟
-    </span>
-  
-
-  
-  
-</div>
-
-            
-          </div>
-
-          
-        </div>
-      </div>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>4130</span>
     </div>
-  </header>
-
-  <main>
-    
-      
-
-<div class="container-fluid">
-  <div class="row">
-    <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
-        <div class="py-5" id="board">
-          <article class="post-content mx-auto" id="post">
-            <!-- SEO header -->
-            <h1 style="display: none">flex 布局</h1>
-            
-            <div class="markdown-body" id="post-body">
-              <p>Flex 布局</p>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        <p>Flex 布局</p>
 <p>最近接触了 Flex布局，话不多说，干！</p>
 <p>先说说Flex香在哪里，之前都用 float、position、display的各种迫害，Flex布局一个就可以搞定了</p>
 <p><strong>注意： flex 布局之后，子元素的 float、clear、vertical-align 的属性将会失效。</strong></p>
-<h2 id="简单介绍-Flex概念"><a href="#简单介绍-Flex概念" class="headerlink" title="简单介绍 Flex概念"></a>简单介绍 Flex概念</h2><p><img src="https://i.loli.net/2020/05/26/nAqjuwo1byP3XdY.png" srcset="/img/loading.gif" alt="下载.png"></p>
+<h2 id="简单介绍-Flex概念"><a href="#简单介绍-Flex概念" class="headerlink" title="简单介绍 Flex概念"></a>简单介绍 Flex概念</h2><p><img    class="lazyload" data-original="https://i.loli.net/2020/05/26/nAqjuwo1byP3XdY.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">下载.png</span></p>
 <ul>
 <li>轴：Flex 容器默认有两条轴，水平主轴（main axis）和垂直的交叉轴（cross axis）,当然这个并不是绝对的，好比直角坐标系的 x ,y 轴一样 地位相同可以互换。</li>
 <li>flex item：容器中的每个单元块被称为 flex item，每个 item占用的主轴空间叫做（main size）,占据交叉轴的空间叫做（cross size）</li>
 </ul>
 <p>注意：还是说明一下，水平和垂直 只是相对的，可以互换，主要是看怎么调整的结果</p>
 <h3 id="Flex-容器"><a href="#Flex-容器" class="headerlink" title="Flex 容器"></a>Flex 容器</h3><p>Flex布局的前提是先确定一个容器，可以类比一个房子，房子里的 item 都可以使用 flex 进行布局了。</p>
-<pre><code class="hljs css"><span class="hljs-selector-class">.container</span> &#123;
-    <span class="hljs-attribute">display</span>: flex | inline-flex;
-&#125;</code></pre>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.container</span> &#123;<br>    <span class="hljs-attribute">display</span>: flex | inline-flex;<br>&#125;<br></code></pre></td></tr></table></figure>
 <ul>
 <li>flex 是好比 div 的块元素</li>
 <li>inline-flex 好比 span 的行内元素</li>
@@ -242,29 +211,21 @@
 <li>align-items</li>
 <li>align-content</li>
 </ol>
-<h4 id="1-flex-direction：决定主轴的方向-即项目的排列方向"><a href="#1-flex-direction：决定主轴的方向-即项目的排列方向" class="headerlink" title="1.flex-direction：决定主轴的方向(即项目的排列方向)"></a>1.flex-direction：决定主轴的方向(即项目的排列方向)</h4><pre><code class="hljs css"><span class="hljs-selector-class">.container</span> &#123;
-    <span class="hljs-attribute">flex-direction</span>: row | row-reverse | column | column-reverse;
-&#125;</code></pre>
+<h4 id="1-flex-direction：决定主轴的方向-即项目的排列方向"><a href="#1-flex-direction：决定主轴的方向-即项目的排列方向" class="headerlink" title="1.flex-direction：决定主轴的方向(即项目的排列方向)"></a>1.flex-direction：决定主轴的方向(即项目的排列方向)</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.container</span> &#123;<br>    <span class="hljs-attribute">flex-direction</span>: row | row-reverse | column | column-reverse;<br>&#125;<br></code></pre></td></tr></table></figure>
 <ul>
 <li>默认值：row  主轴为水平方向，起点在左端</li>
 <li>row-reverse：主轴为水平方向，起点在右端</li>
 <li>column：主轴为垂直方向，起点在上沿</li>
 <li>column-reverse：主轴为垂直方向，起点在下沿</li>
 </ul>
-<h4 id="2-flex-wrap-决定容器内项目是否可换行"><a href="#2-flex-wrap-决定容器内项目是否可换行" class="headerlink" title="2. flex-wrap: 决定容器内项目是否可换行"></a>2. flex-wrap: 决定容器内项目是否可换行</h4><pre><code class="hljs css"><span class="hljs-selector-class">.container</span> &#123;
-    <span class="hljs-attribute">flex-wrap</span>: nowrap | wrap | wrap-reverse;
-&#125;</code></pre>
+<h4 id="2-flex-wrap-决定容器内项目是否可换行"><a href="#2-flex-wrap-决定容器内项目是否可换行" class="headerlink" title="2. flex-wrap: 决定容器内项目是否可换行"></a>2. flex-wrap: 决定容器内项目是否可换行</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.container</span> &#123;<br>    <span class="hljs-attribute">flex-wrap</span>: nowrap | wrap | wrap-reverse;<br>&#125;<br></code></pre></td></tr></table></figure>
 <ul>
 <li>默认值：nowrap 不换行，即当主轴尺寸固定时，当空间不足时，项目尺寸会随之调整而并不会挤到下一行。</li>
 <li>wrap：项目主轴总尺寸超出容器时换行，第一行在上方</li>
 <li>wrap-reverse：换行，第一行在下方</li>
 </ul>
-<h4 id="3-flex-flow-flex-direction-和-flex-wrap-的简写形式"><a href="#3-flex-flow-flex-direction-和-flex-wrap-的简写形式" class="headerlink" title="3. flex-flow: flex-direction 和 flex-wrap 的简写形式"></a>3. flex-flow: flex-direction 和 flex-wrap 的简写形式</h4><pre><code class="hljs css"><span class="hljs-selector-class">.container</span> &#123;
-    <span class="hljs-attribute">flex-flow</span>: &lt;flex-direction&gt; || &lt;flex-wrap&gt;;
-&#125;</code></pre>
-<h4 id="4-justify-content：定义了项目在-主轴-的对齐方式"><a href="#4-justify-content：定义了项目在-主轴-的对齐方式" class="headerlink" title="4. justify-content：定义了项目在 主轴 的对齐方式"></a>4. justify-content：定义了项目在 <strong><em>主轴</em></strong> 的对齐方式</h4><pre><code class="hljs css"><span class="hljs-selector-class">.container</span> &#123;
-    <span class="hljs-attribute">justify-content</span>: flex-start | flex-end | center | space-between | space-around;
-&#125;</code></pre>
+<h4 id="3-flex-flow-flex-direction-和-flex-wrap-的简写形式"><a href="#3-flex-flow-flex-direction-和-flex-wrap-的简写形式" class="headerlink" title="3. flex-flow: flex-direction 和 flex-wrap 的简写形式"></a>3. flex-flow: flex-direction 和 flex-wrap 的简写形式</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.container</span> &#123;<br>    <span class="hljs-attribute">flex-flow</span>: &lt;flex-direction&gt; || &lt;flex-wrap&gt;;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="4-justify-content：定义了项目在-主轴-的对齐方式"><a href="#4-justify-content：定义了项目在-主轴-的对齐方式" class="headerlink" title="4. justify-content：定义了项目在 主轴 的对齐方式"></a>4. justify-content：定义了项目在 <strong><em>主轴</em></strong> 的对齐方式</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.container</span> &#123;<br>    <span class="hljs-attribute">justify-content</span>: flex-start | flex-end | center | space-between | space-around;<br>&#125;<br></code></pre></td></tr></table></figure>
 <ul>
 <li>默认值: flex-start 左对齐</li>
 <li>flex-end：右对齐</li>
@@ -272,9 +233,7 @@
 <li>space-between：两端对齐，项目之间的间隔相等，即剩余空间等分成间隙</li>
 <li>space-around：每个项目两侧的间隔相等，所以项目之间的间隔比项目与边缘的间隔大一倍</li>
 </ul>
-<h4 id="5-align-items-定义了项目在交叉轴上的对齐方式"><a href="#5-align-items-定义了项目在交叉轴上的对齐方式" class="headerlink" title="5. align-items: 定义了项目在交叉轴上的对齐方式"></a>5. align-items: 定义了项目在交叉轴上的对齐方式</h4><pre><code class="hljs css"><span class="hljs-selector-class">.container</span> &#123;
-    <span class="hljs-attribute">align-items</span>: flex-start | flex-end | center | baseline | stretch;
-&#125;</code></pre>
+<h4 id="5-align-items-定义了项目在交叉轴上的对齐方式"><a href="#5-align-items-定义了项目在交叉轴上的对齐方式" class="headerlink" title="5. align-items: 定义了项目在交叉轴上的对齐方式"></a>5. align-items: 定义了项目在交叉轴上的对齐方式</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.container</span> &#123;<br>    <span class="hljs-attribute">align-items</span>: flex-start | flex-end | center | baseline | stretch;<br>&#125;<br></code></pre></td></tr></table></figure>
 <ul>
 <li>默认值为 stretch 即如果项目未设置高度或者设为 auto，将占满整个容器的高度。</li>
 <li>flex-start：交叉轴的起点对齐</li>
@@ -282,9 +241,7 @@
 <li>center：交叉轴的中点对齐</li>
 <li>baseline: 项目的第一行文字的基线对齐</li>
 </ul>
-<h4 id="6-align-content-定义了多根轴线的对齐方式，如果项目只有一根轴线，那么该属性将不起作用"><a href="#6-align-content-定义了多根轴线的对齐方式，如果项目只有一根轴线，那么该属性将不起作用" class="headerlink" title="6. align-content: 定义了多根轴线的对齐方式，如果项目只有一根轴线，那么该属性将不起作用"></a><strong>6. align-content: 定义了多根轴线的对齐方式，如果项目只有一根轴线，那么该属性将不起作用</strong></h4><pre><code class="hljs css"><span class="hljs-selector-class">.container</span> &#123;
-    <span class="hljs-attribute">align-content</span>: flex-start | flex-end | center | space-between | space-around | stretch;
-&#125;</code></pre>
+<h4 id="6-align-content-定义了多根轴线的对齐方式，如果项目只有一根轴线，那么该属性将不起作用"><a href="#6-align-content-定义了多根轴线的对齐方式，如果项目只有一根轴线，那么该属性将不起作用" class="headerlink" title="6. align-content: 定义了多根轴线的对齐方式，如果项目只有一根轴线，那么该属性将不起作用"></a><strong>6. align-content: 定义了多根轴线的对齐方式，如果项目只有一根轴线，那么该属性将不起作用</strong></h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.container</span> &#123;<br>    <span class="hljs-attribute">align-content</span>: flex-start | flex-end | center | space-between | space-around | stretch;<br>&#125;<br></code></pre></td></tr></table></figure>
 <h3 id="Flex-Item-属性"><a href="#Flex-Item-属性" class="headerlink" title="Flex Item 属性"></a>Flex Item 属性</h3><p>flex item 有六种属性</p>
 <ol>
 <li>order</li>
@@ -294,12 +251,8 @@
 <li>flex</li>
 <li>align-self</li>
 </ol>
-<h4 id="1-order-定义项目在容器中的排列顺序，数值越小，排列越靠前，默认值为-0"><a href="#1-order-定义项目在容器中的排列顺序，数值越小，排列越靠前，默认值为-0" class="headerlink" title="1. order: 定义项目在容器中的排列顺序，数值越小，排列越靠前，默认值为 0"></a><strong>1. order: 定义项目在容器中的排列顺序，数值越小，排列越靠前，默认值为 0</strong></h4><pre><code class="hljs css"><span class="hljs-selector-class">.item</span> &#123;
-    <span class="hljs-attribute">order</span>: &lt;integer&gt;;
-&#125;</code></pre>
-<h4 id="2-flex-basis-定义了在分配多余空间之前，项目占据的主轴空间，浏览器根据这个属性，计算主轴是否有多余空间"><a href="#2-flex-basis-定义了在分配多余空间之前，项目占据的主轴空间，浏览器根据这个属性，计算主轴是否有多余空间" class="headerlink" title="2. flex-basis: 定义了在分配多余空间之前，项目占据的主轴空间，浏览器根据这个属性，计算主轴是否有多余空间"></a><strong>2. flex-basis: 定义了在分配多余空间之前，项目占据的主轴空间，浏览器根据这个属性，计算主轴是否有多余空间</strong></h4><pre><code class="hljs css"><span class="hljs-selector-class">.item</span> &#123;
-    <span class="hljs-attribute">flex-basis</span>: &lt;length&gt; | auto;
-&#125;</code></pre>
+<h4 id="1-order-定义项目在容器中的排列顺序，数值越小，排列越靠前，默认值为-0"><a href="#1-order-定义项目在容器中的排列顺序，数值越小，排列越靠前，默认值为-0" class="headerlink" title="1. order: 定义项目在容器中的排列顺序，数值越小，排列越靠前，默认值为 0"></a><strong>1. order: 定义项目在容器中的排列顺序，数值越小，排列越靠前，默认值为 0</strong></h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.item</span> &#123;<br>    <span class="hljs-attribute">order</span>: &lt;integer&gt;;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="2-flex-basis-定义了在分配多余空间之前，项目占据的主轴空间，浏览器根据这个属性，计算主轴是否有多余空间"><a href="#2-flex-basis-定义了在分配多余空间之前，项目占据的主轴空间，浏览器根据这个属性，计算主轴是否有多余空间" class="headerlink" title="2. flex-basis: 定义了在分配多余空间之前，项目占据的主轴空间，浏览器根据这个属性，计算主轴是否有多余空间"></a><strong>2. flex-basis: 定义了在分配多余空间之前，项目占据的主轴空间，浏览器根据这个属性，计算主轴是否有多余空间</strong></h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.item</span> &#123;<br>    <span class="hljs-attribute">flex-basis</span>: &lt;length&gt; | auto;<br>&#125;<br></code></pre></td></tr></table></figure>
 <ul>
 <li>默认值：auto，即项目本来的大小, 这时候 item 的宽高取决于 width 或 height 的值。</li>
 <li><strong>当主轴为水平方向的时候，当设置了 flex-basis，项目的宽度设置值会失效，flex-basis 需要跟 flex-grow 和 flex-shrink 配合使用才能发挥效果。</strong><ul>
@@ -308,330 +261,180 @@
 </ul>
 </li>
 </ul>
-<h4 id="3-flex-grow-定义项目的放大比例"><a href="#3-flex-grow-定义项目的放大比例" class="headerlink" title="3. flex-grow: 定义项目的放大比例"></a>3<strong>. flex-grow: 定义项目的放大比例</strong></h4><pre><code class="hljs css"><span class="hljs-selector-class">.item</span> &#123;
-    <span class="hljs-attribute">flex-grow</span>: &lt;number&gt;;
-&#125;</code></pre>
-<h4 id="4-flex-shrink-定义了项目的缩小比例"><a href="#4-flex-shrink-定义了项目的缩小比例" class="headerlink" title="4. flex-shrink: 定义了项目的缩小比例"></a><strong>4. flex-shrink: 定义了项目的缩小比例</strong></h4><pre><code class="hljs css"><span class="hljs-selector-class">.item</span> &#123;
-    <span class="hljs-attribute">flex-shrink</span>: &lt;number&gt;;
-&#125;</code></pre>
-<h4 id="5-flex-flex-grow-flex-shrink-和-flex-basis的简写"><a href="#5-flex-flex-grow-flex-shrink-和-flex-basis的简写" class="headerlink" title="5. flex: flex-grow, flex-shrink 和 flex-basis的简写"></a><strong>5. flex: flex-grow, flex-shrink 和 flex-basis的简写</strong></h4><pre><code class="hljs css"><span class="hljs-selector-class">.item</span>&#123;
-    <span class="hljs-attribute">flex</span>: none | [ &lt;<span class="hljs-string">'flex-grow'</span>&gt; &lt;<span class="hljs-string">'flex-shrink'</span>&gt;? || &lt;<span class="hljs-string">'flex-basis'</span>&gt; ]
-&#125;</code></pre>
+<h4 id="3-flex-grow-定义项目的放大比例"><a href="#3-flex-grow-定义项目的放大比例" class="headerlink" title="3. flex-grow: 定义项目的放大比例"></a>3<strong>. flex-grow: 定义项目的放大比例</strong></h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.item</span> &#123;<br>    <span class="hljs-attribute">flex-grow</span>: &lt;number&gt;;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="4-flex-shrink-定义了项目的缩小比例"><a href="#4-flex-shrink-定义了项目的缩小比例" class="headerlink" title="4. flex-shrink: 定义了项目的缩小比例"></a><strong>4. flex-shrink: 定义了项目的缩小比例</strong></h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.item</span> &#123;<br>    <span class="hljs-attribute">flex-shrink</span>: &lt;number&gt;;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="5-flex-flex-grow-flex-shrink-和-flex-basis的简写"><a href="#5-flex-flex-grow-flex-shrink-和-flex-basis的简写" class="headerlink" title="5. flex: flex-grow, flex-shrink 和 flex-basis的简写"></a><strong>5. flex: flex-grow, flex-shrink 和 flex-basis的简写</strong></h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.item</span>&#123;<br>    <span class="hljs-attribute">flex</span>: none | [ &lt;<span class="hljs-string">'flex-grow'</span>&gt; &lt;<span class="hljs-string">'flex-shrink'</span>&gt;? || &lt;<span class="hljs-string">'flex-basis'</span>&gt; ]<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>flex 的默认值是以上三个属性值的组合。假设以上三个属性同样取默认值，则 flex 的默认值是 0 1 auto。</p>
 <p>有关快捷值：auto (1 1 auto) 和 none (0 0 auto)</p>
 <p>关于 flex 取值，还有许多特殊的情况，可以按以下来进行划分：</p>
 <ul>
 <li>当 flex 取值为一个非负数字，则该数字为 flex-grow 值，flex-shrink 取 1，flex-basis 取 0%，如下是等同的：</li>
 </ul>
-<pre><code class="hljs css"><span class="hljs-selector-class">.item</span> &#123;<span class="hljs-attribute">flex</span>: <span class="hljs-number">1</span>;&#125;
-<span class="hljs-selector-class">.item</span> &#123;
-    <span class="hljs-attribute">flex-grow</span>: <span class="hljs-number">1</span>;
-    <span class="hljs-attribute">flex-shrink</span>: <span class="hljs-number">1</span>;
-    <span class="hljs-attribute">flex-basis</span>: <span class="hljs-number">0%</span>;
-&#125;</code></pre>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.item</span> &#123;<span class="hljs-attribute">flex</span>: <span class="hljs-number">1</span>;&#125;<br><span class="hljs-selector-class">.item</span> &#123;<br>    <span class="hljs-attribute">flex-grow</span>: <span class="hljs-number">1</span>;<br>    <span class="hljs-attribute">flex-shrink</span>: <span class="hljs-number">1</span>;<br>    <span class="hljs-attribute">flex-basis</span>: <span class="hljs-number">0%</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 <ul>
 <li>当 flex 取值为 0 时，对应的三个值分别为 0 1 0%</li>
 </ul>
-<pre><code class="hljs css"><span class="hljs-selector-class">.item</span> &#123;<span class="hljs-attribute">flex</span>: <span class="hljs-number">0</span>;&#125;
-<span class="hljs-selector-class">.item</span> &#123;
-    <span class="hljs-attribute">flex-grow</span>: <span class="hljs-number">0</span>;
-    <span class="hljs-attribute">flex-shrink</span>: <span class="hljs-number">1</span>;
-    <span class="hljs-attribute">flex-basis</span>: <span class="hljs-number">0%</span>;
-&#125;</code></pre>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.item</span> &#123;<span class="hljs-attribute">flex</span>: <span class="hljs-number">0</span>;&#125;<br><span class="hljs-selector-class">.item</span> &#123;<br>    <span class="hljs-attribute">flex-grow</span>: <span class="hljs-number">0</span>;<br>    <span class="hljs-attribute">flex-shrink</span>: <span class="hljs-number">1</span>;<br>    <span class="hljs-attribute">flex-basis</span>: <span class="hljs-number">0%</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 <ul>
 <li>当 flex 取值为一个长度或百分比，则视为 flex-basis 值，flex-grow 取 1，flex-shrink 取 1，有如下等同情况（注意 0% 是一个百分比而不是一个非负数字）</li>
 </ul>
-<pre><code class="hljs css"><span class="hljs-selector-class">.item-1</span> &#123;<span class="hljs-attribute">flex</span>: <span class="hljs-number">0%</span>;&#125;
-<span class="hljs-selector-class">.item-1</span> &#123;
-    <span class="hljs-attribute">flex-grow</span>: <span class="hljs-number">1</span>;
-    <span class="hljs-attribute">flex-shrink</span>: <span class="hljs-number">1</span>;
-    <span class="hljs-attribute">flex-basis</span>: <span class="hljs-number">0%</span>;
-&#125;
-
-<span class="hljs-selector-class">.item-2</span> &#123;<span class="hljs-attribute">flex</span>: <span class="hljs-number">24px</span>;&#125;
-<span class="hljs-selector-class">.item-2</span> &#123;
-    <span class="hljs-attribute">flex-grow</span>: <span class="hljs-number">1</span>;
-    <span class="hljs-attribute">flex-shrink</span>: <span class="hljs-number">1</span>;
-    <span class="hljs-attribute">flex-basis</span>: <span class="hljs-number">24px</span>;
-&#125;</code></pre>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.item-1</span> &#123;<span class="hljs-attribute">flex</span>: <span class="hljs-number">0%</span>;&#125;<br><span class="hljs-selector-class">.item-1</span> &#123;<br>    <span class="hljs-attribute">flex-grow</span>: <span class="hljs-number">1</span>;<br>    <span class="hljs-attribute">flex-shrink</span>: <span class="hljs-number">1</span>;<br>    <span class="hljs-attribute">flex-basis</span>: <span class="hljs-number">0%</span>;<br>&#125;<br><br><span class="hljs-selector-class">.item-2</span> &#123;<span class="hljs-attribute">flex</span>: <span class="hljs-number">24px</span>;&#125;<br><span class="hljs-selector-class">.item-2</span> &#123;<br>    <span class="hljs-attribute">flex-grow</span>: <span class="hljs-number">1</span>;<br>    <span class="hljs-attribute">flex-shrink</span>: <span class="hljs-number">1</span>;<br>    <span class="hljs-attribute">flex-basis</span>: <span class="hljs-number">24px</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 <ul>
 <li>当 flex 取值为两个非负数字，则分别视为 flex-grow 和 flex-shrink 的值，flex-basis 取 0%，如下是等同的：</li>
 </ul>
-<pre><code class="hljs css"><span class="hljs-selector-class">.item</span> &#123;<span class="hljs-attribute">flex</span>: <span class="hljs-number">2</span> <span class="hljs-number">3</span>;&#125;
-<span class="hljs-selector-class">.item</span> &#123;
-    <span class="hljs-attribute">flex-grow</span>: <span class="hljs-number">2</span>;
-    <span class="hljs-attribute">flex-shrink</span>: <span class="hljs-number">3</span>;
-    <span class="hljs-attribute">flex-basis</span>: <span class="hljs-number">0%</span>;
-&#125;</code></pre>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.item</span> &#123;<span class="hljs-attribute">flex</span>: <span class="hljs-number">2</span> <span class="hljs-number">3</span>;&#125;<br><span class="hljs-selector-class">.item</span> &#123;<br>    <span class="hljs-attribute">flex-grow</span>: <span class="hljs-number">2</span>;<br>    <span class="hljs-attribute">flex-shrink</span>: <span class="hljs-number">3</span>;<br>    <span class="hljs-attribute">flex-basis</span>: <span class="hljs-number">0%</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 <ul>
 <li>当 flex 取值为一个非负数字和一个长度或百分比，则分别视为 flex-grow 和 flex-basis 的值，flex-shrink 取 1，如下是等同的：</li>
 </ul>
-<pre><code class="hljs css"><span class="hljs-selector-class">.item</span> &#123;<span class="hljs-attribute">flex</span>: <span class="hljs-number">11</span> <span class="hljs-number">32px</span>;&#125;
-<span class="hljs-selector-class">.item</span> &#123;
-    <span class="hljs-attribute">flex-grow</span>: <span class="hljs-number">11</span>;
-    <span class="hljs-attribute">flex-shrink</span>: <span class="hljs-number">1</span>;
-    <span class="hljs-attribute">flex-basis</span>: <span class="hljs-number">32px</span>;
-&#125;</code></pre>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.item</span> &#123;<span class="hljs-attribute">flex</span>: <span class="hljs-number">11</span> <span class="hljs-number">32px</span>;&#125;<br><span class="hljs-selector-class">.item</span> &#123;<br>    <span class="hljs-attribute">flex-grow</span>: <span class="hljs-number">11</span>;<br>    <span class="hljs-attribute">flex-shrink</span>: <span class="hljs-number">1</span>;<br>    <span class="hljs-attribute">flex-basis</span>: <span class="hljs-number">32px</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>建议优先使用这个属性，而不是单独写三个分离的属性。</p>
 <p>grow 和 shrink 是一对双胞胎，grow 表示伸张因子，shrink 表示是收缩因子。</p>
 <p>grow 在 flex 容器下的子元素的宽度和比容器和小的时候起作用。 grow 定义了子元素的尺寸增长因子，容器中除去子元素之和剩下的尺寸会按照各个子元素的 grow 值进行平分加大各个子元素上。</p>
 <p><a href="https://zhuanlan.zhihu.com/p/25303493" target="_blank" rel="noopener">参考</a></p>
 
-            </div>
-            <hr>
-            <div>
-              <div class="post-metas mb-3">
-                
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
-                    
-                  </div>
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/flex/">flex</a>
-                    
-                  </div>
-                
-              </div>
-              
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
-              
-              
-                <div class="post-prevnext row">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2020/05/26/docker-%E9%83%A8%E7%BD%B2ngxin%E9%95%9C%E5%83%8F%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5-%E5%A4%96%E5%8A%A0%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">docker 部署ngxin镜像启动失败 外加一些常用操作</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2020/03/05/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA%20%E4%B8%80/">
-                        <span class="hidden-mobile">Java 虚拟机 一</span>
-                        <span class="visible-mobile">Next</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
-            </div>
-
-            
-          </article>
-        </div>
-      </div>
-    </div>
-    
-      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
-  <div id="tocbot"></div>
-</div>
-
-      </div>
-    
-  </div>
-</div>
-
-<!-- Custom -->
-
-
-    
-  </main>
-
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
   
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-    </a>
+    <li><strong>本文作者：</strong>Jun</li>
+    <li><strong>本文链接：</strong><a href="http://mambajun.github.io/2020/05/25/flex-%E5%B8%83%E5%B1%80/index.html" title="http:&#x2F;&#x2F;mambajun.github.io&#x2F;2020&#x2F;05&#x2F;25&#x2F;flex-%E5%B8%83%E5%B1%80&#x2F;index.html">http:&#x2F;&#x2F;mambajun.github.io&#x2F;2020&#x2F;05&#x2F;25&#x2F;flex-%E5%B8%83%E5%B1%80&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
   
+</ul>
+        
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/flex/" rel="tag">flex</a></li></ul> 
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
-    </div>
-  </div>
-</div>
-  
+        
+  <nav class="nav">
+    <a href="/2020/05/26/docker-%E9%83%A8%E7%BD%B2ngxin%E9%95%9C%E5%83%8F%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5-%E5%A4%96%E5%8A%A0%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/"><i class="iconfont iconleft"></i>docker 部署ngxin镜像启动失败 外加一些常用操作</a>
+    <a href="/2020/03/05/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA%20%E4%B8%80/">Java 虚拟机 一<i class="iconfont iconright"></i></a>
+  </nav>
 
-  
-
-  
-
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-        <span>Fluid</span></a>
-    </div>
-    
-
-    
-
-    
-  </div>
-</footer>
-
-<!-- SCRIPTS -->
-<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
-<script  src="/js/main.js" ></script>
-
-<!-- Plugins -->
-
-
-  
-    <script  src="/js/lazyload.js" ></script>
-  
-
-
-
-  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
-  <script  src="/js/clipboard-use.js" ></script>
-
-
-
-
-
-
-
-  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
-  <script>
-    $(document).ready(function () {
-      var boardCtn = $('#board-ctn');
-      var boardTop = boardCtn.offset().top;
-
-      tocbot.init({
-        tocSelector: '#tocbot',
-        contentSelector: '#post-body',
-        headingSelector: 'h1,h2,h3,h4,h5,h6',
-        linkClass: 'tocbot-link',
-        activeLinkClass: 'tocbot-active-link',
-        listClass: 'tocbot-list',
-        isCollapsedClass: 'tocbot-is-collapsed',
-        collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 0,
-        scrollSmooth: true,
-        headingsOffset: -boardTop
-      });
-      if ($('.toc-list-item').length > 0) {
-        $('#toc').css('visibility', 'visible');
-      }
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
-  <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "flex 布局&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "hover",
+      </section>
       
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
-  </script>
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简单介绍-Flex概念"><span class="toc-text">简单介绍 Flex概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Flex-容器"><span class="toc-text">Flex 容器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Flex-Item-属性"><span class="toc-text">Flex Item 属性</span></a></li></ol></li></ol>
+  </aside>
 
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
 
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="https://blog.csdn.net/qq_40990854 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  '#DA2E76'"></i>
+      </a><a 
+        href="https://github.com/mambaJun "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:smithjun@qq.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a> | <a target="_blank" href="https://beian.miit.gov.cn/">苏ICP备19033306号</a></p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+    <div class="scrollbar j-scrollbar">
+  <div class="scrollbar-current j-scrollbar-current"></div>
+</div>
+  
+  
+    
+<script src="/js/color-mode.js"></script>
 
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      searchFunc(path, 'local-search-input', 'local-search-result');
-      this.onclick = null
-    }
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <script>
-    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
-      function () {
-        var element = document.createElement('a');
-        $(element).attr('data-fancybox', 'images');
-        $(element).attr('href', $(this).attr('src'));
-        $(this).wrap(element);
-      }
-    );
-  </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
 </body>
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
 </html>
